@@ -4,7 +4,7 @@ import multer from 'multer';
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/uploads/photos');
+    cb(null, 'public/api/uploads/photos');
   },
   filename: function (req, file, cb) {
     let cleanFileName = file.originalname
