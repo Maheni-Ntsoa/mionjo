@@ -61,15 +61,25 @@ class DocumentController {
     try {
       let files: any = req.files;
       let data = [];
-      if (files.length > 0) {
+      if (files.length > 1) {
+        let idg = +req.body.idgenerale[0];
         for (let i = 0; i < files.length; i++) {
           let cleanFileName = files[i].originalname
             .toLowerCase()
             .replace(/[^a-z0-9.]/g, '');
-          let idg = req.body.idgenerale[i];
-          if (files.length === 1) {
-            idg = +req.body.idgenerale;
-          }
+          let tempData = {
+            idgenerale: idg,
+            nomdocument: cleanFileName,
+            typedocument: req.body.typedocument,
+          };
+          data.push(tempData);
+        }
+      } else if (files.length === 1) {
+        let idg = +req.body.idgenerale;
+        for (let i = 0; i < files.length; i++) {
+          let cleanFileName = files[i].originalname
+            .toLowerCase()
+            .replace(/[^a-z0-9.]/g, '');
           let tempData = {
             idgenerale: idg,
             nomdocument: cleanFileName,
@@ -87,7 +97,7 @@ class DocumentController {
       }
       res.json({
         success: true,
-        message: `${createdDocuments.length} documents ont été insérés.`,
+        message: `documents ont été insérés.`,
       });
     } catch (error) {
       res.json({

@@ -22,6 +22,7 @@ const AddphotoMois: React.FC<AddphotoMoisProps> = ({ onclose, refetch }) => {
     setLoading(true);
     const photoValue = {
       files: selectedFiles,
+      generale: { id: 0 },
     };
     await new SavePhotoMois().execute(photoValue);
     resetForm();

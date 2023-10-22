@@ -1,7 +1,7 @@
 import React from "react";
 import ButtonImage from "../../../../components/ButtonImage";
 
-interface OneDocProps {
+interface OneDoc1Props {
   title: string;
   longText: string;
   document: string;
@@ -13,16 +13,24 @@ const HTMLRenderer = ({ html }: any) => {
   );
 };
 
-const OneDoc: React.FC<OneDocProps> = ({ title, longText, document }) => {
+const OneDoc1: React.FC<OneDoc1Props> = ({ title, longText, document }) => {
   return (
-    <div className="border rounded-lg border-grey p-4">
+    <div
+      className="flex flex-col border border-grey p-4 w-[550px]"
+      style={{
+        boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px",
+      }}
+    >
       <div className="mt-4 flex justify-center">
-        <div className="flex flex-col">
-          <h3 className="text-xl text-green font-bold ml-4 mb-2">{title}</h3>
-          <HTMLRenderer html={longText ? longText : ""} />
+        <div className="flex flex-col gap-4">
+          <h3 className="text-xl font-bold ml-4 mb-2">{title}</h3>
+          <HTMLRenderer
+            className="text-md"
+            html={longText ? longText.slice(0, 150) : ""}
+          />
         </div>
       </div>
-      <div className="mt-4 flex justify-end mr-16">
+      <div className="mt-4 flex justify-center">
         <a
           className="cursor-pointer"
           href={`${process.env.REACT_APP_BACKEND_URL}uploads/documents/${document}`}
@@ -35,4 +43,4 @@ const OneDoc: React.FC<OneDocProps> = ({ title, longText, document }) => {
   );
 };
 
-export default OneDoc;
+export default OneDoc1;

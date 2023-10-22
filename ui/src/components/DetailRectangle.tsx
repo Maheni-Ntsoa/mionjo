@@ -7,6 +7,7 @@ import GetVideoByIdGenerale from "../usecases/Video/GetVideoByIdGenerale";
 import { formatDateOnly } from "../utils/formatDate";
 import ButtonImage from "./ButtonImage";
 import MyVideoGallery from "./MyVideoGallery";
+import Loading from "./Loading";
 
 interface DetailRectangleProps {
   generalec: Generalec;
@@ -72,101 +73,160 @@ const DetailRectangle: React.FC<DetailRectangleProps> = ({ generalec }) => {
   }, []);
 
   return (
-    <div className="flex flex-row-reverse gap-14 justify-center p-2">
-      <div className="w-1/2 ">
-        <div className="">
-          {generalec.titreen && i18n.language === "en" ? (
-            <h1 className="font-bold text-xl">
-              {/* Titre :{" "} */}
-              <span className="text-green">
-                {generalec?.titreen ? generalec?.titreen : ""}
-              </span>
-            </h1>
-          ) : (
-            <h1 className="font-bold text-xl">
-              {/* Titre :{" "} */}
-              <span className="text-green">
-                {generalec?.titre ? generalec?.titre : ""}
-              </span>
-            </h1>
-          )}
-          {generalec.contenuen && i18n.language === "en" ? (
-            <div className="min-h-32 my-2 text-[16px]">
-              <HTMLRenderer
-                html={generalec?.contenuen ? generalec?.contenuen : ""}
-              />
-            </div>
-          ) : (
-            <div className="min-h-32 my-2 text-[16px]">
-              <HTMLRenderer
-                html={generalec?.contenu ? generalec?.contenu : ""}
-              />
-            </div>
-          )}
-        </div>
-        <div className="flex justify-end mr-8">
-          {/* <p className="font-bold text-xl">Le : </p>{" "} */}
-          <span>{`${
-            generalec?.datecreation
-              ? formatDateOnly(generalec?.datecreation)
-              : ""
-          }`}</span>
-        </div>
-      </div>
-      {loading ? (
+    <>
+    {/* Single photos */}
+      {photos && generalec.idrubrique === 2  ? (
+        <div className="flex flex-row-reverse gap-12 justify-center p-2">
         <div className="w-1/2">
-          {photos.length > 0 && (
-            <>
-              <p className="font-bold text-xl">Photos : </p>{" "}
-              {/* <MyImageGallery images={photos} /> */}
-              <div className="flex lg:justify-center justify-center lg:w-full flex-wrap gap-3 m-2">
-                {[1, 2, 3].map((index) => {
-                  return (
-                    <div
-                      className="w-[500px] h-[500px] bg-black/20"
-                      key={index}
-                    ></div>
-                  );
-                })}
+          <div className="">
+            {generalec.titreen && i18n.language === "en" ? (
+              <h1 className="font-bold text-xl">
+                {/* Titre :{" "} */}
+                <span className="text-green">
+                  {generalec?.titreen ? generalec?.titreen : ""}
+                </span>
+              </h1>
+            ) : (
+              <h1 className="font-bold text-xl">
+                {/* Titre :{" "} */}
+                <span className="text-green">
+                  {generalec?.titre ? generalec?.titre : ""}
+                </span>
+              </h1>
+            )}
+            {generalec.contenuen && i18n.language === "en" ? (
+              <div className="min-h-32 my-2 text-[16px]">
+                <HTMLRenderer
+                  html={generalec?.contenuen ? generalec?.contenuen : ""}
+                />
               </div>
-            </>
-          )}
-        </div>
-      ) : (
-        <div className="">
-          {/* <p className="font-bold text-xl">
-            {tab.length === 0 ? "Photos" : ""}
-          </p>{" "} */}
-          {/* <MyImageGallery images={photos} /> */}
-          <div className="flex lg:justify-center justify-center lg:w-full flex-wrap gap-3 m-2">
-            {tab.map((index) => {
-              if (photos[index]) {
-                return (
-                  <div className="w-[500px] h-[500px]" key={index}>
-                    <img
-                      src={photos[index]}
-                      alt=""
-                      className="cursor-pointer h-full w-full object-cover"
-                    />
-                  </div>
-                );
-              }
-            })}
+            ) : (
+              <div className="min-h-32 my-2 text-[16px]">
+                <HTMLRenderer
+                  html={generalec?.contenu ? generalec?.contenu : ""}
+                />
+              </div>
+            )}
+          </div>
+          <div className="flex justify-end mr-8">
+            {/* <p className="font-bold text-xl">Le : </p>{" "} */}
+            <span>{`${
+              generalec?.datecreation
+                ? formatDateOnly(generalec?.datecreation)
+                : ""
+            }`}</span>
           </div>
         </div>
-      )}
-      {video.length > 0 && (
-        <div className="">
-          {/* <p className="font-bold text-xl">Vidéos : </p>{" "} */}
-          <MyVideoGallery videos={video} />
+        {loading ? (
+          <Loading isLoading={loading} />
+        ) : (
+          <div className="">
+            <div className="flex w-full justify-center flex-wrap gap-3 m-2">
+              {[0].map((index) => {
+                if (photos[index]) {
+                  return (
+                    <div className="w-[500px] h-[500px]" key={index}>
+                      <img
+                        src={photos[index]}
+                        alt=""
+                        className="cursor-pointer h-full w-full object-cover"
+                      />
+                    </div>
+                  );
+                }
+              })}
+            </div>
+          </div>
+        )}
+        {video.length > 0 && (
+          <div className="">
+            {/* <p className="font-bold text-xl">Vidéos : </p>{" "} */}
+            <MyVideoGallery videos={video} />
+          </div>
+        )}
+        {doc && (
+          <a className="cursor-pointer" href={`${doc}`} download={`${doc}`}>
+            <ButtonImage src="/assets/buttons/btn_download.svg" />
+          </a>
+        )}
+      </div>
+      ) : 
+      // Multiple photos
+      (
+        <div className="flex flex-col-reverse gap-4 justify-center p-2">
+        <div className="w-full">
+          <div className="">
+            {generalec.titreen && i18n.language === "en" ? (
+              <h1 className="font-bold text-xl">
+                {/* Titre :{" "} */}
+                <span className="text-green">
+                  {generalec?.titreen ? generalec?.titreen : ""}
+                </span>
+              </h1>
+            ) : (
+              <h1 className="font-bold text-xl">
+                {/* Titre :{" "} */}
+                <span className="text-green">
+                  {generalec?.titre ? generalec?.titre : ""}
+                </span>
+              </h1>
+            )}
+            {generalec.contenuen && i18n.language === "en" ? (
+              <div className="min-h-32 my-2 text-[16px]">
+                <HTMLRenderer
+                  html={generalec?.contenuen ? generalec?.contenuen : ""}
+                />
+              </div>
+            ) : (
+              <div className="min-h-32 my-2 text-[16px]">
+                <HTMLRenderer
+                  html={generalec?.contenu ? generalec?.contenu : ""}
+                />
+              </div>
+            )}
+          </div>
+          <div className="flex justify-end mr-8">
+            {/* <p className="font-bold text-xl">Le : </p>{" "} */}
+            <span>{`${
+              generalec?.datecreation
+                ? formatDateOnly(generalec?.datecreation)
+                : ""
+            }`}</span>
+          </div>
         </div>
+        {loading ? (
+          <Loading isLoading={loading} />
+        ) : (
+            <div className="flex lg:justify-center w-full flex-wrap gap-3 m-2">
+              {[0,1,2].map((index) => {
+                if (photos[index]) {
+                  return (
+                    <div className="w-[420px] h-[420px]" key={index}>
+                      <img
+                        src={photos[index]}
+                        alt=""
+                        className="cursor-pointer h-full w-full object-cover"
+                      />
+                    </div>
+                  );
+                }
+              })}
+            </div>
+        )}
+        {video.length > 0 && (
+          <div className="">
+            {/* <p className="font-bold text-xl">Vidéos : </p>{" "} */}
+            <MyVideoGallery videos={video} />
+          </div>
+        )}
+        {doc && (
+          <a className="cursor-pointer" href={`${doc}`} download={`${doc}`}>
+            <ButtonImage src="/assets/buttons/btn_download.svg" />
+          </a>
+        )}
+      </div>
       )}
-      {doc && (
-        <a className="cursor-pointer" href={`${doc}`} download={`${doc}`}>
-          <ButtonImage src="/assets/buttons/btn_download.svg" />
-        </a>
-      )}
-    </div>
+    </>
   );
 };
 

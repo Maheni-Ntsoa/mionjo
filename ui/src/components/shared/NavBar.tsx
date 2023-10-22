@@ -410,14 +410,14 @@ const Navbar = () => {
                         {t("ReaParCompo")}
                       </Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link
                         className="hover:text-yellow text-lg"
                         to="/activites/#localite"
                       >
                         {t("ReaParLoc")}
                       </Link>
-                    </li>
+                    </li> */}
                     {/* <li>
                         <Link className="hover:text-yellow text-lg" to="/activites/#sise">
                           Système d'information et de suivi-évaluation

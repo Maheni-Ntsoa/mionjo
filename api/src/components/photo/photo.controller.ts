@@ -43,19 +43,23 @@ class PhotoController {
     try {
       let files: any = req.files;
       let data = [];
-      if (files.length > 0) {
+      if (files.length > 1) {
+        let idg = +req.body.idgenerale[0];
         for (let i = 0; i < files.length; i++) {
           let cleanFileName = files[i].originalname
             .toLowerCase()
             .replace(/[^a-z0-9.]/g, '');
-          let idg = 0;
-          if (req.body.idgenerale) {
-            if (files.length === 1) {
-              idg = +req.body.idgenerale;
-            }
-            let tempData = { idgenerale: idg, nomphoto: cleanFileName };
-            data.push(tempData);
-          }
+          let tempData = { idgenerale: idg, nomphoto: cleanFileName };
+          data.push(tempData);
+        }
+      } else if (files.length === 1) {
+        let idg = +req.body.idgenerale;
+        for (let i = 0; i < files.length; i++) {
+          let cleanFileName = files[i].originalname
+            .toLowerCase()
+            .replace(/[^a-z0-9.]/g, '');
+          let tempData = { idgenerale: idg, nomphoto: cleanFileName };
+          data.push(tempData);
         }
       }
       const createdPhotos = await Photo.bulkCreate(data);
@@ -67,7 +71,7 @@ class PhotoController {
       }
       res.json({
         success: true,
-        message: `${createdPhotos.length} Photos ont été insérés.`,
+        message: ` Photos ont été insérés.`,
       });
     } catch (error) {
       res.json({

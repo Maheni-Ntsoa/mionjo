@@ -1,4 +1,5 @@
 import { Button } from "@mui/material";
+import UploadFileIcon from "@mui/icons-material/UploadFile";
 import Alert from "@mui/material/Alert";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import moment from "moment";
@@ -11,6 +12,7 @@ import Generalec from "../../../../../models/Generalec";
 import CreateManyDoc from "../../../../../usecases/Document/CreateMany";
 import UpdateGenerale from "../../../../../usecases/Generale/UpdateGenerale";
 import CreateManyPhoto from "../../../../../usecases/Photo/photo";
+import CreateManyVideo from "../../../../../usecases/Video/video";
 
 interface UPDATEProps {
   generalec: Generalec;
@@ -25,6 +27,8 @@ const UPDATE: React.FC<UPDATEProps> = ({
 }) => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState([]);
+  const [photoOrVideo, setPhotoORVideo] = useState(true);
   const [isError, setIsError] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -93,19 +97,36 @@ const UPDATE: React.FC<UPDATEProps> = ({
 
     try {
       await new UpdateGenerale().execute(values);
-      const docValue = {
-        files: selectedFiles,
-        generale: { id: generalec.id },
-        typeDocument: "",
-      };
-      const photoValue = {
-        files: selectedFiles,
-        generale: { id: generalec.id },
-      };
-      if (generalec.idcategorie === 4 || generalec.idcategorie === 7) {
-        await new CreateManyDoc().execute(docValue);
-      } else {
-        await new CreateManyPhoto().execute(photoValue);
+      if (photoOrVideo) {
+        const docValue = {
+          files: selectedFiles,
+          generale: { id: generalec.id },
+          typeDocument: "",
+        };
+        const photoValue = {
+          files: selectedFiles,
+          generale: { id: generalec.id },
+        };
+        if (generalec.idcategorie === 4 || generalec.idcategorie === 7) {
+          await new CreateManyDoc().execute(docValue);
+        } else if (photoOrVideo) {
+          await new CreateManyPhoto().execute(photoValue);
+        }
+      } else if (!photoOrVideo) {
+        const docValue = {
+          files: selectedFiles,
+          generale: { id: generalec.id },
+          typeDocument: "",
+        };
+        const videoValue = {
+          files: selectedVideo,
+          generale: { id: generalec.id },
+        };
+        if (generalec.idcategorie === 4 || generalec.idcategorie === 7) {
+          await new CreateManyDoc().execute(docValue);
+        } else if (!photoOrVideo) {
+          await new CreateManyVideo().execute(videoValue);
+        }
       }
       resetForm();
       refetch();
@@ -205,47 +226,88 @@ const UPDATE: React.FC<UPDATEProps> = ({
                 </div>
               </>
             )}
-            <div className="my-8">
-              <label className="cursor-pointer items-center flex shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline">
-                {generalec.idcategorie === 4 || generalec.idcategorie === 7 ? (
+            <Button
+              variant="contained"
+              onClick={() => setPhotoORVideo(!photoOrVideo)}
+            >
+              {photoOrVideo
+                ? "Importez des videos"
+                : "Importez autre que videos"}
+            </Button>
+            {!photoOrVideo && (
+              <div className="my-8">
+                <label className="cursor-pointer items-center flex shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline">
                   <input
                     className="sr-only"
                     type="file"
-                    id="files"
-                    name="files"
-                    accept=".pdf, .doc, .docx, .txt, .xls, .xlsx, .ppt, .pptx, .csv, .xml, .json, .html, .css, .js, .ts, .zip, .rar"
+                    id="video"
+                    name="video"
+                    accept="video/*"
                     multiple
                     onChange={(event) => {
-                      const selectedFiles: any = event.target.files;
-                      setSelectedFiles(selectedFiles);
+                      setPhotoORVideo(false);
+                      const selectedVideo: any = event.target.files;
+                      setSelectedVideo(selectedVideo);
                     }}
                   />
-                ) : (
-                  <input
-                    className="sr-only"
-                    type="file"
-                    id="files"
-                    name="files"
-                    accept="image/*"
-                    multiple
-                    onChange={(event) => {
-                      const selectedFiles: any = event.target.files;
-                      setSelectedFiles(selectedFiles);
-                    }}
-                  />
-                )}
-                <p>{`${
-                  selectedFiles.length > 0
-                    ? selectedFiles.length + " image(s) séléctionné(s)"
-                    : "Importations"
-                }`}</p>
-              </label>
-              <ErrorMessage
-                name="files"
-                component="div"
-                className="text-red text-xs italic"
-              />
-            </div>
+                  <div className="flex justify-between w-full">
+                    <p>{`${
+                      selectedVideo.length > 0
+                        ? selectedVideo.length + " vidéo(s) séléctionné(s)"
+                        : "Importation des videos"
+                    }`}</p>
+                    <UploadFileIcon />
+                  </div>
+                </label>
+              </div>
+            )}
+            {photoOrVideo && (
+              <div className="my-8">
+                <label className="cursor-pointer items-center flex shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline">
+                  {generalec.idcategorie === 4 || generalec.idcategorie === 7 ? (
+                    <input
+                      className="sr-only"
+                      type="file"
+                      id="files"
+                      name="files"
+                      accept=".pdf, .doc, .docx, .txt, .xls, .xlsx, .ppt, .pptx, .csv, .xml, .json, .html, .css, .js, .ts, .zip, .rar"
+                      multiple
+                      onChange={(event) => {
+                        setPhotoORVideo(true);
+                        const selectedFiles: any = event.target.files;
+                        setSelectedFiles(selectedFiles);
+                      }}
+                    />
+                  ) : (
+                    <input
+                      className="sr-only"
+                      type="file"
+                      id="files"
+                      name="files"
+                      accept="image/*"
+                      multiple
+                      onChange={(event) => {
+                        const selectedFiles: any = event.target.files;
+                        setSelectedFiles(selectedFiles);
+                      }}
+                    />
+                  )}
+                  <div className="flex justify-between w-full">
+                    <p>{`${
+                      selectedFiles.length > 0
+                        ? selectedFiles.length + " fichier(s) séléctionné(s)"
+                        : "Importations"
+                    }`}</p>
+                    <UploadFileIcon />
+                  </div>
+                </label>
+                <ErrorMessage
+                  name="files"
+                  component="div"
+                  className="text-red text-xs italic"
+                />
+              </div>
+            )}
             <div className="flex justify-between gap-2 mb-6">
               <div className="">
                 <ReactQuill

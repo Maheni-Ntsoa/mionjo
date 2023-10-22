@@ -108,11 +108,11 @@ const Footer = () => {
                     {t("ReaParCompo")}
                   </Link>
                 </p>
-                <p className="font-light text-xl">
+                {/* <p className="font-light text-xl">
                   <Link className="hover:text-yellow" to="/activites/#localite">
                     {t("ReaParLoc")}
                   </Link>
-                </p>
+                </p> */}
               </div>
             </div>
           </div>

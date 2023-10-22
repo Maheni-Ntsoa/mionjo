@@ -6,8 +6,10 @@ import RealCompo2 from "./composante/RealCompo2";
 import RealCompo3 from "./composante/RealCompo3";
 import RealCompo4 from "./composante/RealCompo4";
 import RealCompo5 from "./composante/RealCompo5";
-
+import { useTranslation } from "react-i18next";
+ 
 const RealiParCompo = () => {
+  const {t} = useTranslation();
   const [selected, setSelected] = useState(2);
   const [backgroundImage, setBackgroundImage] = useState(
     "/assets/images/composante3.jpeg"
@@ -22,7 +24,7 @@ const RealiParCompo = () => {
     { imageSrc: "/assets/images/composante1.jpeg" },
     { imageSrc: "/assets/images/composante2.png" },
     { imageSrc: "/assets/images/composante3.jpeg" },
-    { imageSrc: "/assets/images/composante4.jpg" },
+    { imageSrc: "/assets/images/composante4.png" },
     { imageSrc: "/assets/images/composante5.jpeg" },
   ];
 
@@ -45,27 +47,27 @@ const RealiParCompo = () => {
           <div className="absolute w-full top-1/4 z-10">
             {selected === 0 && (
               <h1 className="font-bold text-[50px] text-white text-center">
-                Soutien au moyen de subsistances resilients 1
+                {t("textcompo1")}
               </h1>
             )}
             {selected === 1 && (
               <h1 className="font-bold text-[50px] text-white text-center">
-                Soutien au moyen de subsistances resilients 2
+                {t("textcompo2")}
               </h1>
             )}
             {selected === 2 && (
               <h1 className="font-bold text-[50px] text-white text-center">
-                Soutien au moyen de subsistances resilients 3
+                {t("textcompo3")}
               </h1>
             )}
             {selected === 3 && (
               <h1 className="font-bold text-[50px] text-white text-center">
-                Soutien au moyen de subsistances resilients 4
+                {t("textcompo4")}
               </h1>
             )}
             {selected === 4 && (
               <h1 className="font-bold text-[50px] text-white text-center">
-                Soutien au moyen de subsistances resilients 5
+                {t("textcompo5")}
               </h1>
             )}
           </div>

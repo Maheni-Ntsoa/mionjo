@@ -75,7 +75,7 @@ const MyImageGallery = ({ images }: MyImageGalleryProps) => {
         </div>
       )}
 
-      {!loading && images.length > 4 && (
+      {images.length > itemsPerPage && (
         <div className="my-4">
           <ReactPaginate
             pageCount={pageCount}

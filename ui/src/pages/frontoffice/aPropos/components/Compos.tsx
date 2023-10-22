@@ -28,7 +28,7 @@ const Compos = () => {
         />
         <OneCompo
           composanteNumber={t("compo4")}
-          image="/assets/images/composante4.jpg"
+          image="/assets/images/composante4.png"
           lien="/activites/#composante"
           resume={t("textcompo4")}
         />

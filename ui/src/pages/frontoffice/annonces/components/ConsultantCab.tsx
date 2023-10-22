@@ -42,15 +42,18 @@ const ConsultantCab = () => {
 
   return (
     <div className="mt-4">
-      {/* <div className="flex justify-center items-center h-44 ml-44">
+      <div className="flex justify-center items-center h-44 ml-44">
         <div className="">
-          <h1 className="w-max text-xl lg:text-4xl xl:text-[50px] uppercase my-16 text-blue font-semibold font-quicksand"> {t("encour")}</h1>
+          <h1 className="w-max text-xl lg:text-4xl xl:text-[50px] uppercase my-16 text-blue font-semibold font-quicksand">
+            {" "}
+            {t("encour")}
+          </h1>
         </div>
         <div className="ml-8">
           <div className="rounded-full w-4 h-4 border-blue border-4"></div>
         </div>
         <div className="xl:w-full border-blue border-b-4"></div>
-      </div> */}
+      </div>
       <div className="mt-4 flex flex-col gap-4 justify-center">
         {generales
           .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)

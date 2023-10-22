@@ -45,7 +45,7 @@ i18n.use(initReactI18next).init({
         BtnLearn: "/assets/buttons/learnmore_eng.png",
         BtnLog: "/assets/buttons/login.png",
         Btnsavoirplus: "/assets/buttons/btn_savoirEn.png",
-
+        documentation: "Documentation",
         compo: "Components",
         regi: "Regions",
         commu: "Communes",
@@ -119,6 +119,7 @@ i18n.use(initReactI18next).init({
         IdeePlaintes: "Idées et Plaintes",
         Cartographie: "Cartographie",
         Description: "Description",
+        documentation: "Documentation",
         Objectifs: "Objectifs",
         Zones: "Zones d'Interventions",
         ReaParCompo: "Activités par Composante",

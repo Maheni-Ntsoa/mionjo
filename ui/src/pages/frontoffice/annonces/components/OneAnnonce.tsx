@@ -5,6 +5,8 @@ import DownloadFile from "../../../../usecases/Download/DownloadFile";
 import IncreaseInterationalDownload from "../../../../usecases/Generale/IncreaseInterationalDownload";
 import IncreaseNationalDownload from "../../../../usecases/Generale/IncreaseNationalDownload";
 import { formatDateOnly } from "../../../../utils/formatDate";
+import { useState } from "react";
+import Loading from "../../../../components/Loading";
 
 const HTMLRenderer = ({ html }: any) => {
   return (
@@ -24,6 +26,7 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
   popup,
 }) => {
   const { i18n } = useTranslation();
+  const [loading, setLoading] = useState(false)
 
   const getIP = async (): Promise<string> => {
     const response = await fetch("https://api.ipify.org?format=json");
@@ -38,6 +41,7 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
   };
 
   const handleDownloadClick = async () => {
+    setLoading(true)
     const ip: string = await getIP();
     const geoInfo: any = await getGeoInfo(ip);
     const value = {
@@ -49,8 +53,8 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
     } else {
       await new IncreaseInterationalDownload().execute(value);
     }
-
     await new DownloadFile().execute(document);
+    setLoading(false)
   };
 
   return (
@@ -82,12 +86,14 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
             <a href="#" className="text-blue text-md">En savoir plus...</a>
           </div>
         </div>
-        <div className="flex items-center">
-          <ButtonImage
-            src="BtnDown"
-            onClick={handleDownloadClick}
-          />
-        </div>
+        {loading ? (<Loading isLoading={loading} />) : (
+          <div className="flex items-center">
+            <ButtonImage
+              src="BtnDown"
+              onClick={handleDownloadClick}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

@@ -33,7 +33,7 @@ const RealCompo1 = () => {
             />
             <OneAproche
               composanteNumber={t("soutitreCompo1")}
-              image="/assets/images/composante4.jpg"
+              image="/assets/images/composante4.png"
               lien="/activites/#composante"
               resume={t("textaproche4")}
             /> */}

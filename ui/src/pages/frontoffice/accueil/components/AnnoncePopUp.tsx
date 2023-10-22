@@ -72,7 +72,7 @@ const AnnoncePopUp = () => {
           {generales
             .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
             .map((generale, index) => (
-              <>
+              <div key={index}>
                 <div className="flex flex-col gap-2 text-white" key={index}>
                   {generale.titreen && i18n.language === "en" ? (
                     <p className="text-md">
@@ -99,7 +99,7 @@ const AnnoncePopUp = () => {
                   </p>
                 </div>
                 <div className="border-b-2 border-white w-full flex justify-center py-2"></div>
-              </>
+              </div>
             ))}
         </div>
       )}
