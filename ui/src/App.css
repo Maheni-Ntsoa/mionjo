@@ -1,0 +1,39 @@
+.blur-background {
+  /* backdrop-filter: blur(8px); */
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.ql-editor {
+  min-height: 350px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination li {
+  margin: 0 4px;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+  background-color: #f0f0f0;
+}
+
+.pagination li.active {
+  background-color: #00000030;
+  color: #fff;
+  border: 1px solid #236cb2;
+}
+
+.pagination li:hover {
+  background-color: #f0f0f0;
+  color: black;
+}
