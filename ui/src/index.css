@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font-face declarations */
+
+@font-face {
+  font-family: "ProximaNovaFont";
+  src: local("ProximaNovaFont"),
+    url("/fonts/ProximaNovaFont.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Quicksand-VariableFont_wght";
+  src: local("Quicksand-VariableFont_wght"),
+    url("/fonts/Quicksand-VariableFont_wght.ttf") format("truetype");
+}
