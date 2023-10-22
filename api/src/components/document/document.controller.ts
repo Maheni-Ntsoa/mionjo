@@ -1,7 +1,25 @@
 import { Request, Response } from 'express';
 import { Document } from './document.model';
+import path from 'path';
 
 class DocumentController {
+  downaloadDoc(req: Request, res: Response) {
+    const filename = req.params.filename;
+    const filePath = path.join(
+      __dirname,
+      '../../../public/uploads/documents',
+      filename,
+    );
+    res.setHeader('Content-Disposition', `attachment; filename=${filename}`);
+    res.setHeader('Content-Type', 'application/octet-stream');
+    res.download(filePath, filename, (err) => {
+      if (err) {
+        console.error('Erreur lors du téléchargement du fichier :', err);
+        res.status(500).send('Erreur lors du téléchargement du fichier');
+      }
+    });
+  }
+
   findByIdGenerale(req: Request, res: Response) {
     Document.findAll({
       where: { idgenerale: req.params.idgenerale },

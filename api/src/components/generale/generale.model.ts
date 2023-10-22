@@ -1,5 +1,5 @@
-import { DataTypes, Model } from "sequelize";
-import { db } from "../../database";
+import { DataTypes, Model } from 'sequelize';
+import { db } from '../../database';
 
 export class Generale extends Model {
   id!: number;
@@ -12,6 +12,11 @@ export class Generale extends Model {
   datecreation!: Date;
   datelimit!: Date;
   etat!: number;
+  etatannonce!: number;
+  nbdownnational!: number | null;
+  nbdowninter!: number | null;
+  titulairemarche!: string | null;
+  montantmarche!: string | null;
 }
 
 Generale.init(
@@ -59,9 +64,30 @@ Generale.init(
       allowNull: false,
       defaultValue: 0,
     },
+    etatannonce: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      defaultValue: 0,
+    },
+    nbdownnational: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    nbdowninter: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    titulairemarche: {
+      type: DataTypes.STRING(256),
+      allowNull: true,
+    },
+    montantmarche: {
+      type: DataTypes.STRING(256),
+      allowNull: true,
+    },
   },
   {
-    tableName: "generales",
+    tableName: 'generales',
     sequelize: db.sequelize,
     timestamps: false,
     indexes: [
@@ -71,5 +97,5 @@ Generale.init(
         name: 'idx_generales',
       },
     ],
-  }
+  },
 );

@@ -80,7 +80,7 @@ const SousNavbar = () => {
 
   return (
     <nav className="w-full shadow-brown drop-shadow-lg top-0 z-10 h-24 relative">
-      <div className="border-b-4 border-blue flex items-center absolute -z-10 w-full top-1/2"></div>
+      <div className="border-b-4 border-blue flex items-center absolute -z-10 w-full top-14"></div>
       <div className="flex flex-col lg:grid lg:grid-cols-12 items-center w-full py-2">
         <div
           className="col-start-2 col-span-8 grid grid-cols-11 bg-white h-16 items-center"
@@ -179,7 +179,7 @@ const SousNavbar = () => {
           </motion.div>
         </div>
         <div className="col-start-10 col-span-2 px-4">
-          <motion.div className="flex flex-col mt-1 justify-center items-center">
+          <motion.div className="flex flex-col justify-center items-center">
             <div className="">
               <ButtonImage
                 src="BtnDocument"

@@ -16,6 +16,11 @@ export class GeneraleC extends Model {
   datecreationrubrique!: Date | null;
   nomcategorie!: string | null;
   datecreationcategorie!: Date | null;
+  etatannonce!: number;
+  nbdownnational!: number | null;
+  nbdowninter!: number | null;
+  titulairemarche!: string | null;
+  montantmarche!: string | null;
 }
 
 GeneraleC.init(
@@ -70,6 +75,27 @@ GeneraleC.init(
     },
     datecreationcategorie: {
       type: DataTypes.DATE,
+      allowNull: true,
+    },
+    etatannonce: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      defaultValue: 0,
+    },
+    nbdownnational: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    nbdowninter: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    titulairemarche: {
+      type: DataTypes.STRING(256),
+      allowNull: true,
+    },
+    montantmarche: {
+      type: DataTypes.STRING(256),
       allowNull: true,
     },
   },

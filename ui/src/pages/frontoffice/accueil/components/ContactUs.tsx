@@ -7,14 +7,14 @@ const ContactUs = () => {
   return (
     <div className="flex flex-col w-1/2 bg-grey my-12">
       <div className="flex justify-center items-center gap-4">
-        <div className="">
+        {/* <div className="">
           <img
             src="/assets/icons/ic_nouscontacter.svg"
             height={60}
             width={60}
             alt="logo_mionjo"
           />
-        </div>
+        </div> */}
         <div className="">
           <SubTitle title="NousContacter" className="text-blue Uppercase" />
         </div>

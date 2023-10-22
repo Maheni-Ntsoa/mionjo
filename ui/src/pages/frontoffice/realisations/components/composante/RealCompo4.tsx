@@ -7,38 +7,36 @@ const RealCompo4 = () => {
   return (
     <div>
       <div className="flex flex-col gap-4">
-        <h1 className="font-bold text-4xl text-center">Titre 2</h1>
-        <div className="flex justify-center">
-          <p className="text-justify text-xl">
-            Sous-titre ou un petit resume 2
-          </p>
+        <h1 className="font-bold text-4xl text-center">{t("titrecompo4")}</h1>
+        <div className="flex justify-center items-center">
+          <p className="text-justify text-xl  w-[800px]">{t("soustitrecompo4")}</p>
         </div>
         <div className="my-4 flex justify-center">
           <div className="flex flex-wrap xl:flex-row xl:flex-wrap lg:justify-center gap-10 lg:mx-4 lg:w-[1600px]">
             <OneAproche
-              composanteNumber={t("soutitre1")}
-              image="/assets/images/composante1.jpeg"
+              composanteNumber={t("titreSousCompo4A")}
+              image="/assets/souscompo/4A.jpg"
               lien="/activites/#composante"
-              resume={t("textaproche1")}
+              resume={t("textSousCompo4A")}
             />
             <OneAproche
-              composanteNumber={t("soutitre2")}
-              image="/assets/images/composante2.png"
+              composanteNumber={t("titreSousCompo4B")}
+              image="/assets/souscompo/4B.jpg"
               lien="/activites/#composante"
-              resume={t("textaproche2")}
+              resume={t("textSousCompo4B")}
             />
             <OneAproche
-              composanteNumber={t("soutitre3")}
-              image="/assets/images/composante3.jpeg"
+              composanteNumber={t("titreSousCompo4C")}
+              image="/assets/souscompo/4C.jpg"
               lien="/activites/#composante"
-              resume={t("textaproche3")}
+              resume={t("textSousCompo4C")}
             />
-            <OneAproche
-              composanteNumber={t("soutitre4")}
+            {/* <OneAproche
+              composanteNumber={t("titreSousCompo4D")}
               image="/assets/images/composante4.jpg"
               lien="/activites/#composante"
-              resume={t("textaproche4")}
-            />
+              resume={t("textSousCompo4D")}
+            /> */}
           </div>
         </div>
       </div>

@@ -91,7 +91,7 @@ const ZoneIntervetion = () => {
                   </div>
                 )}
                 <div className="mt-4 flex justify-center">
-                  <img src={generale.img} alt="rectangle" />
+                  <img src="/assets/images/zonei.png" alt="rectangle" />
                 </div>
               </div>
             ))}

@@ -27,6 +27,7 @@ export class App {
 
   private corsOptions = {
     origin: ['*', 'http://localhost:3000'],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     optionsSuccessStatus: 200,
   };
 
@@ -55,20 +56,20 @@ export class App {
   }
 
   routes() {
-    this.app.use('/api/user', UserRouter);
-    this.app.use('/api/role', RoleRouter);
-    this.app.use('/api/baniere', BanniereRouter);
-    this.app.use('/api/category', CategoryRouter);
-    this.app.use('/api/video', VideoRouter);
-    this.app.use('/api/photo', PhotoRouter);
-    this.app.use('/api/photoMois', PhotoMoisRouter);
-    this.app.use('/api/document', DocumentRouter);
-    this.app.use('/api/rubrique', RubriqueRouter);
-    this.app.use('/api/generale', GeneraleRouter);
-    this.app.use('/api/idee', IdeeRouter);
-    this.app.use('/api/mail', MailRouter);
+    this.app.use('/user', UserRouter);
+    this.app.use('/role', RoleRouter);
+    this.app.use('/baniere', BanniereRouter);
+    this.app.use('/category', CategoryRouter);
+    this.app.use('/video', VideoRouter);
+    this.app.use('/photo', PhotoRouter);
+    this.app.use('/photoMois', PhotoMoisRouter);
+    this.app.use('/document', DocumentRouter);
+    this.app.use('/rubrique', RubriqueRouter);
+    this.app.use('/generale', GeneraleRouter);
+    this.app.use('/idee', IdeeRouter);
+    this.app.use('/mail', MailRouter);
     // Views for select
-    this.app.use('/api/userc', UserCRouter);
-    this.app.use('/api/generalec', GeneraleCRouter);
+    this.app.use('/userc', UserCRouter);
+    this.app.use('/generalec', GeneraleCRouter);
   }
 }

@@ -4,8 +4,69 @@ import { GeneraleC } from '../views/generalec/generalec.model';
 import { generaleCController } from '../views/generalec/generalec.controller';
 
 class GeneraleController {
+  async updateInternationDownload(req: Request, res: Response) {
+    Generale.findOne({
+      where: { id: req.params.id },
+    }).then((result: any) => {
+      Generale.update(
+        { nbdowninter: result.nbdowninter + 1 },
+        { where: { id: req.params.id } },
+      )
+        .then((result) => {
+          if (result[0] === 1) {
+            res.json({
+              success: true,
+              message: 'Nbre de telechargement augmenté',
+            });
+          } else {
+            res.json({
+              success: false,
+              message: 'Aucun enregistrement mis à jour',
+            });
+          }
+        })
+        .catch((err) => {
+          res
+            .status(500)
+            .json({ success: false, message: 'Erreur de Suppression' });
+        });
+    });
+  }
+
+  async updateNationalDownload(req: Request, res: Response) {
+    Generale.findOne({
+      where: { id: req.params.id },
+    }).then((result: any) => {
+      Generale.update(
+        { nbdownnational: result.nbdowninter + 1 },
+        { where: { id: req.params.id } },
+      )
+        .then((result) => {
+          if (result[0] === 1) {
+            res.json({
+              success: true,
+              message: 'Nbre de telechargement augmenté',
+            });
+          } else {
+            res.json({
+              success: false,
+              message: 'Aucun enregistrement mis à jour',
+            });
+          }
+        })
+        .catch((err) => {
+          res
+            .status(500)
+            .json({ success: false, message: 'Erreur de Suppression' });
+        });
+    });
+  }
+
   async createOrUpdate(req: Request, res: Response) {
     try {
+      if (req.body.titulairemarche) {
+        req.body.etatannonce = 10;
+      }
       const [generale, created] = await Generale.upsert(req.body);
       if (created) {
         res.json({

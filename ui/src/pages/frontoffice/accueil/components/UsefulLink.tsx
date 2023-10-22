@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import SubTitle from "../../../../components/SubTitle";
 import OneLink from "./OneLink";
 
 const dataLinks = [
@@ -27,6 +26,12 @@ const dataLinks = [
   },
   { link: "https://www.wfp.org/", imgRef: "/assets/logos/logo5.jpg" },
   { link: "https://www.tanymeva.org/en/", imgRef: "/assets/logos/logo6.png" },
+
+  { link: "", imgRef: "/assets/logos/A2DM.jpg" },
+  { link: "https://aim.co.mg/", imgRef: "/assets/logos/AIM.png" },
+  { link: "https://avotraong-asso.mg", imgRef: "/assets/logos/ONG AVOTRA 10.jpg" },
+
+
 ];
 
 const UsefulLink = () => {
@@ -53,18 +58,18 @@ const UsefulLink = () => {
     <div className="flex flex-col bg-grey w-1/2 my-12" ref={ref}>
       <div className="flex justify-center items-center gap-4 mx-8">
         <div className="">
-          <img
+          {/* <img
             src="/assets/icons/ic_lienutile.svg"
             height={60}
             width={60}
             alt="logo_mionjo"
-          />
+          /> */}
         </div>
         <div className="">
-          <SubTitle title="LiensUtiles" />
+          {/* <SubTitle title="LiensUtiles" /> */}
         </div>
       </div>
-      <div className="mt-4 flex justify-center">
+      <div className="mt-20 flex justify-center">
         <motion.div
           variants={container}
           initial="hidden"

@@ -30,7 +30,7 @@ const DepotPlainteForm = () => {
     tel: Yup.string(),
     message: Yup.string(),
   });
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {};
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { };
   const onSubmit = async (values: any, { resetForm }: any) => {
     const sendMailValues = {
       nom: values.nom,
@@ -63,7 +63,7 @@ const DepotPlainteForm = () => {
       <div className="my-2 flex justify-center">
         <video
           ref={videoRef}
-          width="1000"
+          width="1250"
           height="1000"
           controls
           autoPlay

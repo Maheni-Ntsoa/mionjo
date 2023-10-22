@@ -60,14 +60,14 @@ const Description = () => {
       <div className="flex justify-center items-center gap-4">
         <div className="">
           <img
-            src="/assets/icons/ic_descri.svg"
-            height={60}
-            width={60}
+            src="/assets/icons/ic_descri.png"
+            height={150}
+            width={150}
             alt="logo_mionjo"
           />
         </div>
         <div className="">
-          <SubTitle title="Description" />
+          <SubTitle title="Description" className="" />
         </div>
       </div>
       {loading ? (

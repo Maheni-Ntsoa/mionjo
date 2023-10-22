@@ -10,7 +10,7 @@ const StatGestionPlainte = () => {
   const [loading, setLoading] = useState(false);
   const [generales, setGenerales] = useState<any[]>([]);
   const [pageNumber, setPageNumber] = useState(0);
-  const itemsPerPage = 2;
+  const itemsPerPage = 4;
 
   useEffect(() => {
     setLoading(true);
@@ -47,7 +47,7 @@ const StatGestionPlainte = () => {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col justify-center items-center">
       <div className="flex justify-center items-center gap-4">
         <div className="mt-2">
           <img
@@ -62,7 +62,7 @@ const StatGestionPlainte = () => {
       {loading ? (
         <Loading isLoading={loading} />
       ) : (
-        <div className="my-4 flex flex-col gap-4">
+        <div className="my-4 flex flex-col xl:flex-row flex-wrap justify-center gap-4 w-2/3">
           {generales
             .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
             .map((generale, index) => (
@@ -71,6 +71,7 @@ const StatGestionPlainte = () => {
               </div>
             ))}
         </div>
+
       )}
       {generales.length > itemsPerPage && (
         <div className="my-4">

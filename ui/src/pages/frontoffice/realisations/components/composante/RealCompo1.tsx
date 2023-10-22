@@ -7,36 +7,36 @@ const RealCompo1 = () => {
   return (
     <div>
       <div className="flex flex-col gap-4">
-        <h1 className="font-bold text-4xl text-center">Titre</h1>
-        <div className="flex justify-center">
-          <p className="text-justify text-xl">Sous-titre ou un petit resume</p>
+        <h1 className="font-bold text-4xl text-center">{t("titrecompo1")}</h1>
+        <div className="flex justify-center items-center">
+          <p className="text-justify text-xl  w-[800px]">{t("soustitrecompo1")}</p>
         </div>
         <div className="my-4 flex justify-center">
           <div className="flex flex-wrap xl:flex-row xl:flex-wrap lg:justify-center gap-10 lg:mx-4 lg:w-[1600px]">
             <OneAproche
-              composanteNumber={t("soutitre1")}
-              image="/assets/images/composante1.jpeg"
+              composanteNumber={t("soutitreCompo1A")}
+              image="/assets/souscompo/1A.jpg"
               lien="/activites/#composante"
               resume={t("textaproche1")}
             />
             <OneAproche
-              composanteNumber={t("soutitre2")}
-              image="/assets/images/composante2.png"
+              composanteNumber={t("soutitreCompo2B")}
+              image="/assets/souscompo/1B.jpg"
               lien="/activites/#composante"
               resume={t("textaproche2")}
             />
-            <OneAproche
-              composanteNumber={t("soutitre3")}
+            {/* <OneAproche
+              composanteNumber={t("soutitreCompo3")}
               image="/assets/images/composante3.jpeg"
               lien="/activites/#composante"
               resume={t("textaproche3")}
             />
             <OneAproche
-              composanteNumber={t("soutitre4")}
+              composanteNumber={t("soutitreCompo1")}
               image="/assets/images/composante4.jpg"
               lien="/activites/#composante"
               resume={t("textaproche4")}
-            />
+            /> */}
           </div>
         </div>
       </div>

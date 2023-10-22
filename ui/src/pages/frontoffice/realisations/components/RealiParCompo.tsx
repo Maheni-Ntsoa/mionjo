@@ -3,6 +3,9 @@ import { useState } from "react";
 import SubTitle from "../../../../components/SubTitle";
 import RealCompo1 from "./composante/RealCompo1";
 import RealCompo2 from "./composante/RealCompo2";
+import RealCompo3 from "./composante/RealCompo3";
+import RealCompo4 from "./composante/RealCompo4";
+import RealCompo5 from "./composante/RealCompo5";
 
 const RealiParCompo = () => {
   const [selected, setSelected] = useState(2);
@@ -20,7 +23,7 @@ const RealiParCompo = () => {
     { imageSrc: "/assets/images/composante2.png" },
     { imageSrc: "/assets/images/composante3.jpeg" },
     { imageSrc: "/assets/images/composante4.jpg" },
-    { imageSrc: "/assets/images/composante5.jpg" },
+    { imageSrc: "/assets/images/composante5.jpeg" },
   ];
 
   return (
@@ -70,9 +73,8 @@ const RealiParCompo = () => {
             <div className="flex justify-center gap-2 max-width-screen xl:-bottom-[150px] relative z-20">
               {divs.map((div, index) => (
                 <motion.div
-                  className={`flex cursor-pointer ${
-                    selected === index ? "z-50" : "z-10"
-                  }`}
+                  className={`flex cursor-pointer ${selected === index ? "z-50" : "z-10"
+                    }`}
                   initial={{
                     scale: selected === index ? 1.2 : 1,
                     zIndex: selected === index ? 99 : 10,
@@ -101,9 +103,9 @@ const RealiParCompo = () => {
       <div className="my-4 flex justify-center">
         {selected === 0 && <RealCompo1 />}
         {selected === 1 && <RealCompo2 />}
-        {selected === 2 && <RealCompo1 />}
-        {selected === 3 && <RealCompo1 />}
-        {selected === 4 && <RealCompo1 />}
+        {selected === 2 && <RealCompo3 />}
+        {selected === 3 && <RealCompo4 />}
+        {selected === 4 && <RealCompo5 />}
       </div>
     </div>
   );

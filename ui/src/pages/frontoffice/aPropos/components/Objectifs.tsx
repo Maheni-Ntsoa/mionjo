@@ -49,9 +49,9 @@ const Objectifs = () => {
       <div className="flex justify-center items-center gap-4 pt-8">
         <div className="">
           <img
-            src="/assets/icons/ic_objet.svg"
-            height={60}
-            width={60}
+            src="/assets/icons/ic_objet.png"
+            height={150}
+            width={150}
             alt="logo_mionjo"
           />
         </div>

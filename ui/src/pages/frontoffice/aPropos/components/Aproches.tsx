@@ -10,9 +10,9 @@ const Composantes = () => {
             <div className="flex justify-center items-center gap-4">
                 <div className="">
                     <img
-                        src="/assets/icons/ic_compo.svg"
-                        height={60}
-                        width={60}
+                        src="/assets/icons/ic_approche.png"
+                        height={150}
+                        width={150}
                         alt="logo_mionjo"
                     />
                 </div>
