@@ -15,7 +15,7 @@ const Accueil = () => (
     <div className="flex justify-center">
       <Edito />
     </div>
-    <div className="flex justify-center" >
+    <div className="flex justify-center" id="composantes">
       <BanniereCompo />
     </div>
     {/* <div className="flex justify-center" >

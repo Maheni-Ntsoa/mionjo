@@ -7,6 +7,9 @@ module.exports = {
         quicksand: ["Quicksand-VariableFont_wght", "sans"],
         proximaNova: ["ProximaNovaFont", "sans"],
       },
+      screens: {
+        "2xl": "2560px",
+      },
     },
     colors: {
       brown: "#A36857",
