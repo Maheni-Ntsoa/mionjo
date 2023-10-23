@@ -48,10 +48,7 @@ const IdeePourLeSud: React.FC<IdeePourLeSudProps> = ({ texte }) => {
             />
           </div>
           <div className="text-center">
-            <h1 className="text-black/60 lg:text-4xl px-8">
-              {t("idée")}
-
-            </h1>
+            <h1 className="text-black/60 lg:text-4xl px-8">{t("idée")}</h1>
           </div>
         </div>
         <div className="lg:w-1/2 bg-white text-white  flex flex-col items-center justify-center p-4 border-black/60 border-2">
@@ -91,7 +88,7 @@ const IdeePourLeSud: React.FC<IdeePourLeSudProps> = ({ texte }) => {
                     name="contenu"
                     as="textarea"
                     rows="5"
-                    className="shadow appearance-none rounded w-full xl:h-40 py-2 px-3 text-black/70 border-black/60 border-2 py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
+                    className="shadow appearance-none rounded w-full xl:h-40 py-2 px-3 text-black/70 border-black/60 border-2 leading-tight focus:outline-none focus:shadow-outline"
                   />
                   <ErrorMessage
                     name="contenu"

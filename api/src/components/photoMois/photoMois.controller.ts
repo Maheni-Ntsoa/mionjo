@@ -52,7 +52,7 @@ class PhotoMoisController {
           let cleanFileName = files[i].originalname
             .toLowerCase()
             .replace(/[^a-z0-9.]/g, '');
-          let tempData = { nomphoto: cleanFileName };
+          let tempData = { nomphoto: cleanFileName, resume: req.body.resume };
           data.push(tempData);
         }
       }
@@ -65,7 +65,7 @@ class PhotoMoisController {
       }
       res.json({
         success: true,
-        message: `${createdPhotoMoiss.length} PhotoMoiss ont été insérés.`,
+        message: `PhotoMoiss ont été insérés.`,
       });
     } catch (error) {
       res.json({

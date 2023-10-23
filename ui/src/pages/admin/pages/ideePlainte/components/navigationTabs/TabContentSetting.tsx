@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import { default as ListeDeposerPlainte } from "../deposerPlaintes/ListeDeposerPlainte";
 import ListeStatiGestionPlainte from "../statistiqueGestionPlainte/ListeStatiGestionPlainte";
-
+import ListeIdee from "../../../../../frontoffice/ideeEtPlaintes/components/ListeIdee";
 
 interface TabContentSettingProps {
   activeTab: string;
@@ -25,7 +25,7 @@ const TabContentSetting: React.FC<TabContentSettingProps> = ({ activeTab }) => {
       >
         {activeTab === "2" && (
           <div className="pt-8">
-            <ListeDeposerPlainte />
+            <ListeIdee />
           </div>
         )}
         {activeTab === "3" && (
@@ -33,7 +33,6 @@ const TabContentSetting: React.FC<TabContentSettingProps> = ({ activeTab }) => {
             <ListeStatiGestionPlainte />
           </div>
         )}
-
       </motion.div>
     </AnimatePresence>
   );

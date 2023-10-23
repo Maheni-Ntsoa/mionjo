@@ -4,7 +4,7 @@ import GetIdee from "../../../../usecases/Idee/GetIdee";
 import OneIdee from "./OneIdee";
 
 interface ListeIdeeProps {
-  refetch: boolean;
+  refetch?: boolean;
 }
 
 const ListeIdee: React.FC<ListeIdeeProps> = ({ refetch }) => {
@@ -28,7 +28,7 @@ const ListeIdee: React.FC<ListeIdeeProps> = ({ refetch }) => {
   const pageCount = Math.ceil(listIdees.length / itemsPerPage);
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-6">
         {listIdees.length > 0 &&
           listIdees
             .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)

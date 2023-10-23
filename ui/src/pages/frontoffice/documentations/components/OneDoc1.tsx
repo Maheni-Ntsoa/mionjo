@@ -2,9 +2,9 @@ import React from "react";
 import ButtonImage from "../../../../components/ButtonImage";
 
 interface OneDoc1Props {
-  title: string;
-  longText: string;
-  document: string;
+  title?: string;
+  longText?: string;
+  document?: string;
 }
 
 const HTMLRenderer = ({ html }: any) => {
@@ -24,16 +24,14 @@ const OneDoc1: React.FC<OneDoc1Props> = ({ title, longText, document }) => {
       <div className="mt-4 flex justify-center">
         <div className="flex flex-col gap-4">
           <h3 className="text-xl font-bold ml-4 mb-2">{title}</h3>
-          <HTMLRenderer
-            className="text-md"
-            html={longText ? longText.slice(0, 150) : ""}
-          />
+          <p className="text-md">{longText}</p>
         </div>
       </div>
       <div className="mt-4 flex justify-center">
         <a
           className="cursor-pointer"
-          href={`${process.env.REACT_APP_BACKEND_URL}uploads/documents/${document}`}
+          // href={`${process.env.REACT_APP_BACKEND_URL}uploads/documents/${document}`}
+          href={`/assets/documents/${document}`}
           download={`${document}`}
         >
           <ButtonImage src="BtnDown" />

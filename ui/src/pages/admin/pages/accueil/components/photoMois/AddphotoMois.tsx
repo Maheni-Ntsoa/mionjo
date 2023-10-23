@@ -1,11 +1,12 @@
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import Alert from "@mui/material/Alert";
-import { Form, Formik } from "formik";
 import { useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import Button from "../../../../../../components/Button";
 import Loading from "../../../../../../components/Loading";
 import SavePhotoMois from "../../../../../../usecases/PhotoMois/SavePhotoMois";
+import * as Yup from "yup";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 
 interface AddphotoMoisProps {
   onclose: any;
@@ -13,16 +14,21 @@ interface AddphotoMoisProps {
 }
 
 const AddphotoMois: React.FC<AddphotoMoisProps> = ({ onclose, refetch }) => {
-  const initialValues = { files: [], video: [] };
+  const initialValues = { files: [], video: [], resume: "" };
   const [loading, setLoading] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [isSuccess, setIsSuccess] = useState(false); // État du succès du formulaire
+
+  const validationSchema = Yup.object({
+    resume: Yup.string(),
+  });
 
   const onSubmit = async (values: any, { resetForm }: any) => {
     setLoading(true);
     const photoValue = {
       files: selectedFiles,
       generale: { id: 0 },
+      resume: values.resume,
     };
     await new SavePhotoMois().execute(photoValue);
     resetForm();
@@ -33,9 +39,26 @@ const AddphotoMois: React.FC<AddphotoMoisProps> = ({ onclose, refetch }) => {
 
   return (
     <div className="px-4">
-      <Formik initialValues={initialValues} onSubmit={onSubmit}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+        validationSchema={validationSchema}
+      >
         <Form className="p-8">
           {isSuccess && <Alert severity="success">Enregistré !</Alert>}
+          <div className="mb-4">
+            <Field
+              placeholder="Resume"
+              name="resume"
+              type="text"
+              className="shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline"
+            />
+            <ErrorMessage
+              name="resume"
+              component="div"
+              className="text-red text-xs italic"
+            />
+          </div>
           <div className="my-8">
             <label className="cursor-pointer w-full items-center flex shadow appearance-none rounded py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline">
               <input

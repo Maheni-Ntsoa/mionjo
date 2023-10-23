@@ -25,6 +25,7 @@ const SousNavbar = () => {
   const [openPhoto, setOpenPhoto] = useState(false);
   const [openInterview, setOpenInterview] = useState(false);
   const [photoMois, setPhotoMois] = useState("");
+  const [resumePhotoMois, setResumePhotoMois] = useState("");
   const [interview, setInterview] = useState<Generalec>();
   const [loading, setLoading] = useState(true);
   const [photos, setPhotos] = useState<string[]>([]);
@@ -60,6 +61,7 @@ const SousNavbar = () => {
       const photom = await new GetPhotoMois().execute();
       if (photom) {
         setPhotoMois(photom[0].nomphoto);
+        setResumePhotoMois(photom[0].resume!);
         setLoading(false);
       }
     };
@@ -158,20 +160,12 @@ const SousNavbar = () => {
               <div className="flex justify-start bg-white h-full w-full text-xs lg:text-base">
                 <div className="hidden lg:flex flex-col gap-2">
                   <div className="text-blue text-xs font-light px-2 pt-8">
-                    {/* {i18n.language === "en" && interview?.titreen ? (
-                      <span>
-                        {interview?.titreen
-                          ? interview?.titreen.slice(0, 50) + "..."
-                          : ""}
-                      </span>
-                    ) : (
-                      <span>
-                        {interview?.titre
-                          ? interview?.titre.slice(0, 50) + "..."
-                          : ""}
-                      </span>
-                    )} */}
-                    Association des femmes productrices de cultures...
+                    <span>
+                      {resumePhotoMois
+                        ? resumePhotoMois.slice(0, 100) + "..."
+                        : ""}
+                    </span>
+                    {/* Association des femmes productrices de cultures... */}
                   </div>
                 </div>
               </div>

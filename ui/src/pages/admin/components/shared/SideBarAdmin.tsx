@@ -78,22 +78,6 @@ const SideBarAdmin = () => {
               </li>
               <li>
                 <button
-                  onClick={() => navigate("/admin/Realisation")}
-                  className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
-                >
-                  Réalisations
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigate("/admin/Composante")}
-                  className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
-                >
-                  Composantes
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={() => navigate("/admin/documentation")}
                   className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
                 >

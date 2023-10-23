@@ -19,12 +19,12 @@ const NavTabSetting: React.FC<NavTabSettingProps> = ({ activeTab }) => {
       <div className="relative flex">
         <div className="w-full mx-4">
           <div className="flex flex-wrap gap-4 text-md uppercase text-brown font-semibold">
-            {/* <Navigation
+            <Navigation
               id={"2"}
               name="Idées de contributions pour le sud"
               activeTab={activeTabl}
               onClick={() => handleTabClick("2")}
-            /> */}
+            />
             <Navigation
               id={"3"}
               name="Statistique de gestion des plaintes"

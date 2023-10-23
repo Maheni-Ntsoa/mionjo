@@ -1,10 +1,11 @@
-import { Model, DataTypes } from "sequelize";
-import { db } from "../../database";
+import { Model, DataTypes } from 'sequelize';
+import { db } from '../../database';
 
 export class PhotoMois extends Model {
   id!: number;
   nomphoto!: string;
   datecreation!: Date;
+  resume!: string;
 }
 
 PhotoMois.init(
@@ -23,10 +24,14 @@ PhotoMois.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    resume: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
   },
   {
-    tableName: "photomois",
+    tableName: 'photomois',
     sequelize: db.sequelize,
     timestamps: false,
-  }
+  },
 );
