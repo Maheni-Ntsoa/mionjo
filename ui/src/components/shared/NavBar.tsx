@@ -155,7 +155,7 @@ const Navbar = () => {
                       >
                         <div className="flex items-center">
                           <span
-                            className="font-quicksand lg:text-md xl:text-xl uppercase"
+                            className="font-quicksand lg:text-md xl:text-lg uppercase"
                             style={{ font: "quicksand" }}
                           >
                             {t("Composantes")} :
@@ -302,7 +302,7 @@ const Navbar = () => {
                   }}
                 >
                   <p
-                    className="font-quicksand lg:text-md xl:text-xl uppercase"
+                    className="font-quicksand lg:text-md xl:text-lg uppercase"
                     style={{ font: "quicksand" }}
                   >
                     {t("Apropos")}
@@ -382,7 +382,7 @@ const Navbar = () => {
                   }}
                 >
                   <span
-                    className="font-quicksand lg:text-md xl:text-xl uppercase"
+                    className="font-quicksand lg:text-md xl:text-lg uppercase"
                     style={{ font: "quicksand" }}
                   >
                     {t("Realisations")}
@@ -438,7 +438,7 @@ const Navbar = () => {
                   }}
                 >
                   <span
-                    className="font-quicksand lg:text-md xl:text-xl uppercase"
+                    className="font-quicksand lg:text-md xl:text-lg uppercase"
                     style={{ font: "quicksand" }}
                   >
                     {t("Annonces")}
@@ -513,7 +513,7 @@ const Navbar = () => {
                   }}
                 >
                   <span
-                    className="font-quicksand lg:text-md xl:text-xl uppercase"
+                    className="font-quicksand lg:text-md xl:text-lg uppercase"
                     style={{ font: "quicksand" }}
                   >
                     {t("IdeePlaintes")}
@@ -564,7 +564,7 @@ const Navbar = () => {
               <li className="group relative text-white px-2 py-2 rounded hover:bg-black/10">
                 <Link to="https://mapmionjo.ankobabeach.mg/" target="_blank">
                   <span
-                    className="font-quicksand lg:text-md xl:text-xl uppercase"
+                    className="font-quicksand lg:text-md xl:text-lg uppercase"
                     style={{ font: "quicksand" }}
                   >
                     {t("Cartographie")}
