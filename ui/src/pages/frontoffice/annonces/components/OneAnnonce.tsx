@@ -26,7 +26,7 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
   popup,
 }) => {
   const { i18n } = useTranslation();
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const getIP = async (): Promise<string> => {
     const response = await fetch("https://api.ipify.org?format=json");
@@ -41,7 +41,7 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
   };
 
   const handleDownloadClick = async () => {
-    setLoading(true)
+    setLoading(true);
     const ip: string = await getIP();
     const geoInfo: any = await getGeoInfo(ip);
     const value = {
@@ -54,44 +54,83 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
       await new IncreaseInterationalDownload().execute(value);
     }
     await new DownloadFile().execute(document);
-    setLoading(false)
+    setLoading(false);
   };
 
   return (
-    <div className=" w-screen h-44 bg-grey py-6 xl:px-60 text-black flex flex-col gap-2">
+    <div className=" w-screen bg-grey py-6 xl:px-60 text-black flex flex-col gap-2">
       <div className="w-full flex justify-between">
         <div className="flex items-center">
           <div className="flex flex-col">
             {generalec.titreen && i18n.language === "en" ? (
-              <p className={`${popup ? "text-sm" : "text-xl uppercase"} font-semibold`}>
+              <p
+                className={`${
+                  popup ? "text-sm" : "text-xl uppercase"
+                } font-semibold`}
+              >
                 {generalec.titreen}
               </p>
             ) : (
-              <p className={`${popup ? "text-sm" : "text-xl uppercase"} font-semibold`}>
+              <p
+                className={`${
+                  popup ? "text-sm" : "text-xl uppercase"
+                } font-semibold`}
+              >
                 {generalec.titre}
               </p>
             )}
-            <div
-              className={`text-lg italic flex justify-start`}
-            >
-              <p>
-                Date limite :{" "}
-                <span>
-                  {generalec.datelimit
-                    ? formatDateOnly(generalec.datelimit)
-                    : "Non definie"}
-                </span>
-              </p>
+            <div className={`text-lg italic flex justify-start`}>
+              {generalec.etatannonce === 10 ? (
+                <p>
+                  Adjugé le :{" "}
+                  <span>
+                    {generalec.datelimit
+                      ? formatDateOnly(generalec.datelimit)
+                      : "-"}
+                  </span>
+                </p>
+              ) : (
+                <p>
+                  Date limite :{" "}
+                  <span>
+                    {generalec.datelimit
+                      ? formatDateOnly(generalec.datelimit)
+                      : "-"}
+                  </span>
+                </p>
+              )}
             </div>
-            <a href="#" className="text-blue text-md">En savoir plus...</a>
+            <a href="#" className="text-blue text-md">
+              En savoir plus...
+            </a>
+            {generalec.etatannonce === 10 ? (
+              <>
+                <p className="text-lg">
+                  Assigné a : <strong>{`${generalec.titulairemarche}`}</strong>
+                </p>
+                <p className="text-lg">
+                  Montant : <strong>{`${generalec.montantmarche}`}</strong>
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="text-lg">
+                  Nombre de téléchargement national :{" "}
+                  <strong>{`${generalec.nbdownnational}`}</strong>
+                </p>
+                <p className="text-lg">
+                  Nombre de téléchargement international :{" "}
+                  <strong>{`${generalec.nbdowninter}`}</strong>
+                </p>
+              </>
+            )}
           </div>
         </div>
-        {loading ? (<Loading isLoading={loading} />) : (
+        {loading ? (
+          <Loading isLoading={loading} />
+        ) : (
           <div className="flex items-center">
-            <ButtonImage
-              src="BtnDown"
-              onClick={handleDownloadClick}
-            />
+            <ButtonImage src="BtnDown" onClick={handleDownloadClick} />
           </div>
         )}
       </div>

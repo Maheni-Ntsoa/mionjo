@@ -27,27 +27,27 @@ const TabContentSetting: React.FC<TabContentSettingProps> = ({ activeTab }) => {
       >
         {activeTab === "1" && (
           <div className="pt-8">
-            <Consultants />
+            <AnnoncesA idCategorie={4} idRubrique={15} />
           </div>
         )}
         {activeTab === "5" && (
           <div className="pt-8">
-            <ConsultantCab />
+            <AnnoncesA idCategorie={4} idRubrique={29} />
           </div>
         )}
         {activeTab === "2" && (
           <div className="pt-8">
-            <Fournitures />
+            <AnnoncesA idCategorie={4} idRubrique={16} />
           </div>
         )}
         {activeTab === "3" && (
           <div className="pt-8">
-            <RealisationsA />
+            <AnnoncesA idCategorie={4} idRubrique={17} />
           </div>
         )}
         {activeTab === "4" && (
           <div className="pt-8">
-            <AnnoncesA />
+            <AnnoncesA idCategorie={4} idRubrique={18} />
           </div>
         )}
       </motion.div>
