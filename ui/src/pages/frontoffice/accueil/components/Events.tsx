@@ -36,15 +36,7 @@ const Events = () => {
   return (
     <div className="flex flex-col bg-grey w-screen py-14">
       <div className="flex justify-end items-center mx-8">
-        {/* <div> */}
-        {/* <img
-            src="/assets/icons/ic_actualite.svg"
-            height={60}
-            width={60}
-            alt="logo_mionjo"
-          /> */}
-        {/* </div> */}
-        <div className="xl:w-full border-blue border-b-4"></div>
+        <div className="w-full border-blue border-b-4"></div>
         <div className="mr-8">
           <div className="rounded-full w-4 h-4 border-blue border-4"></div>
         </div>
@@ -56,7 +48,7 @@ const Events = () => {
         <Loading isLoading={loading} />
       ) : (
         <div className="mt-4 flex justify-center">
-          <div className="flex flex-col xl:flex-row gap-10">
+          <div className="flex flex-col xl:flex-row gap-8">
             {actus
               .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
               .map((actu, index) => (

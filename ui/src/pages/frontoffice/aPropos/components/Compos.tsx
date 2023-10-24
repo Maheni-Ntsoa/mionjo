@@ -1,18 +1,16 @@
 import { useTranslation } from "react-i18next";
 import OneCompo from "./OneCompo";
 
-const descriText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fermentum libero ut volutpat elementum. Nullam `;
 const Compos = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   return (
     <div>
-      <div className="flex flex-wrap xl:flex-row xl:flex-nowrap justify-center gap-10 mx-4 " >
+      <div className="flex flex-wrap xl:flex-row xl:flex-nowrap justify-center gap-8 mx-8">
         <OneCompo
           composanteNumber={t("compo1")}
           image="/assets/images/composante1.jpeg"
           lien="/activites/#composante"
-          resume={t("textcompo1")
-          }
+          resume={t("textcompo1")}
         />
         <OneCompo
           composanteNumber={t("compo2")}

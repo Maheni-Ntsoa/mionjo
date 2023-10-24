@@ -12,7 +12,7 @@ const RealiParCompo = () => {
   const { t } = useTranslation();
   const [selected, setSelected] = useState(2);
   const [backgroundImage, setBackgroundImage] = useState(
-    "/assets/images/composante3.jpeg"
+    "/assets/images/composante1.jpeg"
   );
 
   const handleSelect = (index: number, imageSrc: string) => {

@@ -1,12 +1,12 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import ButtonImage from "../../../../components/ButtonImage";
+import Loading from "../../../../components/Loading";
 import Generalec from "../../../../models/Generalec";
 import DownloadFile from "../../../../usecases/Download/DownloadFile";
 import IncreaseInterationalDownload from "../../../../usecases/Generale/IncreaseInterationalDownload";
 import IncreaseNationalDownload from "../../../../usecases/Generale/IncreaseNationalDownload";
 import { formatDateOnly } from "../../../../utils/formatDate";
-import { useState } from "react";
-import Loading from "../../../../components/Loading";
 
 const HTMLRenderer = ({ html }: any) => {
   return (
@@ -58,14 +58,14 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
   };
 
   return (
-    <div className=" w-screen bg-grey py-6 xl:px-60 text-black flex flex-col gap-2">
-      <div className="w-full flex justify-between">
-        <div className="flex items-center">
+    <div className="px-2 w-screen bg-grey py-6 xl:px-60 text-black flex flex-col gap-2">
+      <div className="w-full flex flex-col lg:flex-row justify-between">
+        <div className="flex justify-center items-center">
           <div className="flex flex-col">
             {generalec.titreen && i18n.language === "en" ? (
               <p
                 className={`${
-                  popup ? "text-sm" : "text-xl uppercase"
+                  popup ? "text-sm" : "text-md lg:text-xl uppercase"
                 } font-semibold`}
               >
                 {generalec.titreen}
@@ -73,13 +73,13 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
             ) : (
               <p
                 className={`${
-                  popup ? "text-sm" : "text-xl uppercase"
+                  popup ? "text-sm" : "text-md lg:text-xl uppercase"
                 } font-semibold`}
               >
                 {generalec.titre}
               </p>
             )}
-            <div className={`text-lg italic flex justify-start`}>
+            <div className={`text-sm lg:text-lg italic flex justify-start`}>
               {generalec.etatannonce === 10 ? (
                 <p>
                   Adjugé le :{" "}
@@ -100,25 +100,25 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
                 </p>
               )}
             </div>
-            <a href="#" className="text-blue text-md">
+            {/* <a href="#" className="text-blue text-md">
               En savoir plus...
-            </a>
+            </a> */}
             {generalec.etatannonce === 10 ? (
               <>
-                <p className="text-lg">
+                <p className="text-sm lg:text-lg">
                   Assigné a : <strong>{`${generalec.titulairemarche}`}</strong>
                 </p>
-                <p className="text-lg">
+                <p className="text-sm lg:text-lg">
                   Montant : <strong>{`${generalec.montantmarche}`}</strong>
                 </p>
               </>
             ) : (
               <>
-                <p className="text-lg">
+                <p className="text-sm lg:text-lg">
                   Nombre de téléchargement national :{" "}
                   <strong>{`${generalec.nbdownnational}`}</strong>
                 </p>
-                <p className="text-lg">
+                <p className="text-sm lg:text-lg">
                   Nombre de téléchargement international :{" "}
                   <strong>{`${generalec.nbdowninter}`}</strong>
                 </p>
@@ -129,8 +129,12 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
         {loading ? (
           <Loading isLoading={loading} />
         ) : (
-          <div className="flex items-center">
-            <ButtonImage src="BtnDown" onClick={handleDownloadClick} />
+          <div className="flex justify-center items-center">
+            <ButtonImage
+              src="BtnDown"
+              onClick={handleDownloadClick}
+              width="w-[13rem]"
+            />
           </div>
         )}
       </div>

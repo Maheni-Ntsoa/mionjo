@@ -3,9 +3,9 @@ import SubTitle from "../../../../components/SubTitle";
 import ContactUsForm from "./ContactUsForm";
 
 const ContactUs = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   return (
-    <div className="flex flex-col w-1/2 bg-grey my-12">
+    <div className="flex flex-col w-full lg:w-1/2 bg-grey my-12 pb-8">
       <div className="flex justify-center items-center gap-4">
         {/* <div className="">
           <img
@@ -34,9 +34,12 @@ const ContactUs = () => {
               EMAIL : <span className="font-light">mionjo@mionjo.mg</span>
             </p>
           </div>
-          <div className=" p-4 w-full h-full mt-4 px-6 " style={{
-            borderRadius: "8%"
-          }}>
+          <div
+            className=" p-4 w-full h-full mt-4 px-6 "
+            style={{
+              borderRadius: "8%",
+            }}
+          >
             <ContactUsForm />
           </div>
         </div>

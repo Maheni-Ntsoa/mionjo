@@ -5,8 +5,13 @@ const Edito = () => {
   return (
     <div className="h-full w-full p-2 lg:p-12 my-4">
       <div className="flex justify-center gap-6 flex-col md:flex-row mx-12">
-        <div className="flex items-center">
-          <div className="w-[80px] h-[80px] lg:w-[350px] lg:h-[350px] mr-4  cursor-pointer w-full h-full object-cover border-2 border-green">
+        <div className="flex justify-center items-center">
+          <div
+            className="w-[150px] h-[150px] lg:w-[350px] lg:h-[350px] mr-4  cursor-pointer object-cover"
+            style={{
+              boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px",
+            }}
+          >
             <img
               src="/assets/edito/cn.jpg"
               width="100%"
@@ -27,7 +32,10 @@ const Edito = () => {
             <div className=" flex justify-center text-[0.5rem] md:text-[0.8rem] xl:text-[1rem]">
               {t("edito3")}
             </div>
-            <div className="flex justify-end font-semibold" style={{ font: 'quicksand' }}>
+            <div
+              className="flex justify-end font-semibold"
+              style={{ font: "quicksand" }}
+            >
               {t("edito4")}
             </div>
           </div>

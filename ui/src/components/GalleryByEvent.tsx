@@ -47,15 +47,15 @@ const GalleryByEvent = ({ eventTitle }: GalleryByEventProps) => {
           {eventTitle && (
             <div className="flex justify-center items-center gap-4 px-8">
               <div className="border-b-2 border-brown w-full flex justify-center"></div>
-              <h1 className="w-full text-center text-xl lg:text-lg xl:text-xl uppercase my-4 text-brown font-semibold font-quicksand">
+              <h1 className="w-full text-center text-xl lg:text-lg xl:text-2xl font-bold uppercase my-4 text-brown font-semibold font-quicksand">
                 {eventTitle}
               </h1>
               <div className="border-b-2 border-brown w-full flex justify-center"></div>
             </div>
           )}
-          <div className="flex lg:justify-center justify-center flex-wrap gap-8 m-2">
+          <div className="flex lg:justify-center justify-center flex-wrap gap-6 m-2">
             {images.map((image, index) => (
-              <div className="w-96 h-96" key={index}>
+              <div className="w-72 h-72" key={index}>
                 <img
                   src={image}
                   alt=""

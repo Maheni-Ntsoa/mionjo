@@ -52,7 +52,7 @@ const Navbar = () => {
   return (
     <nav className="w-full shadow-brown drop-shadow-lg sticky top-0 z-20 bg-brown">
       <div className="justify-between mx-auto lg:items-center lg:flex ">
-        <div className="bg-white py-4 px-8">
+        <div className="bg-white py-2 px-4">
           <div className="flex justify-between items-center top-0 z-20 py-5 lg:py-4 lg:block">
             <img
               src="/assets/logos/logomionjo.svg"
@@ -63,10 +63,6 @@ const Navbar = () => {
             <div className="lg:hidden md:mr-8">
               <div className="flex flex-col gap-2">
                 <SearchButton />
-                {/* <ButtonImage
-                  src="BtnDocument"
-                  onClick={() => navigate("/documentations")}
-                /> */}
               </div>
             </div>
             <div className="lg:hidden">
@@ -109,11 +105,11 @@ const Navbar = () => {
         </div>
         <div>
           <div
-            className={`flex-1 justify-self-center pb-3 lg:block lg:pb-0 lg:mt-0 ${
+            className={`flex-1 justify-self-center ml-8 pb-3 lg:block lg:pb-0 lg:mt-0 ${
               navbar ? "block" : "hidden"
             }`}
           >
-            <ul className="font-semibold text-brown items-center justify-center space-y-8 lg:flex gap-2 xl:gap-8 lg:space-y-0">
+            <ul className="font-semibold text-brown items-center justify-center lg:flex gap-2 2xl:gap-8">
               <li
                 className={`
                    group relative`}
@@ -155,7 +151,7 @@ const Navbar = () => {
                       >
                         <div className="flex items-center">
                           <span
-                            className="font-quicksand lg:text-md xl:text-md uppercase"
+                            className="font-quicksand text-md uppercase"
                             style={{ font: "quicksand" }}
                           >
                             {t("Composantes")} :
@@ -302,8 +298,8 @@ const Navbar = () => {
                   }}
                 >
                   <p
-                    className="font-quicksand lg:text-md xl:text-md uppercase"
-                    style={{ font: "quicksand" }}
+                    className="font-quicksand text-md max-w-fit uppercase"
+                    style={{ font: "quicksand", whiteSpace: "nowrap" }}
                   >
                     {t("Apropos")}
                   </p>
@@ -382,8 +378,8 @@ const Navbar = () => {
                   }}
                 >
                   <span
-                    className="font-quicksand lg:text-md xl:text-md uppercase"
-                    style={{ font: "quicksand" }}
+                    className="font-quicksand text-md max-w-fit uppercase"
+                    style={{ font: "quicksand", whiteSpace: "nowrap" }}
                   >
                     {t("Realisations")}
                   </span>
@@ -438,8 +434,8 @@ const Navbar = () => {
                   }}
                 >
                   <span
-                    className="font-quicksand lg:text-md xl:text-md uppercase"
-                    style={{ font: "quicksand" }}
+                    className="font-quicksand text-md max-w-fit uppercase"
+                    style={{ font: "quicksand", whiteSpace: "nowrap" }}
                   >
                     {t("Annonces")}
                   </span>
@@ -513,8 +509,8 @@ const Navbar = () => {
                   }}
                 >
                   <span
-                    className="font-quicksand lg:text-md xl:text-md uppercase"
-                    style={{ font: "quicksand" }}
+                    className="font-quicksand text-md max-w-fit uppercase"
+                    style={{ font: "quicksand", whiteSpace: "nowrap" }}
                   >
                     {t("IdeePlaintes")}
                   </span>
@@ -564,8 +560,8 @@ const Navbar = () => {
               <li className="group relative text-white px-2 py-2 rounded hover:bg-black/10">
                 <Link to="https://mapmionjo.ankobabeach.mg/" target="_blank">
                   <span
-                    className="font-quicksand lg:text-md xl:text-md uppercase"
-                    style={{ font: "quicksand" }}
+                    className="font-quicksand text-md max-w-fit uppercase"
+                    style={{ font: "quicksand", whiteSpace: "nowrap" }}
                   >
                     {t("Cartographie")}
                   </span>
@@ -575,12 +571,8 @@ const Navbar = () => {
           </div>
         </div>
         <div className="hidden lg:block">
-          <div className="xl:pr-12 pr-4">
+          <div className="pr-4">
             <SearchButton />
-            {/* <ButtonImage
-              src="BtnDocument"
-              onClick={() => navigate("/documentations")}
-            /> */}
           </div>
         </div>
       </div>

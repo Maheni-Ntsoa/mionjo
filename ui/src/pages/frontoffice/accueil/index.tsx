@@ -1,4 +1,6 @@
+import Banniere from "../../../components/Banniere";
 import Edito from "../../../components/Edito";
+import Composantes from "../aPropos/components/Composantes";
 import Actualite from "./components/Actualite";
 import BanniereCompo from "./components/BanniereCompo";
 import MyCarousel from "./components/Carousel";
@@ -15,15 +17,15 @@ const Accueil = () => (
     <div className="flex justify-center">
       <Edito />
     </div>
-    <div className="flex justify-center" id="composantes">
+    <div className="hidden lg:flex justify-center" id="composantes">
       <BanniereCompo />
     </div>
-    {/* <div className="flex justify-center" >
+    <div className="flex justify-center lg:hidden">
       <Banniere />
     </div>
-    <div className="flex justify-center" id="composantes">
+    <div className="flex justify-center lg:hidden" id="composantes">
       <Composantes />
-    </div> */}
+    </div>
     <div className="flex justify-center" id="actualites">
       <Actualite />
     </div>
@@ -33,7 +35,7 @@ const Accueil = () => (
     <div className="flex justify-center" id="imgvideos">
       <ImgAndVideos />
     </div>
-    <div className="flex gap-8" id="usefullinks">
+    <div className="flex flex-col lg:flex lg:flex-row gap-8" id="usefullinks">
       <UsefulLink />
       <ContactUs />
     </div>

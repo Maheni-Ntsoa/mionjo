@@ -68,11 +68,11 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row">
+    <div className="flex flex-col lg:flex-row justify-center">
       {generalec?.idrubrique === 2 ? (
         // Evenement
         <motion.div
-          className="w-[330px] h-[400px] z-10 relative overflow-hidden cursor-pointer rounded-xl"
+          className="w-[285px] h-[400px] z-10 relative overflow-hidden cursor-pointer rounded-xl"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
@@ -82,16 +82,8 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
             initial={{ height: "0%", opacity: 0 }}
             animate={controls}
           >
-            <div className="z-10 relative w-full h-full flex flex-col justify-between p-4">
-              <div
-                className=" w-full h-full flex flex-col justify-between p-4 bg-white"
-                style={
-                  {
-                    // boxShadow: "rgba(0, 0, 0, 0.5) 9px 9px 12px -2px",
-                    // borderRadius: "15%",
-                  }
-                }
-              >
+            <div className="z-10 relative w-full h-full flex flex-col justify-between p-4 rounded-xl">
+              <div className=" w-full h-full flex flex-col justify-between p-4 bg-white rounded-xl">
                 <div>
                   <h1 className="font-bold text-lg">
                     <span className="text-green">
@@ -109,10 +101,11 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
                   </div>
                 </div>
                 <div className="flex flex-col justify-end">
-                  <span>{`${generalec?.datecreation
-                    ? formatDateOnly(generalec?.datecreation)
-                    : ""
-                    }`}</span>
+                  <span>{`${
+                    generalec?.datecreation
+                      ? formatDateOnly(generalec?.datecreation)
+                      : ""
+                  }`}</span>
                 </div>
               </div>
             </div>
@@ -127,11 +120,14 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
                 {[0].map((index) => {
                   if (photos[index]) {
                     return (
-                      <div className="w-[330px] h-[400px]" key={index}>
+                      <div
+                        className="w-[275px] h-[400px] rounded-xl"
+                        key={index}
+                      >
                         <img
                           src={photos[index]}
                           alt=""
-                          className="cursor-pointer h-full w-full object-cover"
+                          className="cursor-pointer h-full w-full object-cover rounded-xl"
                           style={
                             {
                               // boxShadow: "rgba(0, 0, 0, 0.5) 9px 9px 12px -2px",
@@ -151,7 +147,7 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
       ) : (
         // Actus
         <motion.div
-          className="w-[330px] h-[400px] z-10 gap-10 relative overflow-hidden cursor-pointer"
+          className="w-[285px] h-[400px] z-10 gap-10 relative overflow-hidden cursor-pointer"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
@@ -165,7 +161,7 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
               {[0].map((index) => {
                 if (photos[index]) {
                   return (
-                    <div className="w-[330px] h-[400px]" key={index}>
+                    <div className="w-[285px] h-[400px]" key={index}>
                       <img
                         src={photos[index]}
                         alt=""
@@ -204,10 +200,11 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
               </div>
               <div className="flex flex-col justify-end">
                 {/* <p className="font-bold text-lg">Date : </p>{" "} */}
-                <span>{`${generalec?.datecreation
-                  ? formatDateOnly(generalec?.datecreation)
-                  : ""
-                  }`}</span>
+                <span>{`${
+                  generalec?.datecreation
+                    ? formatDateOnly(generalec?.datecreation)
+                    : ""
+                }`}</span>
               </div>
             </div>
           </div>

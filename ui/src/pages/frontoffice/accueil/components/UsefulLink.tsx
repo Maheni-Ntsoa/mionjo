@@ -57,7 +57,7 @@ const UsefulLink = () => {
   });
 
   return (
-    <div className="flex flex-col bg-grey w-1/2 my-12" ref={ref}>
+    <div className="flex flex-col bg-grey lg:w-1/2 w-full my-12 pb-8" ref={ref}>
       <div className="flex justify-center items-center gap-4 mx-8">
         <div className="">
           {/* <img

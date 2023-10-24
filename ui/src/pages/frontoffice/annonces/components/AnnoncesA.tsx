@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import ReactPaginate from "react-paginate";
+import Loading from "../../../../components/Loading";
 import GetDocumentByIdGenerale from "../../../../usecases/Document/GetDocumentByIdGenerale";
 import GetGeneralecByIdCateAndIdRubri from "../../../../usecases/Generalec/GetGeneralecByIdCateAndIdRubri";
 import OneAnnonce from "./OneAnnonce";
-import Loading from "../../../../components/Loading";
 
 interface AnnoncesAProps {
   idCategorie: number;
@@ -76,7 +76,7 @@ const AnnoncesA: React.FC<AnnoncesAProps> = ({ idCategorie, idRubrique }) => {
         <div className="flex flex-col gap-4">
           {/* en cours */}
           <div className="mt-4">
-            <div className="flex justify-center pl-20 items-center">
+            <div className="flex justify-center lg:pl-20 items-center">
               <div className="">
                 <h1 className="w-max text-xl lg:text-4xl xl:text-[50px] uppercase my-16 text-blue font-semibold font-quicksand">
                   {" "}
@@ -86,7 +86,7 @@ const AnnoncesA: React.FC<AnnoncesAProps> = ({ idCategorie, idRubrique }) => {
               <div className="ml-8">
                 <div className="rounded-full w-4 h-4 border-blue border-4"></div>
               </div>
-              <div className="xl:w-full border-blue border-b-4"></div>
+              <div className="w-full border-blue border-b-4"></div>
             </div>
             <div className="mt-4 flex flex-col gap-4 justify-center">
               {inProgress
@@ -143,7 +143,7 @@ const AnnoncesA: React.FC<AnnoncesAProps> = ({ idCategorie, idRubrique }) => {
               <div className="ml-8">
                 <div className="rounded-full w-4 h-4 border-blue border-4"></div>
               </div>
-              <div className="xl:w-full border-blue border-b-4"></div>
+              <div className="w-full border-blue border-b-4"></div>
             </div>
             <div className="mt-4 flex flex-col gap-4 justify-center">
               {assigned

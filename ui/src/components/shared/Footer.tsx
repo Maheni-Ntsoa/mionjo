@@ -6,45 +6,45 @@ const Footer = () => {
   return (
     <footer className="flex flex-col lg:flex-row gap-6 justify-center items-center text-white bg-brown py-12 pt-24 px-8 font-proximaNova">
       <div className="flex flex-col gap-4">
-        <div className="flex justify-center w-full gap-10">
+        <div className="flex flex-col lg:flex lg:flex-row justify-center w-full gap-10">
           <div className="flex justify-start">
             <div className="flex flex-col gap-2">
               <h2
-                className="uppercase font-semibold text-2xl"
+                className="uppercase font-semibold text-lg lg:text-2xl"
                 style={{ font: "quicksand" }}
               >
                 <Link to="/">{t("Accueil")}</Link>
               </h2>
               <div className="">
-                <p className="font-light text-xl">
+                <p className="font-light text-xs lg:text-xl">
                   <Link className="hover:text-yellow" to="/#composantes">
                     {t("Composantes")}
                   </Link>
                 </p>
-                <p className="font-light text-xl">
+                <p className="font-light text-xs lg:text-xl">
                   {" "}
                   <Link className="hover:text-yellow" to="/#actualites">
                     {t("Actu")}
                   </Link>
                 </p>
-                <p className="font-light text-xl">
+                <p className="font-light text-xs lg:text-xl">
                   {" "}
                   <Link className="hover:text-yellow" to="/#events">
                     {t("Evénements")}
                   </Link>
                 </p>
-                <p className="font-light text-xl">
+                <p className="font-light text-xs lg:text-xl">
                   {" "}
                   <Link className="hover:text-yellow" to="/#imgvideos">
                     {t("Galerie")}
                   </Link>
                 </p>
-                <p className="font-light text-xl">
+                <p className="font-light text-xs lg:text-xl">
                   <Link className="hover:text-yellow" to="/#usefullinks">
                     {t("LiensUtiles")}
                   </Link>
                 </p>
-                <p className="font-light text-xl">
+                <p className="font-light text-xs lg:text-xl">
                   {" "}
                   <Link className="hover:text-yellow" to="/#contactus">
                     {t("NousContacter")}
@@ -56,13 +56,13 @@ const Footer = () => {
           <div className="flex justify-start">
             <div className="flex flex-col gap-2">
               <h2
-                className="uppercase font-semibold text-2xl"
+                className="uppercase font-semibold text-lg lg:text-2xl"
                 style={{ font: "quicksand" }}
               >
                 {t("Apropos")}
               </h2>
               <div className="">
-                <p className="font-light text-xl">
+                <p className="font-light text-xs lg:text-xl">
                   {" "}
                   <Link
                     className="hover:text-yellow"
@@ -72,13 +72,13 @@ const Footer = () => {
                     {t("Description")}{" "}
                   </Link>
                 </p>
-                <p className="font-light text-xl">
+                <p className="font-light text-xs lg:text-xl">
                   {" "}
                   <Link className="hover:text-yellow" to="/apropos/#objectifs">
                     {t("Objectifs")}
                   </Link>
                 </p>
-                <p className="font-light text-xl">
+                <p className="font-light text-xs lg:text-xl">
                   {" "}
                   <Link
                     className="hover:text-yellow"
@@ -93,13 +93,13 @@ const Footer = () => {
           <div className="flex justify-start">
             <div className="flex flex-col gap-2">
               <h2
-                className="uppercase font-semibold text-2xl"
+                className="uppercase font-semibold text-lg lg:text-2xl"
                 style={{ font: "quicksand" }}
               >
                 {t("Realisations")}
               </h2>
               <div className="">
-                <p className="font-light text-xl">
+                <p className="font-light text-xs lg:text-xl">
                   {" "}
                   <Link
                     className="hover:text-yellow"
@@ -108,7 +108,7 @@ const Footer = () => {
                     {t("ReaParCompo")}
                   </Link>
                 </p>
-                {/* <p className="font-light text-xl">
+                {/* <p className="font-light text-xs lg:text-xl">
                   <Link className="hover:text-yellow" to="/activites/#localite">
                     {t("ReaParLoc")}
                   </Link>
@@ -119,50 +119,35 @@ const Footer = () => {
           <div className="flex justify-start">
             <div className="flex flex-col gap-2">
               <h2
-                className="uppercase font-semibold text-2xl"
+                className="uppercase font-semibold text-lg lg:text-2xl"
                 style={{ font: "quicksand" }}
               >
                 {t("Annonces")}
               </h2>
               <div className="">
-                <p className="font-light text-xl">
-                  <Link
-                    className="hover:text-yellow text-lg"
-                    to="/annonces?tabId=1"
-                  >
+                <p className="font-light text-xs lg:text-xl">
+                  <Link className="hover:text-yellow" to="/annonces?tabId=1">
                     {t("ConsultantIndi")}
                   </Link>
                 </p>
-                <p className="font-light text-xl">
-                  <Link
-                    className="hover:text-yellow text-lg"
-                    to="/annonces?tabId=5"
-                  >
+                <p className="font-light text-xs lg:text-xl">
+                  <Link className="hover:text-yellow" to="/annonces?tabId=5">
                     {t("ConsultantCab")}
                   </Link>
                 </p>
-                <p className="font-light text-xl">
-                  <Link
-                    className="hover:text-yellow text-lg"
-                    to="/annonces?tabId=2"
-                  >
+                <p className="font-light text-xs lg:text-xl">
+                  <Link className="hover:text-yellow" to="/annonces?tabId=2">
                     {t("Fournitures")}
                   </Link>
                 </p>
-                <p className="font-light text-xl">
+                <p className="font-light text-xs lg:text-xl">
                   {" "}
-                  <Link
-                    className="hover:text-yellow text-lg"
-                    to="/annonces?tabId=4"
-                  >
+                  <Link className="hover:text-yellow" to="/annonces?tabId=4">
                     {t("Services")}
                   </Link>
                 </p>
-                <p className="font-light text-xl">
-                  <Link
-                    className="hover:text-yellow text-lg"
-                    to="/annonces?tabId=3"
-                  >
+                <p className="font-light text-xs lg:text-xl">
+                  <Link className="hover:text-yellow" to="/annonces?tabId=3">
                     {t("Travaux")}
                   </Link>
                 </p>
@@ -172,13 +157,13 @@ const Footer = () => {
           <div className="flex justify-start">
             <div className="flex flex-col gap-2">
               <h2
-                className="uppercase font-semibold text-2xl"
+                className="uppercase font-semibold text-lg lg:text-2xl"
                 style={{ font: "quicksand" }}
               >
                 {t("IdeePlaintes")}
               </h2>
               <div className="">
-                <p className="font-light text-xl">
+                <p className="font-light text-xs lg:text-xl">
                   {" "}
                   <Link
                     className="hover:text-yellow"
@@ -187,7 +172,7 @@ const Footer = () => {
                     {t("IdeeSud")}
                   </Link>
                 </p>
-                <p className="font-light text-xl">
+                <p className="font-light text-xs lg:text-xl">
                   <Link
                     className="hover:text-yellow"
                     to="/ideeplaintes/#deposer"
@@ -195,7 +180,7 @@ const Footer = () => {
                     {t("DepPlaintes")}
                   </Link>
                 </p>
-                <p className="font-light text-xl">
+                <p className="font-light text-xs lg:text-xl">
                   {" "}
                   <Link className="hover:text-yellow" to="/ideeplaintes/#stats">
                     {t("StatPlaintes")}
@@ -207,16 +192,11 @@ const Footer = () => {
           <div className="flex justify-start">
             <div className="flex flex-col gap-2">
               <h2
-                className="uppercase font-semibold text-2xl"
+                className="uppercase font-semibold text-lg lg:text-2xl"
                 style={{ font: "quicksand" }}
               >
                 <Link to="https://mapmionjo.ankobabeach.mg/" target="_blank">
-                  <span
-                    className="font-quicksand lg:text-2xl xl:text-2xl"
-                    style={{ font: "quicksand" }}
-                  >
-                    {t("Cartographie")}
-                  </span>
+                  {t("Cartographie")}
                 </Link>
               </h2>
             </div>

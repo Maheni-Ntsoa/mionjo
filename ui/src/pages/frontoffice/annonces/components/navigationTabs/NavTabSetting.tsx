@@ -18,10 +18,8 @@ const NavTabSetting: React.FC<NavTabSettingProps> = ({ activeTab }) => {
       {/* <div className="absolute inset-0 opacity-20"></div> */}
       <div className="relative flex ">
         <div className="w-full mx-4">
-          <div className="flex flex-wrap justify-center gap-4 text-2xl py-4  uppercase text-black  ">
-            <div className="w-[260px] h-[100px] flex items-center text-center" style={{
-              boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px",
-            }}>
+          <div className="flex flex-wrap justify-center gap-4 text-xl py-4  uppercase text-black  ">
+            <div className="w-[200px] h-[100px] flex items-center text-center">
               <Navigation
                 id={"1"}
                 name="ConsultantIndi"
@@ -29,9 +27,7 @@ const NavTabSetting: React.FC<NavTabSettingProps> = ({ activeTab }) => {
                 onClick={() => handleTabClick("1")}
               />
             </div>
-            <div className="w-[260px] h-[100px] flex items-center text-center" style={{
-              boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px",
-            }}>
+            <div className="w-[200px] h-[100px] flex items-center text-center">
               <Navigation
                 id={"5"}
                 name="ConsultantCab"
@@ -39,7 +35,10 @@ const NavTabSetting: React.FC<NavTabSettingProps> = ({ activeTab }) => {
                 onClick={() => handleTabClick("5")}
               />
             </div>
-            <div className="flex items-center justify-center w-[260px] h-[100px]" style={{ boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px" }}>
+            <div
+              className="flex items-center justify-center w-[200px] h-[100px]"
+              style={{ boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px" }}
+            >
               <Navigation
                 id={"2"}
                 name="Fournitures"
@@ -47,9 +46,7 @@ const NavTabSetting: React.FC<NavTabSettingProps> = ({ activeTab }) => {
                 onClick={() => handleTabClick("2")}
               />
             </div>
-            <div className="w-[250px] h-[100px] flex items-center text-center  " style={{
-              boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px",
-            }}>
+            <div className="w-[200px] h-[100px] flex items-center text-center  ">
               <Navigation
                 id={"3"}
                 name="Services"
@@ -57,7 +54,10 @@ const NavTabSetting: React.FC<NavTabSettingProps> = ({ activeTab }) => {
                 onClick={() => handleTabClick("3")}
               />
             </div>
-            <div className="flex items-center justify-center w-[260px] h-[100px]" style={{ boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px" }}>
+            <div
+              className="flex items-center justify-center w-[200px] h-[100px]"
+              style={{ boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px" }}
+            >
               <Navigation
                 id={"4"}
                 name="Travaux"

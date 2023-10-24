@@ -12,12 +12,6 @@ import Loading from "../Loading";
 import MyModal from "../MyModal";
 import ShowPhoto from "../ShowPhoto";
 
-const HTMLRenderer = ({ html }: any) => {
-  return (
-    <div className="h-full w-full" dangerouslySetInnerHTML={{ __html: html }} />
-  );
-};
-
 const SousNavbar = () => {
   const { t } = useTranslation();
   const { i18n } = useTranslation();
@@ -81,17 +75,17 @@ const SousNavbar = () => {
   };
 
   return (
-    <nav className="w-full shadow-brown drop-shadow-lg top-0 z-10 h-24 relative">
-      <div className="border-b-4 border-blue flex items-center absolute -z-10 w-full top-14"></div>
+    <nav className="w-full shadow-brown drop-shadow-lg top-0 z-10 max-h-24 mb-24 lg:mb-0 py-4 xl:py-0 h-fit relative">
+      <div className="border-b-4 border-blue flex items-center absolute top-1/2 -z-10 w-full"></div>
       <div className="flex flex-col lg:grid lg:grid-cols-12 items-center w-full py-2">
         <div
-          className="col-start-2 col-span-8 grid grid-cols-11 bg-white h-16 items-center"
+          className="col-start-2 ml-0 lg:ml-12 col-span-7 grid grid-cols-11 bg-white lg:h-16 h-fit items-center"
           style={{
             boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px",
           }}
         >
           <motion.div
-            className="col-start-2 col-span-5 h-16 w-full bg-white flex justify-center relative px-2 cursor-pointer border-l-8 border-blue"
+            className="col-start-2 col-span-5 lg:ml-2 h-full lg:h-16 w-full bg-white flex justify-center relative px-2 cursor-pointer border-l-8 border-blue"
             initial={{ scale: 1 }}
             whileHover={{ scale: 1.1, zIndex: 99 }}
             onClick={() => setOpenInterview(true)}
@@ -102,32 +96,23 @@ const SousNavbar = () => {
             {loading ? (
               <Loading isLoading={loading} />
             ) : (
-              <div className="flex justify-start bg-white h-full w-full text-xs lg:text-base">
-                <div className="hidden lg:flex flex-col gap-2">
-                  <div className="text-blue text-xs font-light px-2 pt-8">
+              <div className="flex justify-start bg-white h-full w-full text-xs">
+                <div className="lg:flex flex-col lg:gap-2">
+                  <div className="text-blue text-xs font-light lg:px-2 pt-4 lg:pt-8">
                     {i18n.language === "en" && interview?.titreen ? (
                       <span>
                         {interview?.titreen
-                          ? interview?.titreen.slice(0, 50) + "..."
+                          ? interview?.titreen.slice(0, 45) + "..."
                           : ""}
                       </span>
                     ) : (
                       <span>
                         {interview?.titre
-                          ? interview?.titre.slice(0, 50) + "..."
+                          ? interview?.titre.slice(0, 45) + "..."
                           : ""}
                       </span>
                     )}
                   </div>
-                  {/* <div className="text-xs px-2 flex items-center justify-center">
-                    <div className="font-bold">
-                      <span>
-                        {interview?.datecreation
-                          ? formatDate(interview?.datecreation)
-                          : "-"}
-                      </span>
-                    </div>
-                  </div> */}
                 </div>
               </div>
             )}
@@ -138,19 +123,6 @@ const SousNavbar = () => {
             whileHover={{ scale: 1.2, zIndex: 99 }}
             onClick={() => setOpenPhoto(true)}
           >
-            {/* <div className="text-white font-semibold absolute z-20 left-4 bg-black/50 top-1 px-2">
-              <p>{t("photomois")}</p>
-            </div>
-            {loading ? (
-              <Loading isLoading={loading} />
-            ) : (
-              // <img
-              //   src={`${process.env.REACT_APP_BACKEND_URL}uploads/photos/${photoMois}`}
-              //   alt="img"
-              //   className="cursor-pointer w-full h-full object-cover"
-              // />
-              <>Text</>
-            )} */}
             <div className="text-blue text-xs lg:text-base font-extrabold font-quicksand absolute z-20 mr-2 lg:left-4 top-1 uppercase">
               <p>{t("photomois")}</p>
             </div>
@@ -158,41 +130,43 @@ const SousNavbar = () => {
               <Loading isLoading={loading} />
             ) : (
               <div className="flex justify-start bg-white h-full w-full text-xs lg:text-base">
-                <div className="hidden lg:flex flex-col gap-2">
-                  <div className="text-blue text-xs font-light px-2 pt-8">
+                <div className="lg:flex flex-col lg:gap-2">
+                  <div className="text-blue text-xs font-light lg:px-2 pt-4 lg:pt-8">
                     <span>
                       {resumePhotoMois
-                        ? resumePhotoMois.slice(0, 100) + "..."
+                        ? resumePhotoMois.slice(0, 45) + "..."
                         : ""}
                     </span>
-                    {/* Association des femmes productrices de cultures... */}
                   </div>
                 </div>
               </div>
             )}
           </motion.div>
         </div>
-        <div className="col-start-10 col-span-2 px-4">
+        <div className="col-start-10 col-span-2 mr-12">
           <motion.div className="flex flex-col justify-center items-center">
-            <div className="">
-              <ButtonImage
-                src="BtnDocument"
-                onClick={() => navigate("/documentations")}
-              />
-            </div>
+            <ButtonImage
+              width="w-[15rem]"
+              src="BtnDocument"
+              onClick={() => navigate("/documentations")}
+            />
           </motion.div>
         </div>
         <div className="col-start-12 col-span-1">
-          <div className="flex gap-4 font-bold text-md mb-12 text-blue">
+          <div className="flex justify-end gap-2 font-bold pr-4 mb-12 text-blue">
             <button
               onClick={() => changeLanguage("fr")}
-              className={`${i18n.language === "fr" ? "text-black/20" : ""}`}
+              className={`text-xs text-end ${
+                i18n.language === "fr" ? "text-black/20" : ""
+              }`}
             >
               FR
             </button>{" "}
             |{" "}
             <button
-              className={`${i18n.language === "en" ? "text-black/20" : ""}`}
+              className={`text-xs text-end ${
+                i18n.language === "en" ? "text-black/20" : ""
+              }`}
               onClick={() => changeLanguage("en")}
             >
               EN
@@ -206,7 +180,6 @@ const SousNavbar = () => {
         />
       </MyModal>
       <MyModal open={openInterview} onClose={handleCloseInterview}>
-        {/* <img src="/assets/images/carou1.jpg" alt="img" /> */}
         <DetailRectangleInterview generalec={interview!} />
       </MyModal>
     </nav>

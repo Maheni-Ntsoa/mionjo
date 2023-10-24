@@ -40,7 +40,7 @@ const ImgAndVideos = () => {
         <div className="ml-8">
           <div className="rounded-full w-4 h-4 border-blue border-4"></div>
         </div>
-        <div className="xl:w-full border-blue border-b-4"></div>
+        <div className="w-full border-blue border-b-4"></div>
       </div>
       <div className="gap-4">
         {changeView ? (

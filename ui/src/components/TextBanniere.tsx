@@ -6,7 +6,7 @@ interface TextBanniereProps {
   image?: string;
   width?: number;
   height?: number;
-  className?: string
+  className?: string;
 }
 
 const TextBanniere: React.FC<TextBanniereProps> = ({
@@ -15,23 +15,23 @@ const TextBanniere: React.FC<TextBanniereProps> = ({
   image,
   width,
   height,
-  className
+  className,
 }) => {
   return (
     <div className="flex flex-col items-center text-white">
-      <div className="lg:flex justify-center hidden">
-        <img src={image} alt="facebook" width={width} height={height} />
-      </div>
-      <div className="lg:hidden justify-center">
-        <img src={image} alt="facebook" width={80} height={80} />
+      <div className="flex w-32 h-32">
+        <img src={image} alt="imgs" className="w-full h-full object-cover" />
       </div>
       <div
-        className={`flex justify-center text-[1rem] md:text-[2rem] xl:text-[5rem] font-bold`}
+        className={`flex justify-center text-[0.5rem] md:text-[1rem] xl:text-[4rem] font-bold`}
       >
         {chiffre}
       </div>
-      {/* <div className="flex justify-center border-b-2 border-white w-1/2"></div> */}
-      <div className={`${className ? className : ""}flex justify-center text-[0.5rem] md:text-[0.8rem] xl:text-[1.5rem] font-semibold`}>
+      <div
+        className={`${
+          className ? className : ""
+        } flex justify-center text-[0.5rem] md:text-[0.8rem] xl:text-[1.2rem] font-semibold`}
+      >
         {texte}
       </div>
     </div>

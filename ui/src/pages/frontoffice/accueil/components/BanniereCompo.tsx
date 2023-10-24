@@ -3,7 +3,7 @@ import Composantes from "../../aPropos/components/Composantes";
 
 const BanniereCompo = () => {
   return (
-    <div className="w-screen xl:h-[850px] relative mb-[20rem] 2xl:mb-[42rem] ">
+    <div className="w-screen xl:h-[850px] relative mb-[10rem] 2xl:mb-[42rem] ">
       <div className="relative">
         <img
           src="/assets/images/fondb.png"
@@ -11,12 +11,12 @@ const BanniereCompo = () => {
           className="w-full h-full object-cover"
         />
         <div className="absolute w-full bottom-0 z-10">
-          <div className="flex justify-center w-full xl:-bottom-[290px] relative z-20">
+          <div className="flex justify-center w-full xl:-bottom-[240px] relative z-20">
             <Composantes />
           </div>
         </div>
       </div>
-      <div className="flex w-full absolute z-30 top-10">
+      <div className="flex w-full absolute z-30 top-4">
         <Banniere />
       </div>
     </div>
