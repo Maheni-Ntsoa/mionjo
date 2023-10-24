@@ -186,8 +186,8 @@ i18n.use(initReactI18next).init({
         titrecompo1: "Composante 1",
         soustitrecompo1:
           "La composante 1 du projet est axé sur le renforcement de la gouvernance locale décentralisée, la planification participative et la résilience sociale. Elle vise à améliorer la gouvernance locale participative, renforcer la résilience sociale et prévenir les conflits, en créant un environnement propice au développement durable dans les régions méridionales de Madagascar.",
-        titreSousCompo1A: "Sous-composante 1A",
-        titreSousCompo1B: "Sous-composante 1B",
+        soutitreCompo1A: "Sous-composante 1A",
+        soutitreCompo1B: "Sous-composante 1B",
         titreSousCompo1C: "",
         titreSousCompo1D: "",
 
