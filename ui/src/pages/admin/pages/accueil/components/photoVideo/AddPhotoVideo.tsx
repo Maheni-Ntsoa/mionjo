@@ -1,8 +1,9 @@
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import Alert from "@mui/material/Alert";
-import { Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useState } from "react";
 import "react-quill/dist/quill.snow.css";
+import * as Yup from "yup";
 import Button from "../../../../../../components/Button";
 import Loading from "../../../../../../components/Loading";
 import CreateManyPhoto from "../../../../../../usecases/Photo/photo";
@@ -13,16 +14,22 @@ interface AddPhotoVideoProps {
 }
 
 const AddPhotoVideo: React.FC<AddPhotoVideoProps> = ({ onclose, refetch }) => {
-  const initialValues = { files: [], video: [] };
+  const initialValues = { files: [], evenement: "" };
   const [loading, setLoading] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [isSuccess, setIsSuccess] = useState(false); // État du succès du formulaire
 
+  const validationSchema = Yup.object({
+    evenement: Yup.string(),
+  });
+
   const onSubmit = async (values: any, { resetForm }: any) => {
+    setIsSuccess(false);
     setLoading(true);
     const photoValue = {
       files: selectedFiles,
       generale: { id: 0 },
+      evenement: values.evenement,
     };
     await new CreateManyPhoto().execute(photoValue);
 
@@ -35,9 +42,31 @@ const AddPhotoVideo: React.FC<AddPhotoVideoProps> = ({ onclose, refetch }) => {
 
   return (
     <div className="px-4">
-      <Formik initialValues={initialValues} onSubmit={onSubmit}>
+      <div className="flex justify-center">
+        <Alert severity="info">
+          Veuillez entrer tous les images correspondant a l'événement !
+        </Alert>
+      </div>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+        validationSchema={validationSchema}
+      >
         <Form className="p-8">
           {isSuccess && <Alert severity="success"> Enregistré !</Alert>}
+          <div className="my-8">
+            <Field
+              placeholder="Nom de l'événement"
+              name="evenement"
+              type="text"
+              className="shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline"
+            />
+            <ErrorMessage
+              name="evenement"
+              component="div"
+              className="text-red text-xs italic"
+            />
+          </div>
           <div className="my-8">
             <label className="cursor-pointer items-center flex shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline">
               <input

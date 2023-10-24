@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import SubTitle from "../../../../components/SubTitle";
 import OneLink from "./OneLink";
 
 const dataLinks = [
@@ -29,9 +30,10 @@ const dataLinks = [
 
   { link: "", imgRef: "/assets/logos/A2DM.jpg" },
   { link: "https://aim.co.mg/", imgRef: "/assets/logos/AIM.png" },
-  { link: "https://avotraong-asso.mg", imgRef: "/assets/logos/ONG AVOTRA 10.jpg" },
-
-
+  {
+    link: "https://avotraong-asso.mg",
+    imgRef: "/assets/logos/ONG AVOTRA 10.jpg",
+  },
 ];
 
 const UsefulLink = () => {
@@ -66,10 +68,10 @@ const UsefulLink = () => {
           /> */}
         </div>
         <div className="">
-          {/* <SubTitle title="LiensUtiles" /> */}
+          <SubTitle title="LiensUtiles" className="text-blue Uppercase" />
         </div>
       </div>
-      <div className="mt-20 flex justify-center">
+      <div className="mt-8 flex justify-center px-14">
         <motion.div
           variants={container}
           initial="hidden"
@@ -78,7 +80,11 @@ const UsefulLink = () => {
           className="grid grid-cols-4 md:grid-cols-4 sm:grid-cols-2 gap-8"
         >
           {dataLinks.map((dataLink, index) => (
-            <motion.div key={index} variants={item} className="flex items-center">
+            <motion.div
+              key={index}
+              variants={item}
+              className="flex items-center"
+            >
               <OneLink link={dataLink.link} imgRef={dataLink.imgRef} />
             </motion.div>
           ))}

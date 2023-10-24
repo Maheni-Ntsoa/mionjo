@@ -3,6 +3,7 @@ import UseCase from "../interfaces/UseCase";
 interface CreateManyDto {
   files: any;
   generale?: any;
+  evenement?: string;
 }
 
 export default class CreateManyPhoto implements UseCase<CreateManyDto, void> {
@@ -12,6 +13,7 @@ export default class CreateManyPhoto implements UseCase<CreateManyDto, void> {
       formData.append("idgenerale", createManyDto.generale.id.toString());
       formData.append("nomphoto", createManyDto.files[i].name);
       formData.append("fichiers", createManyDto.files[i]);
+      formData.append("evenement", createManyDto.evenement!);
     }
     await fetch(`${process.env.REACT_APP_BACKEND_URL}photo/createMany`, {
       method: "post",

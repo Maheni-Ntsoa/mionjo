@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import SubTitle from "../../../../components/SubTitle";
 import RealCompo1 from "./composante/RealCompo1";
 import RealCompo2 from "./composante/RealCompo2";
 import RealCompo3 from "./composante/RealCompo3";
 import RealCompo4 from "./composante/RealCompo4";
 import RealCompo5 from "./composante/RealCompo5";
-import { useTranslation } from "react-i18next";
- 
+
 const RealiParCompo = () => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const [selected, setSelected] = useState(2);
   const [backgroundImage, setBackgroundImage] = useState(
     "/assets/images/composante3.jpeg"
@@ -21,11 +21,11 @@ const RealiParCompo = () => {
   };
 
   const divs = [
-    { imageSrc: "/assets/images/composante1.jpeg" },
-    { imageSrc: "/assets/images/composante2.png" },
-    { imageSrc: "/assets/images/composante3.jpeg" },
-    { imageSrc: "/assets/images/composante4.png" },
-    { imageSrc: "/assets/images/composante5.jpeg" },
+    { imageSrc: "/assets/images/composante1.jpeg", compo: "compo1" },
+    { imageSrc: "/assets/images/composante2.png", compo: "compo2" },
+    { imageSrc: "/assets/images/composante3.jpeg", compo: "compo3" },
+    { imageSrc: "/assets/images/composante4.png", compo: "compo4" },
+    { imageSrc: "/assets/images/composante5.jpeg", compo: "compo5" },
   ];
 
   return (
@@ -75,8 +75,9 @@ const RealiParCompo = () => {
             <div className="flex justify-center gap-2 max-width-screen xl:-bottom-[150px] relative z-20">
               {divs.map((div, index) => (
                 <motion.div
-                  className={`flex cursor-pointer ${selected === index ? "z-50" : "z-10"
-                    }`}
+                  className={`flex cursor-pointer ${
+                    selected === index ? "z-50" : "z-10"
+                  }`}
                   initial={{
                     scale: selected === index ? 1.2 : 1,
                     zIndex: selected === index ? 99 : 10,
@@ -89,12 +90,18 @@ const RealiParCompo = () => {
                   onClick={() => handleSelect(index, div.imageSrc)}
                   key={index}
                 >
-                  <div className="w-[270px] h-[500px]">
+                  <div className="w-[270px] h-[500px] relative">
                     <img
                       src={div.imageSrc}
                       alt=""
                       className="w-full h-full object-cover"
+                      style={{
+                        filter: "blur(2px)",
+                      }}
                     />
+                    <p className="absolute top-1/2 left-12 text-center font-bold text-white text-2xl z-10">
+                      {t(div.compo)}
+                    </p>
                   </div>
                 </motion.div>
               ))}

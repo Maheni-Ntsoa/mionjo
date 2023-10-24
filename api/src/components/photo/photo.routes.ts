@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { photoController } from './photo.controller';
 import multer from 'multer';
+import { photoController } from './photo.controller';
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -20,6 +20,8 @@ const router = Router();
 export default router;
 
 // router.route('/').get(roleController.list);
+router.route('/event').get(photoController.findPhotoEvent);
+router.route('/photoByEvent').post(photoController.findPhotosByEvent);
 router.route('/').get(photoController.list);
 router
   .route('/findByIdGenerale/:idgenerale')

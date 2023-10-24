@@ -1,12 +1,12 @@
-import { Model, DataTypes } from "sequelize";
-import { db } from "../../database";
-import { User } from "../user/user.model";
+import { DataTypes, Model } from 'sequelize';
+import { db } from '../../database';
 
 export class Photo extends Model {
   id!: number;
   idgenerale!: number;
   nomphoto!: string;
   datecreation!: Date;
+  evenement!: string;
 }
 
 Photo.init(
@@ -29,10 +29,14 @@ Photo.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    evenement: {
+      type: DataTypes.STRING(150),
+      allowNull: true,
+    },
   },
   {
-    tableName: "photos",
+    tableName: 'photos',
     sequelize: db.sequelize,
     timestamps: false,
-  }
+  },
 );

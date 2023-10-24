@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { PhotoMois } from './photoMois.model';
-import { Photo } from '../photo/photo.model';
 
 class PhotoMoisController {
   list(req: Request, res: Response) {
@@ -29,21 +28,21 @@ class PhotoMoisController {
 
   async createMany(req: Request, res: Response) {
     try {
-      await PhotoMois.findAll({
-        order: [['datecreation', 'DESC']],
-      })
-        .then(async (result) => {
-          if (result[0]) {
-            let tempData = {
-              idgenerale: 0,
-              nomphoto: result[0].dataValues.nomphoto,
-            };
-            await Photo.create(tempData);
-          }
-        })
-        .catch((err) => {
-          res.json({ success: false, err });
-        });
+      // await PhotoMois.findAll({
+      //   order: [['datecreation', 'DESC']],
+      // })
+      //   .then(async (result) => {
+      //     if (result[0]) {
+      //       let tempData = {
+      //         idgenerale: 0,
+      //         nomphoto: result[0].dataValues.nomphoto,
+      //       };
+      //       await Photo.create(tempData);
+      //     }
+      //   })
+      //   .catch((err) => {
+      //     res.json({ success: false, err });
+      //   });
 
       let files: any = req.files;
       let data = [];

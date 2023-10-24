@@ -1,46 +1,22 @@
 import { useEffect, useState } from "react";
 import Button from "../../../../components/Button";
-import MyImageGallery from "../../../../components/MyImageGallery";
+import GalleryByEvent from "../../../../components/GalleryByEvent";
 import MyVideoGallery from "../../../../components/MyVideoGallery";
 import SubTitle from "../../../../components/SubTitle";
-import GetPhotoByIdGenerale from "../../../../usecases/Photo/GetPhotoByIdGenerale";
+import GetEventPhotos from "../../../../usecases/Photo/GetEventPhotos";
 import GetVideoByIdGenerale from "../../../../usecases/Video/GetVideoByIdGenerale";
-
-// const images = [
-//   "/assets/images/nestjs.png",
-//   "/assets/images/sequelize.png",
-//   "/assets/images/sequelize.png",
-//   "/assets/images/sequelize.png",
-//   "/assets/images/sequelize.png",
-//   "/assets/images/sequelize.png",
-//   "/assets/images/sequelize.png",
-//   "/assets/images/sequelize.png",
-//   "/assets/images/sequelize.png",
-// ];
-
-// const videos = [
-//   "/assets/videos/videoTest.mp4",
-//   "/assets/videos/v2.mp4",
-//   "/assets/videos/videoTest.mp4",
-// ];
 
 const ImgAndVideos = () => {
   const [changeView, setChangeView] = useState(true);
-  const [photos, setPhotos] = useState<string[]>([]);
   const [videos, setVideos] = useState<string[]>([]);
+  const [events, setEvents] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchAllData = async () => {
-      const listImages: string[] = [];
       const listVideos: string[] = [];
-      const photoByIdGen = await new GetPhotoByIdGenerale().execute(0);
-      if (photoByIdGen && photoByIdGen.length > 0) {
-        for (let i = 0; i < photoByIdGen.length; i++) {
-          listImages.push(
-            `${process.env.REACT_APP_BACKEND_URL}uploads/photos/${photoByIdGen[i].nomphoto}`
-          );
-        }
-        setPhotos(listImages);
+      const eventPhoto = await new GetEventPhotos().execute();
+      if (eventPhoto) {
+        setEvents(eventPhoto);
       }
       const videoByIdGen = await new GetVideoByIdGenerale().execute(0);
       if (videoByIdGen && videoByIdGen && videoByIdGen.length > 0) {
@@ -58,14 +34,6 @@ const ImgAndVideos = () => {
   return (
     <div className="flex flex-col gap-2 bg-white py-4 w-screen">
       <div className="flex justify-start items-center mx-8">
-        {/* <div> */}
-        {/* <img
-            src="/assets/icons/ic_actualite.svg"
-            height={60}
-            width={60}
-            alt="logo_mionjo"
-          /> */}
-        {/* </div> */}
         <div>
           <SubTitle title="Galerie" className="text-blue Uppercase" />
         </div>
@@ -76,7 +44,13 @@ const ImgAndVideos = () => {
       </div>
       <div className="gap-4">
         {changeView ? (
-          <MyImageGallery images={photos} />
+          <>
+            {events.map((event, index) => (
+              <div className="" key={index}>
+                <GalleryByEvent eventTitle={event} />
+              </div>
+            ))}
+          </>
         ) : (
           <MyVideoGallery videos={videos} />
         )}
