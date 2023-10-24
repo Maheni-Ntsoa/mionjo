@@ -72,7 +72,7 @@ const ZoneIntervetion = () => {
       {loading ? (
         <Loading isLoading={loading} />
       ) : (
-        <div className="mt-4 flex flex-col  justify-center">
+        <div className="flex flex-col  justify-center">
           {generales
             .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
             .map((generale, index) => (

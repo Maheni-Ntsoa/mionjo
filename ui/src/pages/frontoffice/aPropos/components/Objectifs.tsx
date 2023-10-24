@@ -58,9 +58,9 @@ const Objectifs = () => {
           <SubTitle title="Objectifs" className="text-white" />
         </div>
       </div>
-      <div className="mt-4 flex flex-col w-[700px]">
-        <div className="flex flex-col gap-2 items-center text-justify">
-          <div className="flex flex-col gap-6 justify-center">
+      <div className="mt-4 flex flex-col w-[300px] md:w-[700px]">
+        <div className="md:flex flex-col gap-2 px-0 items-center text-justify">
+          <div className=" md:flex flex-col gap-6 justify-center">
             <div className="flex flex-col gap-2">
               <h1 className="font-semibold text-xl">Améliorer l’accès aux infrastructures de base et aux moyens de subsistance</h1>
               <p className="text-lg">Garantir un meilleur accès aux infrastructures essentielles, telles que l'eau potable et les services de base, tout en renforçant les moyens de subsistance des communautés locales. En mettant l'accent sur ces éléments fondamentaux, le projet vise à améliorer la qualité de vie des habitants du Sud de Madagascar, en augmentant leurs opportunités économiques et en favorisant un développement durable.</p>

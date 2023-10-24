@@ -18,9 +18,8 @@ const APropos = () => {
       <div className="flex justify-center bg-white " id="objectifs">
         <Aproches />
       </div>
-      <div className="flex justify-center my-12 relative" id="zoneintervention">
-        <div className="absolute top-0 left-0 bg-grey h-2/3 w-full z-0"></div>
-        <div className="relative z-10 flex justify-center">
+      <div className="bg-grey flex justify-center mt-6 p-8 " id="zoneintervention">
+        <div className=" flex justify-center ">
           <ZoneIntervetion />
         </div>
       </div>

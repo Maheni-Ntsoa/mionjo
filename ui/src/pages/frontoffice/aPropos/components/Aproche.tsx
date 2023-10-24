@@ -6,7 +6,7 @@ const Aproche = () => {
   const { t } = useTranslation();
   return (
     <div>
-      <div className="flex flex-wrap xl:flex-row xl:flex-wrap lg:justify-center gap-10 lg:mx-4 lg:w-[1600px]">
+      <div className="flex flex-col lg:flex-row lg:pb-32 xl:flex-wrap justify-center gap-10 lg:mx-4 lg:w-[1600px]">
         <OneAproche
           composanteNumber={t("soutitre1")}
           image="/assets/images/APPROCHES/001.jpg"

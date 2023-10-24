@@ -23,8 +23,8 @@ const OneAproche: React.FC<OneAprocheProps> = ({
     composanteNumber,
 }) => {
     return (
-        <Link to={lien} className="flex flex-col gap-1 border border-white rounded w-[200px] xl:w-[600px] h-[400px] xl:h-auto">
-            <div className="xl:w-[582px] h-[210px]">
+        <Link to={lien} className="flex flex-col gap-1 border border-white rounded w-full lg:w-[200px] xl:w-[600px] h-[400px] xl:h-auto">
+            <div className="w-full xl:w-[582px] h-[210px]">
                 <img
                     src={`${image}`}
                     alt="rectangle"
@@ -34,7 +34,7 @@ const OneAproche: React.FC<OneAprocheProps> = ({
             <div className="flex justify-center font-semibold text-lg">
                 <h1 className="p-2 ">{composanteNumber}</h1>
             </div>
-            <div className="text-sm p-2 xl:text-lg flex justify-center w-full xl:w-[582px]">
+            <div className="text-sm p-2 xl:text-lg flex justify-center w-full xl:w-[582px] text-justify">
                 <p className="">{resume ? resume : ""}</p>
             </div>
         </Link>
