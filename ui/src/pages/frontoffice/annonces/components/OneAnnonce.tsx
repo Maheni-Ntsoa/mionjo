@@ -106,7 +106,8 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
             {generalec.etatannonce === 10 ? (
               <>
                 <p className="text-sm lg:text-lg">
-                  Assigné a : <strong>{`${generalec.titulairemarche}`}</strong>
+                  Adjudicateur :{" "}
+                  <strong>{`${generalec.titulairemarche}`}</strong>
                 </p>
                 <p className="text-sm lg:text-lg">
                   Montant : <strong>{`${generalec.montantmarche}`}</strong>

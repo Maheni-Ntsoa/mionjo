@@ -3,7 +3,7 @@ import Composantes from "../../aPropos/components/Composantes";
 
 const BanniereCompo = () => {
   return (
-    <div className="w-screen xl:h-[850px] relative xl:mb-[10rem] 2xl:mb-[42rem] ">
+    <div className="w-screen xl:h-[850px] relative xl:mb-[16rem] 2xl:mb-[42rem] ">
       <div className="relative">
         <img
           src="/assets/images/fondb.png"

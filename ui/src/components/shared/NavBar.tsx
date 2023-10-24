@@ -177,7 +177,7 @@ const Navbar = () => {
                               />
                               <Link
                                 className="hover:text-yellow text-lg"
-                                to="/activites/#composantes"
+                                to="/#composantes"
                               >
                                 {t("C1")}
                               </Link>
@@ -191,7 +191,7 @@ const Navbar = () => {
                               />
                               <Link
                                 className="hover:text-yellow text-lg"
-                                to="/activites/#composantes"
+                                to="/#composantes"
                               >
                                 {t("C2")}
                               </Link>
@@ -205,7 +205,7 @@ const Navbar = () => {
                               />
                               <Link
                                 className="hover:text-yellow text-lg"
-                                to="/activites/#composantes"
+                                to="/#composantes"
                               >
                                 {t("C3")}
                               </Link>
@@ -219,7 +219,7 @@ const Navbar = () => {
                               />
                               <Link
                                 className="hover:text-yellow text-lg"
-                                to="/activites/#composantes"
+                                to="/#composantes"
                               >
                                 {t("C4")}
                               </Link>
@@ -233,7 +233,7 @@ const Navbar = () => {
                               />
                               <Link
                                 className="hover:text-yellow text-lg"
-                                to="/activites/#composantes"
+                                to="/#composantes"
                               >
                                 {t("C5")}
                               </Link>

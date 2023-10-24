@@ -8,8 +8,6 @@ import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 import ButtonImage from "../../../../components/ButtonImage";
-import SendMailDepotPlainte from "../../../../usecases/Email/SendMailDepotPlainte";
-import SendMailRetourPlainte from "../../../../usecases/Email/SendMailRetourPlainte";
 
 const DepotPlainteForm = () => {
   const { t } = useTranslation();
@@ -17,31 +15,31 @@ const DepotPlainteForm = () => {
   const [successM, setSuccessM] = useState(false);
   const video = "/assets/videos/videoMGP.mp4";
   const initialValues = {
-    nom: "",
+    quartier: "",
     prenom: "",
     email: "",
     tel: "",
     message: "",
   };
   const validationSchema = Yup.object({
-    nom: Yup.string(),
-    prenom: Yup.string(),
+    quartier: Yup.string().required("Champ obligatoire"),
+    prenom: Yup.string().required("Champ obligatoire"),
     email: Yup.string().email("Email invalide"),
-    tel: Yup.string(),
-    message: Yup.string(),
+    tel: Yup.string().required("Champ obligatoire"),
+    message: Yup.string().required("Champ obligatoire"),
   });
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {};
   const onSubmit = async (values: any, { resetForm }: any) => {
     const sendMailValues = {
-      nom: values.nom,
+      quartier: values.quartier,
       prenom: values.prenom,
       tel: values.tel,
       email: values.email,
       plainte: values.message,
     };
 
-    await new SendMailDepotPlainte().execute(sendMailValues);
-    await new SendMailRetourPlainte().execute(sendMailValues.email);
+    // await new SendMailDepotPlainte().execute(sendMailValues);
+    // await new SendMailRetourPlainte().execute(sendMailValues.email);
     setSuccessM(false);
     resetForm();
     setSuccessM(true);

@@ -33,56 +33,54 @@ const Documentations = () => {
       </div>
       <div className="w-full h-full relative lg:mb-[20rem]">
         <div className="relative">
-          <div className="hidden lg:block w-screen xl:h-[850px]">
-            <img
-              src={backgroundImage}
-              alt=""
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <img
+            src={backgroundImage}
+            alt=""
+            className="lg:min-w-[1440px] w-full h-[850px] object-cover hidden lg:block"
+          />
           <div className="hidden lg:block absolute w-full top-1/4 z-10">
             {selected === 0 && (
-              <h1 className="font-bold text-[50px] text-white text-center">
+              <h1 className="font-bold text-[40px] text-white text-center">
                 {t("textcompo1")}
               </h1>
             )}
             {selected === 1 && (
-              <h1 className="font-bold text-[50px] text-white text-center">
+              <h1 className="font-bold text-[40px] text-white text-center">
                 {t("textcompo2")}
               </h1>
             )}
             {selected === 2 && (
-              <h1 className="font-bold text-[50px] text-white text-center">
+              <h1 className="font-bold text-[40px] text-white text-center">
                 {t("textcompo3")}
               </h1>
             )}
             {selected === 3 && (
-              <h1 className="font-bold text-[50px] text-white text-center">
+              <h1 className="font-bold text-[40px] text-white text-center">
                 {t("textcompo4")}
               </h1>
             )}
             {selected === 4 && (
-              <h1 className="font-bold text-[50px] text-white text-center">
+              <h1 className="font-bold text-[40px] text-white text-center">
                 {t("textcompo5")}
               </h1>
             )}
           </div>
           <div className="flex justify-center my-4 lg:my-0 lg:absolute w-full bottom-0 z-10">
-            <div className="flex flex-col lg:flex-row justify-center gap-2 max-width-screen xl:-bottom-[150px] relative z-20">
+            <div className="flex flex-col lg:flex-row justify-center gap-2 xl:-bottom-[150px] relative z-20">
               {divs.map((div, index) => (
                 <motion.div
                   className={`flex cursor-pointer ${
                     selected === index ? "z-50" : "z-10"
                   }`}
                   initial={{
-                    scale: selected === index ? 1.2 : 1,
+                    scale: selected === index ? 1.1 : 1,
                     zIndex: selected === index ? 99 : 10,
                   }}
                   animate={{
-                    scale: selected === index ? 1.2 : 1,
+                    scale: selected === index ? 1.1 : 1,
                     zIndex: selected === index ? 99 : 10,
                   }}
-                  whileHover={{ scale: 1.2, zIndex: 99 }}
+                  whileHover={{ scale: 1.1, zIndex: 99 }}
                   onClick={() => handleSelect(index, div.imageSrc)}
                   key={index}
                 >
