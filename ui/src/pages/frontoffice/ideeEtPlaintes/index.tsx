@@ -15,7 +15,7 @@ const IdeeEtPlaintes = () => {
       <div className="flex justify-center my-12" id="deposer">
         <Plaintes />
       </div>
-      <div className="flex justify-center my-12" id="stats">
+      <div className="flex justify-center " id="stats">
         <StatGestionPlainte />
       </div>
     </div>

@@ -73,13 +73,13 @@ const Description = () => {
       {loading ? (
         <Loading isLoading={loading} />
       ) : (
-        <div className="flex justify-center gap-8  xl:px-12">
+        <div className="flex flex-col md:flex-row flex justify-center gap-8  xl:px-12">
           {generales
             .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
             .map((generale, index) => (
               <>
                 <div className="flex flex-col" key={index}>
-                  <div className="flex justify-center items-center">
+                  <div className="flex justify-center md:justify-start items-center">
                     <img
                       src={generale.img}
                       alt="rectangle"
@@ -88,7 +88,7 @@ const Description = () => {
                     />
                   </div>
                 </div>
-                <div className="mt-4 flex justify-center  w-[500px] h-[500px]">
+                <div className="md:mt-4 flex justify-center md:justify-start text-justify w-[300px]  h:-[250px] md:w-[500px] md:h-[500px]">
                   {generale.contenuen && i18n.language === "en" ? (
                     <div className="mt-4 flex justify-center px-4 items-center">
                       <HTMLRenderer
@@ -107,23 +107,7 @@ const Description = () => {
             ))}
         </div>
       )}
-      {/* <div className="mt-4">
-        <ReactPaginate
-          pageCount={pageCount}
-          onPageChange={handlePageClick}
-          previousLabel={"Précédent"}
-          nextLabel={"Suivant"}
-          breakLabel={"..."}
-          breakClassName={"break-me"}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          containerClassName={"pagination"}
-          activeClassName={"active"}
-        />
-      </div> */}
-      {/* <div className="mt-4 flex justify-center">
-        <img src="/assets/images/img_singleAloalo.svg" alt="singleAloalo" />
-      </div> */}
+
     </div>
   );
 };

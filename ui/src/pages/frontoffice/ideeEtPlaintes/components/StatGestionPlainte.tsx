@@ -48,7 +48,7 @@ const StatGestionPlainte = () => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="flex justify-center items-center gap-4">
+      <div className="flex justify-center items-center">
         <div className="mt-2">
           <img
             src="/assets/icons/ic_stat.svg"
@@ -62,7 +62,7 @@ const StatGestionPlainte = () => {
       {loading ? (
         <Loading isLoading={loading} />
       ) : (
-        <div className="my-4 flex flex-col xl:flex-row flex-wrap justify-center gap-4 w-2/3">
+        <div className="flex flex-col xl:flex-row flex-wrap justify-center gap-8 w-2/3">
           {generales
             .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
             .map((generale, index) => (
@@ -103,9 +103,6 @@ const StatGestionPlainte = () => {
           />
         </div>
       )}
-      <div className="mt-4 flex justify-center">
-        <img src="/assets/images/img_singleAloalo.svg" alt="singleAloalo" />
-      </div>
     </div>
   );
 };

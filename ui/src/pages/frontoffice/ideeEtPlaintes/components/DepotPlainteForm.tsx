@@ -56,25 +56,27 @@ const DepotPlainteForm = () => {
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="my-2 flex justify-center">
-        <img src="/assets/images/gestionPlainte.PNG" alt="rectangle" />
+      <div className="flex justify-center">
+        <div className="my-2 flex justify-center w-[300px] lg:w-2/3 h-full">
+          <img src="/assets/images/gestionPlainte.PNG" alt="rectangle" className="w-full h-full object-cover" />
+        </div>
+      </div>
+      <div className="flex justify-center">
+        <div className="my-2 flex justify-center w-[300px] lg:w-2/3 h-full">
+          <video
+            ref={videoRef}
+            controls
+            autoPlay
+            muted
+            onEnded={handleVideoEnd}
+            className="w-full h-full object-cover"
+          >
+            <source src={video} type="video/mp4" />
+          </video>
+        </div>
       </div>
 
-      <div className="my-2 flex justify-center">
-        <video
-          ref={videoRef}
-          width="1250"
-          height="1000"
-          controls
-          autoPlay
-          muted
-          onEnded={handleVideoEnd}
-        >
-          <source src={video} type="video/mp4" />
-        </video>
-      </div>
-
-      <div className="mx-auto bg-grey w-[800px] p-4 my-2">
+      <div className="mx-auto bg-grey w-[300px] lg:w-[800px] p-4 my-2">
         <div className=" flex justify-center w-full  mx-4 my-2">
           <div className="text-center">
             <h1 className="text-black text-xs lg:text-4xl font-bold my-2 mx-4">
