@@ -34,17 +34,14 @@ const SearchBar = () => {
             <div className="">
               <Field
                 name="search"
-                className="p-4 w-[160px] md:w-[300px] md:h-[40px] lg:w-[500px] h-[20px] lg:h-[80px] text-xs lg:text-base outline-none text-black/60"
+                className="p-4 w-[160px] md:w-[300px] md:h-[40px] lg:w-[900px] h-[20px] lg:h-[90px] text-xs lg:text-base outline-none text-black/60"
                 type="text"
                 placeholder={t("SiteSearch")}
-                style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.7)",
-                }}
               />
             </div>
 
             <div className="flex justify-center">
-              <button className="flex items-center bg-brown p-3 w-[40px] md:w-[40px] md:h-[40px] lg:w-[80px] h-[32px] lg:h-[80px]">
+              <button className="flex items-center bg-brown p-3 w-[40px] md:w-[40px] md:h-[40px] lg:w-[90px] h-[32px] lg:h-[90px]">
                 <img
                   src="/assets/icons/ic_search.svg"
                   width={50}

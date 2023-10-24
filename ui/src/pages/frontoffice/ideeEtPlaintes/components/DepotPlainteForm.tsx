@@ -30,7 +30,7 @@ const DepotPlainteForm = () => {
     tel: Yup.string(),
     message: Yup.string(),
   });
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { };
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {};
   const onSubmit = async (values: any, { resetForm }: any) => {
     const sendMailValues = {
       nom: values.nom,
@@ -58,9 +58,14 @@ const DepotPlainteForm = () => {
     <div className="flex flex-col gap-8">
       <div className="flex justify-center">
         <div className="my-2 flex justify-center w-[300px] lg:w-2/3 h-full">
-          <img src="/assets/images/gestionPlainte.PNG" alt="rectangle" className="w-full h-full object-cover" />
+          <img
+            src="/assets/images/gestionPlainte.PNG"
+            alt="rectangle"
+            className="w-full h-full object-cover"
+          />
         </div>
       </div>
+
       <div className="flex justify-center">
         <div className="my-2 flex justify-center w-[300px] lg:w-2/3 h-full">
           <video
@@ -78,8 +83,8 @@ const DepotPlainteForm = () => {
 
       <div className="mx-auto bg-grey w-[300px] lg:w-[800px] p-4 my-2">
         <div className=" flex justify-center w-full  mx-4 my-2">
-          <div className="text-center">
-            <h1 className="text-black text-xs lg:text-4xl font-bold my-2 mx-4">
+          <div className="flex justify-center">
+            <h1 className="text-black text-center text-md lg:text-4xl font-bold my-2 mx-4">
               FORMULAIRE DE PLAINTE{" "}
             </h1>
           </div>
@@ -90,7 +95,7 @@ const DepotPlainteForm = () => {
           onSubmit={onSubmit}
         >
           <Form className="px-8 pt-6 pb-8 mb-4">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="flex flex-col justify-center lg:grid lg:grid-cols-3 gap-4">
               <div className="mb-4">
                 <label
                   className="block text-black/70 text-sm font-bold mb-2"
@@ -109,7 +114,6 @@ const DepotPlainteForm = () => {
                   className="text-red text-xs italic"
                 />
               </div>
-
               <div className="mb-4">
                 <label
                   className="block text-black/70 text-sm font-bold mb-2"
@@ -128,10 +132,9 @@ const DepotPlainteForm = () => {
                   className="text-red text-xs italic"
                 />
               </div>
-
               <div className="mb-4">
                 <label
-                  className="block text-black/70 text-sm font-bold mb-2"
+                  className="block text-black/70 text-xs lg:text-sm font-bold mb-2"
                   htmlFor="dateplainte"
                 >
                   DATE DE LA PLAINTE<span className="text-red">*</span> :
@@ -331,6 +334,22 @@ const DepotPlainteForm = () => {
             )}
           </Form>
         </Formik>
+      </div>
+
+      <div className="flex justify-center mt-8">
+        <div
+          className="flex justify-center lg:w-1/2 w-full"
+          style={{
+            boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px",
+          }}
+        >
+          <div className="flex justify-center bg-green text-white font-bold text-sm lg:text-xl w-full h-[50px] p-4">
+            <p className="flex items-center">{t("NumVert")}</p>
+          </div>
+          <div className="flex justify-center bg-white text-green font-bold text-sm lg:text-xl w-full h-[50px] p-4">
+            <p className="flex items-center opacity-0">+231 34 85 645 21</p>
+          </div>
+        </div>
       </div>
     </div>
   );

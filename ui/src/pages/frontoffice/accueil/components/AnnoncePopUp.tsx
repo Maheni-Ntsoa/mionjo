@@ -38,7 +38,7 @@ const AnnoncePopUp = () => {
 
   const showCategorie = (generale: any) => {
     if (generale.idrubrique === 15) {
-      return t("Consultants");
+      return t("ConsultantIndi");
     }
     if (generale.idrubrique === 16) {
       return t("Founitures");
@@ -49,6 +49,9 @@ const AnnoncePopUp = () => {
     if (generale.idrubrique === 18) {
       return t("Travaux");
     }
+    if (generale.idrubrique === 29) {
+      return t("ConsultantCab");
+    }
   };
 
   const pageCount = Math.ceil(generales.length / itemsPerPage);
@@ -58,9 +61,9 @@ const AnnoncePopUp = () => {
   };
 
   return (
-    <div className="mt-4 py-2 px-3">
+    <div className="mt-4 py-2 px-2">
       <div
-        className="text-center uppercase text-white text-2xl my-2 font-bold"
+        className="text-center uppercase text-white text-xl lg:text-2xl my-2 font-bold"
         style={{ font: "quicksand" }}
       >
         {t("Annonces")}
@@ -68,28 +71,28 @@ const AnnoncePopUp = () => {
       {loading ? (
         <Loading isLoading={loading} />
       ) : (
-        <div className="mt-4 flex flex-col gap-4 justify-center">
+        <div className="mt-4 flex flex-col gap-1 lg:gap-4 justify-center">
           {generales
             .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
             .map((generale, index) => (
               <div key={index}>
                 <div className="flex flex-col gap-2 text-white" key={index}>
                   {generale.titreen && i18n.language === "en" ? (
-                    <p className="text-md">
+                    <p className="text-xs lg:text-md">
                       <span className="uppercase">
                         {showCategorie(generale)}
                       </span>{" "}
                       : {generale.titreen}
                     </p>
                   ) : (
-                    <p className="text-md">
+                    <p className="text-xs lg:text-md">
                       <span className="uppercase">
                         {showCategorie(generale)}
                       </span>{" "}
                       : {generale.titre}
                     </p>
                   )}
-                  <p className="text-center">
+                  <p className="text-center text-xs lg:text-md">
                     Date limite :{" "}
                     <span>
                       {generale.datelimit
@@ -126,8 +129,8 @@ const AnnoncePopUp = () => {
             }
             breakLabel={"..."}
             breakClassName={"break-me"}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
+            marginPagesDisplayed={4}
+            pageRangeDisplayed={2}
             containerClassName={"pagination"}
             activeClassName={"active"}
           />

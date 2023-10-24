@@ -29,15 +29,15 @@ const OneResult: React.FC<OneResultProps> = ({ result }) => {
 
   return (
     <div
-      className="bg-white w-full p-2"
+      className="bg-white w-full p-2 text-justify"
       style={{
         boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px",
       }}
     >
-      <div className="pl-32 mt-4 flex justify-start">
+      <div className="lg:pl-32 mt-4 flex justify-start">
         <div className="flex flex-col">
-          <h2 className="text-2xl text-black/70 font-bold ml-4 mb-2">{`${result.nomcategorie} - ${result.nomrubrique}`}</h2>
-          <h3 className="text-xl text-black/70 font-bold ml-4 mb-2">
+          <h2 className="text-lg lg:text-2xl text-black/70 font-bold lg:ml-4 mb-2">{`${result.nomcategorie} - ${result.nomrubrique}`}</h2>
+          <h3 className="text-md lg:text-xl text-black/70 font-bold lg:ml-4 mb-2">
             {result.titre}
           </h3>
           <HTMLRenderer
@@ -45,14 +45,14 @@ const OneResult: React.FC<OneResultProps> = ({ result }) => {
           />
         </div>
       </div>
-      <div className="pl-32 mt-4 flex justify-start mr-16">
+      <div className="lg:pl-32 mt-4 flex justify-start lg:mr-16">
         {/* <Button name="Voir plus" onClick={handleSeeMore} /> */}
         <ButtonImage src="Btnsavoir" onClick={handleSeeMore} />
       </div>
       <AnimatePresence>
         {
           <MyModal onClose={handleSeeMoreClose} open={seeMoreOpen}>
-            <div className="flex justify-center text-xl">
+            <div className="flex justify-center text-xs lg:text-lg">
               <DetailRectangle generalec={result!} />
             </div>
           </MyModal>

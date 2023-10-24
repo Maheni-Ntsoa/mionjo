@@ -47,31 +47,30 @@ const StatGestionPlainte = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      <div className="flex justify-center items-center">
-        <div className="mt-2">
+    <div className="flex flex-col justify-center items-center my-4">
+      <div className="flex justify-center items-center w-full">
+        {/* <div className="mt-2">
           <img
             src="/assets/icons/ic_stat.svg"
             height={60}
             width={60}
             alt="logo_mionjo"
           />
-        </div>
+        </div> */}
         <SubTitle title="StatPlaintes" />
       </div>
       {loading ? (
         <Loading isLoading={loading} />
       ) : (
-        <div className="flex flex-col xl:flex-row flex-wrap justify-center gap-8 w-2/3">
+        <div className="flex flex-col lg:flex-row lg:flex-wrap justify-center gap-8 w-2/3">
           {generales
             .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
             .map((generale, index) => (
-              <div className="flex flex-col gap-2" key={index}>
+              <div className="flex justify-center" key={index}>
                 <OneStatGestionPlainte generale={generale} />
               </div>
             ))}
         </div>
-
       )}
       {generales.length > itemsPerPage && (
         <div className="my-4">

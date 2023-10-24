@@ -45,9 +45,12 @@ const GalleryByEvent = ({ eventTitle }: GalleryByEventProps) => {
       ) : (
         <>
           {eventTitle && (
-            <div className="flex justify-center items-center gap-4 px-8">
+            <div className="flex justify-center items-center gap-4 px-14">
               <div className="border-b-2 border-brown w-full flex justify-center"></div>
-              <h1 className="w-full text-center text-xl lg:text-lg xl:text-2xl font-bold uppercase my-4 text-brown font-semibold font-quicksand">
+              <h1
+                className="w-full text-center text-xl lg:text-lg xl:text-2xl font-bold uppercase my-4 text-brown font-quicksand"
+                style={{ whiteSpace: "nowrap" }}
+              >
                 {eventTitle}
               </h1>
               <div className="border-b-2 border-brown w-full flex justify-center"></div>

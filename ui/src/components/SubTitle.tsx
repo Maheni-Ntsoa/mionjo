@@ -14,7 +14,7 @@ const SubTitle: React.FC<SubTitleProps> = ({
 
   return (
     <div className={`w-max font-quicksand ${className ? className : "my-12"}`}>
-      <h1 className="text-xl lg:text-4xl xl:text-[50px] font-bold uppercase my-16">
+      <h1 className="text-lg lg:text-4xl xl:text-[50px] font-bold uppercase my-16">
         {t(title)}
       </h1>
     </div>

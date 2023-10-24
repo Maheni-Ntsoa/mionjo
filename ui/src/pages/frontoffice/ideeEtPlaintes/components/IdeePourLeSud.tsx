@@ -38,7 +38,7 @@ const IdeePourLeSud: React.FC<IdeePourLeSudProps> = ({ texte }) => {
         <SubTitle title="IdeeSud" className="text-black/70" />
       </div>
       <div className="flex flex-col lg:flex-row justify-center gap-4 xl:w-[1060px] xl:h-[600px]">
-        <div className="lg:w-1/2 flex flex-col items-center justify-center gap-4 border-black/60 border-2">
+        <div className="lg:w-1/2 flex flex-col items-center justify-center gap-4 lg:mx-0 mx-2 border-black/60 border-2">
           <div className="">
             <img
               src="/assets/icons/ic_ideecontri.png"
@@ -51,7 +51,7 @@ const IdeePourLeSud: React.FC<IdeePourLeSudProps> = ({ texte }) => {
             <h1 className="text-black/60 lg:text-4xl px-8">{t("idée")}</h1>
           </div>
         </div>
-        <div className="lg:w-1/2 bg-white text-white  flex flex-col items-center justify-center p-4 border-black/60 border-2">
+        <div className="lg:w-1/2 bg-white text-white  flex flex-col items-center lg:mx-0 mx-2 justify-center p-4 border-black/60 border-2">
           <div className="w-full mx-auto ">
             <Formik
               initialValues={initialValues}

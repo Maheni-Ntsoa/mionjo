@@ -4,7 +4,7 @@ import TextBanniere from "./TextBanniere";
 const Banniere = () => {
   const { t } = useTranslation();
   return (
-    <div className="h-full lg:h-[400px] w-full flex flex-col md:flex-row items-center justify-between p-2 lg:p-12 uppercase bg-grey lg:bg-opacity-0">
+    <div className="h-full xl:h-[400px] w-full flex flex-col lg:flex-row items-center justify-between p-2 lg:p-12 uppercase bg-grey xl:bg-opacity-0">
       <div className="flex justify-center">
         <TextBanniere
           chiffre="5"

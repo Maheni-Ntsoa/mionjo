@@ -5,7 +5,7 @@ const Compos = () => {
   const { t } = useTranslation();
   return (
     <div>
-      <div className="flex flex-wrap xl:flex-row xl:flex-nowrap justify-center gap-8 mx-8">
+      <div className="flex flex-wrap lg:flex-row xl:flex-nowrap justify-center gap-2 lg:gap-8">
         <OneCompo
           composanteNumber={t("compo1")}
           image="/assets/images/composante1.jpeg"

@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Generalec from "../models/Generalec";
 import GetPhotoByIdGenerale from "../usecases/Photo/GetPhotoByIdGenerale";
-import { formatDate, formatDateOnly } from "../utils/formatDate";
+import { formatDateOnly } from "../utils/formatDate";
+import Loading from "./Loading";
 
 interface DetailRectangleInterviewProps {
   generalec: Generalec;
@@ -42,8 +43,8 @@ const DetailRectangleInterview: React.FC<DetailRectangleInterviewProps> = ({
   }, []);
 
   return (
-    <div className="flex flex-row-reverse gap-14 justify-center p-2">
-      <div className="w-1/2">
+    <div className="flex flex-col-reverse lg:flex-row-reverse gap-12 justify-center p-2 text-justify">
+      <div className="w-full lg:w-1/2">
         <div className="">
           {generalec.titreen && i18n.language === "en" ? (
             <h1 className="font-bold text-xl">
@@ -84,35 +85,17 @@ const DetailRectangleInterview: React.FC<DetailRectangleInterviewProps> = ({
         </div>
       </div>
       {loading ? (
-        <div className="w-1/2">
-          {photos.length > 0 && (
-            <>
-              <p className="font-bold text-xl">Photos : </p>{" "}
-              {/* <MyImageGallery images={photos} /> */}
-              <div className="flex lg:justify-center justify-center lg:w-full flex-wrap gap-3 m-2">
-                {[1, 2, 3].map((index) => {
-                  return (
-                    <div
-                      className="w-[500px] h-[500px] bg-black/20"
-                      key={index}
-                    ></div>
-                  );
-                })}
-              </div>
-            </>
-          )}
-        </div>
+        <Loading isLoading={loading} />
       ) : (
         <div className="">
-          {/* <p className="font-bold text-xl">
-            {tab.length === 0 ? "Photos" : ""}
-          </p>{" "} */}
-          {/* <MyImageGallery images={photos} /> */}
-          <div className="flex lg:justify-center justify-center lg:w-full flex-wrap gap-3 m-2">
+          <div className="flex justify-center w-full gap-3 m-2">
             {[0].map((index) => {
               if (photos[index]) {
                 return (
-                  <div className="w-[500px] h-[500px]" key={index}>
+                  <div
+                    className="w-full h-full lg:w-[380px] lg:h-[380px]"
+                    key={index}
+                  >
                     <img
                       src={photos[index]}
                       alt=""

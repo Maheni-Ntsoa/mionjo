@@ -20,20 +20,21 @@
   display: inline-block;
   font-size: 14px;
   cursor: pointer;
-  padding: 4px 8px;
-  border: 1px solid #ccc;
-  border-radius: 50%;
+  padding: 4px 4px;
+  color: #000;
+  border-bottom: 1px solid #e6e6e6;
+  /* border-radius: 50%; */
   transition: background-color 0.3s;
-  background-color: #f0f0f0;
+  /* background-color: #080606; */
 }
 
 .pagination li.active {
-  background-color: #00000030;
-  color: #fff;
-  border: 1px solid #236cb2;
+  /* background-color: #00000030; */
+  color: #000;
+  border-bottom: 1px solid #000;
 }
 
 .pagination li:hover {
-  background-color: #f0f0f0;
+  border-bottom: 1px solid #000;
   color: black;
 }

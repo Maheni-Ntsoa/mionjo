@@ -16,7 +16,7 @@ const OneCompo: React.FC<OneCompoProps> = ({
 }) => {
   return (
     <div
-      className="flex flex-col gap-1 w-[210px] h-[450px]"
+      className="flex flex-col gap-1 w-[160px] h-[450px] lg:w-[210px] lg:h-[450px]"
       style={{ boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px" }}
     >
       <div className="w-full h-[210px]">
@@ -34,7 +34,7 @@ const OneCompo: React.FC<OneCompoProps> = ({
       </div>
       <div className="flex justify-center mt-auto">
         <Link to={lien} className="flex flex-col items-end cursor-pointer">
-          <ButtonImage src="Btnsavoirplus"></ButtonImage>
+          <ButtonImage src="Btnsavoirplus" width="w-[8rem]"></ButtonImage>
         </Link>
       </div>
     </div>

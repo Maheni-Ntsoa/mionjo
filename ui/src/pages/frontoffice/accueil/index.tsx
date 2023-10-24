@@ -17,13 +17,13 @@ const Accueil = () => (
     <div className="flex justify-center">
       <Edito />
     </div>
-    <div className="hidden lg:flex justify-center" id="composantes">
+    <div className="hidden xl:flex justify-center" id="composantes">
       <BanniereCompo />
     </div>
-    <div className="flex justify-center lg:hidden">
+    <div className="flex justify-center xl:hidden">
       <Banniere />
     </div>
-    <div className="flex justify-center lg:hidden" id="composantes">
+    <div className="flex justify-center xl:hidden" id="composantes">
       <Composantes />
     </div>
     <div className="flex justify-center" id="actualites">

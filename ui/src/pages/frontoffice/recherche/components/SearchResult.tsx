@@ -27,7 +27,7 @@ const SearchResult: React.FC<SearchResultProps> = ({ result, keyword }) => {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex justify-center w-full">
-        <div className="">
+        <div className="pt-14 lg:pt-0">
           <SearchBar />
         </div>
       </div>

@@ -129,11 +129,11 @@ const Carousel = () => {
         <SearchBar />
       </div> */}
       </div>
-      <div className="absolute z-50 top-96 right-0">
+      <div className="absolute z-20 top-[400px] md:top-[450px] right-0">
         <img
           src="/assets/images/mionjo_soratra.png"
           alt="mionjoText"
-          className="w-[400px] h-[250px] transform scale-125 origin-top-right"
+          className="w-[200px] h-[150px] lg:w-[400px] lg:h-[250px] transform scale-125 origin-top-right"
         />
       </div>
       {openAnnonces && (
@@ -141,9 +141,9 @@ const Carousel = () => {
           <div className="fixed bottom-0 left-0 right-0 top-0 z-50 flex h-full w-full items-center justify-center">
             <div className="blur-background absolute h-full w-full"></div>
           </div>
-          <div className="fixed z-50 bg-blue/70 p-4 lg:w-72 top-12 left-10">
+          <div className="fixed z-50 bg-blue/70 p-4 w-[200px] lg:w-72 top-6 lg:top-12 left-10">
             <button
-              className="absolute right-4 top-2 rounded-full text-white font-bold"
+              className="absolute right-4 top-2 text-white font-bold"
               onClick={() => setOpenAnnonces(false)}
             >
               X
