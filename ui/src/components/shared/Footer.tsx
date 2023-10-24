@@ -16,35 +16,53 @@ const Footer = () => {
                 <Link to="/">{t("Accueil")}</Link>
               </h2>
               <div className="">
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   <Link className="hover:text-yellow" to="/#composantes">
                     {t("Composantes")}
                   </Link>
                 </p>
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   {" "}
                   <Link className="hover:text-yellow" to="/#actualites">
                     {t("Actu")}
                   </Link>
                 </p>
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   {" "}
                   <Link className="hover:text-yellow" to="/#events">
                     {t("Evénements")}
                   </Link>
                 </p>
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   {" "}
                   <Link className="hover:text-yellow" to="/#imgvideos">
                     {t("Galerie")}
                   </Link>
                 </p>
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   <Link className="hover:text-yellow" to="/#usefullinks">
                     {t("LiensUtiles")}
                   </Link>
                 </p>
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   {" "}
                   <Link className="hover:text-yellow" to="/#contactus">
                     {t("NousContacter")}
@@ -62,7 +80,10 @@ const Footer = () => {
                 {t("Apropos")}
               </h2>
               <div className="">
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   {" "}
                   <Link
                     className="hover:text-yellow"
@@ -72,13 +93,19 @@ const Footer = () => {
                     {t("Description")}{" "}
                   </Link>
                 </p>
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   {" "}
                   <Link className="hover:text-yellow" to="/apropos/#objectifs">
                     {t("Objectifs")}
                   </Link>
                 </p>
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   {" "}
                   <Link
                     className="hover:text-yellow"
@@ -99,7 +126,10 @@ const Footer = () => {
                 {t("Realisations")}
               </h2>
               <div className="">
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   {" "}
                   <Link
                     className="hover:text-yellow"
@@ -108,7 +138,7 @@ const Footer = () => {
                     {t("ReaParCompo")}
                   </Link>
                 </p>
-                {/* <p className="font-light text-xs lg:text-xl">
+                {/* <p className="font-light text-xs lg:text-base" style={{whiteSpace: "nowrap"}}>
                   <Link className="hover:text-yellow" to="/activites/#localite">
                     {t("ReaParLoc")}
                   </Link>
@@ -125,28 +155,43 @@ const Footer = () => {
                 {t("Annonces")}
               </h2>
               <div className="">
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   <Link className="hover:text-yellow" to="/annonces?tabId=1">
                     {t("ConsultantIndi")}
                   </Link>
                 </p>
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   <Link className="hover:text-yellow" to="/annonces?tabId=5">
                     {t("ConsultantCab")}
                   </Link>
                 </p>
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   <Link className="hover:text-yellow" to="/annonces?tabId=2">
                     {t("Fournitures")}
                   </Link>
                 </p>
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   {" "}
                   <Link className="hover:text-yellow" to="/annonces?tabId=4">
                     {t("Services")}
                   </Link>
                 </p>
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   <Link className="hover:text-yellow" to="/annonces?tabId=3">
                     {t("Travaux")}
                   </Link>
@@ -163,7 +208,10 @@ const Footer = () => {
                 {t("IdeePlaintes")}
               </h2>
               <div className="">
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   {" "}
                   <Link
                     className="hover:text-yellow"
@@ -172,7 +220,10 @@ const Footer = () => {
                     {t("IdeeSud")}
                   </Link>
                 </p>
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   <Link
                     className="hover:text-yellow"
                     to="/ideeplaintes/#deposer"
@@ -180,7 +231,10 @@ const Footer = () => {
                     {t("DepPlaintes")}
                   </Link>
                 </p>
-                <p className="font-light text-xs lg:text-xl">
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
                   {" "}
                   <Link className="hover:text-yellow" to="/ideeplaintes/#stats">
                     {t("StatPlaintes")}

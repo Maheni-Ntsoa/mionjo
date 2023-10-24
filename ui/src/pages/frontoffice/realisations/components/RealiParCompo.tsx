@@ -10,7 +10,7 @@ import RealCompo5 from "./composante/RealCompo5";
 
 const RealiParCompo = () => {
   const { t } = useTranslation();
-  const [selected, setSelected] = useState(2);
+  const [selected, setSelected] = useState(0);
   const [backgroundImage, setBackgroundImage] = useState(
     "/assets/images/composante1.jpeg"
   );
@@ -35,16 +35,16 @@ const RealiParCompo = () => {
           <SubTitle title="ReaParCompo" />
         </div>
       </div>
-      <div className="w-full h-full relative mb-[20rem]">
+      <div className="w-full h-full relative lg:mb-[20rem]">
         <div className="relative">
-          <div className="w-screen xl:h-[850px]">
+          <div className="hidden lg:block w-screen xl:h-[850px]">
             <img
               src={backgroundImage}
               alt=""
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="absolute w-full top-1/4 z-10">
+          <div className="hidden lg:block absolute w-full top-1/4 z-10">
             {selected === 0 && (
               <h1 className="font-bold text-[50px] text-white text-center">
                 {t("textcompo1")}
@@ -71,8 +71,8 @@ const RealiParCompo = () => {
               </h1>
             )}
           </div>
-          <div className="absolute w-full bottom-0 z-10">
-            <div className="flex justify-center gap-2 max-width-screen xl:-bottom-[150px] relative z-20">
+          <div className="flex justify-center my-4 lg:my-0 lg:absolute w-full bottom-0 z-10">
+            <div className="flex flex-col lg:flex-row justify-center gap-2 max-width-screen xl:-bottom-[150px] relative z-20">
               {divs.map((div, index) => (
                 <motion.div
                   className={`flex cursor-pointer ${
@@ -90,7 +90,7 @@ const RealiParCompo = () => {
                   onClick={() => handleSelect(index, div.imageSrc)}
                   key={index}
                 >
-                  <div className="w-[270px] h-[500px] relative">
+                  <div className="lg:w-[210px] lg:h-[450px] w-[250px] h-[210px] relative">
                     <img
                       src={div.imageSrc}
                       alt=""
@@ -99,7 +99,7 @@ const RealiParCompo = () => {
                         filter: "blur(2px)",
                       }}
                     />
-                    <p className="absolute top-1/2 left-12 text-center font-bold text-white text-2xl z-10">
+                    <p className="absolute top-1/3 lg:top-1/2 left-10 lg:left-7 text-center font-bold text-white text-2xl z-10">
                       {t(div.compo)}
                     </p>
                   </div>
