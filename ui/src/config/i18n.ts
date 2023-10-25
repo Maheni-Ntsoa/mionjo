@@ -195,8 +195,15 @@ i18n.use(initReactI18next).init({
 
         textSousCompo1A:
           "Réhabilitation des collectivités territoriales décentralisées pour améliorer la planification communautaire et la prestation de services essentiels, avec un accent sur la mise en place de Structures Locales de Concertation (SLC).",
-        textSousCompo1B:
-          "Renforcement de la résilience sociale en améliorant la résilience sociale face aux changements climatiques, à la sécheresse et à d'autres risques sociaux en soutenant la cohésion sociale, en particulier parmi les jeunes et les femmes, pour la prévention et la résolution des conflits locaux.",
+        textSousCompo1B: `Renforcement de la résilience sociale, de l’engagement citoyen et de la
+        prévention des conﬂits face aux impacts du changement climatique, des périodes de sécheresse
+        sévère, de l’insécurité croissante, des normes sociales, des tabous sociaux liés à la prévalence de
+        la Violence Basée sur le Genre (VBG), de la conversion des jeunes en Dahalo, et de l’inexistence
+        d’activités de développement durable en soutenant les SLC dans des activités de résilience sociale.
+        Tout cele en incluant la cohésion sociale, le soutien au groupes vulnérables spécifques tels les
+        jeunes et les femmes, la mise en place des mesures d’atténuation des risques de VBG/VCE dans les
+        zones du projet et la mise en œuvre d’un Système Communautaire d’Alerte Précoce et de Réponse
+        (SCAPR) avec un fort accent sur la prévention et la résolution des conﬂits locaux.`,
         textSousCompo1C: "",
         textSousCompo1D: "",
 
@@ -259,8 +266,7 @@ i18n.use(initReactI18next).init({
           "Intervention 1 : Rétablir la capacité de production de 50 000 ménages vulnérables dans le court terme",
         textSousCompo5B: `Intervention 3 : Optimiser et pérenniser les points
         d'eau potable existant et vue de sécuriser l'alimentation en eau pour des usages multiples`,
-        textSousCompo5C:
-          "Renforcement de capacité du gouvernement à apporter une riposte au changement climatique, y compris la gestion des situations d'urgence, la résilience climatique au niveau local et le leadership dans la réponse au climat.",
+        textSousCompo5C: `01: Water trucking`,
         textSousCompo5D:
           "Développement des infrastructures vertes et des paysages résilients par la création de pépinières pour produire une végétation adaptative, la plantation d'arbres et d'arbustes brise-vents, le reboisement à des fins multifonctionnelle.",
 

@@ -19,13 +19,13 @@ const RealCompo1 = () => {
               composanteNumber={t("soutitreCompo1A")}
               image="/assets/souscompo/1A.png"
               lien="/activites/#composante"
-              resume={t("textaproche1")}
+              resume={t("textSousCompo1A")}
             />
             <OneAproche
               composanteNumber={t("soutitreCompo1B")}
               image="/assets/souscompo/1B.png"
               lien="/activites/#composante"
-              resume={t("textaproche2")}
+              resume={t("textSousCompo1B")}
             />
             {/* <OneAproche
               composanteNumber={t("soutitreCompo3")}
