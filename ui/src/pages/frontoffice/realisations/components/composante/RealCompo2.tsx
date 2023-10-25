@@ -18,13 +18,13 @@ const RealCompo2 = () => {
             <div className="flex flex-col lg:flex-row justify-center gap-4 lg:mx-4 lg:w-[600px]">
               <OneAproche
                 composanteNumber={t("titreSousCompo2A")}
-                image="/assets/souscompo/2A.jpg"
+                image="/assets/souscompo/2A.png"
                 lien="/activites/#composante"
                 resume={t("textSousCompo2A")}
               />
               <OneAproche
                 composanteNumber={t("titreSousCompo2B")}
-                image="/assets/souscompo/2B.jpg"
+                image="/assets/souscompo/2B.png"
                 lien="/activites/#composante"
                 resume={t("textSousCompo2B")}
               />
@@ -32,7 +32,7 @@ const RealCompo2 = () => {
             <div className="flex flex-col lg:flex-row justify-center gap-4 lg:mx-4 lg:w-[600px]">
               <OneAproche
                 composanteNumber={t("titreSousCompo2C")}
-                image="/assets/souscompo/3C.jpg"
+                image="/assets/souscompo/3C.png"
                 lien="/activites/#composante"
                 resume={t("textSousCompo2C")}
               />

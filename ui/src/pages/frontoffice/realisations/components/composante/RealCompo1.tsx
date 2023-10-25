@@ -17,13 +17,13 @@ const RealCompo1 = () => {
           <div className="flex flex-col lg:flex-row justify-center gap-10 lg:mx-4 lg:w-[600px]">
             <OneAproche
               composanteNumber={t("soutitreCompo1A")}
-              image="/assets/souscompo/1A.jpg"
+              image="/assets/souscompo/1A.png"
               lien="/activites/#composante"
               resume={t("textaproche1")}
             />
             <OneAproche
               composanteNumber={t("soutitreCompo1B")}
-              image="/assets/souscompo/1B.jpg"
+              image="/assets/souscompo/1B.png"
               lien="/activites/#composante"
               resume={t("textaproche2")}
             />
