@@ -64,7 +64,7 @@ const Footer = () => {
                   style={{ whiteSpace: "nowrap" }}
                 >
                   {" "}
-                  <Link className="hover:text-yellow" to="/#contactus">
+                  <Link className="hover:text-yellow" to="/#usefullinks">
                     {t("NousContacter")}
                   </Link>
                 </p>
@@ -100,6 +100,15 @@ const Footer = () => {
                   {" "}
                   <Link className="hover:text-yellow" to="/apropos/#objectifs">
                     {t("Objectifs")}
+                  </Link>
+                </p>
+                <p
+                  className="font-light text-xs lg:text-base"
+                  style={{ whiteSpace: "nowrap" }}
+                >
+                  {" "}
+                  <Link className="hover:text-yellow" to="/apropos/#approches">
+                    {t("Approches")}
                   </Link>
                 </p>
                 <p
@@ -159,7 +168,7 @@ const Footer = () => {
                   className="font-light text-xs lg:text-base"
                   style={{ whiteSpace: "nowrap" }}
                 >
-                  <Link className="hover:text-yellow" to="/annonces?tabId=1">
+                  <Link className="hover:text-yellow" to="/annonces?tabId=15">
                     {t("ConsultantIndi")}
                   </Link>
                 </p>
@@ -167,7 +176,7 @@ const Footer = () => {
                   className="font-light text-xs lg:text-base"
                   style={{ whiteSpace: "nowrap" }}
                 >
-                  <Link className="hover:text-yellow" to="/annonces?tabId=5">
+                  <Link className="hover:text-yellow" to="/annonces?tabId=29">
                     {t("ConsultantCab")}
                   </Link>
                 </p>
@@ -175,7 +184,7 @@ const Footer = () => {
                   className="font-light text-xs lg:text-base"
                   style={{ whiteSpace: "nowrap" }}
                 >
-                  <Link className="hover:text-yellow" to="/annonces?tabId=2">
+                  <Link className="hover:text-yellow" to="/annonces?tabId=16">
                     {t("Fournitures")}
                   </Link>
                 </p>
@@ -184,7 +193,7 @@ const Footer = () => {
                   style={{ whiteSpace: "nowrap" }}
                 >
                   {" "}
-                  <Link className="hover:text-yellow" to="/annonces?tabId=4">
+                  <Link className="hover:text-yellow" to="/annonces?tabId=17">
                     {t("Services")}
                   </Link>
                 </p>
@@ -192,7 +201,7 @@ const Footer = () => {
                   className="font-light text-xs lg:text-base"
                   style={{ whiteSpace: "nowrap" }}
                 >
-                  <Link className="hover:text-yellow" to="/annonces?tabId=3">
+                  <Link className="hover:text-yellow" to="/annonces?tabId=18">
                     {t("Travaux")}
                   </Link>
                 </p>

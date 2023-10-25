@@ -1,10 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import AnnoncesA from "../AnnoncesA";
-import ConsultantCab from "../ConsultantCab";
-import Consultants from "../Consultants";
-import Fournitures from "../Fournitures";
-import RealisationsA from "../RealisationsA";
 
 interface TabContentSettingProps {
   activeTab: string;
@@ -25,27 +21,27 @@ const TabContentSetting: React.FC<TabContentSettingProps> = ({ activeTab }) => {
         {...fadeIn}
         transition={{ duration: 0.5 }}
       >
-        {activeTab === "1" && (
+        {activeTab === "15" && (
           <div className="pt-8">
             <AnnoncesA idCategorie={4} idRubrique={15} />
           </div>
         )}
-        {activeTab === "5" && (
+        {activeTab === "29" && (
           <div className="pt-8">
             <AnnoncesA idCategorie={4} idRubrique={29} />
           </div>
         )}
-        {activeTab === "2" && (
+        {activeTab === "16" && (
           <div className="pt-8">
             <AnnoncesA idCategorie={4} idRubrique={16} />
           </div>
         )}
-        {activeTab === "3" && (
+        {activeTab === "17" && (
           <div className="pt-8">
             <AnnoncesA idCategorie={4} idRubrique={17} />
           </div>
         )}
-        {activeTab === "4" && (
+        {activeTab === "18" && (
           <div className="pt-8">
             <AnnoncesA idCategorie={4} idRubrique={18} />
           </div>

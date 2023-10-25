@@ -21,7 +21,7 @@ const NavTabSetting: React.FC<NavTabSettingProps> = ({ activeTab }) => {
           <div className="flex flex-wrap justify-center gap-4 text-xl py-4  uppercase text-black  ">
             <div className="w-[200px] h-[100px] flex items-center text-center">
               <Navigation
-                id={"1"}
+                id={"15"}
                 name="ConsultantIndi"
                 activeTab={activeTabl}
                 onClick={() => handleTabClick("1")}
@@ -29,7 +29,7 @@ const NavTabSetting: React.FC<NavTabSettingProps> = ({ activeTab }) => {
             </div>
             <div className="w-[200px] h-[100px] flex items-center text-center">
               <Navigation
-                id={"5"}
+                id={"29"}
                 name="ConsultantCab"
                 activeTab={activeTabl}
                 onClick={() => handleTabClick("5")}
@@ -40,7 +40,7 @@ const NavTabSetting: React.FC<NavTabSettingProps> = ({ activeTab }) => {
               style={{ boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px" }}
             >
               <Navigation
-                id={"2"}
+                id={"16"}
                 name="Fournitures"
                 activeTab={activeTabl}
                 onClick={() => handleTabClick("2")}
@@ -48,7 +48,7 @@ const NavTabSetting: React.FC<NavTabSettingProps> = ({ activeTab }) => {
             </div>
             <div className="w-[200px] h-[100px] flex items-center text-center  ">
               <Navigation
-                id={"3"}
+                id={"17"}
                 name="Services"
                 activeTab={activeTabl}
                 onClick={() => handleTabClick("3")}
@@ -59,7 +59,7 @@ const NavTabSetting: React.FC<NavTabSettingProps> = ({ activeTab }) => {
               style={{ boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px" }}
             >
               <Navigation
-                id={"4"}
+                id={"18"}
                 name="Travaux"
                 activeTab={activeTabl}
                 onClick={() => handleTabClick("4")}

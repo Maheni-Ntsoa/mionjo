@@ -7,7 +7,7 @@ const Annonces = () => {
   return (
     <div>
       <div className="">
-        <NavTabSetting activeTab={tabId?.toString()! || "1"} />
+        <NavTabSetting activeTab={tabId?.toString()! || "15"} />
       </div>
     </div>
   );

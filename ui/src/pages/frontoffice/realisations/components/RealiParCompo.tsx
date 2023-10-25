@@ -8,9 +8,13 @@ import RealCompo3 from "./composante/RealCompo3";
 import RealCompo4 from "./composante/RealCompo4";
 import RealCompo5 from "./composante/RealCompo5";
 
-const RealiParCompo = () => {
+interface RealiParCompoProps {
+  tabId: number;
+}
+
+const RealiParCompo: React.FC<RealiParCompoProps> = ({ tabId }) => {
   const { t } = useTranslation();
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(tabId);
   const [backgroundImage, setBackgroundImage] = useState(
     "/assets/images/composante1.jpeg"
   );

@@ -278,7 +278,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         className="hover:text-yellow text-lg"
-                        to="/#contactus"
+                        to="/#usefullinks"
                       >
                         {t("NousContacter")}
                       </Link>
@@ -457,7 +457,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         className="hover:text-yellow text-lg"
-                        to="/annonces?tabId=1"
+                        to="/annonces?tabId=15"
                       >
                         {t("ConsultantIndi")}
                       </Link>
@@ -465,7 +465,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         className="hover:text-yellow text-lg"
-                        to="/annonces?tabId=5"
+                        to="/annonces?tabId=29"
                       >
                         {t("ConsultantCab")}
                       </Link>
@@ -473,7 +473,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         className="hover:text-yellow text-lg"
-                        to="/annonces?tabId=2"
+                        to="/annonces?tabId=16"
                       >
                         {t("Fournitures")}
                       </Link>
@@ -481,17 +481,17 @@ const Navbar = () => {
                     <li>
                       <Link
                         className="hover:text-yellow text-lg"
-                        to="/annonces?tabId=3"
+                        to="/annonces?tabId=17"
                       >
-                        {t("Travaux")}
+                        {t("Services")}
                       </Link>
                     </li>
                     <li>
                       <Link
                         className="hover:text-yellow text-lg"
-                        to="/annonces?tabId=4"
+                        to="/annonces?tabId=18"
                       >
-                        {t("Services")}
+                        {t("Travaux")}
                       </Link>
                     </li>
                   </motion.ul>

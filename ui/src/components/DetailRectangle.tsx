@@ -125,10 +125,7 @@ const DetailRectangle: React.FC<DetailRectangleProps> = ({ generalec }) => {
                 {[0].map((index) => {
                   if (photos[index]) {
                     return (
-                      <div
-                        className="w-full h-full lg:w-[380px] lg:h-[380px]"
-                        key={index}
-                      >
+                      <div className="w-[275px] h-[400px]" key={index}>
                         <img
                           src={photos[index]}
                           alt=""

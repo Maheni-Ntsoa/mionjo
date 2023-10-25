@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import ReactPaginate from "react-paginate";
+import { useNavigate } from "react-router-dom";
 import Loading from "../../../../components/Loading";
 import GetDocumentByIdGenerale from "../../../../usecases/Document/GetDocumentByIdGenerale";
 import GetGeneralecByIdCate from "../../../../usecases/Generalec/GetGeneralecByIdCate";
@@ -9,6 +10,7 @@ import { formatDateOnly } from "../../../../utils/formatDate";
 const AnnoncePopUp = () => {
   const { t } = useTranslation();
   const { i18n } = useTranslation();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [generales, setGenerales] = useState<any[]>([]);
   const [pageNumber, setPageNumber] = useState(0);
@@ -76,7 +78,13 @@ const AnnoncePopUp = () => {
             .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
             .map((generale, index) => (
               <div key={index}>
-                <div className="flex flex-col gap-2 text-white" key={index}>
+                <div
+                  className="flex flex-col gap-2 text-white cursor-pointer"
+                  key={index}
+                  onClick={() =>
+                    navigate(`/annonces?tabId=${generale.idrubrique}`)
+                  }
+                >
                   {generale.titreen && i18n.language === "en" ? (
                     <p className="text-xs lg:text-md">
                       <span className="uppercase">
