@@ -44,9 +44,9 @@ const RealiParCompo: React.FC<RealiParCompoProps> = ({ tabId }) => {
           <img
             src={backgroundImage}
             alt=""
-            className="lg:min-w-[1440px] w-full h-[850px] object-cover hidden lg:block"
+            className="lg:min-w-[1280px] w-full h-[850px] object-cover hidden lg:block"
           />
-          <div className="hidden lg:block absolute w-full top-1/4 z-10">
+          <div className="hidden lg:block absolute w-full px-8 top-1/4 z-10">
             {selected === 0 && (
               <h1 className="font-bold text-[40px] text-white text-center">
                 {t("textcompo1")}

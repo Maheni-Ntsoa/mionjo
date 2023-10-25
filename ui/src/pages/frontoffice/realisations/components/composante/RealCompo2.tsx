@@ -9,34 +9,34 @@ const RealCompo2 = () => {
       <div className="flex flex-col gap-4">
         <h1 className="font-bold text-4xl text-center">{t("titrecompo2")}</h1>
         <div className="flex justify-center items-center">
-          <p className="text-justify text-xl  w-[800px]">{t("soustitrecompo2")}</p>
+          <p className="text-justify text-lg lg:text-xl w-full px-2 lg:px-8">
+            {t("soustitrecompo2")}
+          </p>
         </div>
-        <div className="my-4 flex justify-center">
-          <div className="flex flex-wrap xl:flex-row xl:flex-wrap lg:justify-center gap-10 lg:mx-4 lg:w-[1600px]">
-            <OneAproche
-              composanteNumber={t("titreSousCompo2A")}
-              image="/assets/souscompo/2A.jpg"
-              lien="/activites/#composante"
-              resume={t("textSousCompo2A")}
-            />
-            <OneAproche
-              composanteNumber={t("titreSousCompo2B")}
-              image="/assets/souscompo/2B.jpg"
-              lien="/activites/#composante"
-              resume={t("textSousCompo2B")}
-            />
-            <OneAproche
-              composanteNumber={t("titreSousCompo2C")}
-              image="/assets/souscompo/3C.jpg"
-              lien="/activites/#composante"
-              resume={t("textSousCompo2C")}
-            />
-            {/* <OneAproche
-              composanteNumber={t("soutitre4")}
-              image="/assets/images/composante4.png"
-              lien="/activites/#composante"
-              resume={t("textaproche4")}
-            /> */}
+        <div className="mb-4 mt-8 flex justify-center">
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col lg:flex-row justify-center gap-4 lg:mx-4 lg:w-[600px]">
+              <OneAproche
+                composanteNumber={t("titreSousCompo2A")}
+                image="/assets/souscompo/2A.jpg"
+                lien="/activites/#composante"
+                resume={t("textSousCompo2A")}
+              />
+              <OneAproche
+                composanteNumber={t("titreSousCompo2B")}
+                image="/assets/souscompo/2B.jpg"
+                lien="/activites/#composante"
+                resume={t("textSousCompo2B")}
+              />
+            </div>
+            <div className="flex flex-col lg:flex-row justify-center gap-4 lg:mx-4 lg:w-[600px]">
+              <OneAproche
+                composanteNumber={t("titreSousCompo2C")}
+                image="/assets/souscompo/3C.jpg"
+                lien="/activites/#composante"
+                resume={t("textSousCompo2C")}
+              />
+            </div>
           </div>
         </div>
       </div>
