@@ -255,8 +255,10 @@ i18n.use(initReactI18next).init({
         titreSousCompo5B: "Sous-composante 5B",
         titreSousCompo5C: "Sous-composante 5C",
         titreSousCompo5D: "Sous-composante 5D",
-        textSousCompo5A: "Relance agricole avec la FAO.",
-        textSousCompo5B: "Approvisionnement en eau avec l’UNICEF.",
+        textSousCompo5A:
+          "Intervention 1 : Rétablir la capacité de production de 50 000 ménages vulnérables dans le court terme",
+        textSousCompo5B: `Intervention 3 : Optimiser et pérenniser les points
+        d'eau potable existant et vue de sécuriser l'alimentation en eau pour des usages multiples`,
         textSousCompo5C:
           "Renforcement de capacité du gouvernement à apporter une riposte au changement climatique, y compris la gestion des situations d'urgence, la résilience climatique au niveau local et le leadership dans la réponse au climat.",
         textSousCompo5D:
