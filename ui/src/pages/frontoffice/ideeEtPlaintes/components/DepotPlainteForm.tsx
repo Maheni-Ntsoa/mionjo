@@ -79,6 +79,95 @@ const DepotPlainteForm = () => {
         </div>
       </div>
 
+      <div className="flex justify-center mt-8">
+        <div
+          className="flex flex-col lg:flex-row justify-center w-full"
+          style={{
+            boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px",
+          }}
+        >
+          <div className="flex justify-center bg-green text-white font-bold text-sm lg:text-xl w-full h-full p-4">
+            <p className="flex justify-center items-center">{t("NumVert")}</p>
+          </div>
+          <div className="flex flex-col lg:flex-row justify-center bg-white text-green font-bold text-sm lg:text-xl w-full h-full p-4">
+            <div className="flex flex-col gap-2">
+              <p
+                className="flex items-center justify-center font-bold text-lg lg:text-2xl"
+                style={{ fontFamily: "quicksand" }}
+              >
+                UNGP
+              </p>
+              <p className="flex justify-center items-center">
+                +261 32 32 035 27
+              </p>
+              <p className="flex justify-center items-center">
+                +261 33 65 004 40
+              </p>
+              <p className="flex justify-center items-center">
+                +261 34 30 815 40
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col lg:flex-row justify-center bg-white text-green font-bold text-sm lg:text-xl w-full h-full p-4">
+            <div className="flex flex-col gap-2">
+              <p
+                className="flex items-center justify-center font-bold text-lg lg:text-2xl"
+                style={{ fontFamily: "quicksand", whiteSpace: "nowrap" }}
+              >
+                ATSIMO ANDREFANA
+              </p>
+              <p className="flex justify-center items-center">
+                +261 32 32 035 28
+              </p>
+              <p className="flex justify-center items-center">
+                +261 33 65 004 41
+              </p>
+              <p className="flex justify-center items-center">
+                +261 34 30 842 50
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col lg:flex-row justify-center bg-white text-green font-bold text-sm lg:text-xl w-full h-full p-4">
+            <div className="flex flex-col gap-2">
+              <p
+                className="flex items-center justify-center font-bold text-lg lg:text-2xl"
+                style={{ fontFamily: "quicksand", whiteSpace: "nowrap" }}
+              >
+                ANDROY
+              </p>
+              <p className="flex justify-center items-center">
+                +261 32 32 035 29
+              </p>
+              <p className="flex justify-center items-center">
+                +261 33 65 004 42
+              </p>
+              <p className="flex justify-center items-center">
+                +261 34 30 842 70
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col lg:flex-row justify-center bg-white text-green font-bold text-sm lg:text-xl w-full h-full p-4">
+            <div className="flex flex-col gap-2">
+              <p
+                className="flex items-center justify-center font-bold text-lg lg:text-2xl"
+                style={{ fontFamily: "quicksand", whiteSpace: "nowrap" }}
+              >
+                ANOSY
+              </p>
+              <p className="flex justify-center items-center">
+                +261 32 32 035 30
+              </p>
+              <p className="flex justify-center items-center">
+                +261 33 65 004 43
+              </p>
+              <p className="flex justify-center items-center">
+                +261 34 30 842 90
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="mx-auto bg-grey w-[300px] lg:w-[800px] p-4 my-2">
         <div className=" flex justify-center w-full  mx-4 my-2">
           <div className="flex justify-center">
@@ -332,22 +421,6 @@ const DepotPlainteForm = () => {
             )}
           </Form>
         </Formik>
-      </div>
-
-      <div className="flex justify-center mt-8">
-        <div
-          className="flex justify-center lg:w-1/2 w-full"
-          style={{
-            boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px",
-          }}
-        >
-          <div className="flex justify-center bg-green text-white font-bold text-sm lg:text-xl w-full h-[50px] p-4">
-            <p className="flex items-center">{t("NumVert")}</p>
-          </div>
-          <div className="flex justify-center bg-white text-green font-bold text-sm lg:text-xl w-full h-[50px] p-4">
-            <p className="flex items-center opacity-0">+231 34 85 645 21</p>
-          </div>
-        </div>
       </div>
     </div>
   );

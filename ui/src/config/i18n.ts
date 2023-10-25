@@ -5,7 +5,7 @@ i18n.use(initReactI18next).init({
   resources: {
     en: {
       translation: {
-        NumVert: "Green number",
+        NumVert: "Green numbers",
         Attribue: "Assigned",
         Actu: "News",
         Composantes: "Components",
@@ -108,7 +108,7 @@ i18n.use(initReactI18next).init({
     },
     fr: {
       translation: {
-        NumVert: "Numéro vert",
+        NumVert: "Numéros vert",
         Attribue: "Attribues",
         Actu: "Actualités",
         Composantes: "Composantes",

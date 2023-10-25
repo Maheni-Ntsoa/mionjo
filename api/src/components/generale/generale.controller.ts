@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
-import { Generale } from './generale.model';
 import { GeneraleC } from '../views/generalec/generalec.model';
-import { generaleCController } from '../views/generalec/generalec.controller';
+import { Generale } from './generale.model';
 
 class GeneraleController {
   async updateInternationDownload(req: Request, res: Response) {
@@ -38,7 +37,7 @@ class GeneraleController {
       where: { id: req.params.id },
     }).then((result: any) => {
       Generale.update(
-        { nbdownnational: result.nbdowninter + 1 },
+        { nbdownnational: result.nbdownnational + 1 },
         { where: { id: req.params.id } },
       )
         .then((result) => {

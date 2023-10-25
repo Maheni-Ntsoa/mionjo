@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import ButtonImage from "../../../../components/ButtonImage";
 import Loading from "../../../../components/Loading";
 import Generalec from "../../../../models/Generalec";
-import DownloadFile from "../../../../usecases/Download/DownloadFile";
 import IncreaseInterationalDownload from "../../../../usecases/Generale/IncreaseInterationalDownload";
 import IncreaseNationalDownload from "../../../../usecases/Generale/IncreaseNationalDownload";
 import { formatDateOnly } from "../../../../utils/formatDate";
@@ -53,7 +52,6 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
     } else {
       await new IncreaseInterationalDownload().execute(value);
     }
-    await new DownloadFile().execute(document);
     setLoading(false);
   };
 
@@ -131,11 +129,15 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
           <Loading isLoading={loading} />
         ) : (
           <div className="flex justify-center items-center">
-            <ButtonImage
-              src="BtnDown"
+            <a
+              className="cursor-pointer"
+              target="_blank"
+              href={`${process.env.REACT_APP_BACKEND_URL}uploads/documents/${document}`}
+              download={`${process.env.REACT_APP_BACKEND_URL}uploads/documents/${document}`}
               onClick={handleDownloadClick}
-              width="w-[13rem]"
-            />
+            >
+              <ButtonImage src="BtnDown" width="w-[13rem]" />
+            </a>
           </div>
         )}
       </div>

@@ -130,7 +130,7 @@ const ContactUsForm = () => {
             />
           </div>
           <div className="flex justify-center">
-            <ButtonImage type="submit" src="BtnSend" />
+            <ButtonImage type="submit" src="BtnSend" width="w-[17rem]" />
           </div>
           {successM && (
             <div className="my-2">

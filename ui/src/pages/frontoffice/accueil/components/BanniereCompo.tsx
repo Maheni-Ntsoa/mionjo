@@ -6,7 +6,7 @@ const BanniereCompo = () => {
     <div className="w-screen xl:h-[850px] relative xl:mb-[16rem] 2xl:mb-[42rem] ">
       <div className="relative">
         <img
-          src="/assets/images/fondb.png"
+          src="/assets/images/fondb.jpg"
           alt=""
           className="w-full h-full object-cover"
         />
