@@ -8,7 +8,7 @@ module.exports = {
         proximaNova: ["ProximaNovaFont", "sans"],
       },
       screens: {
-        "2xl": "2560px",
+        "2xl": "1530px",
       },
     },
     colors: {
