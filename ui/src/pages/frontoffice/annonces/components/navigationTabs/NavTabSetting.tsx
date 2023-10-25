@@ -24,7 +24,7 @@ const NavTabSetting: React.FC<NavTabSettingProps> = ({ activeTab }) => {
                 id={"15"}
                 name="ConsultantIndi"
                 activeTab={activeTabl}
-                onClick={() => handleTabClick("1")}
+                onClick={() => handleTabClick("15")}
               />
             </div>
             <div className="w-[200px] h-[100px] flex items-center text-center">
@@ -32,7 +32,7 @@ const NavTabSetting: React.FC<NavTabSettingProps> = ({ activeTab }) => {
                 id={"29"}
                 name="ConsultantCab"
                 activeTab={activeTabl}
-                onClick={() => handleTabClick("5")}
+                onClick={() => handleTabClick("29")}
               />
             </div>
             <div
@@ -43,7 +43,7 @@ const NavTabSetting: React.FC<NavTabSettingProps> = ({ activeTab }) => {
                 id={"16"}
                 name="Fournitures"
                 activeTab={activeTabl}
-                onClick={() => handleTabClick("2")}
+                onClick={() => handleTabClick("16")}
               />
             </div>
             <div className="w-[200px] h-[100px] flex items-center text-center  ">
@@ -51,7 +51,7 @@ const NavTabSetting: React.FC<NavTabSettingProps> = ({ activeTab }) => {
                 id={"17"}
                 name="Services"
                 activeTab={activeTabl}
-                onClick={() => handleTabClick("3")}
+                onClick={() => handleTabClick("17")}
               />
             </div>
             <div
@@ -62,7 +62,7 @@ const NavTabSetting: React.FC<NavTabSettingProps> = ({ activeTab }) => {
                 id={"18"}
                 name="Travaux"
                 activeTab={activeTabl}
-                onClick={() => handleTabClick("4")}
+                onClick={() => handleTabClick("18")}
               />
             </div>
           </div>
