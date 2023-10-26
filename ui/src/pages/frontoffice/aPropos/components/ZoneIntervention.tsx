@@ -56,15 +56,15 @@ const ZoneIntervetion = () => {
   };
   return (
     <div className="flex flex-col h-auto w-2/3 justify-center items-center">
-      <div className="flex justify-center items-center">
-        {/* <div className="">
+      <div className="flex justify-center items-center gap-6">
+        <div className="">
           <img
-            src="/assets/icons/ic_zonei.svg"
+            src="/assets/icons/ic_zonei.png"
             height={60}
             width={60}
             alt="logo_mionjo"
           />
-        </div> */}
+        </div>
         <div className="">
           <SubTitle title="Zones" />
         </div>

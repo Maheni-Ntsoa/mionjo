@@ -14,7 +14,7 @@ const AnnoncePopUp = () => {
   const [loading, setLoading] = useState(true);
   const [generales, setGenerales] = useState<any[]>([]);
   const [pageNumber, setPageNumber] = useState(0);
-  const itemsPerPage = 4;
+  const itemsPerPage = 3;
 
   useEffect(() => {
     setLoading(true);
@@ -137,8 +137,8 @@ const AnnoncePopUp = () => {
             }
             breakLabel={"..."}
             breakClassName={"break-me"}
-            marginPagesDisplayed={4}
-            pageRangeDisplayed={2}
+            marginPagesDisplayed={1}
+            pageRangeDisplayed={1}
             containerClassName={"pagination"}
             activeClassName={"active"}
           />
