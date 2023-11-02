@@ -94,10 +94,38 @@ const DetailRectangle: React.FC<DetailRectangleProps> = ({ generalec }) => {
                   </span>
                 </h1>
               )}
+              {generalec.titremg && i18n.language === "en" ? (
+                <h1 className="font-bold text-xl">
+                  {/* Titre :{" "} */}
+                  <span className="text-green">
+                    {generalec?.titremg ? generalec?.titremg : ""}
+                  </span>
+                </h1>
+              ) : (
+                <h1 className="font-bold text-xl">
+                  {/* Titre :{" "} */}
+                  <span className="text-green">
+                    {generalec?.titre ? generalec?.titre : ""}
+                  </span>
+                </h1>
+              )}
               {generalec.contenuen && i18n.language === "en" ? (
                 <div className="min-h-32 my-2 text-sm lg:text-[16px]">
                   <HTMLRenderer
                     html={generalec?.contenuen ? generalec?.contenuen : ""}
+                  />
+                </div>
+              ) : (
+                <div className="min-h-32 my-2 text-sm lg:text-[16px]">
+                  <HTMLRenderer
+                    html={generalec?.contenu ? generalec?.contenu : ""}
+                  />
+                </div>
+              )}
+              {generalec.contenumg && i18n.language === "mg" ? (
+                <div className="min-h-32 my-2 text-sm lg:text-[16px]">
+                  <HTMLRenderer
+                    html={generalec?.contenumg ? generalec?.contenumg : ""}
                   />
                 </div>
               ) : (
@@ -170,10 +198,38 @@ const DetailRectangle: React.FC<DetailRectangleProps> = ({ generalec }) => {
                   </span>
                 </h1>
               )}
+              {generalec.titremg && i18n.language === "en" ? (
+                <h1 className="font-bold text-xl">
+                  {/* Titre :{" "} */}
+                  <span className="text-green">
+                    {generalec?.titremg ? generalec?.titremg : ""}
+                  </span>
+                </h1>
+              ) : (
+                <h1 className="font-bold text-xl">
+                  {/* Titre :{" "} */}
+                  <span className="text-green">
+                    {generalec?.titre ? generalec?.titre : ""}
+                  </span>
+                </h1>
+              )}
               {generalec.contenuen && i18n.language === "en" ? (
                 <div className="min-h-32 my-2 text-sm lg:text-[16px]">
                   <HTMLRenderer
                     html={generalec?.contenuen ? generalec?.contenuen : ""}
+                  />
+                </div>
+              ) : (
+                <div className="min-h-32 my-2 text-sm lg:text-[16px]">
+                  <HTMLRenderer
+                    html={generalec?.contenu ? generalec?.contenu : ""}
+                  />
+                </div>
+              )}
+              {generalec.contenumg && i18n.language === "mg" ? (
+                <div className="min-h-32 my-2 text-sm lg:text-[16px]">
+                  <HTMLRenderer
+                    html={generalec?.contenumg ? generalec?.contenumg : ""}
                   />
                 </div>
               ) : (

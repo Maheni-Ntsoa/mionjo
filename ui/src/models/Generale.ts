@@ -8,6 +8,8 @@ class Generale {
     public contenu?: string,
     public titreen?: string,
     public contenuen?: string,
+    public titremg?: string,
+    public contenumg?: string,
     public datecreation?: Date,
     public datelimit?: Date,
     public etatannonce?: number,
@@ -28,6 +30,8 @@ class Generale {
     generale.contenu = data["contenu"];
     generale.titreen = data["titreen"];
     generale.contenuen = data["contenuen"];
+    generale.titreen = data["titremg"];
+    generale.contenuen = data["contenumg"];
     generale.datecreation = data["datecreation"];
     generale.datelimit = data["datelimit"];
     generale.etatannonce = data["etatannonce"];

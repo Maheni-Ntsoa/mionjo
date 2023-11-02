@@ -13,6 +13,8 @@ class Generalec {
     public contenu?: string,
     public titreen?: string,
     public contenuen?: string,
+    public titremg?: string,
+    public contenumg?: string,
     public datelimit?: Date,
     public etatannonce?: number,
     public nbdownnational?: number,
@@ -37,6 +39,8 @@ class Generalec {
     generale.contenu = data["contenu"];
     generale.titreen = data["titreen"];
     generale.contenuen = data["contenuen"];
+    generale.titreen = data["titremg"];
+    generale.contenuen = data["contenumg"];
     generale.datelimit = data["datelimit"];
     generale.etatannonce = data["etatannonce"];
     generale.nbdownnational = data["nbdownnational"];

@@ -100,6 +100,21 @@ const AnnoncePopUp = () => {
                       : {generale.titre}
                     </p>
                   )}
+                  {generale.titremg && i18n.language === "mg" ? (
+                    <p className="text-xs lg:text-md">
+                      <span className="uppercase">
+                        {showCategorie(generale)}
+                      </span>{" "}
+                      : {generale.titremg}
+                    </p>
+                  ) : (
+                    <p className="text-xs lg:text-md">
+                      <span className="uppercase">
+                        {showCategorie(generale)}
+                      </span>{" "}
+                      : {generale.titre}
+                    </p>
+                  )}
                   <p className="text-center text-xs lg:text-md">
                     Date limite :{" "}
                     <span>

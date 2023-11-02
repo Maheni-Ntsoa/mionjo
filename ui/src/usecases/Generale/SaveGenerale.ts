@@ -10,6 +10,8 @@ interface SaveGeneraleDto {
   contenu?: string;
   titreen?: string;
   contenuen?: string;
+  titremg?: string;
+  contenumg?: string;
   datecreation?: Date;
   datelimit?: Date;
   etatannonce?: number;
@@ -30,6 +32,8 @@ export default class SaveGenerale implements UseCase<SaveGeneraleDto, void> {
     generale.contenu = saveGeneraleDto.contenu;
     generale.titreen = saveGeneraleDto.titreen;
     generale.contenuen = saveGeneraleDto.contenuen;
+    generale.titremg = saveGeneraleDto.titremg;
+    generale.contenumg = saveGeneraleDto.contenumg;
     generale.datecreation = saveGeneraleDto.datecreation;
     generale.datelimit = saveGeneraleDto.datelimit;
     generale.etatannonce = saveGeneraleDto.etatannonce;

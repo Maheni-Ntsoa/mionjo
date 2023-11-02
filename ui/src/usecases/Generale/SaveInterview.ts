@@ -10,6 +10,8 @@ interface SaveInterviewDto {
   contenu?: string;
   titreen?: string;
   contenuen?: string;
+  titremg?: string;
+  contenumg?: string;
   datecreation?: Date;
   datelimit?: Date;
 }
@@ -25,6 +27,8 @@ export default class SaveInterview implements UseCase<SaveInterviewDto, void> {
     generale.contenu = saveInterviewDto.contenu;
     generale.titreen = saveInterviewDto.titreen;
     generale.contenuen = saveInterviewDto.contenuen;
+    generale.titremg = saveInterviewDto.titremg;
+    generale.contenumg = saveInterviewDto.contenumg;
     generale.datecreation = saveInterviewDto.datecreation;
     generale.datelimit = saveInterviewDto.datelimit;
 

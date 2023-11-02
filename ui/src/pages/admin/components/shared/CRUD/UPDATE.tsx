@@ -1,5 +1,5 @@
-import { Button } from "@mui/material";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
+import { Button } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import moment from "moment";
@@ -39,6 +39,8 @@ const UPDATE: React.FC<UPDATEProps> = ({
       contenu: `${generalec.contenu ? generalec.contenu : ""}`,
       titreen: `${generalec.titreen ? generalec.titreen : ""}`,
       contenuen: `${generalec.contenuen ? generalec.contenuen : ""}`,
+      titremg: `${generalec.titremg ? generalec.titremg : ""}`,
+      contenumg: `${generalec.contenumg ? generalec.contenumg : ""}`,
       datelimit: `${
         generalec.datelimit
           ? moment(generalec.datelimit).format("YYYY-MM-DDTHH:mm")
@@ -59,6 +61,8 @@ const UPDATE: React.FC<UPDATEProps> = ({
       contenu: `${generalec.contenu ? generalec.contenu : ""}`,
       titreen: `${generalec.titreen ? generalec.titreen : ""}`,
       contenuen: `${generalec.contenuen ? generalec.contenuen : ""}`,
+      titremg: `${generalec.titremg ? generalec.titremg : ""}`,
+      contenumg: `${generalec.contenumg ? generalec.contenumg : ""}`,
       datelimit: `${
         generalec.datelimit
           ? moment(generalec.datelimit).format("YYYY-MM-DDTHH:mm")
@@ -73,6 +77,8 @@ const UPDATE: React.FC<UPDATEProps> = ({
       contenu: `${generalec.contenu ? generalec.contenu : ""}`,
       titreen: `${generalec.titreen ? generalec.titreen : ""}`,
       contenuen: `${generalec.contenuen ? generalec.contenuen : ""}`,
+      titremg: `${generalec.titremg ? generalec.titremg : ""}`,
+      contenumg: `${generalec.contenumg ? generalec.contenumg : ""}`,
       datecreation: moment(generalec.datecreation).format("YYYY-MM-DDTHH:mm"),
       files: [],
     };
@@ -83,6 +89,8 @@ const UPDATE: React.FC<UPDATEProps> = ({
     contenu: Yup.string(),
     titreen: Yup.string(),
     contenuen: Yup.string(),
+    titremg: Yup.string(),
+    contenumg: Yup.string(),
     datelimit: Yup.string(),
     datecreation: Yup.string(),
   });
@@ -177,6 +185,20 @@ const UPDATE: React.FC<UPDATEProps> = ({
               />
             </div>
             <div className="mb-4">
+              <Field
+                value={values.titremg}
+                name="titremg"
+                placeholder="Titre en Malagasy"
+                type="text"
+                className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              <ErrorMessage
+                name="titremg"
+                component="div"
+                className="text-red text-xs italic"
+              />
+            </div>
+            <div className="mb-4">
               <label className="text-black/40 ml-2">Date</label>
               <Field
                 placeholder="Date"
@@ -264,7 +286,8 @@ const UPDATE: React.FC<UPDATEProps> = ({
             {photoOrVideo && (
               <div className="my-8">
                 <label className="cursor-pointer items-center flex shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline">
-                  {generalec.idcategorie === 4 || generalec.idcategorie === 7 ? (
+                  {generalec.idcategorie === 4 ||
+                  generalec.idcategorie === 7 ? (
                     <input
                       className="sr-only"
                       type="file"
@@ -336,6 +359,27 @@ const UPDATE: React.FC<UPDATEProps> = ({
                   value={values.contenuen}
                   onChange={(value) => handleChange("contenuen")(value)}
                   placeholder="Contenu en anglais"
+                  modules={{
+                    toolbar: [
+                      [{ header: "1" }, { header: "2" }],
+                      [{ list: "ordered" }, { list: "bullet" }],
+                      ["bold", "italic", "underline", "strike"],
+                      [{ align: [] }],
+                      [{ color: [] }, { background: [] }],
+                      ["blockquote"],
+                      ["code-block"],
+                      ["formula"],
+                      ["clean"],
+                    ],
+                  }}
+                />
+              </div>
+              <div className="">
+                <ReactQuill
+                  className=""
+                  value={values.contenumg}
+                  onChange={(value) => handleChange("contenumg")(value)}
+                  placeholder="Contenu en Malagasy"
                   modules={{
                     toolbar: [
                       [{ header: "1" }, { header: "2" }],

@@ -10,6 +10,8 @@ interface UpdateGeneraleDto {
   contenu?: string;
   titreen?: string;
   contenuen?: string;
+  titremg?: string;
+  contenumg?: string;
   datecreation?: Date;
   datelimit?: Date;
   etatannonce?: number;
@@ -32,6 +34,8 @@ export default class UpdateGenerale
     generale.contenu = updateGeneraleDto.contenu;
     generale.titreen = updateGeneraleDto.titreen;
     generale.contenuen = updateGeneraleDto.contenuen;
+    generale.titremg = updateGeneraleDto.titremg;
+    generale.contenumg = updateGeneraleDto.contenumg;
     generale.datecreation = updateGeneraleDto.datecreation;
     generale.datelimit = updateGeneraleDto.datelimit;
     generale.id = updateGeneraleDto.id;

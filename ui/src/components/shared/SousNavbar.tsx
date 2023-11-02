@@ -112,6 +112,19 @@ const SousNavbar = () => {
                           : ""}
                       </span>
                     )}
+                    {i18n.language === "mg" && interview?.titremg ? (
+                      <span>
+                        {interview?.titremg
+                          ? interview?.titremg.slice(0, 45) + "..."
+                          : ""}
+                      </span>
+                    ) : (
+                      <span>
+                        {interview?.titre
+                          ? interview?.titre.slice(0, 45) + "..."
+                          : ""}
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -170,6 +183,15 @@ const SousNavbar = () => {
               onClick={() => changeLanguage("en")}
             >
               EN
+            </button>
+            |{" "}
+            <button
+              className={`text-xs text-end ${
+                i18n.language === "mg" ? "text-black/20" : ""
+              }`}
+              onClick={() => changeLanguage("mg")}
+            >
+              MG
             </button>
           </div>
         </div>

@@ -9,6 +9,8 @@ export class Generale extends Model {
   contenu!: string | null;
   titreen!: string | null;
   contenuen!: string | null;
+  titremg!: string | null;
+  contenumg!: string | null;
   datecreation!: Date;
   datelimit!: Date;
   etat!: number;
@@ -47,6 +49,14 @@ Generale.init(
       allowNull: true,
     },
     contenuen: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    titremg: {
+      type: DataTypes.STRING(256),
+      allowNull: true,
+    },
+    contenumg: {
       type: DataTypes.TEXT,
       allowNull: true,
     },

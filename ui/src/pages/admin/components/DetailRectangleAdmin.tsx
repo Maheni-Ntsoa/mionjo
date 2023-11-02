@@ -98,7 +98,7 @@ const DetailRectangleAdmin: React.FC<DetailRectangleAdminProps> = ({
         </>
       )}
       <div className="flex justify-between gap-2 w-full">
-        <div className="flex w-1/2">
+        <div className="flex w-1/3">
           <div>
             <h1 className="font-bold text-xl">
               Titre en français :{" "}
@@ -114,7 +114,7 @@ const DetailRectangleAdmin: React.FC<DetailRectangleAdminProps> = ({
             </div>
           </div>
         </div>
-        <div className="flex w-1/2">
+        <div className="flex w-1/3">
           <div>
             <h1 className="font-bold text-xl">
               Titre en anglais:{" "}
@@ -126,6 +126,22 @@ const DetailRectangleAdmin: React.FC<DetailRectangleAdminProps> = ({
               <p className="font-bold text-xl">Contenu en anglais : </p>
               <HTMLRenderer
                 html={generalec?.contenuen ? generalec?.contenuen : ""}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="flex w-1/3">
+          <div>
+            <h1 className="font-bold text-xl">
+              Titre en Malagasy:{" "}
+              <span className="text-green">
+                {generalec?.titremg ? generalec?.titremg : ""}
+              </span>
+            </h1>
+            <div className="min-h-32 my-2 text-[16px]">
+              <p className="font-bold text-xl">Contenu en Malagasy : </p>
+              <HTMLRenderer
+                html={generalec?.contenumg ? generalec?.contenumg : ""}
               />
             </div>
           </div>

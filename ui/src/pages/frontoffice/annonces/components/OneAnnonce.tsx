@@ -77,6 +77,23 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
                 {generalec.titre}
               </p>
             )}
+            {generalec.titremg && i18n.language === "mg" ? (
+              <p
+                className={`${
+                  popup ? "text-sm" : "text-md lg:text-xl uppercase"
+                } font-semibold`}
+              >
+                {generalec.titremg}
+              </p>
+            ) : (
+              <p
+                className={`${
+                  popup ? "text-sm" : "text-md lg:text-xl uppercase"
+                } font-semibold`}
+              >
+                {generalec.titre}
+              </p>
+            )}
             <div className={`text-sm lg:text-lg italic flex justify-start`}>
               {generalec.etatannonce === 10 ? (
                 <p>

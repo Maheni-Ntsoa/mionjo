@@ -1,5 +1,6 @@
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import Generalec from "../models/Generalec";
 import GetPhotoByIdGenerale from "../usecases/Photo/GetPhotoByIdGenerale";
 import { formatDateOnly } from "../utils/formatDate";
@@ -12,6 +13,7 @@ interface RectangleProps {
 }
 
 const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
+  const { i18n } = useTranslation();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [photos, setPhotos] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
@@ -85,19 +87,71 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
             <div className="z-10 relative w-full h-full flex flex-col justify-between p-4 rounded-xl">
               <div className=" w-full h-full flex flex-col justify-between p-4 bg-white rounded-xl">
                 <div>
-                  <h1 className="font-bold text-lg">
-                    <span className="text-green">
-                      {generalec?.titre ? generalec?.titre : ""}
-                    </span>
-                  </h1>
+                  {generalec.titreen && i18n.language === "en" ? (
+                    <h1 className="font-bold text-lg">
+                      {/* Titre :{" "} */}
+                      <span className="text-green">
+                        {generalec?.titreen ? generalec?.titreen : ""}
+                      </span>
+                    </h1>
+                  ) : (
+                    <h1 className="font-bold text-lg">
+                      {/* Titre :{" "} */}
+                      <span className="text-green">
+                        {generalec?.titre ? generalec?.titre : ""}
+                      </span>
+                    </h1>
+                  )}
+                  {generalec.titremg && i18n.language === "mg" ? (
+                    <h1 className="font-bold text-lg">
+                      {/* Titre :{" "} */}
+                      <span className="text-green">
+                        {generalec?.titremg ? generalec?.titremg : ""}
+                      </span>
+                    </h1>
+                  ) : (
+                    <h1 className="font-bold text-lg">
+                      {/* Titre :{" "} */}
+                      <span className="text-green">
+                        {generalec?.titre ? generalec?.titre : ""}
+                      </span>
+                    </h1>
+                  )}
                   <div className="text-justify min-h-32 my-2 text-[14px]">
-                    <HTMLRenderer
-                      html={
-                        generalec?.contenu
-                          ? generalec?.contenu.slice(0, 120) + "..."
-                          : ""
-                      }
-                    />
+                    {generalec.contenuen && i18n.language === "en" ? (
+                      <HTMLRenderer
+                        html={
+                          generalec?.contenuen
+                            ? generalec?.contenuen.slice(0, 120) + "..."
+                            : ""
+                        }
+                      />
+                    ) : (
+                      <HTMLRenderer
+                        html={
+                          generalec?.contenu
+                            ? generalec?.contenu.slice(0, 120) + "..."
+                            : ""
+                        }
+                      />
+                    )}
+                    {generalec.contenumg && i18n.language === "mg" ? (
+                      <HTMLRenderer
+                        html={
+                          generalec?.contenumg
+                            ? generalec?.contenumg.slice(0, 120) + "..."
+                            : ""
+                        }
+                      />
+                    ) : (
+                      <HTMLRenderer
+                        html={
+                          generalec?.contenu
+                            ? generalec?.contenu.slice(0, 120) + "..."
+                            : ""
+                        }
+                      />
+                    )}
                   </div>
                 </div>
                 <div className="flex flex-col justify-end">

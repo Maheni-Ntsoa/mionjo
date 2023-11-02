@@ -106,6 +106,7 @@ i18n.use(initReactI18next).init({
         edito4: "The National Coordinator of the Mionjo Project",
       },
     },
+    mg: {},
     fr: {
       translation: {
         NumVert: "Numéros vert",

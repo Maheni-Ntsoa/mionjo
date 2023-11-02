@@ -10,6 +10,8 @@ interface UpdateInterviewDto {
   contenu?: string;
   titreen?: string;
   contenuen?: string;
+  titremg?: string;
+  contenumg?: string;
   datecreation?: Date;
 }
 
@@ -26,6 +28,8 @@ export default class UpdateInterview
     generale.contenu = updateInterviewDto.contenu;
     generale.titreen = updateInterviewDto.titreen;
     generale.contenuen = updateInterviewDto.contenuen;
+    generale.titremg = updateInterviewDto.titremg;
+    generale.contenumg = updateInterviewDto.contenumg;
     generale.datecreation = updateInterviewDto.datecreation;
     generale.id = updateInterviewDto.id;
 

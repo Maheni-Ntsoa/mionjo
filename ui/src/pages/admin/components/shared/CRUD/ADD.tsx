@@ -27,6 +27,8 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
       contenu: "",
       titreen: "",
       contenuen: "",
+      titremg: "",
+      contenumg: "",
       datelimit: moment().format("YYYY-MM-DDTHH:mm"),
       datecreation: moment().format("YYYY-MM-DDTHH:mm"),
       files: [],
@@ -40,6 +42,8 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
       contenu: "",
       titreen: "",
       contenuen: "",
+      titremg: "",
+      contenumg: "",
       datelimit: moment().format("YYYY-MM-DDTHH:mm"),
       datecreation: moment().format("YYYY-MM-DDTHH:mm"),
       files: [],
@@ -51,6 +55,8 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
       contenu: "",
       titreen: "",
       contenuen: "",
+      titremg: "",
+      contenumg: "",
       files: [],
       video: [],
       typeDocument: "",
@@ -62,6 +68,8 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
     contenu: Yup.string(),
     titreen: Yup.string(),
     contenuen: Yup.string(),
+    titremg: Yup.string(),
+    contenumg: Yup.string(),
     datelimit: Yup.string(),
     datecreation: Yup.string(),
   });
@@ -145,6 +153,19 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
               />
               <ErrorMessage
                 name="titreen"
+                component="div"
+                className="text-red text-xs italic"
+              />
+            </div>
+            <div className="mb-4">
+              <Field
+                placeholder="Titre en Malagasy"
+                name="titremg"
+                type="text"
+                className="shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              <ErrorMessage
+                name="titremg"
                 component="div"
                 className="text-red text-xs italic"
               />
@@ -309,6 +330,27 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
                   value={values.contenuen}
                   onChange={(value) => handleChange("contenuen")(value)}
                   placeholder="Contenu en anglais"
+                  modules={{
+                    toolbar: [
+                      [{ header: "1" }, { header: "2" }],
+                      [{ list: "ordered" }, { list: "bullet" }],
+                      ["bold", "italic", "underline", "strike"],
+                      [{ align: [] }],
+                      [{ color: [] }, { background: [] }],
+                      ["blockquote"],
+                      ["code-block"],
+                      ["formula"],
+                      ["clean"],
+                    ],
+                  }}
+                />
+              </div>
+              <div className="">
+                <ReactQuill
+                  className=""
+                  value={values.contenumg}
+                  onChange={(value) => handleChange("contenumg")(value)}
+                  placeholder="Contenu en Malagasy"
                   modules={{
                     toolbar: [
                       [{ header: "1" }, { header: "2" }],
