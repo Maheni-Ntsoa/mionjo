@@ -102,18 +102,11 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
                       </span>
                     </h1>
                   )}
-                  {generalec.titremg && i18n.language === "mg" ? (
+                  {generalec.titremg && i18n.language === "mg" && (
                     <h1 className="font-bold text-lg">
                       {/* Titre :{" "} */}
                       <span className="text-green">
                         {generalec?.titremg ? generalec?.titremg : ""}
-                      </span>
-                    </h1>
-                  ) : (
-                    <h1 className="font-bold text-lg">
-                      {/* Titre :{" "} */}
-                      <span className="text-green">
-                        {generalec?.titre ? generalec?.titre : ""}
                       </span>
                     </h1>
                   )}
@@ -135,7 +128,7 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
                         }
                       />
                     )}
-                    {generalec.contenumg && i18n.language === "mg" ? (
+                    {generalec.contenumg && i18n.language === "mg" && (
                       <HTMLRenderer
                         html={
                           generalec?.contenumg
@@ -143,23 +136,14 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
                             : ""
                         }
                       />
-                    ) : (
-                      <HTMLRenderer
-                        html={
-                          generalec?.contenu
-                            ? generalec?.contenu.slice(0, 120) + "..."
-                            : ""
-                        }
-                      />
                     )}
                   </div>
                 </div>
                 <div className="flex flex-col justify-end">
-                  <span>{`${
-                    generalec?.datecreation
+                  <span>{`${generalec?.datecreation
                       ? formatDateOnly(generalec?.datecreation)
                       : ""
-                  }`}</span>
+                    }`}</span>
                 </div>
               </div>
             </div>
@@ -254,11 +238,10 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
               </div>
               <div className="flex flex-col justify-end">
                 {/* <p className="font-bold text-lg">Date : </p>{" "} */}
-                <span>{`${
-                  generalec?.datecreation
+                <span>{`${generalec?.datecreation
                     ? formatDateOnly(generalec?.datecreation)
                     : ""
-                }`}</span>
+                  }`}</span>
               </div>
             </div>
           </div>

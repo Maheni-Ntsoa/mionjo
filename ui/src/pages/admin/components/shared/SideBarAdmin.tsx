@@ -53,9 +53,8 @@ const SideBarAdmin = () => {
 
       {/* Barre latérale */}
       <aside
-        className={`${
-          sidebarOpen ? "translate-x-0 ease-out" : "-translate-x-full ease-in"
-        } shadow-brown drop-shadow-lg transform h-screen w-64 top-0 left-0 bg-white z-50 transition-transform duration-300 ease-in-out lg:translate-x-0`}
+        className={`${sidebarOpen ? "translate-x-0 ease-out" : "-translate-x-full ease-in"
+          } shadow-brown drop-shadow-lg transform h-screen w-64 top-0 left-0 bg-white z-50 transition-transform duration-300 ease-in-out lg:translate-x-0`}
       >
         <div className="p-6 h-[600px]">
           <div className="mt-4 flex items-center justify-center">
@@ -68,14 +67,14 @@ const SideBarAdmin = () => {
                   Accueil
                 </button>
               </li>
-              <li>
+              {/* <li>
                 <button
                   onClick={() => navigate("/admin/aproposadmin")}
                   className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
                 >
                   A propos
                 </button>
-              </li>
+              </li> */}
               <li>
                 <button
                   onClick={() => navigate("/admin/documentation")}

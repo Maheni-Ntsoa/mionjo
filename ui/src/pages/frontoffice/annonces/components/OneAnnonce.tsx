@@ -62,36 +62,25 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
           <div className="flex flex-col">
             {generalec.titreen && i18n.language === "en" ? (
               <p
-                className={`${
-                  popup ? "text-sm" : "text-md lg:text-xl uppercase"
-                } font-semibold`}
+                className={`${popup ? "text-sm" : "text-md lg:text-xl uppercase"
+                  } font-semibold`}
               >
                 {generalec.titreen}
               </p>
             ) : (
               <p
-                className={`${
-                  popup ? "text-sm" : "text-md lg:text-xl uppercase"
-                } font-semibold`}
+                className={`${popup ? "text-sm" : "text-md lg:text-xl uppercase"
+                  } font-semibold`}
               >
                 {generalec.titre}
               </p>
             )}
-            {generalec.titremg && i18n.language === "mg" ? (
+            {generalec.titremg && i18n.language === "mg" && (
               <p
-                className={`${
-                  popup ? "text-sm" : "text-md lg:text-xl uppercase"
-                } font-semibold`}
+                className={`${popup ? "text-sm" : "text-md lg:text-xl uppercase"
+                  } font-semibold`}
               >
                 {generalec.titremg}
-              </p>
-            ) : (
-              <p
-                className={`${
-                  popup ? "text-sm" : "text-md lg:text-xl uppercase"
-                } font-semibold`}
-              >
-                {generalec.titre}
               </p>
             )}
             <div className={`text-sm lg:text-lg italic flex justify-start`}>

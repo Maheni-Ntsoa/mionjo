@@ -112,16 +112,10 @@ const SousNavbar = () => {
                           : ""}
                       </span>
                     )}
-                    {i18n.language === "mg" && interview?.titremg ? (
+                    {i18n.language === "mg" && interview?.titremg && (
                       <span>
                         {interview?.titremg
                           ? interview?.titremg.slice(0, 45) + "..."
-                          : ""}
-                      </span>
-                    ) : (
-                      <span>
-                        {interview?.titre
-                          ? interview?.titre.slice(0, 45) + "..."
                           : ""}
                       </span>
                     )}
@@ -169,26 +163,23 @@ const SousNavbar = () => {
           <div className="flex justify-end gap-2 font-bold pr-4 mb-12 text-blue">
             <button
               onClick={() => changeLanguage("fr")}
-              className={`text-xs text-end ${
-                i18n.language === "fr" ? "text-black/20" : ""
-              }`}
+              className={`text-xs text-end ${i18n.language === "fr" ? "text-black/20" : ""
+                }`}
             >
               FR
             </button>{" "}
             |{" "}
             <button
-              className={`text-xs text-end ${
-                i18n.language === "en" ? "text-black/20" : ""
-              }`}
+              className={`text-xs text-end ${i18n.language === "en" ? "text-black/20" : ""
+                }`}
               onClick={() => changeLanguage("en")}
             >
               EN
             </button>
             |{" "}
             <button
-              className={`text-xs text-end ${
-                i18n.language === "mg" ? "text-black/20" : ""
-              }`}
+              className={`text-xs text-end ${i18n.language === "mg" ? "text-black/20" : ""
+                }`}
               onClick={() => changeLanguage("mg")}
             >
               MG

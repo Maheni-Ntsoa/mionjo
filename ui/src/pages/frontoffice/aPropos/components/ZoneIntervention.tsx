@@ -11,6 +11,7 @@ const ZoneIntervetion = () => {
   const [loading, setLoading] = useState(true);
   const [pageNumber, setPageNumber] = useState(0);
   const itemsPerPage = 1;
+  const { t } = useTranslation();
 
   const HTMLRenderer = ({ html }: any) => {
     return (
@@ -77,7 +78,7 @@ const ZoneIntervetion = () => {
             .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
             .map((generale, index) => (
               <div className="flex flex-col gap-2 justify-center" key={index}>
-                {generale.contenuen && i18n.language === "en" ? (
+                {/* {generale.contenuen && i18n.language === "en" ? (
                   <div className="mt-4 flex justify-center ">
                     <HTMLRenderer
                       html={generale?.contenuen ? generale?.contenuen : ""}
@@ -89,7 +90,9 @@ const ZoneIntervetion = () => {
                       html={generale?.contenu ? generale?.contenu : ""}
                     />
                   </div>
-                )}
+                )} */}
+                {t("textezone")}
+
                 <div className="mt-4 flex justify-center">
                   <img src="/assets/images/zonei.png" alt="rectangle" />
                 </div>
@@ -97,23 +100,6 @@ const ZoneIntervetion = () => {
             ))}
         </div>
       )}
-      {/* <div className="mt-4">
-        <ReactPaginate
-          pageCount={pageCount}
-          onPageChange={handlePageClick}
-          previousLabel={"Précédent"}
-          nextLabel={"Suivant"}
-          breakLabel={"..."}
-          breakClassName={"break-me"}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          containerClassName={"pagination"}
-          activeClassName={"active"}
-        />
-      </div> */}
-      {/* <div className="mt-4 flex justify-center">
-        <img src="/assets/images/img_singleAloalo.svg" alt="singleAloalo" />
-      </div> */}
     </div>
   );
 };

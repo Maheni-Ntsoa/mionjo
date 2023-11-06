@@ -12,6 +12,7 @@ const Objectifs = () => {
   const [loading, setLoading] = useState(true);
   const [pageNumber, setPageNumber] = useState(0);
   const itemsPerPage = 1;
+  const { t } = useTranslation();
 
   const HTMLRenderer = ({ html }: any) => {
     return (
@@ -62,19 +63,19 @@ const Objectifs = () => {
         <div className="md:flex flex-col gap-2 px-0 items-center text-justify">
           <div className=" md:flex flex-col gap-6 justify-center">
             <div className="flex flex-col gap-2">
-              <h1 className="font-semibold text-xl">Améliorer l’accès aux infrastructures de base et aux moyens de subsistance</h1>
-              <p className="text-lg">Garantir un meilleur accès aux infrastructures essentielles, telles que l'eau potable et les services de base, tout en renforçant les moyens de subsistance des communautés locales. En mettant l'accent sur ces éléments fondamentaux, le projet vise à améliorer la qualité de vie des habitants du Sud de Madagascar, en augmentant leurs opportunités économiques et en favorisant un développement durable.</p>
+              <h1 className="font-semibold text-xl"> {t("soutitre1Objectif")}</h1>
+              <p className="text-lg">{t("texte1Objectif")}</p>
             </div>
             <div className="flex flex-col gap-2">
-              <h1 className="font-semibold text-xl">Renforcer la gouvernance locale dans le Sud de Madagascar, en mettant l’accent sur les jeunes et les femmes</h1>
-              <p className="text-lg">Renforcer la gouvernance au niveau local, en mettant particulièrement l'accent sur l'inclusion et l'implication active des jeunes et des femmes. Cela signifie que les voix et les besoins de ces groupes seront pris en compte dans les décisions locales, contribuant ainsi à une représentation équitable et à des politiques mieux adaptées à l'ensemble de la population.
+              <h1 className="font-semibold text-xl">{t("soutitre2Objectif")}</h1>
+              <p className="text-lg">{t("texte2Objectif")}
               </p>
             </div>
             <div className="flex flex-col gap-2">
               <h1 className="font-semibold text-xl">
-                Fournir une riposte rapide et efficace à la crise de sécurité alimentaire et à d’autres urgences admissibles</h1>
+                {t("soutitre3Objectif")}</h1>
               <p className="text-lg">
-                Offrir la flexibilité nécessaire pour réallouer rapidement des ressources financières depuis d'autres composantes du projet afin de répondre efficacement à ces situations d'urgence. Cette capacité de réponse rapide vise à atténuer les impacts de crises potentielles sur les populations locales et à garantir leur sécurité alimentaire et leur bien-être en temps de besoin.
+                {t("texte3Objectif")}
               </p>
             </div>
           </div>

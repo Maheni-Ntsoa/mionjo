@@ -94,18 +94,11 @@ const DetailRectangle: React.FC<DetailRectangleProps> = ({ generalec }) => {
                   </span>
                 </h1>
               )}
-              {generalec.titremg && i18n.language === "en" ? (
+              {generalec.titremg && i18n.language === "mg" && (
                 <h1 className="font-bold text-xl">
                   {/* Titre :{" "} */}
                   <span className="text-green">
                     {generalec?.titremg ? generalec?.titremg : ""}
-                  </span>
-                </h1>
-              ) : (
-                <h1 className="font-bold text-xl">
-                  {/* Titre :{" "} */}
-                  <span className="text-green">
-                    {generalec?.titre ? generalec?.titre : ""}
                   </span>
                 </h1>
               )}
@@ -122,27 +115,20 @@ const DetailRectangle: React.FC<DetailRectangleProps> = ({ generalec }) => {
                   />
                 </div>
               )}
-              {generalec.contenumg && i18n.language === "mg" ? (
+              {generalec.contenumg && i18n.language === "mg" && (
                 <div className="min-h-32 my-2 text-sm lg:text-[16px]">
                   <HTMLRenderer
                     html={generalec?.contenumg ? generalec?.contenumg : ""}
-                  />
-                </div>
-              ) : (
-                <div className="min-h-32 my-2 text-sm lg:text-[16px]">
-                  <HTMLRenderer
-                    html={generalec?.contenu ? generalec?.contenu : ""}
                   />
                 </div>
               )}
             </div>
             <div className="flex justify-end mr-8">
               {/* <p className="font-bold text-xl">Le : </p>{" "} */}
-              <span>{`${
-                generalec?.datecreation
+              <span>{`${generalec?.datecreation
                   ? formatDateOnly(generalec?.datecreation)
                   : ""
-              }`}</span>
+                }`}</span>
             </div>
           </div>
           {loading ? (
@@ -198,18 +184,11 @@ const DetailRectangle: React.FC<DetailRectangleProps> = ({ generalec }) => {
                   </span>
                 </h1>
               )}
-              {generalec.titremg && i18n.language === "en" ? (
+              {generalec.titremg && i18n.language === "mg" && (
                 <h1 className="font-bold text-xl">
                   {/* Titre :{" "} */}
                   <span className="text-green">
                     {generalec?.titremg ? generalec?.titremg : ""}
-                  </span>
-                </h1>
-              ) : (
-                <h1 className="font-bold text-xl">
-                  {/* Titre :{" "} */}
-                  <span className="text-green">
-                    {generalec?.titre ? generalec?.titre : ""}
                   </span>
                 </h1>
               )}
@@ -226,27 +205,20 @@ const DetailRectangle: React.FC<DetailRectangleProps> = ({ generalec }) => {
                   />
                 </div>
               )}
-              {generalec.contenumg && i18n.language === "mg" ? (
+              {generalec.contenumg && i18n.language === "mg" && (
                 <div className="min-h-32 my-2 text-sm lg:text-[16px]">
                   <HTMLRenderer
                     html={generalec?.contenumg ? generalec?.contenumg : ""}
-                  />
-                </div>
-              ) : (
-                <div className="min-h-32 my-2 text-sm lg:text-[16px]">
-                  <HTMLRenderer
-                    html={generalec?.contenu ? generalec?.contenu : ""}
                   />
                 </div>
               )}
             </div>
             <div className="flex justify-end mr-8">
               {/* <p className="font-bold text-xl">Le : </p>{" "} */}
-              <span>{`${
-                generalec?.datecreation
+              <span>{`${generalec?.datecreation
                   ? formatDateOnly(generalec?.datecreation)
                   : ""
-              }`}</span>
+                }`}</span>
             </div>
           </div>
           {loading ? (

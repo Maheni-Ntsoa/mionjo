@@ -11,6 +11,7 @@ const Description = () => {
   const [loading, setLoading] = useState(true);
   const [pageNumber, setPageNumber] = useState(0);
   const itemsPerPage = 1;
+  const { t } = useTranslation();
 
   const HTMLRenderer = ({ html }: any) => {
     return (
@@ -89,7 +90,7 @@ const Description = () => {
                   </div>
                 </div>
                 <div className="md:mt-4 flex justify-center md:justify-start text-justify w-[300px]  h:-[250px] md:w-[500px] md:h-[500px]">
-                  {generale.contenuen && i18n.language === "en" ? (
+                  {/* {generale.contenuen && i18n.language === "en" ? (
                     <div className="mt-4 flex justify-center px-4 items-center">
                       <HTMLRenderer
                         html={generale?.contenuen ? generale?.contenuen : ""}
@@ -101,7 +102,8 @@ const Description = () => {
                         html={generale?.contenu ? generale?.contenu : ""}
                       />
                     </div>
-                  )}
+                  )} */}
+                  {t("texteDescription")}
                 </div>
               </>
             ))}
