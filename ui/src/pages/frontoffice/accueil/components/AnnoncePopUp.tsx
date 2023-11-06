@@ -31,7 +31,9 @@ const AnnoncePopUp = () => {
         });
 
         const generalesWithDocs = await Promise.all(promises);
-        setGenerales(generalesWithDocs);
+        const datenow = new Date()
+        const generalesInProgressAndDated = generalesWithDocs.filter((gen) => gen.datelimit && gen.datelimit > datenow && !gen.titulairemarche)
+        setGenerales(generalesInProgressAndDated);
         setLoading(false);
       }
     };
@@ -74,59 +76,61 @@ const AnnoncePopUp = () => {
         <Loading isLoading={loading} />
       ) : (
         <div className="mt-4 flex flex-col gap-1 lg:gap-4 justify-center">
-          {generales
-            .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
-            .map((generale, index) => (
-              <div key={index}>
-                <div
-                  className="flex flex-col gap-2 text-white cursor-pointer"
-                  key={index}
-                  onClick={() =>
-                    navigate(`/annonces?tabId=${generale.idrubrique}`)
-                  }
-                >
-                  {generale.titreen && i18n.language === "en" ? (
-                    <p className="text-xs lg:text-md">
-                      <span className="uppercase">
-                        {showCategorie(generale)}
-                      </span>{" "}
-                      : {generale.titreen}
+          {generales.length === 0 ? (<p className="text-white">Pas d'annonce pour le moment !!</p>) : (
+            generales
+              .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
+              .map((generale, index) => (
+                <div key={index}>
+                  <div
+                    className="flex flex-col gap-2 text-white cursor-pointer"
+                    key={index}
+                    onClick={() =>
+                      navigate(`/annonces?tabId=${generale.idrubrique}`)
+                    }
+                  >
+                    {generale.titreen && i18n.language === "en" ? (
+                      <p className="text-xs lg:text-md">
+                        <span className="uppercase">
+                          {showCategorie(generale)}
+                        </span>{" "}
+                        : {generale.titreen}
+                      </p>
+                    ) : (
+                      <p className="text-xs lg:text-md">
+                        <span className="uppercase">
+                          {showCategorie(generale)}
+                        </span>{" "}
+                        : {generale.titre}
+                      </p>
+                    )}
+                    {generale.titremg && i18n.language === "mg" ? (
+                      <p className="text-xs lg:text-md">
+                        <span className="uppercase">
+                          {showCategorie(generale)}
+                        </span>{" "}
+                        : {generale.titremg}
+                      </p>
+                    ) : (
+                      <p className="text-xs lg:text-md">
+                        <span className="uppercase">
+                          {showCategorie(generale)}
+                        </span>{" "}
+                        : {generale.titre}
+                      </p>
+                    )}
+                    <p className="text-center text-xs lg:text-md">
+                      Date limite :{" "}
+                      <span>
+                        {generale.datelimit
+                          ? formatDateOnly(generale.datelimit)
+                          : "Non definie"}
+                      </span>
                     </p>
-                  ) : (
-                    <p className="text-xs lg:text-md">
-                      <span className="uppercase">
-                        {showCategorie(generale)}
-                      </span>{" "}
-                      : {generale.titre}
-                    </p>
-                  )}
-                  {generale.titremg && i18n.language === "mg" ? (
-                    <p className="text-xs lg:text-md">
-                      <span className="uppercase">
-                        {showCategorie(generale)}
-                      </span>{" "}
-                      : {generale.titremg}
-                    </p>
-                  ) : (
-                    <p className="text-xs lg:text-md">
-                      <span className="uppercase">
-                        {showCategorie(generale)}
-                      </span>{" "}
-                      : {generale.titre}
-                    </p>
-                  )}
-                  <p className="text-center text-xs lg:text-md">
-                    Date limite :{" "}
-                    <span>
-                      {generale.datelimit
-                        ? formatDateOnly(generale.datelimit)
-                        : "Non definie"}
-                    </span>
-                  </p>
+                  </div>
+                  <div className="border-b-2 border-white w-full flex justify-center py-2"></div>
                 </div>
-                <div className="border-b-2 border-white w-full flex justify-center py-2"></div>
-              </div>
-            ))}
+              ))
+          )}
         </div>
       )}
       {generales.length > itemsPerPage && (
