@@ -41,19 +41,16 @@ const UPDATE: React.FC<UPDATEProps> = ({
       contenuen: `${generalec.contenuen ? generalec.contenuen : ""}`,
       titremg: `${generalec.titremg ? generalec.titremg : ""}`,
       contenumg: `${generalec.contenumg ? generalec.contenumg : ""}`,
-      datelimit: `${
-        generalec.datelimit
-          ? moment(generalec.datelimit).format("YYYY-MM-DDTHH:mm")
-          : ""
-      }`,
+      datelimit: `${generalec.datelimit
+        ? moment(generalec.datelimit).format("YYYY-MM-DDTHH:mm")
+        : ""
+        }`,
       datecreation: moment(generalec.datecreation).format("YYYY-MM-DDTHH:mm"),
       files: [],
-      titulairemarche: `${
-        generalec.titulairemarche ? generalec.titulairemarche : ""
-      }`,
-      montantmarche: `${
-        generalec.montantmarche ? generalec.montantmarche : ""
-      }`,
+      titulairemarche: `${generalec.titulairemarche ? generalec.titulairemarche : ""
+        }`,
+      montantmarche: `${generalec.montantmarche ? generalec.montantmarche : ""
+        }`,
     };
   } else if (generalec.idcategorie === 7) {
     initialValues = {
@@ -63,11 +60,10 @@ const UPDATE: React.FC<UPDATEProps> = ({
       contenuen: `${generalec.contenuen ? generalec.contenuen : ""}`,
       titremg: `${generalec.titremg ? generalec.titremg : ""}`,
       contenumg: `${generalec.contenumg ? generalec.contenumg : ""}`,
-      datelimit: `${
-        generalec.datelimit
-          ? moment(generalec.datelimit).format("YYYY-MM-DDTHH:mm")
-          : ""
-      }`,
+      datelimit: `${generalec.datelimit
+        ? moment(generalec.datelimit).format("YYYY-MM-DDTHH:mm")
+        : ""
+        }`,
       datecreation: moment(generalec.datecreation).format("YYYY-MM-DDTHH:mm"),
       files: [],
     };
@@ -273,11 +269,10 @@ const UPDATE: React.FC<UPDATEProps> = ({
                     }}
                   />
                   <div className="flex justify-between w-full">
-                    <p>{`${
-                      selectedVideo.length > 0
-                        ? selectedVideo.length + " vidéo(s) séléctionné(s)"
-                        : "Importation des videos"
-                    }`}</p>
+                    <p>{`${selectedVideo.length > 0
+                      ? selectedVideo.length + " vidéo(s) séléctionné(s)"
+                      : "Importation des videos"
+                      }`}</p>
                     <UploadFileIcon />
                   </div>
                 </label>
@@ -287,7 +282,7 @@ const UPDATE: React.FC<UPDATEProps> = ({
               <div className="my-8">
                 <label className="cursor-pointer items-center flex shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline">
                   {generalec.idcategorie === 4 ||
-                  generalec.idcategorie === 7 ? (
+                    generalec.idcategorie === 7 ? (
                     <input
                       className="sr-only"
                       type="file"
@@ -316,11 +311,10 @@ const UPDATE: React.FC<UPDATEProps> = ({
                     />
                   )}
                   <div className="flex justify-between w-full">
-                    <p>{`${
-                      selectedFiles.length > 0
-                        ? selectedFiles.length + " fichier(s) séléctionné(s)"
-                        : "Importations"
-                    }`}</p>
+                    <p>{`${selectedFiles.length > 0
+                      ? selectedFiles.length + " fichier(s) séléctionné(s)"
+                      : "Importations"
+                      }`}</p>
                     <UploadFileIcon />
                   </div>
                 </label>

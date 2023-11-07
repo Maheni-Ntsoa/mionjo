@@ -94,19 +94,18 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
                         {generalec?.titreen ? generalec?.titreen : ""}
                       </span>
                     </h1>
+                  ) : generalec.titremg && i18n.language === "mg" ? (
+                    <h1 className="font-bold text-lg">
+                      {/* Titre :{" "} */}
+                      <span className="text-green">
+                        {generalec?.titremg ? generalec?.titremg : ""}
+                      </span>
+                    </h1>
                   ) : (
                     <h1 className="font-bold text-lg">
                       {/* Titre :{" "} */}
                       <span className="text-green">
                         {generalec?.titre ? generalec?.titre : ""}
-                      </span>
-                    </h1>
-                  )}
-                  {generalec.titremg && i18n.language === "mg" && (
-                    <h1 className="font-bold text-lg">
-                      {/* Titre :{" "} */}
-                      <span className="text-green">
-                        {generalec?.titremg ? generalec?.titremg : ""}
                       </span>
                     </h1>
                   )}
@@ -119,6 +118,14 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
                             : ""
                         }
                       />
+                    ) : generalec.contenumg && i18n.language === "mg" ? (
+                      <HTMLRenderer
+                        html={
+                          generalec?.contenumg
+                            ? generalec?.contenumg.slice(0, 120) + "..."
+                            : ""
+                        }
+                      />
                     ) : (
                       <HTMLRenderer
                         html={
@@ -128,21 +135,12 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
                         }
                       />
                     )}
-                    {generalec.contenumg && i18n.language === "mg" && (
-                      <HTMLRenderer
-                        html={
-                          generalec?.contenumg
-                            ? generalec?.contenumg.slice(0, 120) + "..."
-                            : ""
-                        }
-                      />
-                    )}
                   </div>
                 </div>
                 <div className="flex flex-col justify-end">
                   <span>{`${generalec?.datecreation
-                      ? formatDateOnly(generalec?.datecreation)
-                      : ""
+                    ? formatDateOnly(generalec?.datecreation)
+                    : ""
                     }`}</span>
                 </div>
               </div>
@@ -219,28 +217,66 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
                 boxShadow: "rgba(0, 0, 0, 0.3) 0px 2px 5px 5px",
               }}
             >
-              <div>
-                <h1 className="font-bold text-lg">
-                  {/* Titre :{" "} */}
-                  <span className="text-green">
-                    {generalec?.titre ? generalec?.titre : ""}
-                  </span>
-                </h1>
-                <div className="text-justify min-h-32 my-2 text-[14px]">
-                  <HTMLRenderer
-                    html={
-                      generalec?.contenu
-                        ? generalec?.contenu.slice(0, 120) + "..."
-                        : ""
-                    }
-                  />
+              {generalec?.titreen && i18n.language === "en" ? (
+                <div>
+                  <h1 className="font-bold text-lg">
+                    {/* Titre :{" "} */}
+                    <span className="text-green">
+                      {generalec?.titreen ? generalec?.titreen : ""}
+                    </span>
+                  </h1>
+                  <div className="text-justify min-h-32 my-2 text-[14px]">
+                    <HTMLRenderer
+                      html={
+                        generalec?.contenuen
+                          ? generalec?.contenuen.slice(0, 120) + "..."
+                          : ""
+                      }
+                    />
+                  </div>
                 </div>
-              </div>
+              ) : generalec?.titremg && i18n.language === "mg" ? (
+                <div>
+                  <h1 className="font-bold text-lg">
+                    {/* Titre :{" "} */}
+                    <span className="text-green">
+                      {generalec?.titremg ? generalec?.titremg : ""}
+                    </span>
+                  </h1>
+                  <div className="text-justify min-h-32 my-2 text-[14px]">
+                    <HTMLRenderer
+                      html={
+                        generalec?.contenumg
+                          ? generalec?.contenumg.slice(0, 120) + "..."
+                          : ""
+                      }
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <h1 className="font-bold text-lg">
+                    {/* Titre :{" "} */}
+                    <span className="text-green">
+                      {generalec?.titre ? generalec?.titre : ""}
+                    </span>
+                  </h1>
+                  <div className="text-justify min-h-32 my-2 text-[14px]">
+                    <HTMLRenderer
+                      html={
+                        generalec?.contenu
+                          ? generalec?.contenu.slice(0, 120) + "..."
+                          : ""
+                      }
+                    />
+                  </div>
+                </div>
+              )}
               <div className="flex flex-col justify-end">
                 {/* <p className="font-bold text-lg">Date : </p>{" "} */}
                 <span>{`${generalec?.datecreation
-                    ? formatDateOnly(generalec?.datecreation)
-                    : ""
+                  ? formatDateOnly(generalec?.datecreation)
+                  : ""
                   }`}</span>
               </div>
             </div>

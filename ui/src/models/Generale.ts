@@ -17,7 +17,7 @@ class Generale {
     public nbdowninter?: number,
     public titulairemarche?: string,
     public montantmarche?: string
-  ) {}
+  ) { }
 
   static fromJson(data: any): Generale {
     const generale = new Generale(
@@ -30,8 +30,8 @@ class Generale {
     generale.contenu = data["contenu"];
     generale.titreen = data["titreen"];
     generale.contenuen = data["contenuen"];
-    generale.titreen = data["titremg"];
-    generale.contenuen = data["contenumg"];
+    generale.titremg = data["titremg"];
+    generale.contenumg = data["contenumg"];
     generale.datecreation = data["datecreation"];
     generale.datelimit = data["datelimit"];
     generale.etatannonce = data["etatannonce"];

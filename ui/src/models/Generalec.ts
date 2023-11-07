@@ -21,7 +21,7 @@ class Generalec {
     public nbdowninter?: number,
     public titulairemarche?: string,
     public montantmarche?: string
-  ) {}
+  ) { }
 
   static fromJson(data: any): Generalec {
     const generale = new Generalec(
@@ -39,8 +39,8 @@ class Generalec {
     generale.contenu = data["contenu"];
     generale.titreen = data["titreen"];
     generale.contenuen = data["contenuen"];
-    generale.titreen = data["titremg"];
-    generale.contenuen = data["contenumg"];
+    generale.titremg = data["titremg"];
+    generale.contenumg = data["contenumg"];
     generale.datelimit = data["datelimit"];
     generale.etatannonce = data["etatannonce"];
     generale.nbdownnational = data["nbdownnational"];

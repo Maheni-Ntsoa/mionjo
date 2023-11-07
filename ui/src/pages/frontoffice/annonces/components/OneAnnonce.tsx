@@ -24,7 +24,7 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
   document,
   popup,
 }) => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const [loading, setLoading] = useState(false);
 
   const getIP = async (): Promise<string> => {
@@ -67,20 +67,19 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
               >
                 {generalec.titreen}
               </p>
+            ) : generalec.titremg && i18n.language === "mg" ? (
+              <p
+                className={`${popup ? "text-sm" : "text-md lg:text-xl uppercase"
+                  } font-semibold`}
+              >
+                {generalec.titremg}
+              </p>
             ) : (
               <p
                 className={`${popup ? "text-sm" : "text-md lg:text-xl uppercase"
                   } font-semibold`}
               >
                 {generalec.titre}
-              </p>
-            )}
-            {generalec.titremg && i18n.language === "mg" && (
-              <p
-                className={`${popup ? "text-sm" : "text-md lg:text-xl uppercase"
-                  } font-semibold`}
-              >
-                {generalec.titremg}
               </p>
             )}
             <div className={`text-sm lg:text-lg italic flex justify-start`}>
@@ -95,7 +94,7 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
                 </p>
               ) : (
                 <p>
-                  Date limite :{" "}
+                  {t("dateLimite")}   :{" "}
                   <span>
                     {generalec.datelimit
                       ? formatDateOnly(generalec.datelimit)
@@ -110,21 +109,21 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
             {generalec.etatannonce === 10 ? (
               <>
                 <p className="text-sm lg:text-lg">
-                  Adjudicateur :{" "}
+                  {t("Adjudicateur")}    :{" "}
                   <strong>{`${generalec.titulairemarche}`}</strong>
                 </p>
                 <p className="text-sm lg:text-lg">
-                  Montant : <strong>{`${generalec.montantmarche}`}</strong>
+                  {t("Montant")}   : <strong>{`${generalec.montantmarche}`}</strong>
                 </p>
               </>
             ) : (
               <>
                 <p className="text-sm lg:text-lg">
-                  Nombre de téléchargement national :{" "}
+                  {t("nombreTele")}:{" "}
                   <strong>{`${generalec.nbdownnational}`}</strong>
                 </p>
                 <p className="text-sm lg:text-lg">
-                  Nombre de téléchargement international :{" "}
+                  {t("nombreTeleI")}:{" "}
                   <strong>{`${generalec.nbdowninter}`}</strong>
                 </p>
               </>

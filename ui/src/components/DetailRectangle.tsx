@@ -86,19 +86,18 @@ const DetailRectangle: React.FC<DetailRectangleProps> = ({ generalec }) => {
                     {generalec?.titreen ? generalec?.titreen : ""}
                   </span>
                 </h1>
+              ) : generalec.titremg && i18n.language === "mg" ? (
+                <h1 className="font-bold text-xl">
+                  {/* Titre :{" "} */}
+                  <span className="text-green">
+                    {generalec?.titremg ? generalec?.titremg : ""}
+                  </span>
+                </h1>
               ) : (
                 <h1 className="font-bold text-xl">
                   {/* Titre :{" "} */}
                   <span className="text-green">
                     {generalec?.titre ? generalec?.titre : ""}
-                  </span>
-                </h1>
-              )}
-              {generalec.titremg && i18n.language === "mg" && (
-                <h1 className="font-bold text-xl">
-                  {/* Titre :{" "} */}
-                  <span className="text-green">
-                    {generalec?.titremg ? generalec?.titremg : ""}
                   </span>
                 </h1>
               )}
@@ -108,6 +107,12 @@ const DetailRectangle: React.FC<DetailRectangleProps> = ({ generalec }) => {
                     html={generalec?.contenuen ? generalec?.contenuen : ""}
                   />
                 </div>
+              ) : generalec.contenumg && i18n.language === "mg" ? (
+                <div className="min-h-32 my-2 text-sm lg:text-[16px]">
+                  <HTMLRenderer
+                    html={generalec?.contenumg ? generalec?.contenumg : ""}
+                  />
+                </div>
               ) : (
                 <div className="min-h-32 my-2 text-sm lg:text-[16px]">
                   <HTMLRenderer
@@ -115,19 +120,12 @@ const DetailRectangle: React.FC<DetailRectangleProps> = ({ generalec }) => {
                   />
                 </div>
               )}
-              {generalec.contenumg && i18n.language === "mg" && (
-                <div className="min-h-32 my-2 text-sm lg:text-[16px]">
-                  <HTMLRenderer
-                    html={generalec?.contenumg ? generalec?.contenumg : ""}
-                  />
-                </div>
-              )}
             </div>
             <div className="flex justify-end mr-8">
               {/* <p className="font-bold text-xl">Le : </p>{" "} */}
               <span>{`${generalec?.datecreation
-                  ? formatDateOnly(generalec?.datecreation)
-                  : ""
+                ? formatDateOnly(generalec?.datecreation)
+                : ""
                 }`}</span>
             </div>
           </div>
@@ -176,19 +174,18 @@ const DetailRectangle: React.FC<DetailRectangleProps> = ({ generalec }) => {
                     {generalec?.titreen ? generalec?.titreen : ""}
                   </span>
                 </h1>
+              ) : generalec.titremg && i18n.language === "mg" ? (
+                <h1 className="font-bold text-xl">
+                  {/* Titre :{" "} */}
+                  <span className="text-green">
+                    {generalec?.titremg ? generalec?.titremg : ""}
+                  </span>
+                </h1>
               ) : (
                 <h1 className="font-bold text-xl">
                   {/* Titre :{" "} */}
                   <span className="text-green">
                     {generalec?.titre ? generalec?.titre : ""}
-                  </span>
-                </h1>
-              )}
-              {generalec.titremg && i18n.language === "mg" && (
-                <h1 className="font-bold text-xl">
-                  {/* Titre :{" "} */}
-                  <span className="text-green">
-                    {generalec?.titremg ? generalec?.titremg : ""}
                   </span>
                 </h1>
               )}
@@ -198,6 +195,12 @@ const DetailRectangle: React.FC<DetailRectangleProps> = ({ generalec }) => {
                     html={generalec?.contenuen ? generalec?.contenuen : ""}
                   />
                 </div>
+              ) : generalec.contenumg && i18n.language === "mg" ? (
+                <div className="min-h-32 my-2 text-sm lg:text-[16px]">
+                  <HTMLRenderer
+                    html={generalec?.contenumg ? generalec?.contenumg : ""}
+                  />
+                </div>
               ) : (
                 <div className="min-h-32 my-2 text-sm lg:text-[16px]">
                   <HTMLRenderer
@@ -205,19 +208,12 @@ const DetailRectangle: React.FC<DetailRectangleProps> = ({ generalec }) => {
                   />
                 </div>
               )}
-              {generalec.contenumg && i18n.language === "mg" && (
-                <div className="min-h-32 my-2 text-sm lg:text-[16px]">
-                  <HTMLRenderer
-                    html={generalec?.contenumg ? generalec?.contenumg : ""}
-                  />
-                </div>
-              )}
             </div>
             <div className="flex justify-end mr-8">
               {/* <p className="font-bold text-xl">Le : </p>{" "} */}
               <span>{`${generalec?.datecreation
-                  ? formatDateOnly(generalec?.datecreation)
-                  : ""
+                ? formatDateOnly(generalec?.datecreation)
+                : ""
                 }`}</span>
             </div>
           </div>

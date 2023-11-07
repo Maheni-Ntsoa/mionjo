@@ -170,7 +170,11 @@ i18n.use(initReactI18next).init({
         textSousCompo5B: `Intervention 3: Optimizing and sustaining existing drinking water points to secure water supply for multiple uses.`,
         textSousCompo5C: `01: Water trucking`,
         textSousCompo5D: "Development of green infrastructure and resilient landscapes by creating nurseries to produce adaptive vegetation, planting windbreak trees and shrubs, reforestation for multifunctional purposes.",
-
+        nombreTele: "National download count",
+        nombreTeleI: "International download count",
+        Adjudicateur: "Adjudicator",
+        Montant: "Amount",
+        dateLimite: "deadline",
       },
     },
     mg: {
@@ -209,6 +213,13 @@ i18n.use(initReactI18next).init({
         C5: "Ampahany 5: CIUC",
         SearchResult: "Valiny fikarohana",
         Keyword: "Mot clé(s) ",
+
+        nombreTele: "Isan'ny fampidinana nasionaly",
+        nombreTeleI: "Isan'ny fampidinana iraisam-pirenena",
+        Adjudicateur: "Mpitsara",
+        Montant: "vola",
+        dateLimite: "Daty fe-potoana",
+
       }
     },
     fr: {
@@ -413,7 +424,11 @@ Le projet a été approuvé le 10 décembre 2020 pour un montant 100 millions US
         soutitre3Objectif: "Fournir une riposte rapide et efficace à la crise de sécurité alimentaire et à d’autres urgences admissibles",
         texte3Objectif: "  Offrir la flexibilité nécessaire pour réallouer rapidement des ressources financières depuis d'autres composantes du projet afin de répondre efficacement à ces situations d'urgence. Cette capacité de réponse rapide vise à atténuer les impacts de crises potentielles sur les populations locales et à garantir leur sécurité alimentaire et leur bien-être en temps de besoin.",
         textezone: "Le Projet MIONJO intervient dans trois régions Androy, Anosy et Atsimo Andrefana qui composent le Grand Sud. Le projet MIONJO déploie ses actions sur un total de 225 communes réparties sur 14 districts au sein de ces trois régions.",
-
+        nombreTele: "  Nombre de téléchargement national ",
+        nombreTeleI: "  Nombre de téléchargement international ",
+        Adjudicateur: "Adjudicateur",
+        Montant: "Montant",
+        dateLimite: "date limite",
       },
     },
   },

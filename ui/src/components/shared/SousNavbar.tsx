@@ -105,17 +105,16 @@ const SousNavbar = () => {
                           ? interview?.titreen.slice(0, 45) + "..."
                           : ""}
                       </span>
+                    ) : i18n.language === "mg" && interview?.titremg ? (
+                      <span>
+                        {interview?.titremg
+                          ? interview?.titremg.slice(0, 45) + "..."
+                          : ""}
+                      </span>
                     ) : (
                       <span>
                         {interview?.titre
                           ? interview?.titre.slice(0, 45) + "..."
-                          : ""}
-                      </span>
-                    )}
-                    {i18n.language === "mg" && interview?.titremg && (
-                      <span>
-                        {interview?.titremg
-                          ? interview?.titremg.slice(0, 45) + "..."
                           : ""}
                       </span>
                     )}
