@@ -179,8 +179,9 @@ i18n.use(initReactI18next).init({
     },
     mg: {
       translation: {
+        encour: "Eo an-dàlana",
         NumVert: "Ireo isa maitso",
-        Attribue: "Attributes",
+        Attribue: "Ny nahazo",
         Actu: "Vaovao",
         Composantes: "Singa",
         Evénements: "Hetsika",
