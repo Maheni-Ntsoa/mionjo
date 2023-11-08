@@ -1,48 +1,58 @@
 import Alert from "@mui/material/Alert";
-import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormGroup from "@mui/material/FormGroup";
-import TextField from "@mui/material/TextField";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useRef, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 import ButtonImage from "../../../../components/ButtonImage";
+import SendPlainte from "../../../../usecases/Plainte/SendPlainte";
 
 const DepotPlainteForm = () => {
   const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [successM, setSuccessM] = useState(false);
+  const [errorM, setErrorM] = useState("");
+  const [isRecaptchaVerified, setIsRecaptchaVerified] = useState(false);
   const video = "/assets/videos/videoMGP.mp4";
   const initialValues = {
-    quartier: "",
-    prenom: "",
-    email: "",
-    tel: "",
-    message: "",
+    region: "",
+    district: "",
+    commune: "",
+    fokontany: "",
+    nom_plaignant: "",
+    contact_plaignant: "",
+    categorie: "",
+    nature: "",
+    description: "",
   };
   const validationSchema = Yup.object({
-    quartier: Yup.string().required("Champ obligatoire"),
-    prenom: Yup.string().required("Champ obligatoire"),
-    email: Yup.string().email("Email invalide"),
-    tel: Yup.string().required("Champ obligatoire"),
-    message: Yup.string().required("Champ obligatoire"),
+    region: Yup.string().required("Champ obligatoire"),
+    district: Yup.string().required("Champ obligatoire"),
+    commune: Yup.string().required("Champ obligatoire"),
+    fokontany: Yup.string().required("Champ obligatoire"),
+    nom_plaignant: Yup.string().required("Champ obligatoire"),
+    contact_plaignant: Yup.string().required("Champ obligatoire"),
+    categorie: Yup.string().required("Champ obligatoire"),
+    nature: Yup.string().required("Champ obligatoire"),
+    description: Yup.string().required("Champ obligatoire"),
   });
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {};
-  const onSubmit = async (values: any, { resetForm }: any) => {
-    const sendMailValues = {
-      quartier: values.quartier,
-      prenom: values.prenom,
-      tel: values.tel,
-      email: values.email,
-      plainte: values.message,
-    };
 
-    // await new SendMailDepotPlainte().execute(sendMailValues);
-    // await new SendMailRetourPlainte().execute(sendMailValues.email);
-    setSuccessM(false);
-    resetForm();
-    setSuccessM(true);
+  const onSubmit = async (values: any, { resetForm }: any) => {
+    if (isRecaptchaVerified) {
+      const retour = await new SendPlainte().execute(values);
+      if (retour.result.success) {
+        setSuccessM(false);
+        setErrorM("");
+        resetForm();
+        setSuccessM(true);
+      } else {
+        setErrorM("Echec de l'envoi du formulaire");
+      }
+    } else {
+      setErrorM(
+        "Veuillez vérifier le reCAPTCHA avant d'envoyer le formulaire."
+      );
+    }
   };
 
   const handleVideoEnd = () => {
@@ -182,241 +192,191 @@ const DepotPlainteForm = () => {
           onSubmit={onSubmit}
         >
           <Form className="px-8 pt-6 pb-8 mb-4">
-            <div className="flex flex-col justify-center lg:grid lg:grid-cols-3 gap-4">
-              <div className="mb-4">
-                <label
-                  className="block text-black/70 text-sm font-bold mb-2"
-                  htmlFor="quartier"
-                >
-                  Quartier <span className="text-red">*</span> :
-                </label>
-                <Field
-                  name="quartier"
-                  type="text"
-                  className="shadow appearance-none rounded w-full py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
-                />
-                <ErrorMessage
-                  name="quartier"
-                  component="div"
-                  className="text-red text-xs italic"
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  className="block text-black/70 text-sm font-bold mb-2"
-                  htmlFor="commune"
-                >
-                  {t("commune")} <span className="text-red">*</span>:
-                </label>
-                <Field
-                  name="commune"
-                  type="text"
-                  className="shadow appearance-none rounded w-full py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
-                />
-                <ErrorMessage
-                  name="commune"
-                  component="div"
-                  className="text-red text-xs italic"
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  className="block text-black/70 text-xs lg:text-sm font-bold mb-2"
-                  htmlFor="dateplainte"
-                >
-                  DATE DE LA PLAINTE<span className="text-red">*</span> :
-                </label>
-                <Field
-                  name="dateplainte"
-                  type="date"
-                  className="shadow appearance-none rounded w-full py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
-                />
-                <ErrorMessage
-                  name="dateplainte"
-                  component="div"
-                  className="text-red text-xs italic"
-                />
-              </div>
+            <div className="mb-4">
+              <label
+                className="block text-black/70 text-sm font-bold mb-2"
+                htmlFor="region"
+              >
+                Région <span className="text-red">*</span> :
+              </label>
+              <Field
+                name="region"
+                type="text"
+                className="shadow appearance-none rounded w-full py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              <ErrorMessage
+                name="region"
+                component="div"
+                className="text-red text-xs italic"
+              />
             </div>
-            <div className="font-bold ml-8 my-4">
-              <h1> 1- Le plaignant (facultatif) :</h1>
+            <div className="mb-4">
+              <label
+                className="block text-black/70 text-sm font-bold mb-2"
+                htmlFor="district"
+              >
+                District <span className="text-red">*</span> :
+              </label>
+              <Field
+                name="district"
+                type="text"
+                className="shadow appearance-none rounded w-full py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              <ErrorMessage
+                name="district"
+                component="div"
+                className="text-red text-xs italic"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-black/70 text-sm font-bold mb-2"
+                htmlFor="commune"
+              >
+                Commune <span className="text-red">*</span> :
+              </label>
+              <Field
+                name="commune"
+                type="text"
+                className="shadow appearance-none rounded w-full py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              <ErrorMessage
+                name="commune"
+                component="div"
+                className="text-red text-xs italic"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-black/70 text-sm font-bold mb-2"
+                htmlFor="quartier"
+              >
+                Quartier <span className="text-red">*</span> :
+              </label>
+              <Field
+                name="fokontany"
+                type="text"
+                className="shadow appearance-none rounded w-full py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              <ErrorMessage
+                name="fokontany"
+                component="div"
+                className="text-red text-xs italic"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-black/70 text-sm font-bold mb-2"
+                htmlFor="nom_plaignant"
+              >
+                Nom du plaignant <span className="text-red">*</span> :
+              </label>
+              <Field
+                name="nom_plaignant"
+                type="text"
+                className="shadow appearance-none rounded w-full py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              <ErrorMessage
+                name="nom_plaignant"
+                component="div"
+                className="text-red text-xs italic"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-black/70 text-sm font-bold mb-2"
+                htmlFor="contact_plaignant"
+              >
+                Contact du plaignant <span className="text-red">*</span> :
+              </label>
+              <Field
+                name="contact_plaignant"
+                type="text"
+                className="shadow appearance-none rounded w-full py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              <ErrorMessage
+                name="contact_plaignant"
+                component="div"
+                className="text-red text-xs italic"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-black/70 text-sm font-bold mb-2"
+                htmlFor="categorie"
+              >
+                Catégorie <span className="text-red">*</span> :
+              </label>
+              <Field
+                as="select"
+                name="categorie"
+                className="shadow cursor-pointer appearance-none rounded w-full py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
+              >
+                <option value="" disabled>
+                  Sélectionnez une catégorie
+                </option>
+                <option value="PERSONNE PHYSIQUE">PERSONNE PHYSIQUE</option>
+                <option value="PERSONNE MORALE">PERSONNE MORALE</option>
+              </Field>
+              <ErrorMessage
+                name="categorie"
+                component="div"
+                className="text-red text-xs italic"
+              />
             </div>
 
             <div className="mb-4">
               <label
                 className="block text-black/70 text-sm font-bold mb-2"
-                htmlFor="nom"
+                htmlFor="nature"
               >
-                Nom et prénoms <span className="text-red">*</span> :
+                Nature <span className="text-red">*</span> :
               </label>
               <Field
-                // placeholder="Votre nom"
-                name="nom"
+                name="nature"
                 type="text"
                 className="shadow appearance-none rounded w-full py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
               />
               <ErrorMessage
-                name="nom"
+                name="nature"
                 component="div"
                 className="text-red text-xs italic"
               />
-            </div>
-
-            <div className="mb-4">
-              <label
-                className="block text-black/70 text-sm font-bold mb-2"
-                htmlFor="email"
-              >
-                Email <span className="text-red">*</span> :
-              </label>
-              <Field
-                // placeholder="Votre email"
-                name="email"
-                type="email"
-                className="shadow appearance-none rounded w-full py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
-              />
-              <ErrorMessage
-                name="email"
-                component="div"
-                className="text-red text-xs italic"
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                className="block text-black/70 text-sm font-bold mb-2"
-                htmlFor="cin"
-              >
-                N° CIN <span className="text-red">*</span> :
-              </label>
-              <Field
-                name="cin"
-                type="text"
-                className="shadow appearance-none rounded w-full py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
-              />
-              <ErrorMessage
-                name="cin"
-                component="div"
-                className="text-red text-xs italic"
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                className="block text-black/70 text-sm font-bold mb-2"
-                htmlFor="tel"
-              >
-                Téléphone <span className="text-red">*</span> :
-              </label>
-              <Field
-                name="tel"
-                type="text"
-                className="shadow appearance-none rounded w-full py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
-              />
-              <ErrorMessage
-                name="tel"
-                component="div"
-                className="text-red text-xs italic"
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                className="block text-black/70 text-sm font-bold mb-2"
-                htmlFor="residence"
-              >
-                Residence :
-              </label>
-              <Field
-                name="residence"
-                type="text"
-                className="shadow appearance-none rounded w-full py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
-              />
-              <ErrorMessage
-                name="residence"
-                component="div"
-                className="text-red text-xs italic"
-              />
-            </div>
-            <div className="font-bold ml-8 my-4">
-              <h1> 2-Cause de la plainte : (Cocher la case exacte) :</h1>
-            </div>
-            <div className="mb-4 ">
-              <FormGroup>
-                <FormControlLabel
-                  control={<Checkbox onChange={handleChange} name="" />}
-                  label="Sélection des bénéficiaires"
-                />
-                <FormControlLabel
-                  control={<Checkbox onChange={handleChange} name="" />}
-                  label="Corruption"
-                />
-                <FormControlLabel
-                  control={<Checkbox onChange={handleChange} name="" />}
-                  label="Abus"
-                />
-                <FormControlLabel
-                  control={<Checkbox onChange={handleChange} name="" />}
-                  label="Violence"
-                />
-                <FormControlLabel
-                  control={<Checkbox onChange={handleChange} name="" />}
-                  label="Abus sur mineur"
-                />
-                <div className="flex">
-                  <label
-                    className="block text-black/70 text-sm font-bold mb-2"
-                    htmlFor="autre"
-                  >
-                    Autres (à préciser) :
-                  </label>
-                  <TextField id="standard-basic" label="" variant="standard" />
-                </div>
-              </FormGroup>
-            </div>
-            <div className="font-bold ml-8 my-4">
-              <h1> 3 - Explication de la plainte :</h1>
             </div>
             <div className="mb-6">
               <label
                 className="block text-black/70 text-sm font-bold mb-2"
-                htmlFor="message"
-              ></label>
+                htmlFor="description"
+              >
+                Description <span className="text-red">*</span> :
+              </label>
               <Field
-                name="message"
+                name="description"
                 as="textarea"
                 rows="5"
                 className="shadow appearance-none rounded w-full py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
               />
               <ErrorMessage
-                name="message"
+                name="description"
                 component="div"
                 className="text-red text-xs italic"
               />
             </div>
-            <div className="font-bold ml-8 my-4">
-              <h1> 4- Plainte contre :</h1>
-            </div>
-            <div className="mb-6">
-              <label
-                className="block text-black/70 text-sm font-bold mb-2"
-                htmlFor="message"
-              ></label>
-              <Field
-                name="message"
-                as="textarea"
-                rows="5"
-                className="shadow appearance-none rounded w-full py-2 px-3 text-black/70 leading-tight focus:outline-none focus:shadow-outline"
-              />
-              <ErrorMessage
-                name="message"
-                component="div"
-                className="text-red text-xs italic"
-              />
-            </div>
+            <ReCAPTCHA
+              sitekey="6Le4JgYpAAAAAE0wUbkl3fdDcd9cCNL9TljiIRnQ"
+              onChange={(value) => setIsRecaptchaVerified(true)}
+            />
             <div className="flex justify-center">
               <ButtonImage type="submit" src="BtnSend" />
             </div>
             {successM && (
               <div className="my-2">
                 <Alert severity="success">Votre plainte a été envoyer</Alert>
+              </div>
+            )}
+            {errorM && (
+              <div className="my-2">
+                <Alert severity="error">{errorM}</Alert>
               </div>
             )}
           </Form>
