@@ -58,24 +58,28 @@ i18n.use(initReactI18next).init({
         compo3: "Components 3",
         compo4: "Components 4",
         compo5: "Components 5",
-        textcompo1:
-          "Strengthening decentralized local governance, participatory planning, and social resilience",
+        textcompo1: "Enhancing decentralized local governance, participatory planning, and social resilience",
         textcompo2: "Resilient infrastructure",
+
         textcompo3: "Support for resilient livelihoods",
         textcompo4: "Support for implementation and knowledge learning",
         textcompo5: "Conditional Emergency Intervention Component (CIUC)",
         textaproche1:
-          "ANGLAISLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fermentum libero ut volutpat elementum. Nullam non sem tristique, accumsan nibh eu maximus ligula",
-        textaproche2:
-          "ANGLAISLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fermentum libero ut volutpat elementum. Nullam non sem tristique, accumsan nibh eu maximus ligula",
+          `The project places local communities at the core of the decision-making process. It promotes active collaboration with the beneficiary populations, ensuring that interventions align with locally identified needs and priorities.
+
+          Approche Participative Pilotée par la Communauté
+          Le projet place les communautés locales au cœur du processus décisionnel. Il favorise une collaboration active avec les populations bénéficiaires, garantissant ainsi que les interventions répondent aux besoins et aux priorités identifiés localement. 
+          `,
         textaproche3:
-          "ANGLAISLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fermentum libero ut volutpat elementum. Nullam non sem tristique, accumsan nibh eu maximus ligula",
+          `The project recognizes the specific vulnerability of women and youth in the region and places significant importance on empowering them. Actions aim to improve their economic prospects and provide opportunities for a more promising future.`,
         textaproche4:
-          "ANGLAISLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fermentum libero ut volutpat elementum. Nullam non sem tristique, accumsan nibh eu maximus ligula",
-        soutitre1: "ANGLAISLorem ipsum dolor sit amet",
-        soutitre2: "ANGLAISLorem ipsum dolor sit amet",
-        soutitre3: "ANGLAISLorem ipsum dolor sit amet",
-        soutitre4: "ANGLAISLorem ipsum dolor sit amet",
+          `MIONJO adopts a holistic approach, recognizing that development cannot be achieved through isolated actions. Interventions are designed to address various aspects related to resilience, encompassing both social, economic, and environmental dimensions.`,
+        textaproche2:
+          "MIONJO adopts an inclusive approach that encompasses all levels of development, from the local to the central level. This coordination enhances the effectiveness of actions by ensuring that all stakeholders work in harmony to achieve the project's objectives.",
+        soutitre1: "Community-Led Participatory Approach",
+        soutitre2: "Involvement of All Stakeholders, from Local to Central",
+        soutitre3: "Priority on Empowering Women and Youth",
+        soutitre4: "Integrated and Multisectoral Approach",
         nom: "Last Name",
         prenom: "First Name",
         email: "Email",
@@ -94,81 +98,82 @@ i18n.use(initReactI18next).init({
         descriptif: "Description",
         détail: "Detail",
         encour: "in progress",
-        edito1: `"Welcome to the Mionjo Project website, a governmental initiative dedicated to strengthening the resilience of Southern Madagascar. We are delighted to welcome you to our online community, and we are committed to sharing with you our commitment to a more resilient and prosperous South.
-          Our mission is clear. We are committed to breaking the humanitarian cycle by introducing and strengthening the presence of the State in the South. To achieve this, we are effectively implementing the decentralization and deconcentration frameworks in the three intervention regions: Anôsy, Androy, and Atsimo Andrefana, working closely with local authorities."`,
+        edito1: `Welcome to the Mionjo Project website, a government initiative dedicated to strengthening the resilience of Southern Madagascar. We are delighted to welcome you to our online community and are committed to sharing our dedication to a more resilient and prosperous South. Our mission is clear. We are committed to breaking the humanitarian cycle by introducing and enhancing the government's presence in the South. To achieve this, we effectively implement decentralization and deconcentration frameworks in the three intervention regions: Anôsy, Androy, and Atsimo Andrefana, working closely with local authorities.`,
 
-        edito2: `"At the heart of our approach lies investment in resilient infrastructure and resilient livelihoods, thus supporting an integrated and multi-sectoral approach. We firmly believe that coordination among various stakeholders is essential to achieving our goals.
-          We also strive to bridge the gap between the good practices of humanitarian partners and the government, thereby creating a space where the sharing of knowledge and experiences is encouraged for the benefit of all."`,
+        edito2: `At the heart of our approach is the investment in resilient infrastructure and livelihoods, thus supporting an integrated and multisectoral approach. We firmly believe that coordination among various stakeholders is essential to achieving our goals. We also strive to bridge the gap between humanitarian partners' best practices and the government, creating a space where knowledge and experiences are shared for the benefit of all.`,
 
         edito3:
-          "As an online community, we invite you to explore our site to discover clear information about the project, real-time news, useful resources, and engagement opportunities. Together, by working hand in hand, we are confident that we can create a more resilient future for Southern Madagascar.",
+          "As an online community, we invite you to explore our website to find clear information about the project, real-time news, useful resources, and engagement opportunities. Together, by working hand in hand, we are confident that we can create a more resilient future for Southern Madagascar.",
 
         edito4: "The National Coordinator of the Mionjo Project",
-        texteDescription: "The MIONJO project is an initiative set up by the Malagasy Government. MIONJO is a project to support resilient livelihoods in southern Madagascar under the supervision of the Ministry of the Interior and Decentralization (MID), with financial and technical support from the World Bank. The project was approved on December 10, 2020 for an amount of USD 100 million as the first phase (2021 - 2025) of a series of projects (SdP). The Project entered into force on December 23, 2020 and will end on May 31, 2025. The project benefited from additional funding of US$100 million from the rapid response mechanism of the Rapid Response Response Mechanism (CRW). ERF).",
+        texteDescription: `The MIONJO project represents a strategic endeavor initiated by the Malagasy Government. It is a program designed to bolster the resilience of livelihoods in the southern regions of Madagascar. This initiative is overseen by the Ministry of Interior and Decentralization (MID) and enjoys substantial financial and technical support from the World Bank.
+        The project received official approval on December 10, 2020, securing a substantial funding allocation of 100 million USD for its inaugural phase, spanning from 2021 to 2025. This initial phase marks the outset of a comprehensive series of projects (SdP). The project officially commenced its operations on December 23, 2020, with its conclusion slated for May 31, 2025.
+        In an exceptional display of commitment, the project was the recipient of an additional infusion of 100 million USD through the Rapid Response Mechanism (RRM) of the Crisis Response Window (CRW) under the aegis of the World Bank. This supplemental funding underscores the critical importance of the project's goals and the rapid response required to address the unique challenges in the region.
+        `,
 
-        soutitre1Objectif: "Improve access to basic infrastructure and livelihoods",
-        texte1Objectif: "Ensure better access to essential infrastructure, such as clean water and basic services, while strengthening the livelihoods of local communities. By focusing on these fundamental elements, the project aims to improve the quality of life of the inhabitants of southern Madagascar, by increasing their economic opportunities and promoting sustainable development.",
-        soutitre2Objectif: "Strengthening local governance in southern Madagascar, with emphasis on young people and women",
-        texte2Objectif: "Strengthen governance at the local level, with particular emphasis on the inclusion and active involvement of young people and women. This means that the voices and needs of these groups will be taken into account in local decisions, contributing to fair representation and policies that are better suited to the entire population.",
-        soutitre3Objectif: "Provide a rapid and effective response to the food security crisis and other eligible emergencies",
-        texte3Objectif: " Provide the flexibility needed to quickly reallocate financial resources from other project components to effectively respond to these emergency situations. This rapid response capacity aims to mitigate the impacts of potential crises on local populations and guarantee their food security and well-being in times of need.",
+        soutitre1Objectif: "Enhancing Access to Basic Infrastructure and Livelihoods",
+        texte1Objectif: "The primary objective of the project is to ensure improved access to essential infrastructure, including clean water and basic services, while concurrently strengthening the livelihoods of local communities. By placing a strong emphasis on these foundational elements, the project aims to enhance the quality of life for the residents of Southern Madagascar. This includes increasing their economic opportunities and promoting sustainable development.",
+        soutitre2Objectif: "Strengthening Local Governance in Southern Madagascar with a Focus on Youth and Women",
+        texte2Objectif: "The project seeks to bolster local governance in Southern Madagascar, with a particular emphasis on fostering the active inclusion of young people and women. This means that the voices and needs of these groups will be taken into account in local decision-making, contributing to equitable representation and policies that are better tailored to the entire population.",
+        soutitre3Objectif: "Providing a Swift and Effective Response to Food Security Crises and Other Eligible Emergencies",
+        texte3Objectif: "The project is designed to provide the necessary flexibility to swiftly reallocate financial resources from other project components to effectively respond to emergent situations, particularly those related to food security and other eligible emergencies. This rapid response capability aims to mitigate the impacts of potential crises on local populations and ensure their food security and well-being in times of need.",
         textezone: "The MIONJO Project operates in three regions Androy, Anosy and Atsimo Andrefana which make up the Great South. The MIONJO project deploys its actions in a total of 225 municipalities spread over 14 districts within these three regions.",
 
         titlecompo1: "Component 1",
-        soustitrecompo1: "Component 1 of the project focuses on strengthening decentralized local governance, participatory planning, and social resilience. It aims to improve participatory local governance, enhance social resilience, and prevent conflicts by creating an enabling environment for sustainable development in the southern regions of Madagascar.",
+        soustitrecompo1: "The first component of the project is dedicated to enhancing decentralized local governance, participatory planning, and social resilience. Its primary objectives are to improve participatory local governance, bolster social resilience, and prevent conflicts by creating an environment conducive to sustainable development in the southern regions of Madagascar.",
         soutitreCompo1A: "Subcomponent 1A",
         soutitreCompo1B: "Subcomponent 1B",
         titreSousCompo1C: "",
         titreSousCompo1D: "",
 
-        textSousCompo1A: "Rehabilitation of decentralized local authorities to improve community planning and the provision of essential services, with a focus on establishing Local Consultation Structures (LCS).",
-        textSousCompo1B: `Strengthening social resilience, citizen engagement, and conflict prevention in the face of the impacts of climate change, periods of severe drought, increasing insecurity, social norms, social taboos related to the prevalence of Gender-Based Violence (GBV), youth conversion to Dahalo, and the lack of sustainable development activities by supporting LCS in social resilience activities. All of this includes social cohesion, support for specific vulnerable groups such as youth and women, the implementation of measures to mitigate GBV/VCE risks in project areas, and the implementation of an Early Warning and Response Community System (EWARCS) with a strong focus on the prevention and resolution of local conflicts.`,
+        textSousCompo1A: "This subcomponent focuses on rehabilitating decentralized territorial communities to enhance community planning and the delivery of essential services, with a specific emphasis on establishing Local Concentration Structures (LCS).",
+        textSousCompo1B: `In this subcomponent, the project aims to enhance social resilience, citizen engagement, and conflict prevention in response to the impacts of climate change, severe drought periods, increasing insecurity, social norms, social taboos related to the prevalence of Gender-Based Violence (GBV), youth involvement in Dahalo activities, and the absence of sustainable development initiatives. This includes promoting social cohesion, supporting specific vulnerable groups such as youth and women, implementing GBV/VCE risk mitigation measures in project areas, and establishing a Community Early Warning and Response System (CERWRS) with a strong focus on conflict prevention and resolution at the local level.`,
         textSousCompo1C: "",
         textSousCompo1D: "",
 
         titrecompo2: "Component 2",
-        soustitrecompo2: "Component 2 of the Mionjo project enables the development of resilient infrastructure to improve access to basic services, including clean water and roads, to strengthen the capacity of local communities to cope with climate shocks and promote economic development.",
+        soustitrecompo2: "The second component of the Mionjo Project is dedicated to developing resilient infrastructure to enhance access to basic services, such as clean water and roads, with the goal of increasing the capacity of local communities to withstand climate-related shocks and stimulate economic development.",
         titreSousCompo2A: "Subcomponent 2A",
         titreSousCompo2B: "Subcomponent 2B",
         titreSousCompo2C: "Subcomponent 2C",
         titreSousCompo2D: "",
 
-        textSousCompo2A: "Resilient community grants to improve access to basic infrastructure in rural municipalities by providing grants for community and inter-municipal projects, managed and monitored by local communities.",
-        textSousCompo2B: "Regional water resilience infrastructure through the rehabilitation of regional water infrastructure, including pipelines, to ensure reliable water supply to local communities.",
-        textSousCompo2C: "Improving access to protected and sustainable water sources by modernizing water points, grouping them into versatile mini-grids with solar energy storage batteries to provide sustainable water access meeting the multiple needs of the communities involved.",
+        textSousCompo2A: "Under this subcomponent, Resilient Community Grants are provided to enhance access to basic infrastructure in rural municipalities by offering grants for community and inter-community projects, which are managed and monitored by local communities.",
+        textSousCompo2B: "This subcomponent focuses on ensuring regional water resilience infrastructure through the rehabilitation of regional infrastructure, including pipelines, to ensure a reliable water supply to local communities.",
+        textSousCompo2C: "This subcomponent is dedicated to improving access to safe and sustainable water sources through the modernization of water points. These water points will be consolidated into versatile mini-grid systems equipped with solar energy storage batteries to provide sustainable water access that can fulfill the diverse needs of the communities in question .",
         textSousCompo2D: "",
 
         titrecompo3: "Component 3",
-        soustitrecompo3: "Component 3 concerns increasing the resilience of local livelihoods by strengthening food production capacity, promoting sustainable value chains, and promoting adaptation to climate change.",
+        soustitrecompo3: "Component 3 focuses on enhancing the resilience of local livelihoods by bolstering food production capacity, promoting sustainable value chains, and facilitating adaptation to climate change.",
         titreSousCompo3A: "Subcomponent 3A",
         titreSousCompo3B: "Subcomponent 3B",
         titreSousCompo3C: "Subcomponent 3C",
         titreSousCompo3D: "Subcomponent 3D",
-        textSousCompo3A: "Support for community organizations and local value chains by assisting residents of targeted municipalities in strengthening their livelihoods, based on their vulnerability, by promoting sustainability and resilience.",
-        textSousCompo3B: "Irrigation system for livelihood resilience through the rehabilitation of irrigation perimeters to support agricultural productivity in drought-affected regions.",
-        textSousCompo3C: "Restoration of food production capacity and strengthening of food systems and livelihoods by providing resources, training, and technologies to improve resilience to climate change.",
-        textSousCompo3D: "Development of green infrastructure and resilient landscapes by creating nurseries to produce adaptive vegetation, planting windbreak trees and shrubs, reforestation for multifunctional purposes.",
+        textSousCompo3A: "This subcomponent entails supporting community organizations and local value chains by aiding residents in targeted municipalities to strengthen their livelihoods based on their vulnerability, with an emphasis on promoting sustainability and resilience.",
+        textSousCompo3B: "In Subcomponent 3B, the project focuses on the development of an irrigation system to enhance livelihood resilience by rehabilitating irrigation schemes that will support agricultural productivity in regions affected by drought.",
+        textSousCompo3C: "The goal of Subcomponent 3C is to restore food production capacity and strengthen food and livelihood systems by providing resources, training, and technologies to enhance resilience to climate change.",
+        textSousCompo3D: "Subcomponent 3D is dedicated to the development of green infrastructure and resilient landscapes. This involves establishing nurseries to produce adaptive vegetation, planting windbreak trees and shrubs, and engaging in reforestation for multifunctional purposes.",
 
         titrecompo4: "Component 4",
-        soustitrecompo4: "Component 4 facilitates the successful implementation of the project by strengthening the capacities of the stakeholders involved, providing geospatial knowledge for monitoring and evaluation, and supporting the planning of essential infrastructure.",
+        soustitrecompo4: "Component 4 is designed to facilitate the successful implementation of the project by enhancing the capacities of involved stakeholders, providing geospatial knowledge for monitoring and evaluation, and supporting the planning of essential infrastructure.",
         titreSousCompo4A: "Subcomponent 4A",
         titreSousCompo4B: "Subcomponent 4B",
         titreSousCompo4C: "Subcomponent 4C",
         titreSousCompo4D: "Subcomponent 4D",
-        textSousCompo4A: "Implementation of project financing, including studies, management, administration, and learning Preparatory Analyses of the Project Series (PAPS).",
-        textSousCompo4B: "Preparatory Analyses of the Project Series (PAPS).",
+        textSousCompo4A: "Subcomponent 4A focuses on the implementation of project financing, encompassing studies, management, administration, and learning. It also includes preparatory analyses for the project series (SdP).",
+        textSousCompo4B: "In Subcomponent 4B, the project aims to enhance the government's capacity to respond to climate change. This involves managing emergency situations, fostering local climate resilience, and assuming a leadership role in climate response efforts.",
         textSousCompo4C: "Capacity building of the government to provide a response to climate change, including emergency management, climate resilience at the local level, and leadership in climate response.",
         textSousCompo4D: "Development of green infrastructure and resilient landscapes by creating nurseries to produce adaptive vegetation, planting windbreak trees and shrubs, reforestation for multifunctional purposes.",
 
         titrecompo5: "Component 5",
-        soustitrecompo5: "Component 5 of the project aims to provide an emergency response in case of eligible crises or emergency situations, with reallocation of funds from other components of the project. This component was activated in response to prolonged periods of drought and other emergencies affecting the population.",
+        soustitrecompo5: "Component 5 of the project is dedicated to providing emergency response in the event of crises or eligible emergency situations, with a reallocation of funds from other project components. This component has been activated in response to prolonged periods of drought and other emergencies impacting the population.",
         titreSousCompo5A: "Subcomponent 5A",
         titreSousCompo5B: "Subcomponent 5B",
         titreSousCompo5C: "Subcomponent 5C",
         titreSousCompo5D: "Subcomponent 5D",
-        textSousCompo5A: "Intervention 1: Restoring the production capacity of 50,000 vulnerable households in the short term.",
-        textSousCompo5B: `Intervention 3: Optimizing and sustaining existing drinking water points to secure water supply for multiple uses.`,
-        textSousCompo5C: `01: Water trucking`,
+        textSousCompo5A: "Intervention 1: This intervention aims to restore the production capacity of 50,000 vulnerable households in the short term.",
+        textSousCompo5B: `Intervention 3: This intervention focuses on optimizing and sustaining existing drinking water points and ensuring a secure water supply for multiple uses.`,
+        textSousCompo5C: `Intervention 1: Water trucking services are provided as part of this subcomponent. `,
         textSousCompo5D: "Development of green infrastructure and resilient landscapes by creating nurseries to produce adaptive vegetation, planting windbreak trees and shrubs, reforestation for multifunctional purposes.",
         nombreTele: "National download count",
         nombreTeleI: "International download count",
@@ -220,6 +225,15 @@ i18n.use(initReactI18next).init({
         Adjudicateur: "Mpitsara",
         Montant: "vola",
         dateLimite: "Daty fe-potoana",
+        BtnDocument: "/assets/buttons/domg.png",
+        BtnDown: "/assets/buttons/misintona.png",
+        BtnSend: "/assets/buttons/mandefa.png",
+        // BtnIdee: "/assets/buttons/btn_sendiee.png",
+        // BtnSearch: "/assets/buttons/btn_recherche.png",
+        // BtnLearn: "/assets/buttons/btn_savoirplus.svg",
+        // BtnLog: "/assets/buttons/btn_seconnecter.svg",
+        // Btnsavoirplus: "/assets/buttons/btn_savoirplus.png",
+        // Btnsavoir: "/assets/buttons/btn_savoir.png",
 
       }
     },
@@ -405,13 +419,11 @@ i18n.use(initReactI18next).init({
         idée: "  ECRIVEZ-NOUS VOTRE IDEE POUR LE SUD DE MADAGASCAR",
         descriptif: "Descriptif ",
         détail: "Détail ",
-        edito1: `"Bienvenue sur le site web du projet Mionjo, une initiative gouvernementale dédiée à renforcer la résilience du Sud de Madagascar. Nous sommes ravis de vous accueillir au sein de notre communauté en ligne, et nous sommes déterminés à partager avec vous notre engagement envers un Sud plus résilient et prospère.
-          Notre mission est claire. Nous nous engageons à briser le cycle humanitaire en introduisant et en renforçant la présence de l'État dans le Sud. Pour y parvenir, nous mettons en œuvre de manière effective les cadres de décentralisation et de déconcentration dans les trois régions d'intervention : Anôsy, Androy et Atsimo Andrefana, travaillant en étroite collaboration avec les autorités locales"`,
-        edito2: `"Au cœur de notre approche se trouve l'investissement dans des infrastructures résilientes et des moyens de subsistance résilients, soutenant ainsi une approche intégrée et multisectorielle. Nous croyons fermement que la coordination entre les différents acteurs est essentielle pour atteindre nos objectifs.
-          Nous nous efforçons également de faire le lien entre les bonnes pratiques des partenaires humanitaires et le gouvernement, créant ainsi un espace où le partage de connaissances et d'expériences est encouragé pour le bénéfice de tous.
-          "`,
+        titreedito: "Un Engagement envers un Sud Résilient",
+        edito1: `Bienvenue sur le site web du projet Mionjo, une initiative gouvernementale dédiée à renforcer la résilience du Sud de Madagascar. Nous sommes ravis de vous accueillir au sein de notre communauté en ligne, et nous sommes déterminés à partager avec notre engagement envers un Sud plus résilient et prospère. Notre mission est claire. Nous nous engageons à briser le cycle humanitaire en introduisant et en renforçant la présence de l’Etat dans le Sud. Pour y parvenir, nous mettons en œuvre de manière effective les cadres de décentralisation et de déconcentration dans les trois régions d’intervention : Anôsy, Androy et Atsimo Andrefana, travaillant en étroite collaboration avec les autorités locales.`,
+        edito2: `Au cœur de notre approche se trouve l’investissement dans des infrastructures résilientes et des moyens de subsistance résilients, soutenant ainsi une approche intégrée et multisectorielle. Nous croyons fermement que la coordination entre les différents acteurs est essentielle pour atteindre nos objectifs. Nous nous efforçons également de faire le lien entre les bonnes pratiques des partenaires humanitaires et le gouvernement, créant ainsi un espace où le partage de connaissances et d’expériences est encouragé pour le bénéfice de tous. `,
         edito3:
-          "En tant que communauté en ligne, nous vous invitons à explorer notre site pour découvrir des informations claires sur le projet, des actualités en temps réel, des ressources utiles et des opportunités d'engagement. Ensemble, en travaillant main dans la main, nous sommes convaincus que nous pouvons créer un avenir plus résilient pour le Sud de Madagascar.",
+          "En tant que communauté en ligne, nous vous invitons à explorer notre site pour découvrir des informations claires sur le projet, des actualités en temps réel, des ressources utiles et des opportunités d’engagement. Ensemble, en travaillant main dans la main, nous sommes convaincus que nous pouvons créer un avenir plus résilient pour le Sud de Madagascar.",
         edito4: `Le Coordonnateur National du Projet Mionjo`,
         voirvideo: "Voir vidéos",
         voirphoto: "Voir photos",

@@ -90,21 +90,21 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
                   {generalec.titreen && i18n.language === "en" ? (
                     <h1 className="font-bold text-lg">
                       {/* Titre :{" "} */}
-                      <span className="text-green">
+                      <span className="text-green uppercase">
                         {generalec?.titreen ? generalec?.titreen : ""}
                       </span>
                     </h1>
                   ) : generalec.titremg && i18n.language === "mg" ? (
                     <h1 className="font-bold text-lg">
                       {/* Titre :{" "} */}
-                      <span className="text-green">
+                      <span className="text-green uppercase">
                         {generalec?.titremg ? generalec?.titremg : ""}
                       </span>
                     </h1>
                   ) : (
                     <h1 className="font-bold text-lg">
                       {/* Titre :{" "} */}
-                      <span className="text-green">
+                      <span className="text-green uppercase">
                         {generalec?.titre ? generalec?.titre : ""}
                       </span>
                     </h1>
@@ -221,7 +221,7 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
                 <div>
                   <h1 className="font-bold text-lg">
                     {/* Titre :{" "} */}
-                    <span className="text-green">
+                    <span className="text-green uppercase">
                       {generalec?.titreen ? generalec?.titreen : ""}
                     </span>
                   </h1>
@@ -239,7 +239,7 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
                 <div>
                   <h1 className="font-bold text-lg">
                     {/* Titre :{" "} */}
-                    <span className="text-green">
+                    <span className="text-green uppercase">
                       {generalec?.titremg ? generalec?.titremg : ""}
                     </span>
                   </h1>
@@ -257,7 +257,7 @@ const Rectangle: React.FC<RectangleProps> = ({ generalec }) => {
                 <div>
                   <h1 className="font-bold text-lg">
                     {/* Titre :{" "} */}
-                    <span className="text-green">
+                    <span className="text-green uppercase ">
                       {generalec?.titre ? generalec?.titre : ""}
                     </span>
                   </h1>
