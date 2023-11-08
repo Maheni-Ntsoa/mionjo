@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import User from "../../../../models/User";
 
 const SideBarAdmin = () => {
   const navigate = useNavigate();
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [user, setUser] = useState<User>();
+  useEffect(() => {
+    if (localStorage.getItem('user')) {
+      setUser(JSON.parse(localStorage.getItem('user')!));
+    }
+  }, []);
+  console.log(user);
+
   return (
     <div>
       <div className="justify-between px-4 mx-auto lg:items-center lg:flex lg:px-8     ">
@@ -57,50 +66,59 @@ const SideBarAdmin = () => {
           } shadow-brown drop-shadow-lg transform h-screen w-64 top-0 left-0 bg-white z-50 transition-transform duration-300 ease-in-out lg:translate-x-0`}
       >
         <div className="p-6 h-[600px]">
-          <div className="mt-4 flex items-center justify-center">
-            <ul>
-              <li>
-                <button
-                  onClick={() => navigate("/admin")}
-                  className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
-                >
-                  Accueil
-                </button>
-              </li>
-              {/* <li>
-                <button
-                  onClick={() => navigate("/admin/aproposadmin")}
-                  className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
-                >
-                  A propos
-                </button>
-              </li> */}
-              <li>
-                <button
-                  onClick={() => navigate("/admin/documentation")}
-                  className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
-                >
-                  Documentations
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigate("/admin/annonce")}
-                  className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
-                >
-                  Annonces
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigate("/admin/ideecontribution")}
-                  className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
-                >
-                  Idées et plaintes
-                </button>
-              </li>
-            </ul>
-          </div>
+
+          {user?.idrole === 2 ? (
+            <div className="mt-4 flex items-center justify-center">
+              <ul>
+                <li>
+                  <button
+                    onClick={() => navigate("/admin/annonce")}
+                    className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
+                  >
+                    Annonces
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+          ) : (
+            <div className="mt-4 flex items-center justify-center">
+              <ul>
+                <li>
+                  <button
+                    onClick={() => navigate("/admin")}
+                    className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
+                  >
+                    Accueil
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => navigate("/admin/documentation")}
+                    className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
+                  >
+                    Documentations
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => navigate("/admin/annonce")}
+                    className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
+                  >
+                    Annonces
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => navigate("/admin/ideecontribution")}
+                    className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
+                  >
+                    Idées et plaintes
+                  </button>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       </aside>
     </div>

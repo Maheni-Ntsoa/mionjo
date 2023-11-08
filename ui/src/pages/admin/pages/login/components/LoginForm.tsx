@@ -17,7 +17,11 @@ const LoginForm = () => {
 
   const onSubmit = async (values: any, { resetForm }: any) => {
     const user = await new LoginUser().execute(values);
-    if (user) {
+    if (user.idrole === 2) {
+      localStorage.setItem("user", JSON.stringify(user));
+      navigate("/admin/annonce");
+    }
+    if (user.idrole === 1) {
       localStorage.setItem("user", JSON.stringify(user));
       navigate("/admin");
     }
