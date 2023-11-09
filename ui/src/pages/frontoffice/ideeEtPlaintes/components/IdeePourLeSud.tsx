@@ -48,7 +48,7 @@ const IdeePourLeSud: React.FC<IdeePourLeSudProps> = ({ texte }) => {
             />
           </div>
           <div className="text-center">
-            <h1 className="text-black/60 lg:text-4xl px-8">{t("idée")}</h1>
+            <h1 className="text-black/60 lg:text-4xl px-8 uppercase">{t("idée")}</h1>
           </div>
         </div>
         <div className="lg:w-1/2 bg-white text-white  flex flex-col items-center lg:mx-0 mx-2 justify-center p-4 border-black/60 border-2">

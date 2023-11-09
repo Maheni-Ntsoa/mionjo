@@ -42,7 +42,7 @@ i18n.use(initReactI18next).init({
         BtnDocument: "/assets/buttons/documentationEng.png",
         BtnDown: "/assets/buttons/download_eng.png",
         BtnSend: "/assets/buttons/submitEn.png",
-        BtnIdee: "/assets/buttons/btn_sendiee.png",
+        BtnIdee: "/assets/buttons/btn_envoyer.png",
         BtnSearch: "/assets/buttons/btn_recherche.png",
         BtnLearn: "/assets/buttons/learnmore_eng.png",
         BtnLog: "/assets/buttons/login.png",
@@ -219,6 +219,7 @@ i18n.use(initReactI18next).init({
         C5: "Ampahany 5: CIUC",
         SearchResult: "Valiny fikarohana",
         Keyword: "Mot clé(s) ",
+        idée: " SORATY AMINAY NY HEVITRAO HON'NY ATSIMO NY MADAGASIKARA",
 
         nombreTele: "Isan'ny fampidinana nasionaly",
         nombreTeleI: "Isan'ny fampidinana iraisam-pirenena",
@@ -228,13 +229,142 @@ i18n.use(initReactI18next).init({
         BtnDocument: "/assets/buttons/domg.png",
         BtnDown: "/assets/buttons/misintona.png",
         BtnSend: "/assets/buttons/mandefa.png",
+        BtnIdee: "/assets/buttons/mandefa.png",
+
         // BtnIdee: "/assets/buttons/btn_sendiee.png",
         // BtnSearch: "/assets/buttons/btn_recherche.png",
         // BtnLearn: "/assets/buttons/btn_savoirplus.svg",
         // BtnLog: "/assets/buttons/btn_seconnecter.svg",
-        // Btnsavoirplus: "/assets/buttons/btn_savoirplus.png",
+        Btnsavoirplus: "/assets/buttons/hijery.png",
         // Btnsavoir: "/assets/buttons/btn_savoir.png",
+        texteDescription: `Ny tetikasa MIONJO dia hetsika napetraky ny Fanjakana Malagasy. Ny MIONJO dia tetikasa hanohanana ny fivelomana maharitra any amin’ny faritra atsimon’i Madagasikara eo ambany fiahian’ny minisiteran’ny Atitany sy ny fitsinjaram-pahefana (MID), miaraka amin’ny fanohanana ara-bola sy ara-teknika avy amin’ny Banky iraisam-pirenena.
+        Nankatoavina tamin'ny 10 Desambra 2020 ny tetikasa tamin'ny vola mitentina 100 tapitrisa dolara ho dingana voalohany (2021 - 2025) amin'ny tetikasa maromaro (SdP). Nanomboka tamin'ny 23 Desambra 2020 ny Tetikasa ary hifarana amin'ny 31 Mey 2025. Nahazo tombony tamin'ny famatsiam-bola fanampiny 100 tapitrisa dolara amerikana avy amin'ny rafitra famaliana haingana an'ny Rapid Response Mechanism (CRW). ERF ny tetikasa.`,
+        soutitre1Objectif: `Manatsara ny fidirana amin'ny fotodrafitrasa fototra sy ny fivelomana`,
+        texte1Objectif: `Mba hiantohana ny fidirana tsara kokoa amin'ny fotodrafitrasa ilaina, toy ny rano fisotro sy ny serivisy fototra, ary hanamafisana ny fiveloman'ny vondrom-piarahamonina eo an-toerana. Amin'ny alàlan'ny fifantohana amin'ireo singa fototra ireo, ny tetikasa dia mikendry ny fanatsarana ny kalitaon'ny fiainan'ny mponina any atsimon'i Madagasikara, amin’ny fampitomboana ny fahafahany ara-toekarena sy ny fampiroboroboana ny fampandrosoana maharitra.`,
+        soutitre2Objectif: ` Fanamafisana ny fitantanana eto an-toerana any atsimon’i Madagasikara, amin’ny fanantitranterana ny tanora sy ny vehivavy `,
+        texte2Objectif: "Manamafy ny fitantanana eo amin'ny sehatra eo an-toerana, amin'ny fanamafisana manokana ny fampidirana sy ny fandraisana anjara mavitrika amin'ny tanora sy ny vehivavy. politika mifanaraka tsara amin'ny vahoaka manontolo.",
+        soutitre3Objectif: "Manome valiny haingana sy mahomby amin'ny krizy ara-tsakafo sy ny vonjy taitra hafa",
+        texte3Objectif: "Manome ny fahafaha-manao ilaina mba hamerenana haingana ny loharanon-karena ara-bola avy amin'ireo singa hafa amin'ny tetikasa mba hamaliana amin'ny fomba mahomby ireo toe-javatra maika ireo. amin'ny fotoan-tsarotra.",
 
+        textaproche1:
+          "Ny tetikasa dia mametraka ny vondrom-piarahamonina eo an-toerana ho ivon'ny dingan'ny fandraisana fanapahan-kevitra. Mampiroborobo ny fiaraha-miasa mavitrika amin'ny mponina mpahazo tombontsoa izany, ka manome antoka fa mamaly ny filana sy laharam-pahamehana eo an-toerana ny fandraisana andraikitra.",
+        textaproche2:
+          "Ny MIONJO dia mandray ny fomba fiasa mitambatra izay mahafaoka ny ambaratonga rehetra amin'ny fampandrosoana, manomboka eo an-toerana ka hatrany amin'ny foibe. Ity fandrindrana ity dia manamafy ny fahombiazan'ny hetsika amin'ny fiantohana fa ny mpiara-miombon'antoka rehetra dia miara-miasa mba hahatratrarana ny tanjon'ny tetikasa.",
+        textaproche3:
+          "Ny tetikasa dia manaiky ny faharefoan'ny vehivavy sy ny tanora ao amin'ny faritra ary manome lanja indrindra ny fanomezan-danja azy ireo. Ny hetsika dia mikendry ny hanatsara ny fahatsinjovan'izy ireo ara-toekarena sy hanome azy ireo fahafahana ho amin'ny hoavy mampanantena kokoa.",
+        textaproche4:
+          "MIONJO dia mitodika amin’ny lafiny rehetra, amin’ny fiheverana fa tsy azo tanterahina amin’ny alalan’ny hetsika mitokana ny fampandrosoana.",
+
+        soutitre1: "Fomba fandraisana anjara entin'ny fiaraha-monina",
+        soutitre2: "Fandraisana anjaran’ny mpandray anjara rehetra, manomboka eo an-toerana ka hatrany afovoany",
+        soutitre3: "Laharam-pahamehana amin’ny Fampiroboroboana ny Vehivavy sy ny Tanora",
+        soutitre4: "Fanatonana mitambatra sy sehatra maro",
+        textezone: "Ny Tetikasa MIONJO dia miasa any amin’ny faritra telo Androy, Anosy ary Atsimo Andrefana izay mandrafitra ny faritra atsimo. Ny tetikasa MIONJO dia mametraka ny hetsika ataony amin'ny kaominina 225 miparitaka amin'ny distrika 14 ao anatin'ireo faritra telo ireo.",
+
+        titrecompo1: "Singa 1",
+        soustitrecompo1:
+          "Ny singa 1 amin'ny tetikasa dia mifantoka amin'ny fanamafisana ny fitantanana ifotony ifotony, ny fandrindrana ny fandraisana anjara ary ny faharetan'ny fiaraha-monina. Tanjona ny hanatsarana ny fitantanana eo an-toerana mandray anjara, hanamafisana ny fiatrehana ny fiaraha-monina ary hisorohana ny fifandirana, amin'ny famoronana tontolo mifanaraka amin'ny fampandrosoana maharitra any amin'ny faritra atsimon'i Madagasikara.",
+        ssoutitreCompo1A: "Singa-ambany 1A",
+        ssoutitreCompo1B: "Singa-ambany 1B",
+
+        textSousCompo1A:
+          "Fanarenana ireo manam-pahefana eo an-toerana itsinjaram-pahefana mba hanatsarana ny fandrindrana ny vondrom-piarahamonina sy ny fanaterana ireo tolotra tena ilaina, miaraka amin'ny fanamafisana ny fametrahana ny rafitra fakan-kevitra eo an-toerana (SLC).",
+        textSousCompo1B: `Manamafy ny fiahiana ara-tsosialy, ny firotsahan'ny olom-pirenena ary
+        fisorohana ny fifandirana manoloana ny fiantraikan'ny fiovaovan'ny toetr'andro, vanim-potoanan'ny hain-tany
+        henjana, mitombo tsy fandriampahalemana, fitsipika ara-tsosialy, fady ara-tsosialy mifandray amin'ny fihanaky ny
+        Herisetra mifototra amin’ny lahy sy ny vavy (GBV), ny fiovan’ny tanora ho dahalo, ary ny tsy fisiana.
+        hetsika fampandrosoana maharitra amin'ny alàlan'ny fanohanana ny SLC amin'ny hetsika fiarovana ara-tsosialy.
+        Izany rehetra izany dia tafiditra ao anatin'izany ny firaisankina ara-tsosialy, fanohanana ireo vondrona marefo manokana toy ny
+        tanora sy vehivavy, ny fampiharana ny fepetra fanalefahana ny risika GBV/ECV ao
+        faritra misy ny tetikasa ary ny fampiharana ny rafitra fampitandremana sy famaliana mialoha ny fiaraha-monina
+        (SCAPR) miaraka amin'ny fanamafisana mafy ny fisorohana sy ny famahana ny fifandirana eo an-toerana.`,
+
+        titrecompo2: "Singa 2",
+        soustitreCompo2:
+          `Ny singa faha-2 amin’ny tetikasa Mionjo dia manampy amin’ny fampivoarana fotodrafitrasa maharitra hanatsarana ny fidirana amin’ny serivisy fototra, anisan’izany ny rano fisotro sy ny lalana, mba hanamafisana ny fahafahan’ny vondrom-piarahamonina eo an-toerana hiatrika ny fikorontanan’ny toetr’andro sy hampiroboroboana ny fampandrosoana ara-toekarena.`,
+        soutitreCompo2A: "Singa-ambany 2A",
+        soutitreCompo2B: "Singa-ambany 2B",
+        soutitreCompo2C: "Singa-ambany 2C",
+
+        textSousCompo2A:
+          "Famatsiam-bola ho an’ny vondrombahoakam-paritra itsinjaram-pahefana mba hanatsarana ny fidirana amin’ireo fotodrafitrasa fototra eny anivon’ny kaominina ambanivohitra amin’ny alalan’ny fanomezana vola ho an’ny tetikasam-piarahamonina sy iraisan’ny kaominina, tantanan’ny vondrom-bahoakam-paritra itsinjaram-pahefana sy fanaraha-maso.",
+        textSousCompo2B:
+          " Fotodrafitrasa mahazaka rano isam-paritra amin’ny alalan’ny fanarenana ny fotodrafitrasa momba ny rano any amin’ny faritra, anisan’izany ny fantsona fantsona, mba hiantohana ny famatsian-drano azo antoka ho an’ny vondrom-piarahamonina eo an-toerana.",
+        textSousCompo2C:
+          "Ny fanatsarana ny fidirana amin'ny loharanon-drano arovana sy maharitra amin'ny alàlan'ny fanavaozana ny toerana misy rano, ny fampivondronana azy ireo amin'ny tambajotra mini misy tanjona maro miaraka amin'ny bateria fitahirizana angovo azo avy amin'ny masoandro mba hanomezana fidirana maharitra amin'ny rano mamaly ny filan'ny vondrom-piarahamonina voakasik'izany.",
+
+        titrecompo3: "Singa 3",
+        soustitreCompo3:
+          "Ny singa 3 dia mampanahy ny fampitomboana ny faharetan'ny fiveloman'ny mponina eo an-toerana amin'ny alàlan'ny fanamafisana ny fahafaha-mamokatra sakafo, ny fampivoarana ny rojom-bidy maharitra ary ny fampiroboroboana ny fampifanarahana amin'ny fiovan'ny toetr'andro.",
+        soutitreCompo3A: "Singa-ambany 3A",
+        soutitreCompo3B: "Singa-ambany 3B",
+        soutitreCompo3C: "Singa-ambany 3C",
+        soutitreCompo3D: "Singa-ambany 3D",
+        textSousCompo3A:
+          "Fanohanana ny fikambanan'ny vondrom-piarahamonina sy ny rojo sanda eo an-toerana amin'ny alàlan'ny fanohanana ny mponina amin'ny kaominina lasibatra amin'ny fanamafisana ny fivelomany, miankina amin'ny fahalemen'izy ireo, amin'ny fampiroboroboana ny faharetana sy ny faharetana.",
+        textSousCompo3B:
+          "Rafitra fanondrahana ho an'ny fahavelomana amin'ny alàlan'ny fanarenana ny rafitra fanondrahana hanohanana ny vokatra fambolena any amin'ny faritra tratran'ny hain-tany.",
+        textSousCompo3C:
+          "Famerenana amin'ny laoniny ny fahafaha-mamokatra sakafo ary fanamafisana ny rafitra ara-tsakafo sy fivelomana amin'ny alàlan'ny fanomezana loharanon-karena, fiofanana ary teknolojia hanatsarana ny faharetana amin'ny fiovan'ny toetr'andro.",
+        textSousCompo3D:
+          "Ny fampivoarana fotodrafitrasa maitso sy ny tontolo iainana maharitra amin'ny alàlan'ny fananganana toeram-pambolena mba hamokatra zavamaniry mifanaraka amin'ny toetr'andro, ny fambolen-kazo sy ny kirihitra, ny fambolen-kazo ho an'ny tanjona maro samihafa.",
+
+        titrecompo4: "Singa 4",
+        soustitreCompo4:
+          "Ny singa 4 dia manampy amin'ny fanamorana ny fanatanterahana ny tetikasa amin'ny alàlan'ny fanamafisana ny fahaiza-manaon'ireo mpandray anjara voakasika, ny fanomezana fahalalana ara-jeografia amin'ny fanaraha-maso sy ny fanombanana, ary ny fanohanana ny drafitra fotodrafitrasa.",
+        soutitreCompo4A: "Singa-ambany 4A",
+        soutitreCompo4B: "Singa-ambany 4B",
+        soutitreCompo4C: "Singa-ambany 4C",
+        soutitreCompo4D: "Singa-ambany 4D ",
+        textSousCompo4A:
+          "Fampiharana ny famatsiam-bola amin'ny tetikasa, ao anatin'izany ny fandalinana, ny fitantanana, ny fitantanana ary ny fianarana Fandalinana ny famakafakana fanomanana ny andiana tetikasa (SdP).",
+        textSousCompo4B:
+          "Fandalinana ny famakafakana fanomanana ny andian-drafitra (SdP).",
+        textSousCompo4C:
+          "Manamafy ny fahafahan'ny governemanta hamaly ny fiovan'ny toetr'andro, ao anatin'izany ny fitantanana vonjy maika, ny faharetan'ny toetr'andro eo an-toerana ary ny fitarihana amin'ny valin'ny toetrandro.",
+        textSousCompo4D:
+          "Ny fampivoarana fotodrafitrasa maitso sy ny tontolo iainana maharitra amin'ny alàlan'ny fananganana toeram-pambolena mba hamokatra zavamaniry mifanaraka amin'ny toetr'andro, ny fambolen-kazo sy ny kirihitra, ny fambolen-kazo ho an'ny tanjona maro samihafa.",
+
+        titrecompo5: "Singa 5",
+        soustitrecompo5:
+          "Ny singa faha-5 amin'ny tetikasa dia mikendry ny hanome valiny maika raha misy krizy na toe-javatra maika, miaraka amin'ny famerenana ny vola avy amin'ireo singa hafa amin'ny tetikasa. miantraika amin'ny mponina.",
+        titreSousCompo5A: "Singa-ambany 5A",
+        titreSousCompo5B: "Singa-ambany 5B",
+        titreSousCompo5C: "Singa-ambany 5C",
+        titreSousCompo5D: "Singa-ambany 5D ",
+        textSousCompo5A:
+          "Fandraisana anjara 1: Avereno ao anatin’ny fotoana fohy ny fahafaha-mamokatra tokantrano marefo 50.000",
+        textSousCompo5B: `Fandraisana anjara 3: Amboary sy tohano ireo teboka
+          ny rano fisotro efa misy ary amin'ny tanjona hiantohana ny famatsiana rano ho an'ny fampiasana maro`,
+
+        textSousCompo5C: "01: Fitondran - drano",
+        textSousCompo5D:
+          "Ny fampivoarana fotodrafitrasa maitso sy ny tontolo iainana maharitra amin'ny alàlan'ny fananganana toeram-pambolena mba hamokatra zavamaniry mifanaraka amin'ny toetr'andro, ny fambolen-kazo sy ny kirihitra, ny fambolen-kazo ho an'ny tanjona maro samihafa.",
+
+        textcompo1:
+          " Fanamafisana ny fitantanan-draharaham-paritra itsinjaram-pahefana, ny fandraisan'anjara anjara ary ny fiaretana ara-tsosialy ",
+        textcompo2: "Fotodrafitrasa maharitra",
+        textcompo3: "Fanohanana ny fivelomana maharitra",
+        textcompo4:
+          "Fanohanana fampiharana sy fianarana fahalalana",
+        textcompo5: "Conditional Emergency Intervention Component (CIUC)",
+        edito1: `Tongasoa eto amin'ny tranokalan'ny tetikasa Mionjo, hetsika ataon'ny governemanta natokana hanamafisana ny faharetan'ny faritra atsimon'i Madagasikara. Faly izahay miarahaba anao ao amin'ny vondrom-piarahamoninay an-tserasera, ary manolo-tena izahay hizara ny fanoloran-tenanay ho amin'ny faritra Atsimo mirindra sy miroborobo kokoa. Mazava ny iraka ataontsika. Manolo-kevitra ny hanapaka ny fihodinan’ny maha-olona amin’ny alalan’ny fampahafantarana sy fanamafisana ny fisian’ny Fanjakana any Atsimo izahay. Mba hahatongavana amin’izany, dia mampihatra tsara ny rafitra fitsinjaram-pahefana sy deconcentration izahay any amin’ireo faritra telo idirana: Anôsy, Androy ary Atsimo Andrefana, izay miara-miasa akaiky amin’ireo tompon’andraikitra eo an-toerana.`,
+        edito2: `Ny ivon'ny fomba fiasantsika dia ny fampiasam-bola amin'ny fotodrafitrasa maharitra sy ny fivelomana maharitra, manohana ny fomba fiasa mitambatra, sehatra maro. Mino tanteraka izahay fa tena ilaina ny fandrindrana eo amin'ny samy mpandray anjara mba hahatratrarana ny tanjonay. Miezaka ihany koa izahay hampifandray ireo fomba fanao tsara ataon'ny mpiara-miombon'antoka amin'ny maha-olona sy ny governemanta, mamorona sehatra iray izay hamporisihana ny fifampizaràna fahalalana sy traikefa ho tombontsoan'ny rehetra. `,
+        edito3:
+          "Amin'ny maha vondrom-piarahamonina an-tserasera, manasa anao izahay hitsidika ny tranokalanay hahazoana fampahalalana mazava momba ny tetikasa, vaovao amin'ny fotoana tena izy, loharano mahasoa, ary fahafahana mifandray. Miaraka, miara-miasa, resy lahatra izahay fa afaka mamorona hoavy maharitra kokoa ho an'ny faritra atsimon'ny Madagasikara.",
+        edito4: `Ny mpandrindra nasionalin'ny tetikasa Mionjo`,
+
+
+        compo: "Singa",
+        regi: "Faritra",
+        commu: "Kaominina",
+        mini: "Minisitry ny PMO",
+        distric: "Distrika",
+        compo1: "Singa 1",
+        compo2: "Singa 2",
+        compo3: "Singa 3",
+        compo4: "Singa 4",
+        compo5: "Singa 5"
       }
     },
     fr: {
@@ -279,7 +409,7 @@ i18n.use(initReactI18next).init({
         BtnDocument: "/assets/buttons/btn_documentation.png",
         BtnDown: "/assets/buttons/btn_telecharger.png",
         BtnSend: "/assets/buttons/btn_envoyer.png",
-        BtnIdee: "/assets/buttons/btn_sendiee.png",
+        BtnIdee: "/assets/buttons/btn_envoyer.png",
         BtnSearch: "/assets/buttons/btn_recherche.png",
         BtnLearn: "/assets/buttons/btn_savoirplus.svg",
         BtnLog: "/assets/buttons/btn_seconnecter.svg",
@@ -453,3 +583,13 @@ Le projet a été approuvé le 10 décembre 2020 pour un montant 100 millions US
 });
 
 export default i18n;
+
+
+
+
+
+
+
+
+
+
