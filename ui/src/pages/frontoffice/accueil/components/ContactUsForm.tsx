@@ -5,7 +5,6 @@ import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 import ButtonImage from "../../../../components/ButtonImage";
 import SendMailNousContacter from "../../../../usecases/Email/SendMailNousContacter";
-import SendMailRetourNousContacter from "../../../../usecases/Email/SendMailRetourNousContacter";
 
 const ContactUsForm = () => {
   const { t } = useTranslation();
@@ -32,10 +31,9 @@ const ContactUsForm = () => {
       objet: values.objet,
       message: values.message,
     };
-    console.log(sendMailValues);
 
     await new SendMailNousContacter().execute(sendMailValues);
-    await new SendMailRetourNousContacter().execute(sendMailValues.email);
+    // await new SendMailRetourNousContacter().execute(sendMailValues.email);
     setSuccessM(false);
     resetForm();
     setSuccessM(true);
