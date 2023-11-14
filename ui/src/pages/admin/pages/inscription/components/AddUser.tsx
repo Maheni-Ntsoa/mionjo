@@ -3,6 +3,7 @@ import { Field, Form, Formik } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
 import Button from "../../../../../components/Button";
+import Loading from "../../../../../components/Loading";
 import SaveUser from "../../../../../usecases/user/SaveUser";
 
 interface AddUserProps {
@@ -12,6 +13,7 @@ interface AddUserProps {
 
 const AddUser: React.FC<AddUserProps> = ({ refetch, onClose }) => {
   const [isSuccess, setIsSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const initialValues = { idrole: "", email: "", mdp: "" };
   const validationSchema = Yup.object({
     idrole: Yup.string().required("Champ obligatoire"),
@@ -28,11 +30,12 @@ const AddUser: React.FC<AddUserProps> = ({ refetch, onClose }) => {
   ];
 
   const onSubmit = async (values: any, { resetForm }: any) => {
-    console.log(values);
+    setLoading(true);
     await new SaveUser().execute(values);
     resetForm();
     setIsSuccess(true);
     refetch();
+    setLoading(false);
   };
 
   return (
@@ -82,11 +85,15 @@ const AddUser: React.FC<AddUserProps> = ({ refetch, onClose }) => {
             </Field>
           </div>
           <div className="flex justify-center">
-            <Button
-              name="Enregistrer"
-              type="submit"
-              className="border-white border"
-            />
+            {loading ? (
+              <Loading isLoading={loading} />
+            ) : (
+              <Button
+                name="Enregistrer"
+                type="submit"
+                className="border-white border"
+              />
+            )}
           </div>
         </Form>
       </Formik>

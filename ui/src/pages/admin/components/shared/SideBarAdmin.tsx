@@ -4,7 +4,6 @@ import User from "../../../../models/User";
 
 const SideBarAdmin = () => {
   const navigate = useNavigate();
-
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [user, setUser] = useState<User>();
   useEffect(() => {
@@ -66,57 +65,54 @@ const SideBarAdmin = () => {
         } shadow-brown drop-shadow-lg transform h-screen w-64 top-0 left-0 bg-white z-50 transition-transform duration-300 ease-in-out lg:translate-x-0`}
       >
         <div className="p-6 h-[600px]">
-          {user?.idrole === 2 ? (
-            <div className="mt-4 flex items-center justify-center">
-              <ul>
-                <li>
-                  <button
-                    onClick={() => navigate("/admin/annonce")}
-                    className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
-                  >
-                    Annonces
-                  </button>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            <div className="mt-4 flex items-center justify-center">
-              <ul>
-                <li>
-                  <button
-                    onClick={() => navigate("/admin")}
-                    className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
-                  >
-                    Accueil
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => navigate("/admin/documentation")}
-                    className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
-                  >
-                    Documentations
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => navigate("/admin/annonce")}
-                    className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
-                  >
-                    Annonces
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => navigate("/admin/ideecontribution")}
-                    className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
-                  >
-                    Idées et plaintes
-                  </button>
-                </li>
-              </ul>
-            </div>
-          )}
+          <div className="mt-4 flex items-center justify-center">
+            <ul>
+              {user?.idrole === 3 ||
+                (user?.idrole === 1 && (
+                  <li>
+                    <button
+                      onClick={() => navigate("/admin")}
+                      className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
+                    >
+                      Accueil
+                    </button>
+                  </li>
+                ))}
+              {user?.idrole === 4 ||
+                (user?.idrole === 1 && (
+                  <li>
+                    <button
+                      onClick={() => navigate("/admin/documentation")}
+                      className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
+                    >
+                      Documentations
+                    </button>
+                  </li>
+                ))}
+              {user?.idrole === 2 ||
+                (user?.idrole === 1 && (
+                  <li>
+                    <button
+                      onClick={() => navigate("/admin/annonce")}
+                      className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
+                    >
+                      Annonces
+                    </button>
+                  </li>
+                ))}
+              {user?.idrole === 5 ||
+                (user?.idrole === 1 && (
+                  <li>
+                    <button
+                      onClick={() => navigate("/admin/ideecontribution")}
+                      className="bg-brown w-60 px-2 py-2 text-white hover:text-yellow mb-2"
+                    >
+                      Idées et plaintes
+                    </button>
+                  </li>
+                ))}
+            </ul>
+          </div>
         </div>
       </aside>
     </div>

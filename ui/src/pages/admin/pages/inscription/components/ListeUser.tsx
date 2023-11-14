@@ -5,6 +5,7 @@ import ConfirmationModal from "../../../../../components/ConfirmationModal";
 import DetailRectangle from "../../../../../components/DetailRectangle";
 import EnhancedTable, { HeadCell } from "../../../../../components/MRTable";
 import MyModal from "../../../../../components/MyModal";
+import DeleteUser from "../../../../../usecases/user/DeleteUser";
 import ListUser from "../../../../../usecases/user/ListUser";
 import { formatDate } from "../../../../../utils/formatDate";
 import AddUser from "./AddUser";
@@ -87,8 +88,8 @@ const ListeUser = () => {
     setDeleteOpen(false);
   };
 
-  const deleteActu = async () => {
-    // await new DeleteGenerale().execute(selectedRow.id);
+  const deleteUser = async () => {
+    await new DeleteUser().execute(selectedRow.id);
     handleRefetch();
     setIsSuccess(true);
     handleDeleteClose();
@@ -153,7 +154,7 @@ const ListeUser = () => {
         <ConfirmationModal
           open={deleteOpen}
           closeModal={handleDeleteClose}
-          accept={deleteActu}
+          accept={deleteUser}
           denied={handleDeleteClose}
         />
         {/* Ajout */}

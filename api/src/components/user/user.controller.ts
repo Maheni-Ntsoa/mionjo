@@ -1,8 +1,6 @@
-import { Response, Request } from "express";
-import { User } from "./user.model";
-import bcrypt from "bcrypt";
-import { Op } from "sequelize";
-import { Role } from "../role/role.model";
+import bcrypt from 'bcrypt';
+import { Request, Response } from 'express';
+import { User } from './user.model';
 
 class UserController {
   create(req: Request, res: Response) {
@@ -11,7 +9,7 @@ class UserController {
     })
       .then((result) => {
         if (result) {
-          res.json({ success: false, message: "MAIL_TAKEN" });
+          res.json({ success: false, message: 'MAIL_TAKEN' });
         } else {
           User.create(req.body)
             .then((value) => {
@@ -30,12 +28,19 @@ class UserController {
     try {
       const [user, created] = await User.upsert(req.body);
       if (created) {
-        res.json({ success: true, message: "user créée avec succès", data: user });
+        res.json({
+          success: true,
+          message: 'user créée avec succès',
+          data: user,
+        });
       } else {
-        res.json({ success: true, message: "user mise à jour avec succès" });
+        res.json({ success: true, message: 'user mise à jour avec succès' });
       }
     } catch (error) {
-      res.json({ success: false, message: `Erreur lors de la création/mise à jour de la user : ${error}` });
+      res.json({
+        success: false,
+        message: `Erreur lors de la création/mise à jour de la user : ${error}`,
+      });
     }
   }
 
@@ -46,16 +51,16 @@ class UserController {
       },
     }).then((result) => {
       if (!result || !req.body.mdp) {
-        console.error("INVALID_LOGIN")
+        console.error('INVALID_LOGIN');
       } else {
         bcrypt.compare(req.body.mdp, result.mdp, (err, isMached) => {
           if (err) {
-            console.error(err.message)
+            console.error(err.message);
           } else if (!isMached) {
-            console.error("MOT DE PASSE INVALID")
+            console.error('MOT DE PASSE INVALID');
           } else {
-            result.mdp = "";
-            res.json(result);
+            result.mdp = '';
+            res.json({ success: true, data: result });
           }
         });
       }
@@ -71,7 +76,7 @@ class UserController {
         { motdepasse: password },
         {
           where: { id: req.params.id },
-        }
+        },
       )
         .then((value) => {
           res.json({ success: true });
@@ -80,28 +85,27 @@ class UserController {
           res.json({ success: false });
         });
     });
-    // list(req: Request, res: Response) {
-    //   User.findAll()
-    //     .then((result) => {
-    //       res.json({ data: result, success: true });
-    //     })
-    //     .catch((err) => {
-    //       res.json({ success: false, err });
-    //     });
-    // }
-
-    // findUser(req: Request, res: Response) {
-    //   User.findOne({
-    //     where: { id: req.params.id },
-    //   })
-    //     .then((result) => {
-    //       res.json({ success: true, data: result });
-    //     })
-    //     .catch((err) => {
-    //       res.json({ success: false, err });
-    //     });
-    // }
   }
 
+  delete(req: Request, res: Response) {
+    User.findOne({
+      where: { id: req.params.id },
+    }).then((result: any) => {
+      if (result) {
+        User.update(
+          { etat: 10 },
+          {
+            where: { id: req.params.id },
+          },
+        )
+          .then((value) => {
+            res.json({ success: true });
+          })
+          .catch((err) => {
+            res.json({ success: false });
+          });
+      }
+    });
+  }
 }
 export const userController = new UserController();
