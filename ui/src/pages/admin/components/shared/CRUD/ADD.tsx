@@ -325,7 +325,7 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
                         key={value}
                         value={value.toString()}
                         control={<Radio />}
-                        label={`Composant ${value + 1}`}
+                        label={`Composante ${value + 1}`}
                       />
                     ))}
                   </RadioGroup>

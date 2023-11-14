@@ -1,5 +1,11 @@
 import UploadFileIcon from "@mui/icons-material/UploadFile";
-import { Button } from "@mui/material";
+import {
+  Button,
+  FormControl,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+} from "@mui/material";
 import Alert from "@mui/material/Alert";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import moment from "moment";
@@ -41,16 +47,19 @@ const UPDATE: React.FC<UPDATEProps> = ({
       contenuen: `${generalec.contenuen ? generalec.contenuen : ""}`,
       titremg: `${generalec.titremg ? generalec.titremg : ""}`,
       contenumg: `${generalec.contenumg ? generalec.contenumg : ""}`,
-      datelimit: `${generalec.datelimit
-        ? moment(generalec.datelimit).format("YYYY-MM-DDTHH:mm")
-        : ""
-        }`,
+      datelimit: `${
+        generalec.datelimit
+          ? moment(generalec.datelimit).format("YYYY-MM-DDTHH:mm")
+          : ""
+      }`,
       datecreation: moment(generalec.datecreation).format("YYYY-MM-DDTHH:mm"),
       files: [],
-      titulairemarche: `${generalec.titulairemarche ? generalec.titulairemarche : ""
-        }`,
-      montantmarche: `${generalec.montantmarche ? generalec.montantmarche : ""
-        }`,
+      titulairemarche: `${
+        generalec.titulairemarche ? generalec.titulairemarche : ""
+      }`,
+      montantmarche: `${
+        generalec.montantmarche ? generalec.montantmarche : ""
+      }`,
     };
   } else if (generalec.idcategorie === 7) {
     initialValues = {
@@ -60,10 +69,11 @@ const UPDATE: React.FC<UPDATEProps> = ({
       contenuen: `${generalec.contenuen ? generalec.contenuen : ""}`,
       titremg: `${generalec.titremg ? generalec.titremg : ""}`,
       contenumg: `${generalec.contenumg ? generalec.contenumg : ""}`,
-      datelimit: `${generalec.datelimit
-        ? moment(generalec.datelimit).format("YYYY-MM-DDTHH:mm")
-        : ""
-        }`,
+      datelimit: `${
+        generalec.datelimit
+          ? moment(generalec.datelimit).format("YYYY-MM-DDTHH:mm")
+          : ""
+      }`,
       datecreation: moment(generalec.datecreation).format("YYYY-MM-DDTHH:mm"),
       files: [],
     };
@@ -269,10 +279,11 @@ const UPDATE: React.FC<UPDATEProps> = ({
                     }}
                   />
                   <div className="flex justify-between w-full">
-                    <p>{`${selectedVideo.length > 0
-                      ? selectedVideo.length + " vidéo(s) séléctionné(s)"
-                      : "Importation des videos"
-                      }`}</p>
+                    <p>{`${
+                      selectedVideo.length > 0
+                        ? selectedVideo.length + " vidéo(s) séléctionné(s)"
+                        : "Importation des videos"
+                    }`}</p>
                     <UploadFileIcon />
                   </div>
                 </label>
@@ -282,7 +293,7 @@ const UPDATE: React.FC<UPDATEProps> = ({
               <div className="my-8">
                 <label className="cursor-pointer items-center flex shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline">
                   {generalec.idcategorie === 4 ||
-                    generalec.idcategorie === 7 ? (
+                  generalec.idcategorie === 7 ? (
                     <input
                       className="sr-only"
                       type="file"
@@ -311,10 +322,11 @@ const UPDATE: React.FC<UPDATEProps> = ({
                     />
                   )}
                   <div className="flex justify-between w-full">
-                    <p>{`${selectedFiles.length > 0
-                      ? selectedFiles.length + " fichier(s) séléctionné(s)"
-                      : "Importations"
-                      }`}</p>
+                    <p>{`${
+                      selectedFiles.length > 0
+                        ? selectedFiles.length + " fichier(s) séléctionné(s)"
+                        : "Importations"
+                    }`}</p>
                     <UploadFileIcon />
                   </div>
                 </label>
@@ -325,71 +337,96 @@ const UPDATE: React.FC<UPDATEProps> = ({
                 />
               </div>
             )}
-            <div className="flex justify-between gap-2 mb-6">
-              <div className="">
-                <ReactQuill
-                  className=""
-                  value={values.contenu}
-                  onChange={(value) => handleChange("contenu")(value)}
-                  placeholder="Contenu en Français"
-                  modules={{
-                    toolbar: [
-                      [{ header: "1" }, { header: "2" }],
-                      [{ list: "ordered" }, { list: "bullet" }],
-                      ["bold", "italic", "underline", "strike"],
-                      [{ align: [] }],
-                      [{ color: [] }, { background: [] }],
-                      ["blockquote"],
-                      ["code-block"],
-                      ["formula"],
-                      ["clean"],
-                    ],
-                  }}
-                />
+            {generalec.idcategorie === 7 ? (
+              <div className="flex justify-between gap-2 mb-6">
+                <FormControl component="fieldset">
+                  <RadioGroup
+                    row
+                    aria-label="contenu"
+                    name="contenu"
+                    value={values.contenu}
+                    onChange={(event) =>
+                      handleChange("contenu")(event.target.value)
+                    }
+                  >
+                    {[0, 1, 2, 3, 4].map((value) => (
+                      <FormControlLabel
+                        key={value}
+                        value={value.toString()}
+                        control={<Radio />}
+                        label={`Composante ${value + 1}`}
+                      />
+                    ))}
+                  </RadioGroup>
+                </FormControl>
               </div>
-              <div className="">
-                <ReactQuill
-                  className=""
-                  value={values.contenuen}
-                  onChange={(value) => handleChange("contenuen")(value)}
-                  placeholder="Contenu en anglais"
-                  modules={{
-                    toolbar: [
-                      [{ header: "1" }, { header: "2" }],
-                      [{ list: "ordered" }, { list: "bullet" }],
-                      ["bold", "italic", "underline", "strike"],
-                      [{ align: [] }],
-                      [{ color: [] }, { background: [] }],
-                      ["blockquote"],
-                      ["code-block"],
-                      ["formula"],
-                      ["clean"],
-                    ],
-                  }}
-                />
+            ) : (
+              <div className="flex justify-between gap-2 mb-6">
+                <div className="">
+                  <ReactQuill
+                    className=""
+                    value={values.contenu}
+                    onChange={(value) => handleChange("contenu")(value)}
+                    placeholder="Contenu en Français"
+                    modules={{
+                      toolbar: [
+                        [{ header: "1" }, { header: "2" }],
+                        [{ list: "ordered" }, { list: "bullet" }],
+                        ["bold", "italic", "underline", "strike"],
+                        [{ align: [] }],
+                        [{ color: [] }, { background: [] }],
+                        ["blockquote"],
+                        ["code-block"],
+                        ["formula"],
+                        ["clean"],
+                      ],
+                    }}
+                  />
+                </div>
+                <div className="">
+                  <ReactQuill
+                    className=""
+                    value={values.contenuen}
+                    onChange={(value) => handleChange("contenuen")(value)}
+                    placeholder="Contenu en anglais"
+                    modules={{
+                      toolbar: [
+                        [{ header: "1" }, { header: "2" }],
+                        [{ list: "ordered" }, { list: "bullet" }],
+                        ["bold", "italic", "underline", "strike"],
+                        [{ align: [] }],
+                        [{ color: [] }, { background: [] }],
+                        ["blockquote"],
+                        ["code-block"],
+                        ["formula"],
+                        ["clean"],
+                      ],
+                    }}
+                  />
+                </div>
+                <div className="">
+                  <ReactQuill
+                    className=""
+                    value={values.contenumg}
+                    onChange={(value) => handleChange("contenumg")(value)}
+                    placeholder="Contenu en Malagasy"
+                    modules={{
+                      toolbar: [
+                        [{ header: "1" }, { header: "2" }],
+                        [{ list: "ordered" }, { list: "bullet" }],
+                        ["bold", "italic", "underline", "strike"],
+                        [{ align: [] }],
+                        [{ color: [] }, { background: [] }],
+                        ["blockquote"],
+                        ["code-block"],
+                        ["formula"],
+                        ["clean"],
+                      ],
+                    }}
+                  />
+                </div>
               </div>
-              <div className="">
-                <ReactQuill
-                  className=""
-                  value={values.contenumg}
-                  onChange={(value) => handleChange("contenumg")(value)}
-                  placeholder="Contenu en Malagasy"
-                  modules={{
-                    toolbar: [
-                      [{ header: "1" }, { header: "2" }],
-                      [{ list: "ordered" }, { list: "bullet" }],
-                      ["bold", "italic", "underline", "strike"],
-                      [{ align: [] }],
-                      [{ color: [] }, { background: [] }],
-                      ["blockquote"],
-                      ["code-block"],
-                      ["formula"],
-                      ["clean"],
-                    ],
-                  }}
-                />
-              </div>
-            </div>
+            )}
             <div className="flex justify-center">
               {loading ? (
                 <Loading isLoading={loading} />
