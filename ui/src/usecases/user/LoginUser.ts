@@ -5,26 +5,32 @@ interface LoginUserProps {
   email: string;
   mdp: string;
 }
+
 export default class LoginUser
   implements UseCase<LoginUserProps, Promise<Userc>>
 {
   async execute(loginUser: LoginUserProps): Promise<Userc> {
-    const url = new URL(`${process.env.REACT_APP_BACKEND_URL}user/login`);
-    const response = await fetch(url, {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-        // Authorization: `Bearer ${this.token}`,
-      },
-      body: JSON.stringify({
-        ...loginUser,
-      }),
-    });
+    try {
+      const url = new URL(`${process.env.REACT_APP_BACKEND_URL}user/login`);
+      const response = await fetch(url.toString(), {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+          // Authorization: `Bearer ${this.token}`,
+        },
+        body: JSON.stringify(loginUser),
+      });
 
-    const data = response.json();
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
 
-    console.log(response.body);
+      const data = await response.json();
 
-    return await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error during login:", error);
+      throw error; // rethrow the error to let the calling code handle it
+    }
   }
 }

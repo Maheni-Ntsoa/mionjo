@@ -18,10 +18,8 @@ export default class UpdateUser implements UseCase<UpdateUserDto, void> {
     );
 
     user.id = UpdateUserDto.id;
-    console.log(user);
-
-    await fetch(`${process.env.REACT_APP_BACKEND_URL}user`, {
-      method: "post",
+    await fetch(`${process.env.REACT_APP_BACKEND_URL}user/update`, {
+      method: "put",
       headers: {
         "Content-Type": "application/json",
         // Authorization: `Bearer ${this.token}`,

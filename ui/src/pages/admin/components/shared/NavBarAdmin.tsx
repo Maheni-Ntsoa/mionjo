@@ -11,6 +11,21 @@ const NavBarAdmin = () => {
     if (localStorage.getItem("user")) {
       setUser(JSON.parse(localStorage.getItem("user")!));
     }
+    if (JSON.parse(localStorage.getItem("user")!).idrole === 1) {
+      navigate("/admin");
+    }
+    if (JSON.parse(localStorage.getItem("user")!).idrole === 2) {
+      navigate("/admin/annonce");
+    }
+    if (JSON.parse(localStorage.getItem("user")!).idrole === 3) {
+      navigate("/admin");
+    }
+    if (JSON.parse(localStorage.getItem("user")!).idrole === 4) {
+      navigate("/admin/documentation");
+    }
+    if (JSON.parse(localStorage.getItem("user")!).idrole === 5) {
+      navigate("/admin/ideecontribution");
+    }
   }, []);
 
   return (
@@ -36,17 +51,17 @@ const NavBarAdmin = () => {
             </div>
           </div>
         </div>
-        {user?.idrole === 1 && (
-          <div className="">
-            <button
-              onClick={() => navigate("/admin/inscription")}
-              className="flex justify-between items-center bg-green w-40 rounded-md px-4 py-2 text-white hover:text-white mb-2"
-            >
-              <PersonAddIcon />
-              Gestion profil
-            </button>
-          </div>
-        )}
+        {/* {user?.idrole === 1 && ( */}
+        <div className="">
+          <button
+            onClick={() => navigate("/admin/inscription")}
+            className="flex justify-between items-center bg-green w-40 rounded-md px-4 py-2 text-white hover:text-white mb-2"
+          >
+            <PersonAddIcon />
+            Gestion profil
+          </button>
+        </div>
+        {/* )} */}
         <div className="lg:block md:flex  justify-end">
           <Logout />
         </div>

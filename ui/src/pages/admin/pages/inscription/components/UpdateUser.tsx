@@ -32,7 +32,6 @@ const UpdateUserc: React.FC<UpdateUserProps> = ({
     idrole: `${user.idrole ? user.idrole : ""}`,
     email: `${user.email ? user.email : ""}`,
     // mdp: `${user.mdp ? user.mdp : ""}`,
-
   };
   const validationSchema = Yup.object({
     idrole: Yup.string(),
@@ -55,7 +54,6 @@ const UpdateUserc: React.FC<UpdateUserProps> = ({
       email: values.email,
       // mdp: values.mdp,
     };
-    console.log(userValue);
 
     await new UpdateUser().execute(userValue);
     resetForm();

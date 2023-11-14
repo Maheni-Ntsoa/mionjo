@@ -8,7 +8,7 @@ import LoginUser from "../../../../../usecases/user/LoginUser";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const [error, setError] = useState("");
+  const [error, setError] = useState(false);
   const initialValues = { email: "", mdp: "" };
   const validationSchema = Yup.object({
     email: Yup.string().required("Champ obligatoire"),
@@ -16,19 +16,34 @@ const LoginForm = () => {
   });
 
   const onSubmit = async (values: any, { resetForm }: any) => {
-    const user = await new LoginUser().execute(values);
-    if (user.idrole === 2) {
-      localStorage.setItem("user", JSON.stringify(user));
-      navigate("/admin/annonce");
+    setError(false);
+    const user: any = await new LoginUser().execute(values);
+    if (user.success) {
+      localStorage.setItem("user", JSON.stringify(user.data));
+      if (user.data.idrole === 1) {
+        navigate("/admin");
+        resetForm();
+      }
+      if (user.data.idrole === 2) {
+        navigate("/admin/annonce");
+        resetForm();
+      }
+      if (user.data.idrole === 3) {
+        navigate("/admin");
+        resetForm();
+      }
+      if (user.data.idrole === 4) {
+        navigate("/admin/documentation");
+        resetForm();
+      }
+      if (user.data.idrole === 5) {
+        navigate("/admin/ideecontribution");
+        resetForm();
+      }
     }
-    if (user.idrole === 1) {
-      localStorage.setItem("user", JSON.stringify(user));
-      navigate("/admin");
+    if (user.success === false) {
+      setError(true);
     }
-    if (!user) {
-      setError("Informations invalide");
-    }
-    resetForm();
   };
 
   return (
@@ -95,6 +110,11 @@ const LoginForm = () => {
           <div className="flex justify-center">
             <ButtonImage src="BtnLog" type="submit" />
           </div>
+          <div className="py-4">
+            {error && (
+              <Alert severity="error">Verifiez vos informations !</Alert>
+            )}
+          </div>
         </Form>
       </Formik>
       <p
@@ -103,7 +123,6 @@ const LoginForm = () => {
       >
         Retour vers la page d'accueil
       </p>
-      {error && <Alert severity="error">{error}</Alert>}
     </div>
   );
 };

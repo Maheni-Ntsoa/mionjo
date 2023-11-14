@@ -52,12 +52,15 @@ class UserController {
     }).then((result) => {
       if (!result || !req.body.mdp) {
         console.error('INVALID_LOGIN');
+        res.json({ success: false, message: 'INVALID_LOGIN' });
       } else {
         bcrypt.compare(req.body.mdp, result.mdp, (err, isMached) => {
           if (err) {
             console.error(err.message);
+            res.json({ success: false, message: err.message });
           } else if (!isMached) {
             console.error('MOT DE PASSE INVALID');
+            res.json({ success: false, message: 'MOT DE PASSE INVALID' });
           } else {
             result.mdp = '';
             res.json({ success: true, data: result });
@@ -69,21 +72,24 @@ class UserController {
 
   update(req: Request, res: Response) {
     User.findOne({
-      where: { id: req.params.id },
+      where: { id: req.body.id },
     }).then((result: any) => {
-      let password = bcrypt.hashSync(req.body.motdepasse, 10);
-      User.update(
-        { motdepasse: password },
-        {
-          where: { id: req.params.id },
-        },
-      )
-        .then((value) => {
-          res.json({ success: true });
-        })
-        .catch((err) => {
-          res.json({ success: false });
-        });
+      if (result) {
+        User.update(
+          { idrole: req.body.idrole, email: req.body.email },
+          {
+            where: { id: req.body.id },
+          },
+        )
+          .then((value) => {
+            res.json({ success: true });
+          })
+          .catch((err) => {
+            res.json({ success: false });
+          });
+      } else {
+        console.log('error');
+      }
     });
   }
 
