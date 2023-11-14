@@ -1,5 +1,11 @@
 import UploadFileIcon from "@mui/icons-material/UploadFile";
-import { Button } from "@mui/material";
+import {
+  Button,
+  FormControl,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+} from "@mui/material";
 import Alert from "@mui/material/Alert";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import moment from "moment";
@@ -39,7 +45,7 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
   } else if (idCategorie === 7) {
     initialValues = {
       titre: "",
-      contenu: "",
+      contenu: "0",
       titreen: "",
       contenuen: "",
       titremg: "",
@@ -302,71 +308,96 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
                 />
               </div>
             )}
-            <div className="flex justify-between gap-2 mb-6">
-              <div className="">
-                <ReactQuill
-                  className=""
-                  value={values.contenu}
-                  onChange={(value) => handleChange("contenu")(value)}
-                  placeholder="Contenu en Français"
-                  modules={{
-                    toolbar: [
-                      [{ header: "1" }, { header: "2" }],
-                      [{ list: "ordered" }, { list: "bullet" }],
-                      ["bold", "italic", "underline", "strike"],
-                      [{ align: [] }],
-                      [{ color: [] }, { background: [] }],
-                      ["blockquote"],
-                      ["code-block"],
-                      ["formula"],
-                      ["clean"],
-                    ],
-                  }}
-                />
+            {idCategorie === 7 ? (
+              <div className="flex justify-between gap-2 mb-6">
+                <FormControl component="fieldset">
+                  <RadioGroup
+                    row
+                    aria-label="contenu"
+                    name="contenu"
+                    value={values.contenu}
+                    onChange={(event) =>
+                      handleChange("contenu")(event.target.value)
+                    }
+                  >
+                    {[0, 1, 2, 3, 4].map((value) => (
+                      <FormControlLabel
+                        key={value}
+                        value={value.toString()}
+                        control={<Radio />}
+                        label={`Composant ${value + 1}`}
+                      />
+                    ))}
+                  </RadioGroup>
+                </FormControl>
               </div>
-              <div className="">
-                <ReactQuill
-                  className=""
-                  value={values.contenuen}
-                  onChange={(value) => handleChange("contenuen")(value)}
-                  placeholder="Contenu en anglais"
-                  modules={{
-                    toolbar: [
-                      [{ header: "1" }, { header: "2" }],
-                      [{ list: "ordered" }, { list: "bullet" }],
-                      ["bold", "italic", "underline", "strike"],
-                      [{ align: [] }],
-                      [{ color: [] }, { background: [] }],
-                      ["blockquote"],
-                      ["code-block"],
-                      ["formula"],
-                      ["clean"],
-                    ],
-                  }}
-                />
+            ) : (
+              <div className="flex justify-between gap-2 mb-6">
+                <div className="">
+                  <ReactQuill
+                    className=""
+                    value={values.contenu}
+                    onChange={(value) => handleChange("contenu")(value)}
+                    placeholder="Contenu en Français"
+                    modules={{
+                      toolbar: [
+                        [{ header: "1" }, { header: "2" }],
+                        [{ list: "ordered" }, { list: "bullet" }],
+                        ["bold", "italic", "underline", "strike"],
+                        [{ align: [] }],
+                        [{ color: [] }, { background: [] }],
+                        ["blockquote"],
+                        ["code-block"],
+                        ["formula"],
+                        ["clean"],
+                      ],
+                    }}
+                  />
+                </div>
+                <div className="">
+                  <ReactQuill
+                    className=""
+                    value={values.contenuen}
+                    onChange={(value) => handleChange("contenuen")(value)}
+                    placeholder="Contenu en anglais"
+                    modules={{
+                      toolbar: [
+                        [{ header: "1" }, { header: "2" }],
+                        [{ list: "ordered" }, { list: "bullet" }],
+                        ["bold", "italic", "underline", "strike"],
+                        [{ align: [] }],
+                        [{ color: [] }, { background: [] }],
+                        ["blockquote"],
+                        ["code-block"],
+                        ["formula"],
+                        ["clean"],
+                      ],
+                    }}
+                  />
+                </div>
+                <div className="">
+                  <ReactQuill
+                    className=""
+                    value={values.contenumg}
+                    onChange={(value) => handleChange("contenumg")(value)}
+                    placeholder="Contenu en Malagasy"
+                    modules={{
+                      toolbar: [
+                        [{ header: "1" }, { header: "2" }],
+                        [{ list: "ordered" }, { list: "bullet" }],
+                        ["bold", "italic", "underline", "strike"],
+                        [{ align: [] }],
+                        [{ color: [] }, { background: [] }],
+                        ["blockquote"],
+                        ["code-block"],
+                        ["formula"],
+                        ["clean"],
+                      ],
+                    }}
+                  />
+                </div>
               </div>
-              <div className="">
-                <ReactQuill
-                  className=""
-                  value={values.contenumg}
-                  onChange={(value) => handleChange("contenumg")(value)}
-                  placeholder="Contenu en Malagasy"
-                  modules={{
-                    toolbar: [
-                      [{ header: "1" }, { header: "2" }],
-                      [{ list: "ordered" }, { list: "bullet" }],
-                      ["bold", "italic", "underline", "strike"],
-                      [{ align: [] }],
-                      [{ color: [] }, { background: [] }],
-                      ["blockquote"],
-                      ["code-block"],
-                      ["formula"],
-                      ["clean"],
-                    ],
-                  }}
-                />
-              </div>
-            </div>
+            )}
             <div className="flex justify-center">
               {loading ? (
                 <Loading isLoading={loading} />

@@ -8,11 +8,10 @@ const SideBarAdmin = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [user, setUser] = useState<User>();
   useEffect(() => {
-    if (localStorage.getItem('user')) {
-      setUser(JSON.parse(localStorage.getItem('user')!));
+    if (localStorage.getItem("user")) {
+      setUser(JSON.parse(localStorage.getItem("user")!));
     }
   }, []);
-  console.log(user);
 
   return (
     <div>
@@ -62,11 +61,11 @@ const SideBarAdmin = () => {
 
       {/* Barre latérale */}
       <aside
-        className={`${sidebarOpen ? "translate-x-0 ease-out" : "-translate-x-full ease-in"
-          } shadow-brown drop-shadow-lg transform h-screen w-64 top-0 left-0 bg-white z-50 transition-transform duration-300 ease-in-out lg:translate-x-0`}
+        className={`${
+          sidebarOpen ? "translate-x-0 ease-out" : "-translate-x-full ease-in"
+        } shadow-brown drop-shadow-lg transform h-screen w-64 top-0 left-0 bg-white z-50 transition-transform duration-300 ease-in-out lg:translate-x-0`}
       >
         <div className="p-6 h-[600px]">
-
           {user?.idrole === 2 ? (
             <div className="mt-4 flex items-center justify-center">
               <ul>
@@ -80,7 +79,6 @@ const SideBarAdmin = () => {
                 </li>
               </ul>
             </div>
-
           ) : (
             <div className="mt-4 flex items-center justify-center">
               <ul>

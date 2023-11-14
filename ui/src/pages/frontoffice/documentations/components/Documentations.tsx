@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import ReactPaginate from "react-paginate";
+import Loading from "../../../../components/Loading";
 import SubTitle from "../../../../components/SubTitle";
+import GetDocumentByIdGenerale from "../../../../usecases/Document/GetDocumentByIdGenerale";
+import GetGeneralecByIdCateAndIdRubri from "../../../../usecases/Generalec/GetGeneralecByIdCateAndIdRubri";
 import OneDoc1 from "./OneDoc1";
 
 const Documentations = () => {
@@ -10,6 +14,72 @@ const Documentations = () => {
   const [backgroundImage, setBackgroundImage] = useState(
     "/assets/images/composante1.jpeg"
   );
+  const [generales, setGenerales] = useState<any[]>([]);
+  const [generales0, setGenerales0] = useState<any[]>([]);
+  const [generales1, setGenerales1] = useState<any[]>([]);
+  const [generales2, setGenerales2] = useState<any[]>([]);
+  const [generales3, setGenerales3] = useState<any[]>([]);
+  const [generales4, setGenerales4] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [pageNumber, setPageNumber] = useState(0);
+  const itemsPerPage = 4;
+
+  useEffect(() => {
+    setLoading(true);
+    const fetchGenerale = async () => {
+      const data = await new GetGeneralecByIdCateAndIdRubri().execute({
+        idcategorie: 7,
+        idrubrique: 27,
+      });
+      if (data) {
+        const promises = data.map(async (generale) => {
+          const doc = await new GetDocumentByIdGenerale().execute(generale.id!);
+          return {
+            ...generale,
+            doc: doc && doc[0] ? doc[0].nomdocument : "erreur.txt",
+          };
+        });
+        const generalesWithDocs = await Promise.all(promises);
+        if (generalesWithDocs) {
+          let gen0: any[] = [];
+          let gen1: any[] = [];
+          let gen2: any[] = [];
+          let gen3: any[] = [];
+          let gen4: any[] = [];
+          generalesWithDocs.forEach((gen) => {
+            if (gen.contenu === "0") {
+              gen0.push(gen);
+            }
+            if (gen.contenu === "1") {
+              gen1.push(gen);
+            }
+            if (gen.contenu === "2") {
+              gen2.push(gen);
+            }
+            if (gen.contenu === "3") {
+              gen3.push(gen);
+            }
+            if (gen.contenu === "4") {
+              gen4.push(gen);
+            }
+          });
+          setGenerales0(gen0);
+          setGenerales1(gen1);
+          setGenerales2(gen2);
+          setGenerales3(gen3);
+          setGenerales4(gen4);
+        }
+        setGenerales(generalesWithDocs);
+        setLoading(false);
+      }
+    };
+    fetchGenerale();
+  }, [pageNumber]);
+
+  const pageCount = Math.ceil(generales.length / itemsPerPage);
+  const handlePageClick = (selectedPage: { selected: number }) => {
+    setPageNumber(selectedPage.selected);
+  };
 
   const handleSelect = (index: number, imageSrc: string) => {
     setSelected(index);
@@ -107,102 +177,287 @@ const Documentations = () => {
         <div>
           {selected === 0 && (
             <div className="flex flex-col lg:flex-row justify-center w-full gap-6">
-              <div className="flex justify-center w-full gap-2">
-                <OneDoc1
-                  title={`Lalàna laharana faha 98-029
-                mitondra Fehezan-dalàna
-                momba ny Rano`}
-                  document={`codedeleauversionmalagasy2.pdf`}
-                />
-              </div>
-              <div className="flex justify-center w-full gap-2">
-                <OneDoc1
-                  title={`TOROLALANA FANDRAFETANA
-                FEHEZAM-PITSIPIKA
-                MIKASIKA NY FANADIOVANA SY NY FIDIOVANA`}
-                  document={`codedeleauversionmalagasy.pdf`}
-                />
-              </div>
+              {loading ? (
+                <Loading isLoading={loading} />
+              ) : (
+                <div>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    {generales0
+                      .slice(
+                        pageNumber * itemsPerPage,
+                        (pageNumber + 1) * itemsPerPage
+                      )
+                      .map((generale, index) => (
+                        <div key={index}>
+                          <div className="flex justify-center w-full h-[220px] gap-2">
+                            <OneDoc1
+                              title={generale.titre}
+                              document={generale.doc}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                  {generales0.length > 4 && (
+                    <div className="mt-4">
+                      <ReactPaginate
+                        pageCount={pageCount}
+                        onPageChange={handlePageClick}
+                        previousLabel={
+                          <img
+                            src="/assets/icons/ic_paginate-left.svg"
+                            alt="left"
+                            width={10}
+                            height={10}
+                          />
+                        }
+                        nextLabel={
+                          <img
+                            src="/assets/icons/ic_paginate-right.svg"
+                            alt="left"
+                            width={10}
+                            height={10}
+                          />
+                        }
+                        breakLabel={"..."}
+                        breakClassName={"break-me"}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        containerClassName={"pagination"}
+                        activeClassName={"active"}
+                      />
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           )}
           {selected === 1 && (
             <div className="flex flex-col lg:flex-row justify-center w-full gap-6">
-              <div className="flex justify-center w-full gap-2">
-                {/* <OneDoc1
-                title={`Lalàna laharana faha 98-029
-                mitondra Fehezan-dalàna
-                momba ny Rano`}
-                document={`codedeleauversionmalagasy2.pdf`}
-              /> */}
-              </div>
-              <div className="flex justify-center w-full gap-2">
-                {/* <OneDoc1
-                title={`TOROLALANA FANDRAFETANA
-                FEHEZAM-PITSIPIKA
-                MIKASIKA NY FANADIOVANA SY NY FIDIOVANA`}
-                document={`codedeleauversionmalagasy.pdf`}
-              /> */}
-              </div>
+              {loading ? (
+                <Loading isLoading={loading} />
+              ) : (
+                <div>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    {generales1
+                      .slice(
+                        pageNumber * itemsPerPage,
+                        (pageNumber + 1) * itemsPerPage
+                      )
+                      .map((generale, index) => (
+                        <div key={index}>
+                          <div className="flex justify-center w-full h-[220px] gap-2">
+                            <OneDoc1
+                              title={generale.titre}
+                              document={generale.doc}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                  {generales1.length > 4 && (
+                    <div className="mt-4">
+                      <ReactPaginate
+                        pageCount={pageCount}
+                        onPageChange={handlePageClick}
+                        previousLabel={
+                          <img
+                            src="/assets/icons/ic_paginate-left.svg"
+                            alt="left"
+                            width={10}
+                            height={10}
+                          />
+                        }
+                        nextLabel={
+                          <img
+                            src="/assets/icons/ic_paginate-right.svg"
+                            alt="left"
+                            width={10}
+                            height={10}
+                          />
+                        }
+                        breakLabel={"..."}
+                        breakClassName={"break-me"}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        containerClassName={"pagination"}
+                        activeClassName={"active"}
+                      />
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           )}
           {selected === 2 && (
             <div className="flex flex-col lg:flex-row justify-center w-full gap-6">
-              <div className="flex justify-center w-full gap-2">
-                {/* <OneDoc1
-                title={`Lalàna laharana faha 98-029
-                mitondra Fehezan-dalàna
-                momba ny Rano`}
-                document={`codedeleauversionmalagasy2.pdf`}
-              /> */}
-              </div>
-              <div className="flex justify-center w-full gap-2">
-                {/* <OneDoc1
-                title={`TOROLALANA FANDRAFETANA
-                FEHEZAM-PITSIPIKA
-                MIKASIKA NY FANADIOVANA SY NY FIDIOVANA`}
-                document={`codedeleauversionmalagasy.pdf`}
-              /> */}
-              </div>
+              {loading ? (
+                <Loading isLoading={loading} />
+              ) : (
+                <div>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    {generales2
+                      .slice(
+                        pageNumber * itemsPerPage,
+                        (pageNumber + 1) * itemsPerPage
+                      )
+                      .map((generale, index) => (
+                        <div key={index}>
+                          <div className="flex justify-center w-full h-[220px] gap-2">
+                            <OneDoc1
+                              title={generale.titre}
+                              document={generale.doc}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                  {generales2.length > 4 && (
+                    <div className="mt-4">
+                      <ReactPaginate
+                        pageCount={pageCount}
+                        onPageChange={handlePageClick}
+                        previousLabel={
+                          <img
+                            src="/assets/icons/ic_paginate-left.svg"
+                            alt="left"
+                            width={10}
+                            height={10}
+                          />
+                        }
+                        nextLabel={
+                          <img
+                            src="/assets/icons/ic_paginate-right.svg"
+                            alt="left"
+                            width={10}
+                            height={10}
+                          />
+                        }
+                        breakLabel={"..."}
+                        breakClassName={"break-me"}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        containerClassName={"pagination"}
+                        activeClassName={"active"}
+                      />
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           )}
           {selected === 3 && (
             <div className="flex flex-col lg:flex-row justify-center w-full gap-6">
-              <div className="flex justify-center w-full gap-2">
-                {/* <OneDoc1
-                title={`Lalàna laharana faha 98-029
-                mitondra Fehezan-dalàna
-                momba ny Rano`}
-                document={`codedeleauversionmalagasy2.pdf`}
-              /> */}
-              </div>
-              <div className="flex justify-center w-full gap-2">
-                {/* <OneDoc1
-                title={`TOROLALANA FANDRAFETANA
-                FEHEZAM-PITSIPIKA
-                MIKASIKA NY FANADIOVANA SY NY FIDIOVANA`}
-                document={`codedeleauversionmalagasy.pdf`}
-              /> */}
-              </div>
+              {loading ? (
+                <Loading isLoading={loading} />
+              ) : (
+                <div>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    {generales3
+                      .slice(
+                        pageNumber * itemsPerPage,
+                        (pageNumber + 1) * itemsPerPage
+                      )
+                      .map((generale, index) => (
+                        <div key={index}>
+                          <div className="flex justify-center w-full h-[220px] gap-2">
+                            <OneDoc1
+                              title={generale.titre}
+                              document={generale.doc}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                  {generales3.length > 4 && (
+                    <div className="mt-4">
+                      <ReactPaginate
+                        pageCount={pageCount}
+                        onPageChange={handlePageClick}
+                        previousLabel={
+                          <img
+                            src="/assets/icons/ic_paginate-left.svg"
+                            alt="left"
+                            width={10}
+                            height={10}
+                          />
+                        }
+                        nextLabel={
+                          <img
+                            src="/assets/icons/ic_paginate-right.svg"
+                            alt="left"
+                            width={10}
+                            height={10}
+                          />
+                        }
+                        breakLabel={"..."}
+                        breakClassName={"break-me"}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        containerClassName={"pagination"}
+                        activeClassName={"active"}
+                      />
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           )}
           {selected === 4 && (
             <div className="flex flex-col lg:flex-row justify-center w-full gap-6">
-              <div className="flex justify-center w-full gap-2">
-                {/* <OneDoc1
-                title={`Lalàna laharana faha 98-029
-                mitondra Fehezan-dalàna
-                momba ny Rano`}
-                document={`codedeleauversionmalagasy2.pdf`}
-              /> */}
-              </div>
-              <div className="flex justify-center w-full gap-2">
-                {/* <OneDoc1
-                title={`TOROLALANA FANDRAFETANA
-                FEHEZAM-PITSIPIKA
-                MIKASIKA NY FANADIOVANA SY NY FIDIOVANA`}
-                document={`codedeleauversionmalagasy.pdf`}
-              /> */}
-              </div>
+              {loading ? (
+                <Loading isLoading={loading} />
+              ) : (
+                <div>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    {generales4
+                      .slice(
+                        pageNumber * itemsPerPage,
+                        (pageNumber + 1) * itemsPerPage
+                      )
+                      .map((generale, index) => (
+                        <div key={index}>
+                          <div className="flex justify-center w-full h-[220px] gap-2">
+                            <OneDoc1
+                              title={generale.titre}
+                              document={generale.doc}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                  {generales4.length > 4 && (
+                    <div className="mt-4">
+                      <ReactPaginate
+                        pageCount={pageCount}
+                        onPageChange={handlePageClick}
+                        previousLabel={
+                          <img
+                            src="/assets/icons/ic_paginate-left.svg"
+                            alt="left"
+                            width={10}
+                            height={10}
+                          />
+                        }
+                        nextLabel={
+                          <img
+                            src="/assets/icons/ic_paginate-right.svg"
+                            alt="left"
+                            width={10}
+                            height={10}
+                          />
+                        }
+                        breakLabel={"..."}
+                        breakClassName={"break-me"}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        containerClassName={"pagination"}
+                        activeClassName={"active"}
+                      />
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           )}
         </div>

@@ -30,9 +30,10 @@ const OneDoc1: React.FC<OneDoc1Props> = ({ title, longText, document }) => {
       <div className="mt-4 flex justify-center">
         <a
           className="cursor-pointer"
-          // href={`${process.env.REACT_APP_BACKEND_URL}uploads/documents/${document}`}
-          href={`/assets/documents/${document}`}
+          href={`${process.env.REACT_APP_BACKEND_URL}uploads/documents/${document}`}
+          // href={`/assets/documents/${document}`}
           download={`${document}`}
+          target="__blank"
         >
           <ButtonImage src="BtnDown" />
         </a>
