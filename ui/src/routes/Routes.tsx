@@ -11,9 +11,9 @@ import IdeeContributionAdmin from "../pages/admin/pages/ideePlainte";
 import Inscription from "../pages/admin/pages/inscription";
 import Login from "../pages/admin/pages/login";
 import Realisation from "../pages/admin/pages/realisation";
-import APropos from "../pages/frontoffice/aPropos";
 import Accueil from "../pages/frontoffice/accueil";
 import AnnoncesPage from "../pages/frontoffice/annonces";
+import APropos from "../pages/frontoffice/aPropos";
 import DocumentationPage from "../pages/frontoffice/documentations";
 import IdeeEtPlaintes from "../pages/frontoffice/ideeEtPlaintes";
 import Realisations from "../pages/frontoffice/realisations";
@@ -104,7 +104,7 @@ const MyRoutes = () => {
                   path="ideecontribution"
                   element={<IdeeContributionAdmin />}
                 />
-                <Route path="Inscription" element={<Inscription />} />
+                <Route path="inscription" element={<Inscription />} />
               </Routes>
             </LayoutAdmin>
           }

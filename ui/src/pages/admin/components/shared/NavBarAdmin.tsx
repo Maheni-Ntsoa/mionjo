@@ -1,3 +1,4 @@
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { useNavigate } from "react-router-dom";
 import Logout from "../../../../components/Logout";
 
@@ -28,13 +29,13 @@ const NavBarAdmin = () => {
           </div>
         </div>
         <div className="">
-          {/* <button
-                        onClick={() => navigate("/admin/Inscription")}
-                        className="bg-green w-40 rounded-md px-2 py-2 text-white hover:text-white mb-2"
-                    >
-                        <PersonAddIcon />
-                        Utilisateur
-                    </button> */}
+          <button
+            onClick={() => navigate("/admin/inscription")}
+            className="bg-green w-40 rounded-md px-2 py-2 text-white hover:text-white mb-2"
+          >
+            <PersonAddIcon />
+            Utilisateur
+          </button>
         </div>
         <div className="lg:block md:flex  justify-end">
           <Logout />

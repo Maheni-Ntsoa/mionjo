@@ -4,11 +4,13 @@ import Button from "@mui/material/Button";
 import React, { useEffect, useState } from "react";
 import ConfirmationModal from "../../../../../components/ConfirmationModal";
 import DetailRectangle from "../../../../../components/DetailRectangle";
-import { HeadCell } from "../../../../../components/MRTable";
+import EnhancedTable, { HeadCell } from "../../../../../components/MRTable";
 import MyModal from "../../../../../components/MyModal";
+import ListUser from "../../../../../usecases/user/ListUser";
 import { formatDate } from "../../../../../utils/formatDate";
 import AddUser from "./AddUser";
 import UpdateUser from "./UpdateUser";
+
 const renderDateCell = (row: any) => {
   return <span>{formatDate(row.datecreation)}</span>;
 };
@@ -18,7 +20,7 @@ const columns: readonly HeadCell[] = [
     id: "email",
     numeric: false,
     disablePadding: false,
-    label: "Onglet",
+    label: "Email",
   },
   {
     id: "datecreation",
@@ -41,16 +43,13 @@ const ListeUser = () => {
   const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
-    // const fetchActus = async () => {
-    //   const data = await new GetGeneralecByIdCateAndIdRubri().execute({
-    //     idcategorie: 1,
-    //     idrubrique: 1,
-    //   });
-    //   if (data) {
-    //     setDataSource(data);
-    //   }
-    // };
-    // fetchActus();
+    const fetchActus = async () => {
+      const data = await new ListUser().execute();
+      if (data) {
+        setDataSource(data);
+      }
+    };
+    fetchActus();
   }, [refetch]);
 
   const handleRefetch = () => {
@@ -93,6 +92,8 @@ const ListeUser = () => {
   //   Add
   const openModal = () => {
     setModalIsOpen(true);
+    console.log('eto');
+
   };
   const closeModal = () => {
     setModalIsOpen(false);
@@ -101,12 +102,12 @@ const ListeUser = () => {
   return (
     <div>
       <div className=" mx-4">
-        <div className="mb-4">
+        <div className="mb-4 mt-8">
           {!corbeille ? (
-            <Button name="Actualité" onClick={() => setCorbeille(true)} />
+            <Button name="Voir liste" onClick={() => setCorbeille(true)} />
           ) : (
             <div className="flex gap-4 w-full justify-between">
-              <div>
+              <div >
                 <button
                   name="Ajouter"
                   onClick={openModal}
@@ -126,19 +127,16 @@ const ListeUser = () => {
             </div>
           )}
         </div>
-        {/* {!corbeille ? (
-          <Corbeille handleRefetchList={handleRefetch} />
-        ) : (<>
-          <div className="flex justify-center ">
-            <EnhancedTable
-              columns={columns}
-              rows={dataSource}
-              onEdit={handleEdit}
-              onDelete={handleDelete}
-              seeMore={{ see: handleSeeMore, isPresent: true }}
+        <div className="flex justify-center ">
+          <EnhancedTable
+            columns={columns}
+            rows={dataSource}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+            seeMore={{ see: handleSeeMore, isPresent: true }}
 
-            />
-          </div> */}
+          />
+        </div>
         {/* see More */}
         {
           <MyModal onClose={handleSeeMoreClose} open={seeMoreOpen}>
@@ -169,8 +167,6 @@ const ListeUser = () => {
             <AddUser refetch={handleRefetch} onClose={closeModal} />
           </MyModal>
         )}
-
-        {/* </>)} */}
       </div>
     </div>
   );
