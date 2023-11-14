@@ -1,4 +1,3 @@
-import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import NoteAddIcon from "@mui/icons-material/NoteAdd";
 import Button from "@mui/material/Button";
 import React, { useEffect, useState } from "react";
@@ -21,6 +20,12 @@ const columns: readonly HeadCell[] = [
     numeric: false,
     disablePadding: false,
     label: "Email",
+  },
+  {
+    id: "nomrole",
+    numeric: false,
+    disablePadding: false,
+    label: "Role",
   },
   {
     id: "datecreation",
@@ -92,8 +97,6 @@ const ListeUser = () => {
   //   Add
   const openModal = () => {
     setModalIsOpen(true);
-    console.log('eto');
-
   };
   const closeModal = () => {
     setModalIsOpen(false);
@@ -107,7 +110,7 @@ const ListeUser = () => {
             <Button name="Voir liste" onClick={() => setCorbeille(true)} />
           ) : (
             <div className="flex gap-4 w-full justify-between">
-              <div >
+              <div>
                 <button
                   name="Ajouter"
                   onClick={openModal}
@@ -117,24 +120,16 @@ const ListeUser = () => {
                   <span className="pt-2">Ajouter </span>{" "}
                 </button>
               </div>
-              <div className="">
-                <DeleteSweepIcon
-                  style={{ width: "40px", height: "40px" }}
-                  name="Corbeille"
-                  onClick={() => setCorbeille(false)}
-                />
-              </div>
             </div>
           )}
         </div>
-        <div className="flex justify-center ">
+        <div className="flex w-full px-2">
           <EnhancedTable
             columns={columns}
             rows={dataSource}
             onEdit={handleEdit}
             onDelete={handleDelete}
             seeMore={{ see: handleSeeMore, isPresent: true }}
-
           />
         </div>
         {/* see More */}
@@ -162,11 +157,9 @@ const ListeUser = () => {
           denied={handleDeleteClose}
         />
         {/* Ajout */}
-        {modalIsOpen && (
-          <MyModal onClose={closeModal}>
-            <AddUser refetch={handleRefetch} onClose={closeModal} />
-          </MyModal>
-        )}
+        <MyModal onClose={closeModal} open={modalIsOpen}>
+          <AddUser refetch={handleRefetch} onClose={closeModal} />
+        </MyModal>
       </div>
     </div>
   );
