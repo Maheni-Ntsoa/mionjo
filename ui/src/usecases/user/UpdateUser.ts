@@ -1,20 +1,24 @@
 import User from "../../models/User";
 import UseCase from "../interfaces/UseCase";
 
-interface SaveUserDto {
+interface UpdateUserDto {
+  id: number;
   idrole: number;
   email: string;
-  mdp: string;
+  // mdp: string;
 }
 
-export default class SaveUser implements UseCase<SaveUserDto, void> {
-  async execute(saveUserDto: SaveUserDto) {
+export default class UpdateUser implements UseCase<UpdateUserDto, void> {
+  async execute(UpdateUserDto: UpdateUserDto) {
     const user = new User(
-      saveUserDto.idrole,
-      saveUserDto.email,
+      UpdateUserDto.idrole,
+      UpdateUserDto.email,
+      // UpdateUserDto.mdp,
       0
     );
-    user.mdp = saveUserDto.mdp;
+
+    user.id = UpdateUserDto.id;
+    console.log(user);
 
     await fetch(`${process.env.REACT_APP_BACKEND_URL}user`, {
       method: "post",

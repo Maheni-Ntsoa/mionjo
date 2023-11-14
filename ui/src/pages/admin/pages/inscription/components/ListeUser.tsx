@@ -139,16 +139,16 @@ const ListeUser = () => {
           </MyModal>
         }
         {/* Update */}
-        {updateOpen && (
-          <MyModal onClose={handleUpdateClose}>
-            <UpdateUser
-              buttonActiver={true}
-              actualite={selectedRow}
-              onClose={handleUpdateClose}
-              refetch={handleRefetch}
-            />
-          </MyModal>
-        )}
+
+        <MyModal onClose={handleUpdateClose} open={updateOpen}>
+          <UpdateUser
+            buttonActiver={true}
+            user={selectedRow}
+            onClose={handleUpdateClose}
+            refetch={handleRefetch}
+          />
+        </MyModal>
+
         {/* Delete  */}
         <ConfirmationModal
           open={deleteOpen}

@@ -1,19 +1,20 @@
 import Alert from "@mui/material/Alert";
-import Button from "@mui/material/Button";
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
 import { useEffect, useState } from "react";
 import "react-quill/dist/quill.snow.css"; // Importez la feuille de style CSS
 import * as Yup from "yup";
+import Button from "../../../../../components/Button";
+import UpdateUser from "../../../../../usecases/user/UpdateUser";
 
 interface UpdateUserProps {
-  actualite: any;
+  user: any;
   onClose: any;
   buttonActiver: boolean;
   refetch: () => void;
 }
 
-const UpdateUser: React.FC<UpdateUserProps> = ({
-  actualite,
+const UpdateUserc: React.FC<UpdateUserProps> = ({
+  user,
   buttonActiver,
   onClose,
   refetch,
@@ -22,39 +23,56 @@ const UpdateUser: React.FC<UpdateUserProps> = ({
   const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
-    if (actualite) {
-      setActu(actualite);
+    if (user) {
+      setActu(user);
     }
   }, []);
 
   const initialValues = {
-    titre: `${actualite.titre ? actualite.titre : ""}`,
-    contenu: `${actualite.contenu ? actualite.contenu : ""}`,
+    idrole: `${user.idrole ? user.idrole : ""}`,
+    email: `${user.email ? user.email : ""}`,
+    // mdp: `${user.mdp ? user.mdp : ""}`,
+
   };
   const validationSchema = Yup.object({
-    titre: Yup.string(),
-    contenu: Yup.string(),
+    idrole: Yup.string(),
+    email: Yup.string(),
+    // mdp: Yup.string(),
   });
 
+  const roles = [
+    { id: "1", label: "SUPERADMIN" },
+    { id: "2", label: "ANNONCE" },
+    { id: "3", label: "ACCUEIL" },
+    { id: "4", label: "DOCUMENTATION" },
+    { id: "5", label: "IDEEPLAINTE" },
+  ];
+
   const onSubmit = async (values: any, { resetForm }: any) => {
-    // await new UpdateGenerale().execute(values);
+    const userValue = {
+      id: user.id,
+      idrole: +values.idrole,
+      email: values.email,
+      // mdp: values.mdp,
+    };
+    console.log(userValue);
+
+    await new UpdateUser().execute(userValue);
     resetForm();
     setIsSuccess(true);
     refetch();
-    // onClose();
   };
 
   return (
     <div className="px-4">
-      <div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <p className="text-yellow text-xl font-bold">
-          {`${
-            buttonActiver
-              ? "Modification de l'actualité"
-              : "Detail de l'actualité"
-          }`}
+          {`${buttonActiver
+            ? "Modification de l'utilisateur"
+            : "Detail de l'utilisateur"
+            }`}
         </p>
-      </div>
+      </div> */}
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -63,54 +81,49 @@ const UpdateUser: React.FC<UpdateUserProps> = ({
         {({ values, handleChange }) => (
           <Form className="p-8">
             {isSuccess && (
-              <Alert severity="success"> Modification d'utilisateur!</Alert>
+              <div className="my-4">
+                <Alert severity="success"> Utilisateur enregistré !</Alert>
+              </div>
             )}
+
             <div className="mb-4">
               <Field
-                placeholder="nom"
-                name="nom"
-                type="text"
-                className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-              <ErrorMessage
-                name="nom"
-                component="div"
-                className="text-red text-xs italic"
-              />
-            </div>
-            <div className="mb-4">
-              <Field
-                placeholder="prenom"
-                name="prenom"
-                type="text"
-                className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-            </div>
-            <div className="mb-4">
-              <Field
-                placeholder="email"
+                value={values.email}
                 name="email"
                 type="email"
-                className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
               />
             </div>
-            <div className="mb-4">
+            {/* <div className="mb-4">
               <Field
-                placeholder=""
+                value={values.mdp}
                 name="mdp"
                 type="password"
-                className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
               />
+            </div> */}
+            <div className="mb-4">
+              <Field
+                name="idrole"
+                as="select"
+                className="shadow rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+              >
+                <option value="" disabled className="text-gray-700">
+                  Sélectionnez un rôle
+                </option>
+                {roles.map((role) => (
+                  <option key={role.id} value={role.id}>
+                    {role.label}
+                  </option>
+                ))}
+              </Field>
             </div>
-
             <div className="flex justify-center">
-              {buttonActiver && (
-                <Button
-                  name="Enregistrer"
-                  type="submit"
-                  className="border-white border"
-                />
-              )}
+              <Button
+                name="Enregistrer"
+                type="submit"
+                className="border-white border"
+              />
             </div>
           </Form>
         )}
@@ -119,4 +132,4 @@ const UpdateUser: React.FC<UpdateUserProps> = ({
   );
 };
 
-export default UpdateUser;
+export default UpdateUserc;
