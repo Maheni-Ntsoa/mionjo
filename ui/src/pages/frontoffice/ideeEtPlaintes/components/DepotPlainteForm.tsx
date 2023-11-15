@@ -133,7 +133,7 @@ const DepotPlainteForm = () => {
                 +261 33 65 004 41
               </p>
               <p className="flex justify-center items-center">
-                +261 34 30 842 50
+                +261 34 30 815 50
               </p>
             </div>
           </div>
@@ -152,7 +152,7 @@ const DepotPlainteForm = () => {
                 +261 33 65 004 42
               </p>
               <p className="flex justify-center items-center">
-                +261 34 30 842 70
+                +261 34 30 815 70
               </p>
             </div>
           </div>
@@ -171,7 +171,7 @@ const DepotPlainteForm = () => {
                 +261 33 65 004 43
               </p>
               <p className="flex justify-center items-center">
-                +261 34 30 842 90
+                +261 34 30 815 90
               </p>
             </div>
           </div>
