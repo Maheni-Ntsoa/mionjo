@@ -28,7 +28,7 @@ const AddPhotoVideo: React.FC<AddPhotoVideoProps> = ({ onclose, refetch }) => {
     setLoading(true);
     const photoValue = {
       files: selectedFiles,
-      generale: { id: 0 },
+      generale: { id: 1 },
       evenement: values.evenement,
     };
     await new CreateManyPhoto().execute(photoValue);

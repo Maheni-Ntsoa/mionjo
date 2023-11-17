@@ -12,7 +12,7 @@ export default class CreateManyVideo implements UseCase<CreateManyDto, void> {
       if (createManyDto.generale) {
         formData.append("idgenerale", createManyDto.generale.id.toString());
       } else {
-        formData.append("idgenerale", "0");
+        formData.append("idgenerale", "1");
       }
       formData.append("nomvideo", createManyDto.files[i].name);
       formData.append("fichiers", createManyDto.files[i]);

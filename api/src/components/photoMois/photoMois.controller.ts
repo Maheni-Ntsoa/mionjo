@@ -34,7 +34,7 @@ class PhotoMoisController {
       //   .then(async (result) => {
       //     if (result[0]) {
       //       let tempData = {
-      //         idgenerale: 0,
+      //         idgenerale: 1,
       //         nomphoto: result[0].dataValues.nomphoto,
       //       };
       //       await Photo.create(tempData);

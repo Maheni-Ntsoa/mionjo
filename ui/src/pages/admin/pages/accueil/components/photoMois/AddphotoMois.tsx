@@ -1,12 +1,12 @@
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import Alert from "@mui/material/Alert";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useState } from "react";
 import "react-quill/dist/quill.snow.css";
+import * as Yup from "yup";
 import Button from "../../../../../../components/Button";
 import Loading from "../../../../../../components/Loading";
 import SavePhotoMois from "../../../../../../usecases/PhotoMois/SavePhotoMois";
-import * as Yup from "yup";
-import { ErrorMessage, Field, Form, Formik } from "formik";
 
 interface AddphotoMoisProps {
   onclose: any;
@@ -27,7 +27,7 @@ const AddphotoMois: React.FC<AddphotoMoisProps> = ({ onclose, refetch }) => {
     setLoading(true);
     const photoValue = {
       files: selectedFiles,
-      generale: { id: 0 },
+      generale: { id: 1 },
       resume: values.resume,
     };
     await new SavePhotoMois().execute(photoValue);

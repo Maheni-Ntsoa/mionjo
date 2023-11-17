@@ -22,7 +22,7 @@ const AddVideo: React.FC<AddVideoProps> = ({ onclose, refetch }) => {
     setLoading(true);
     const videoValue = {
       files: selectedVideo,
-      generale: { id: 0 },
+      generale: { id: 1 },
     };
     await new CreateManyVideo().execute(videoValue);
 

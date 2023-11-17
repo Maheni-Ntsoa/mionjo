@@ -363,6 +363,7 @@ const DepotPlainteForm = () => {
               />
             </div>
             <ReCAPTCHA
+              size="compact"
               sitekey="6Le4JgYpAAAAAE0wUbkl3fdDcd9cCNL9TljiIRnQ"
               onChange={(value) => setIsRecaptchaVerified(true)}
             />

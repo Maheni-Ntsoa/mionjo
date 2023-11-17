@@ -23,6 +23,12 @@ const columns: readonly HeadCell[] = [
     label: "Nom photo",
   },
   {
+    id: "evenement",
+    numeric: false,
+    disablePadding: false,
+    label: "Evenement",
+  },
+  {
     id: "datecreation",
     numeric: false,
     disablePadding: false,
@@ -42,7 +48,7 @@ const ListePhotoVideo = () => {
 
   useEffect(() => {
     const fetchActus = async () => {
-      const data = await new GetPhotoByIdGenerale().execute(0);
+      const data = await new GetPhotoByIdGenerale().execute(1);
       if (data) {
         setDataSource(data);
       }

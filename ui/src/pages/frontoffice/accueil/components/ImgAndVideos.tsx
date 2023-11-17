@@ -18,7 +18,7 @@ const ImgAndVideos = () => {
       if (eventPhoto) {
         setEvents(eventPhoto);
       }
-      const videoByIdGen = await new GetVideoByIdGenerale().execute(0);
+      const videoByIdGen = await new GetVideoByIdGenerale().execute(1);
       if (videoByIdGen && videoByIdGen && videoByIdGen.length > 0) {
         for (let i = 0; i < videoByIdGen.length; i++) {
           listVideos.push(

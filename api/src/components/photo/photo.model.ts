@@ -7,6 +7,7 @@ export class Photo extends Model {
   nomphoto!: string;
   datecreation!: Date;
   evenement!: string;
+  etat!: number;
 }
 
 Photo.init(
@@ -32,6 +33,11 @@ Photo.init(
     evenement: {
       type: DataTypes.STRING(150),
       allowNull: true,
+    },
+    etat: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      defaultValue: 0,
     },
   },
   {
