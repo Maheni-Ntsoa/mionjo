@@ -1,4 +1,4 @@
-import { Response, Request } from 'express';
+import { Request, Response } from 'express';
 import { Op } from 'sequelize';
 import { GeneraleC } from './generalec.model';
 
@@ -11,7 +11,7 @@ class GeneraleCController {
           { idrubrique: req.params.idrubrique },
           { etat: { [Op.not]: 10 } },
           { etat: { [Op.not]: 50 } },
-          { id: { [Op.not]: 0 } },
+          { id: { [Op.not]: 1 } },
         ],
       },
       order: [['datecreation', 'DESC']],
@@ -30,7 +30,7 @@ class GeneraleCController {
         [Op.and]: [
           { idcategorie: req.params.idcategorie },
           { etat: { [Op.not]: 10 } },
-          { id: { [Op.not]: 0 } },
+          { id: { [Op.not]: 1 } },
         ],
       },
       order: [['datelimit', 'DESC']],
@@ -50,7 +50,7 @@ class GeneraleCController {
           { idcategorie: req.params.idcategorie },
           { idrubrique: req.params.idrubrique },
           { etat: { [Op.not]: 0 } },
-          { id: { [Op.not]: 0 } },
+          { id: { [Op.not]: 1 } },
         ],
       },
       order: [['datecreation', 'DESC']],
@@ -68,7 +68,7 @@ class GeneraleCController {
       where: {
         [Op.and]: [
           { etat: { [Op.not]: 10 } },
-          { id: { [Op.not]: 0 } },
+          { id: { [Op.not]: 1 } },
           {
             // [Op.or]: [
             //     { titre: { [Op.regexp]: req.params.exp } },

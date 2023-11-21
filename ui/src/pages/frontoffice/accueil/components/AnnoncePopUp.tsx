@@ -31,8 +31,11 @@ const AnnoncePopUp = () => {
         });
 
         const generalesWithDocs = await Promise.all(promises);
-        const datenow = new Date()
-        const generalesInProgressAndDated = generalesWithDocs.filter((gen) => gen.datelimit && gen.datelimit > datenow && !gen.titulairemarche)
+        const datenow = new Date();
+        const generalesInProgressAndDated = generalesWithDocs.filter(
+          (gen) =>
+            gen.datelimit && gen.datelimit > datenow && !gen.titulairemarche
+        );
         setGenerales(generalesInProgressAndDated);
         setLoading(false);
       }
@@ -76,7 +79,9 @@ const AnnoncePopUp = () => {
         <Loading isLoading={loading} />
       ) : (
         <div className="mt-4 flex flex-col gap-1 lg:gap-4 justify-center">
-          {generales.length === 0 ? (<p className="text-white">Pas d'annonce pour le moment !!</p>) : (
+          {generales.length === 0 ? (
+            <p className="text-white">Aucune annonce pour le moment.</p>
+          ) : (
             generales
               .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
               .map((generale, index) => (

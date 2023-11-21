@@ -1,3 +1,4 @@
+import MoodBadIcon from "@mui/icons-material/MoodBad";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import ReactPaginate from "react-paginate";
@@ -37,7 +38,12 @@ const AnnoncesA: React.FC<AnnoncesAProps> = ({ idCategorie, idRubrique }) => {
           };
         });
 
-        const generalesWithDocs = await Promise.all(promises);
+        const generalesInProgressAndDated = await Promise.all(promises);
+        const datenow = new Date();
+        const generalesWithDocs = generalesInProgressAndDated.filter(
+          (gen) =>
+            gen.datelimit && gen.datelimit > datenow && !gen.titulairemarche
+        );
         if (generalesWithDocs) {
           const docAssigneds = generalesWithDocs.filter(
             (doc) => doc.etatannonce === 10
@@ -73,122 +79,137 @@ const AnnoncesA: React.FC<AnnoncesAProps> = ({ idCategorie, idRubrique }) => {
       {loading ? (
         <Loading isLoading={loading} />
       ) : (
-        <div className="flex flex-col gap-4">
-          {/* en cours */}
-          <div className="mt-4">
-            <div className="flex justify-center lg:pl-20 items-center">
-              <div className="">
-                <h1 className="w-max text-xl lg:text-4xl xl:text-[50px] uppercase my-16 text-blue font-semibold font-quicksand">
-                  {" "}
-                  {t("encour")}
-                </h1>
-              </div>
-              <div className="ml-8">
-                <div className="rounded-full w-4 h-4 border-blue border-4"></div>
-              </div>
-              <div className="w-full border-blue border-b-4"></div>
-            </div>
-            <div className="mt-4 flex flex-col gap-4 justify-center">
-              {inProgress
-                .slice(
-                  pageNumber * itemsPerPage,
-                  (pageNumber + 1) * itemsPerPage
-                )
-                .map((generale, index) => (
-                  <div className="flex flex-col gap-2" key={index}>
-                    <OneAnnonce document={generale.doc} generalec={generale} />
+        <>
+          {generales.length ? (
+            <div className="flex flex-col gap-4">
+              {/* en cours */}
+              <div className="mt-4">
+                <div className="flex justify-center lg:pl-20 items-center">
+                  <div className="">
+                    <h1 className="w-max text-xl lg:text-4xl xl:text-[50px] uppercase my-16 text-blue font-semibold font-quicksand">
+                      {" "}
+                      {t("encour")}
+                    </h1>
                   </div>
-                ))}
-            </div>
-            {inProgress.length > 4 && (
-              <div className="my-4">
-                <ReactPaginate
-                  pageCount={pageCount}
-                  onPageChange={handlePageClick}
-                  previousLabel={
-                    <img
-                      src="/assets/icons/ic_paginate-left.svg"
-                      alt="left"
-                      width={10}
-                      height={10}
-                    />
-                  }
-                  nextLabel={
-                    <img
-                      src="/assets/icons/ic_paginate-right.svg"
-                      alt="left"
-                      width={10}
-                      height={10}
-                    />
-                  }
-                  breakLabel={"..."}
-                  breakClassName={"break-me"}
-                  marginPagesDisplayed={2}
-                  pageRangeDisplayed={5}
-                  containerClassName={"pagination"}
-                  activeClassName={"active"}
-                />
-              </div>
-            )}
-          </div>
-          {/* Attribue */}
-          <div className="mt-4">
-            <div className="flex justify-center pl-20 items-center">
-              <div className="">
-                <h1 className="w-max text-xl lg:text-4xl xl:text-[50px] uppercase my-16 text-blue font-semibold font-quicksand">
-                  {" "}
-                  {t("Attribue")}
-                </h1>
-              </div>
-              <div className="ml-8">
-                <div className="rounded-full w-4 h-4 border-blue border-4"></div>
-              </div>
-              <div className="w-full border-blue border-b-4"></div>
-            </div>
-            <div className="mt-4 flex flex-col gap-4 justify-center">
-              {assigned
-                .slice(
-                  pageNumber * itemsPerPage,
-                  (pageNumber + 1) * itemsPerPage
-                )
-                .map((generale, index) => (
-                  <div className="flex flex-col gap-2" key={index}>
-                    <OneAnnonce document={generale.doc} generalec={generale} />
+                  <div className="ml-8">
+                    <div className="rounded-full w-4 h-4 border-blue border-4"></div>
                   </div>
-                ))}
-            </div>
-            {assigned.length > 4 && (
-              <div className="my-4">
-                <ReactPaginate
-                  pageCount={pageCount}
-                  onPageChange={handlePageClick}
-                  previousLabel={
-                    <img
-                      src="/assets/icons/ic_paginate-left.svg"
-                      alt="left"
-                      width={10}
-                      height={10}
+                  <div className="w-full border-blue border-b-4"></div>
+                </div>
+                <div className="mt-4 flex flex-col gap-4 justify-center">
+                  {inProgress
+                    .slice(
+                      pageNumber * itemsPerPage,
+                      (pageNumber + 1) * itemsPerPage
+                    )
+                    .map((generale, index) => (
+                      <div className="flex flex-col gap-2" key={index}>
+                        <OneAnnonce
+                          document={generale.doc}
+                          generalec={generale}
+                        />
+                      </div>
+                    ))}
+                </div>
+                {inProgress.length > 4 && (
+                  <div className="my-4">
+                    <ReactPaginate
+                      pageCount={pageCount}
+                      onPageChange={handlePageClick}
+                      previousLabel={
+                        <img
+                          src="/assets/icons/ic_paginate-left.svg"
+                          alt="left"
+                          width={10}
+                          height={10}
+                        />
+                      }
+                      nextLabel={
+                        <img
+                          src="/assets/icons/ic_paginate-right.svg"
+                          alt="left"
+                          width={10}
+                          height={10}
+                        />
+                      }
+                      breakLabel={"..."}
+                      breakClassName={"break-me"}
+                      marginPagesDisplayed={2}
+                      pageRangeDisplayed={5}
+                      containerClassName={"pagination"}
+                      activeClassName={"active"}
                     />
-                  }
-                  nextLabel={
-                    <img
-                      src="/assets/icons/ic_paginate-right.svg"
-                      alt="left"
-                      width={10}
-                      height={10}
-                    />
-                  }
-                  breakLabel={"..."}
-                  breakClassName={"break-me"}
-                  marginPagesDisplayed={2}
-                  pageRangeDisplayed={5}
-                  containerClassName={"pagination"}
-                  activeClassName={"active"}
-                />
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-        </div>
+              {/* Attribue */}
+              <div className="mt-4">
+                <div className="flex justify-center pl-20 items-center">
+                  <div className="">
+                    <h1 className="w-max text-xl lg:text-4xl xl:text-[50px] uppercase my-16 text-blue font-semibold font-quicksand">
+                      {" "}
+                      {t("Attribue")}
+                    </h1>
+                  </div>
+                  <div className="ml-8">
+                    <div className="rounded-full w-4 h-4 border-blue border-4"></div>
+                  </div>
+                  <div className="w-full border-blue border-b-4"></div>
+                </div>
+                <div className="mt-4 flex flex-col gap-4 justify-center">
+                  {assigned
+                    .slice(
+                      pageNumber * itemsPerPage,
+                      (pageNumber + 1) * itemsPerPage
+                    )
+                    .map((generale, index) => (
+                      <div className="flex flex-col gap-2" key={index}>
+                        <OneAnnonce
+                          document={generale.doc}
+                          generalec={generale}
+                        />
+                      </div>
+                    ))}
+                </div>
+                {assigned.length > 4 && (
+                  <div className="my-4">
+                    <ReactPaginate
+                      pageCount={pageCount}
+                      onPageChange={handlePageClick}
+                      previousLabel={
+                        <img
+                          src="/assets/icons/ic_paginate-left.svg"
+                          alt="left"
+                          width={10}
+                          height={10}
+                        />
+                      }
+                      nextLabel={
+                        <img
+                          src="/assets/icons/ic_paginate-right.svg"
+                          alt="left"
+                          width={10}
+                          height={10}
+                        />
+                      }
+                      breakLabel={"..."}
+                      breakClassName={"break-me"}
+                      marginPagesDisplayed={2}
+                      pageRangeDisplayed={5}
+                      containerClassName={"pagination"}
+                      activeClassName={"active"}
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+          ) : (
+            <p className="flex items-center text-center text-2xl my-12">
+              {" "}
+              <MoodBadIcon /> &nbsp; Aucune annonce pour le moment.
+            </p>
+          )}
+        </>
       )}
     </>
   );
