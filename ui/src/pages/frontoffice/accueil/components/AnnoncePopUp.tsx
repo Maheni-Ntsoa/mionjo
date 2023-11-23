@@ -1,71 +1,71 @@
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import ReactPaginate from "react-paginate";
-import { useNavigate } from "react-router-dom";
-import Loading from "../../../../components/Loading";
-import GetDocumentByIdGenerale from "../../../../usecases/Document/GetDocumentByIdGenerale";
-import GetGeneralecByIdCate from "../../../../usecases/Generalec/GetGeneralecByIdCate";
-import { formatDateOnly } from "../../../../utils/formatDate";
+import { useEffect, useState } from "react"
+import { useTranslation } from "react-i18next"
+import ReactPaginate from "react-paginate"
+import { useNavigate } from "react-router-dom"
+import Loading from "../../../../components/Loading"
+import GetDocumentByIdGenerale from "../../../../usecases/Document/GetDocumentByIdGenerale"
+import GetGeneralecByIdCate from "../../../../usecases/Generalec/GetGeneralecByIdCate"
+import { formatDateOnly } from "../../../../utils/formatDate"
 
 const AnnoncePopUp = () => {
-  const { t } = useTranslation();
-  const { i18n } = useTranslation();
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
-  const [generales, setGenerales] = useState<any[]>([]);
-  const [pageNumber, setPageNumber] = useState(0);
-  const itemsPerPage = 3;
+  const { t } = useTranslation()
+  const { i18n } = useTranslation()
+  const navigate = useNavigate()
+  const [loading, setLoading] = useState(true)
+  const [generales, setGenerales] = useState<any[]>([])
+  const [pageNumber, setPageNumber] = useState(0)
+  const itemsPerPage = 3
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(true)
     const fetchGenerale = async () => {
-      const data = await new GetGeneralecByIdCate().execute(4);
+      const data = await new GetGeneralecByIdCate().execute(4)
 
       if (data) {
         const promises = data.map(async (generale) => {
-          const doc = await new GetDocumentByIdGenerale().execute(generale.id!);
+          const doc = await new GetDocumentByIdGenerale().execute(generale.id!)
           return {
             ...generale,
             doc: doc && doc[0] ? doc[0].nomdocument : "erreur.txt",
-          };
-        });
+          }
+        })
 
-        const generalesWithDocs = await Promise.all(promises);
-        const datenow = new Date();
+        const generalesWithDocs = await Promise.all(promises)
+        const datenow = new Date()
         const generalesInProgressAndDated = generalesWithDocs.filter(
           (gen) =>
-            gen.datelimit && gen.datelimit > datenow && !gen.titulairemarche
-        );
-        setGenerales(generalesInProgressAndDated);
-        setLoading(false);
+            gen.datelimit && gen.datelimit.toString() > datenow.toISOString()
+        )
+        setGenerales(generalesInProgressAndDated)
+        setLoading(false)
       }
-    };
-    fetchGenerale();
-  }, [pageNumber]);
+    }
+    fetchGenerale()
+  }, [pageNumber])
 
   const showCategorie = (generale: any) => {
     if (generale.idrubrique === 15) {
-      return t("ConsultantIndi");
+      return t("ConsultantIndi")
     }
     if (generale.idrubrique === 16) {
-      return t("Founitures");
+      return t("Founitures")
     }
     if (generale.idrubrique === 17) {
-      return t("Services");
+      return t("Services")
     }
     if (generale.idrubrique === 18) {
-      return t("Travaux");
+      return t("Travaux")
     }
     if (generale.idrubrique === 29) {
-      return t("ConsultantCab");
+      return t("ConsultantCab")
     }
-  };
+  }
 
-  const pageCount = Math.ceil(generales.length / itemsPerPage);
+  const pageCount = Math.ceil(generales.length / itemsPerPage)
 
   const handlePageClick = (selectedPage: { selected: number }) => {
-    setPageNumber(selectedPage.selected);
-  };
+    setPageNumber(selectedPage.selected)
+  }
 
   return (
     <div className="mt-4 py-2 px-2">
@@ -100,15 +100,7 @@ const AnnoncePopUp = () => {
                         </span>{" "}
                         : {generale.titreen}
                       </p>
-                    ) : (
-                      <p className="text-xs lg:text-md">
-                        <span className="uppercase">
-                          {showCategorie(generale)}
-                        </span>{" "}
-                        : {generale.titre}
-                      </p>
-                    )}
-                    {generale.titremg && i18n.language === "mg" ? (
+                    ) : generale.titremg && i18n.language === "mg" ? (
                       <p className="text-xs lg:text-md">
                         <span className="uppercase">
                           {showCategorie(generale)}
@@ -169,7 +161,7 @@ const AnnoncePopUp = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default AnnoncePopUp;
+export default AnnoncePopUp

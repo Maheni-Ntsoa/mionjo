@@ -1,29 +1,29 @@
-import UploadFileIcon from "@mui/icons-material/UploadFile";
+import UploadFileIcon from "@mui/icons-material/UploadFile"
 import {
   Button,
   FormControl,
   FormControlLabel,
   Radio,
   RadioGroup,
-} from "@mui/material";
-import Alert from "@mui/material/Alert";
-import { ErrorMessage, Field, Form, Formik } from "formik";
-import moment from "moment";
-import { useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-import * as Yup from "yup";
-import Loading from "../../../../../components/Loading";
-import Generalec from "../../../../../models/Generalec";
-import CreateManyDoc from "../../../../../usecases/Document/CreateMany";
-import UpdateGenerale from "../../../../../usecases/Generale/UpdateGenerale";
-import CreateManyPhoto from "../../../../../usecases/Photo/photo";
-import CreateManyVideo from "../../../../../usecases/Video/video";
+} from "@mui/material"
+import Alert from "@mui/material/Alert"
+import { ErrorMessage, Field, Form, Formik } from "formik"
+import moment from "moment"
+import { useState } from "react"
+import ReactQuill from "react-quill"
+import "react-quill/dist/quill.snow.css"
+import * as Yup from "yup"
+import Loading from "../../../../../components/Loading"
+import Generalec from "../../../../../models/Generalec"
+import CreateManyDoc from "../../../../../usecases/Document/CreateMany"
+import UpdateGenerale from "../../../../../usecases/Generale/UpdateGenerale"
+import CreateManyPhoto from "../../../../../usecases/Photo/photo"
+import CreateManyVideo from "../../../../../usecases/Video/video"
 
 interface UPDATEProps {
-  generalec: Generalec;
-  buttonActiver: boolean;
-  refetch: () => void;
+  generalec: Generalec
+  buttonActiver: boolean
+  refetch: () => void
 }
 
 const UPDATE: React.FC<UPDATEProps> = ({
@@ -31,14 +31,14 @@ const UPDATE: React.FC<UPDATEProps> = ({
   buttonActiver,
   refetch,
 }) => {
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [selectedFiles, setSelectedFiles] = useState([]);
-  const [selectedVideo, setSelectedVideo] = useState([]);
-  const [photoOrVideo, setPhotoORVideo] = useState(true);
-  const [isError, setIsError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false)
+  const [selectedFiles, setSelectedFiles] = useState([])
+  const [selectedVideo, setSelectedVideo] = useState([])
+  const [photoOrVideo, setPhotoORVideo] = useState(true)
+  const [isError, setIsError] = useState(false)
+  const [loading, setLoading] = useState(false)
 
-  let initialValues;
+  let initialValues
   if (generalec.idcategorie === 4) {
     initialValues = {
       titre: `${generalec.titre ? generalec.titre : ""}`,
@@ -60,7 +60,7 @@ const UPDATE: React.FC<UPDATEProps> = ({
       montantmarche: `${
         generalec.montantmarche ? generalec.montantmarche : ""
       }`,
-    };
+    }
   } else if (generalec.idcategorie === 7) {
     initialValues = {
       titre: `${generalec.titre ? generalec.titre : ""}`,
@@ -76,7 +76,7 @@ const UPDATE: React.FC<UPDATEProps> = ({
       }`,
       datecreation: moment(generalec.datecreation).format("YYYY-MM-DDTHH:mm"),
       files: [],
-    };
+    }
   } else {
     initialValues = {
       titre: `${generalec.titre ? generalec.titre : ""}`,
@@ -87,7 +87,7 @@ const UPDATE: React.FC<UPDATEProps> = ({
       contenumg: `${generalec.contenumg ? generalec.contenumg : ""}`,
       datecreation: moment(generalec.datecreation).format("YYYY-MM-DDTHH:mm"),
       files: [],
-    };
+    }
   }
 
   const validationSchema = Yup.object({
@@ -99,57 +99,57 @@ const UPDATE: React.FC<UPDATEProps> = ({
     contenumg: Yup.string(),
     datelimit: Yup.string(),
     datecreation: Yup.string(),
-  });
+  })
 
   const onSubmit = async (values: any, { resetForm }: any) => {
-    setLoading(true);
-    setIsError(false);
-    setIsSuccess(false);
-    values.idcategorie = generalec.idcategorie;
-    values.idrubrique = generalec.idrubrique;
-    values.id = generalec.id;
+    setLoading(true)
+    setIsError(false)
+    setIsSuccess(false)
+    values.idcategorie = generalec.idcategorie
+    values.idrubrique = generalec.idrubrique
+    values.id = generalec.id
 
     try {
-      await new UpdateGenerale().execute(values);
+      await new UpdateGenerale().execute(values)
       if (photoOrVideo) {
         const docValue = {
           files: selectedFiles,
           generale: { id: generalec.id },
           typeDocument: "",
-        };
+        }
         const photoValue = {
           files: selectedFiles,
           generale: { id: generalec.id },
-        };
+        }
         if (generalec.idcategorie === 4 || generalec.idcategorie === 7) {
-          await new CreateManyDoc().execute(docValue);
+          await new CreateManyDoc().execute(docValue)
         } else if (photoOrVideo) {
-          await new CreateManyPhoto().execute(photoValue);
+          await new CreateManyPhoto().execute(photoValue)
         }
       } else if (!photoOrVideo) {
         const docValue = {
           files: selectedFiles,
           generale: { id: generalec.id },
           typeDocument: "",
-        };
+        }
         const videoValue = {
           files: selectedVideo,
           generale: { id: generalec.id },
-        };
+        }
         if (generalec.idcategorie === 4 || generalec.idcategorie === 7) {
-          await new CreateManyDoc().execute(docValue);
+          await new CreateManyDoc().execute(docValue)
         } else if (!photoOrVideo) {
-          await new CreateManyVideo().execute(videoValue);
+          await new CreateManyVideo().execute(videoValue)
         }
       }
-      resetForm();
-      refetch();
-      setIsSuccess(true);
+      resetForm()
+      refetch()
+      setIsSuccess(true)
     } catch (error) {
-      setIsError(true);
+      setIsError(true)
     }
-    setLoading(false);
-  };
+    setLoading(false)
+  }
 
   return (
     <div className="px-4">
@@ -228,7 +228,7 @@ const UPDATE: React.FC<UPDATEProps> = ({
               <>
                 <div className="mb-4">
                   <Field
-                    placeholder="Titulaire du marche"
+                    placeholder="Entrez le nom de l'adjudicateur"
                     name="titulairemarche"
                     type="text"
                     className="shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline"
@@ -241,7 +241,7 @@ const UPDATE: React.FC<UPDATEProps> = ({
                 </div>
                 <div className="mb-4">
                   <Field
-                    placeholder="Montant du marche"
+                    placeholder="Montant du marché"
                     name="montantmarche"
                     type="text"
                     className="shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline"
@@ -259,8 +259,8 @@ const UPDATE: React.FC<UPDATEProps> = ({
               onClick={() => setPhotoORVideo(!photoOrVideo)}
             >
               {photoOrVideo
-                ? "Importez des videos"
-                : "Importez autre que videos"}
+                ? "Cliquez ici pour importer des videos"
+                : "Cliquez ici pour importer autre que videos"}
             </Button>
             {!photoOrVideo && (
               <div className="my-8">
@@ -273,9 +273,9 @@ const UPDATE: React.FC<UPDATEProps> = ({
                     accept="video/*"
                     multiple
                     onChange={(event) => {
-                      setPhotoORVideo(false);
-                      const selectedVideo: any = event.target.files;
-                      setSelectedVideo(selectedVideo);
+                      setPhotoORVideo(false)
+                      const selectedVideo: any = event.target.files
+                      setSelectedVideo(selectedVideo)
                     }}
                   />
                   <div className="flex justify-between w-full">
@@ -302,9 +302,9 @@ const UPDATE: React.FC<UPDATEProps> = ({
                       accept=".pdf, .doc, .docx, .txt, .xls, .xlsx, .ppt, .pptx, .csv, .xml, .json, .html, .css, .js, .ts, .zip, .rar"
                       multiple
                       onChange={(event) => {
-                        setPhotoORVideo(true);
-                        const selectedFiles: any = event.target.files;
-                        setSelectedFiles(selectedFiles);
+                        setPhotoORVideo(true)
+                        const selectedFiles: any = event.target.files
+                        setSelectedFiles(selectedFiles)
                       }}
                     />
                   ) : (
@@ -316,8 +316,8 @@ const UPDATE: React.FC<UPDATEProps> = ({
                       accept="image/*"
                       multiple
                       onChange={(event) => {
-                        const selectedFiles: any = event.target.files;
-                        setSelectedFiles(selectedFiles);
+                        const selectedFiles: any = event.target.files
+                        setSelectedFiles(selectedFiles)
                       }}
                     />
                   )}
@@ -325,7 +325,7 @@ const UPDATE: React.FC<UPDATEProps> = ({
                     <p>{`${
                       selectedFiles.length > 0
                         ? selectedFiles.length + " fichier(s) séléctionné(s)"
-                        : "Importations"
+                        : "Importations fichier(s)"
                     }`}</p>
                     <UploadFileIcon />
                   </div>
@@ -452,7 +452,7 @@ const UPDATE: React.FC<UPDATEProps> = ({
         )}
       </Formik>
     </div>
-  );
-};
+  )
+}
 
-export default UPDATE;
+export default UPDATE
