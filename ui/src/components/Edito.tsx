@@ -1,11 +1,11 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next"
 
 const Edito = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   return (
     <div className="h-full w-full p-2 lg:p-12 my-4">
       <div className="flex justify-center gap-6 flex-col lg:flex-row mx-12">
-        <div className="flex justify-center items-center">
+        {/* <div className="flex justify-center items-center">
           <div className="w-[200px] h-[200px] lg:w-[350px] lg:h-[350px] mr-4  cursor-pointer object-cover">
             <img
               src="/assets/edito/cn.jpg"
@@ -15,7 +15,7 @@ const Edito = () => {
               className="cursor-pointer w-full h-full object-cover"
             />
           </div>
-        </div>
+        </div> */}
         <div className="flex justify-center text-justify">
           <div className="flex flex-col gap-2">
             <div className=" flex justify-center text-[0.5rem] md:text-[0.8rem] xl:text-[1rem]">
@@ -37,7 +37,7 @@ const Edito = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Edito;
+export default Edito
