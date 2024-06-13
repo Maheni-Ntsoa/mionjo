@@ -240,7 +240,7 @@ const Footer = () => {
                     {t("DepPlaintes")}
                   </Link>
                 </p>
-                <p
+                {/* <p
                   className="font-light text-xs lg:text-base"
                   style={{ whiteSpace: "nowrap" }}
                 >
@@ -248,7 +248,7 @@ const Footer = () => {
                   <Link className="hover:text-yellow" to="/ideeplaintes/#stats">
                     {t("StatPlaintes")}
                   </Link>
-                </p>
+                </p> */}
               </div>
             </div>
           </div>

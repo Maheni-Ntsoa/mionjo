@@ -545,14 +545,14 @@ const Navbar = () => {
                         {t("DepPlaintes")}
                       </Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link
                         className="hover:text-yellow text-lg"
                         to="/ideeplaintes/#stats"
                       >
                         {t("StatPlaintes")}
                       </Link>
-                    </li>
+                    </li> */}
                   </motion.ul>
                 )}
               </li>

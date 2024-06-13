@@ -80,10 +80,11 @@ const AddActualite: React.FC<AddActualiteProps> = ({ onclose, refetch }) => {
                   }}
                 />
                 <div className="flex justify-between w-full">
-                  <p>{`${selectedFiles.length > 0
-                    ? selectedFiles.length + " image(s) séléctionné(s)"
-                    : "Importation des images"
-                    }`}</p>
+                  <p>{`${
+                    selectedFiles.length > 0
+                      ? selectedFiles.length + " image(s) séléctionné(s)"
+                      : "Importation des images"
+                  }`}</p>
                   <UploadFileIcon />
                 </div>
               </label>

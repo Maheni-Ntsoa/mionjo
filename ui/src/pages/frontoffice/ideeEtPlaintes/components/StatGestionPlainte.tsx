@@ -75,14 +75,6 @@ const StatGestionPlainte = () => {
   return (
     <div className="flex flex-col justify-center items-center my-4">
       <div className="flex justify-center items-center w-full">
-        {/* <div className="mt-2">
-          <img
-            src="/assets/icons/ic_stat.svg"
-            height={60}
-            width={60}
-            alt="logo_mionjo"
-          />
-        </div> */}
         <SubTitle title="StatPlaintes" />
       </div>
       <h1 className="w-full lg:whitespace-nowrap text-center text-xl lg:text-lg xl:text-2xl font-bold uppercase mb-6 text-brown font-quicksand">
@@ -112,36 +104,6 @@ const StatGestionPlainte = () => {
           </div>
         </div>
       )}
-      {/* {generales.length > itemsPerPage && (
-        <div className="my-4">
-          <ReactPaginate
-            pageCount={pageCount}
-            onPageChange={handlePageClick}
-            previousLabel={
-              <img
-                src="/assets/icons/ic_paginate-left.svg"
-                alt="left"
-                width={10}
-                height={10}
-              />
-            }
-            nextLabel={
-              <img
-                src="/assets/icons/ic_paginate-right.svg"
-                alt="left"
-                width={10}
-                height={10}
-              />
-            }
-            breakLabel={"..."}
-            breakClassName={"break-me"}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            containerClassName={"pagination"}
-            activeClassName={"active"}
-          />
-        </div>
-      )} */}
     </div>
   );
 };

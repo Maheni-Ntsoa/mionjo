@@ -189,7 +189,7 @@ const Documentations = () => {
                       )
                       .map((generale, index) => (
                         <div key={index}>
-                          <div className="flex justify-center w-full h-[220px] gap-2">
+                          <div className="flex justify-center w-full h-full gap-2">
                             <OneDoc1
                               title={generale.titre}
                               document={generale.doc}
@@ -246,7 +246,7 @@ const Documentations = () => {
                       )
                       .map((generale, index) => (
                         <div key={index}>
-                          <div className="flex justify-center w-full h-[220px] gap-2">
+                          <div className="flex justify-center w-full h-full gap-2">
                             <OneDoc1
                               title={generale.titre}
                               document={generale.doc}
@@ -303,7 +303,7 @@ const Documentations = () => {
                       )
                       .map((generale, index) => (
                         <div key={index}>
-                          <div className="flex justify-center w-full h-[220px] gap-2">
+                          <div className="flex justify-center w-full h-full gap-2">
                             <OneDoc1
                               title={generale.titre}
                               document={generale.doc}
@@ -360,7 +360,7 @@ const Documentations = () => {
                       )
                       .map((generale, index) => (
                         <div key={index}>
-                          <div className="flex justify-center w-full h-[220px] gap-2">
+                          <div className="flex justify-center w-full h-full gap-2">
                             <OneDoc1
                               title={generale.titre}
                               document={generale.doc}
@@ -417,7 +417,7 @@ const Documentations = () => {
                       )
                       .map((generale, index) => (
                         <div key={index}>
-                          <div className="flex justify-center w-full h-[220px] gap-2">
+                          <div className="flex justify-center w-full h-full gap-2">
                             <OneDoc1
                               title={generale.titre}
                               document={generale.doc}
