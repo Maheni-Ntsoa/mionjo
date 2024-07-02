@@ -558,7 +558,7 @@ const Navbar = () => {
               </li>
 
               <li className="group relative text-white px-2 py-2 rounded hover:bg-black/10">
-                <Link to="https://map.mionjo.com" target="_blank">
+                <Link to="https://mapmionjo.mg" target="_blank">
                   <span
                     className="font-quicksand text-md max-w-fit uppercase"
                     style={{ font: "quicksand", whiteSpace: "nowrap" }}

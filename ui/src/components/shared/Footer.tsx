@@ -258,7 +258,7 @@ const Footer = () => {
                 className="uppercase font-semibold text-lg lg:text-2xl"
                 style={{ font: "quicksand" }}
               >
-                <Link to="https://map.mionjo.com" target="_blank">
+                <Link to="https://mapmionjo.mg" target="_blank">
                   {t("Cartographie")}
                 </Link>
               </h2>
