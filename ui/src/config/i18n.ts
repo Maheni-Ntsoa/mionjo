@@ -17,6 +17,7 @@ i18n.use(initReactI18next).init({
         Realisations: "Activity",
         IdeePlaintes: "Ideas and Complaints",
         Cartographie: "Mapping",
+        cop29: "COP29 - Mionjo",
         Description: "Description",
         Objectifs: "Goals",
         Zones: "Intervention Areas",
@@ -58,22 +59,20 @@ i18n.use(initReactI18next).init({
         compo3: "Components 3",
         compo4: "Components 4",
         compo5: "Components 5",
-        textcompo1: "Enhancing decentralized local governance, participatory planning, and social resilience",
+        textcompo1:
+          "Enhancing decentralized local governance, participatory planning, and social resilience",
         textcompo2: "Resilient infrastructure",
 
         textcompo3: "Support for resilient livelihoods",
         textcompo4: "Support for implementation and knowledge learning",
         textcompo5: "Conditional Emergency Intervention Component (CIUC)",
-        textaproche1:
-          `The project places local communities at the core of the decision-making process. It promotes active collaboration with the beneficiary populations, ensuring that interventions align with locally identified needs and priorities.
+        textaproche1: `The project places local communities at the core of the decision-making process. It promotes active collaboration with the beneficiary populations, ensuring that interventions align with locally identified needs and priorities.
 
           Approche Participative Pilotée par la Communauté
           Le projet place les communautés locales au cœur du processus décisionnel. Il favorise une collaboration active avec les populations bénéficiaires, garantissant ainsi que les interventions répondent aux besoins et aux priorités identifiés localement. 
           `,
-        textaproche3:
-          `The project recognizes the specific vulnerability of women and youth in the region and places significant importance on empowering them. Actions aim to improve their economic prospects and provide opportunities for a more promising future.`,
-        textaproche4:
-          `MIONJO adopts a holistic approach, recognizing that development cannot be achieved through isolated actions. Interventions are designed to address various aspects related to resilience, encompassing both social, economic, and environmental dimensions.`,
+        textaproche3: `The project recognizes the specific vulnerability of women and youth in the region and places significant importance on empowering them. Actions aim to improve their economic prospects and provide opportunities for a more promising future.`,
+        textaproche4: `MIONJO adopts a holistic approach, recognizing that development cannot be achieved through isolated actions. Interventions are designed to address various aspects related to resilience, encompassing both social, economic, and environmental dimensions.`,
         textaproche2:
           "MIONJO adopts an inclusive approach that encompasses all levels of development, from the local to the central level. This coordination enhances the effectiveness of actions by ensuring that all stakeholders work in harmony to achieve the project's objectives.",
         soutitre1: "Community-Led Participatory Approach",
@@ -111,70 +110,96 @@ i18n.use(initReactI18next).init({
         In an exceptional display of commitment, the project was the recipient of an additional infusion of 100 million USD through the Rapid Response Mechanism (RRM) of the Crisis Response Window (CRW) under the aegis of the World Bank. This supplemental funding underscores the critical importance of the project's goals and the rapid response required to address the unique challenges in the region.
         `,
 
-        soutitre1Objectif: "Enhancing Access to Basic Infrastructure and Livelihoods",
-        texte1Objectif: "The primary objective of the project is to ensure improved access to essential infrastructure, including clean water and basic services, while concurrently strengthening the livelihoods of local communities. By placing a strong emphasis on these foundational elements, the project aims to enhance the quality of life for the residents of Southern Madagascar. This includes increasing their economic opportunities and promoting sustainable development.",
-        soutitre2Objectif: "Strengthening Local Governance in Southern Madagascar with a Focus on Youth and Women",
-        texte2Objectif: "The project seeks to bolster local governance in Southern Madagascar, with a particular emphasis on fostering the active inclusion of young people and women. This means that the voices and needs of these groups will be taken into account in local decision-making, contributing to equitable representation and policies that are better tailored to the entire population.",
-        soutitre3Objectif: "Providing a Swift and Effective Response to Food Security Crises and Other Eligible Emergencies",
-        texte3Objectif: "The project is designed to provide the necessary flexibility to swiftly reallocate financial resources from other project components to effectively respond to emergent situations, particularly those related to food security and other eligible emergencies. This rapid response capability aims to mitigate the impacts of potential crises on local populations and ensure their food security and well-being in times of need.",
-        textezone: "The MIONJO Project operates in three regions Androy, Anosy and Atsimo Andrefana which make up the Great South. The MIONJO project deploys its actions in a total of 225 municipalities spread over 14 districts within these three regions.",
+        soutitre1Objectif:
+          "Enhancing Access to Basic Infrastructure and Livelihoods",
+        texte1Objectif:
+          "The primary objective of the project is to ensure improved access to essential infrastructure, including clean water and basic services, while concurrently strengthening the livelihoods of local communities. By placing a strong emphasis on these foundational elements, the project aims to enhance the quality of life for the residents of Southern Madagascar. This includes increasing their economic opportunities and promoting sustainable development.",
+        soutitre2Objectif:
+          "Strengthening Local Governance in Southern Madagascar with a Focus on Youth and Women",
+        texte2Objectif:
+          "The project seeks to bolster local governance in Southern Madagascar, with a particular emphasis on fostering the active inclusion of young people and women. This means that the voices and needs of these groups will be taken into account in local decision-making, contributing to equitable representation and policies that are better tailored to the entire population.",
+        soutitre3Objectif:
+          "Providing a Swift and Effective Response to Food Security Crises and Other Eligible Emergencies",
+        texte3Objectif:
+          "The project is designed to provide the necessary flexibility to swiftly reallocate financial resources from other project components to effectively respond to emergent situations, particularly those related to food security and other eligible emergencies. This rapid response capability aims to mitigate the impacts of potential crises on local populations and ensure their food security and well-being in times of need.",
+        textezone:
+          "The MIONJO Project operates in three regions Androy, Anosy and Atsimo Andrefana which make up the Great South. The MIONJO project deploys its actions in a total of 225 municipalities spread over 14 districts within these three regions.",
 
         titlecompo1: "Component 1",
-        soustitrecompo1: "The first component of the project is dedicated to enhancing decentralized local governance, participatory planning, and social resilience. Its primary objectives are to improve participatory local governance, bolster social resilience, and prevent conflicts by creating an environment conducive to sustainable development in the southern regions of Madagascar.",
+        soustitrecompo1:
+          "The first component of the project is dedicated to enhancing decentralized local governance, participatory planning, and social resilience. Its primary objectives are to improve participatory local governance, bolster social resilience, and prevent conflicts by creating an environment conducive to sustainable development in the southern regions of Madagascar.",
         soutitreCompo1A: "Subcomponent 1A",
         soutitreCompo1B: "Subcomponent 1B",
         titreSousCompo1C: "",
         titreSousCompo1D: "",
 
-        textSousCompo1A: "This subcomponent focuses on rehabilitating decentralized territorial communities to enhance community planning and the delivery of essential services, with a specific emphasis on establishing Local Concentration Structures (LCS).",
+        textSousCompo1A:
+          "This subcomponent focuses on rehabilitating decentralized territorial communities to enhance community planning and the delivery of essential services, with a specific emphasis on establishing Local Concentration Structures (LCS).",
         textSousCompo1B: `In this subcomponent, the project aims to enhance social resilience, citizen engagement, and conflict prevention in response to the impacts of climate change, severe drought periods, increasing insecurity, social norms, social taboos related to the prevalence of Gender-Based Violence (GBV), youth involvement in Dahalo activities, and the absence of sustainable development initiatives. This includes promoting social cohesion, supporting specific vulnerable groups such as youth and women, implementing GBV/VCE risk mitigation measures in project areas, and establishing a Community Early Warning and Response System (CERWRS) with a strong focus on conflict prevention and resolution at the local level.`,
         textSousCompo1C: "",
         textSousCompo1D: "",
 
         titrecompo2: "Component 2",
-        soustitrecompo2: "The second component of the Mionjo Project is dedicated to developing resilient infrastructure to enhance access to basic services, such as clean water and roads, with the goal of increasing the capacity of local communities to withstand climate-related shocks and stimulate economic development.",
+        soustitrecompo2:
+          "The second component of the Mionjo Project is dedicated to developing resilient infrastructure to enhance access to basic services, such as clean water and roads, with the goal of increasing the capacity of local communities to withstand climate-related shocks and stimulate economic development.",
         titreSousCompo2A: "Subcomponent 2A",
         titreSousCompo2B: "Subcomponent 2B",
         titreSousCompo2C: "Subcomponent 2C",
         titreSousCompo2D: "",
 
-        textSousCompo2A: "Under this subcomponent, Resilient Community Grants are provided to enhance access to basic infrastructure in rural municipalities by offering grants for community and inter-community projects, which are managed and monitored by local communities.",
-        textSousCompo2B: "This subcomponent focuses on ensuring regional water resilience infrastructure through the rehabilitation of regional infrastructure, including pipelines, to ensure a reliable water supply to local communities.",
-        textSousCompo2C: "This subcomponent is dedicated to improving access to safe and sustainable water sources through the modernization of water points. These water points will be consolidated into versatile mini-grid systems equipped with solar energy storage batteries to provide sustainable water access that can fulfill the diverse needs of the communities in question .",
+        textSousCompo2A:
+          "Under this subcomponent, Resilient Community Grants are provided to enhance access to basic infrastructure in rural municipalities by offering grants for community and inter-community projects, which are managed and monitored by local communities.",
+        textSousCompo2B:
+          "This subcomponent focuses on ensuring regional water resilience infrastructure through the rehabilitation of regional infrastructure, including pipelines, to ensure a reliable water supply to local communities.",
+        textSousCompo2C:
+          "This subcomponent is dedicated to improving access to safe and sustainable water sources through the modernization of water points. These water points will be consolidated into versatile mini-grid systems equipped with solar energy storage batteries to provide sustainable water access that can fulfill the diverse needs of the communities in question .",
         textSousCompo2D: "",
 
         titrecompo3: "Component 3",
-        soustitrecompo3: "Component 3 focuses on enhancing the resilience of local livelihoods by bolstering food production capacity, promoting sustainable value chains, and facilitating adaptation to climate change.",
+        soustitrecompo3:
+          "Component 3 focuses on enhancing the resilience of local livelihoods by bolstering food production capacity, promoting sustainable value chains, and facilitating adaptation to climate change.",
         titreSousCompo3A: "Subcomponent 3A",
         titreSousCompo3B: "Subcomponent 3B",
         titreSousCompo3C: "Subcomponent 3C",
         titreSousCompo3D: "Subcomponent 3D",
-        textSousCompo3A: "This subcomponent entails supporting community organizations and local value chains by aiding residents in targeted municipalities to strengthen their livelihoods based on their vulnerability, with an emphasis on promoting sustainability and resilience.",
-        textSousCompo3B: "In Subcomponent 3B, the project focuses on the development of an irrigation system to enhance livelihood resilience by rehabilitating irrigation schemes that will support agricultural productivity in regions affected by drought.",
-        textSousCompo3C: "The goal of Subcomponent 3C is to restore food production capacity and strengthen food and livelihood systems by providing resources, training, and technologies to enhance resilience to climate change.",
-        textSousCompo3D: "Subcomponent 3D is dedicated to the development of green infrastructure and resilient landscapes. This involves establishing nurseries to produce adaptive vegetation, planting windbreak trees and shrubs, and engaging in reforestation for multifunctional purposes.",
+        textSousCompo3A:
+          "This subcomponent entails supporting community organizations and local value chains by aiding residents in targeted municipalities to strengthen their livelihoods based on their vulnerability, with an emphasis on promoting sustainability and resilience.",
+        textSousCompo3B:
+          "In Subcomponent 3B, the project focuses on the development of an irrigation system to enhance livelihood resilience by rehabilitating irrigation schemes that will support agricultural productivity in regions affected by drought.",
+        textSousCompo3C:
+          "The goal of Subcomponent 3C is to restore food production capacity and strengthen food and livelihood systems by providing resources, training, and technologies to enhance resilience to climate change.",
+        textSousCompo3D:
+          "Subcomponent 3D is dedicated to the development of green infrastructure and resilient landscapes. This involves establishing nurseries to produce adaptive vegetation, planting windbreak trees and shrubs, and engaging in reforestation for multifunctional purposes.",
 
         titrecompo4: "Component 4",
-        soustitrecompo4: "Component 4 is designed to facilitate the successful implementation of the project by enhancing the capacities of involved stakeholders, providing geospatial knowledge for monitoring and evaluation, and supporting the planning of essential infrastructure.",
+        soustitrecompo4:
+          "Component 4 is designed to facilitate the successful implementation of the project by enhancing the capacities of involved stakeholders, providing geospatial knowledge for monitoring and evaluation, and supporting the planning of essential infrastructure.",
         titreSousCompo4A: "Subcomponent 4A",
         titreSousCompo4B: "Subcomponent 4B",
         titreSousCompo4C: "Subcomponent 4C",
         titreSousCompo4D: "Subcomponent 4D",
-        textSousCompo4A: "Subcomponent 4A focuses on the implementation of project financing, encompassing studies, management, administration, and learning. It also includes preparatory analyses for the project series (SdP).",
-        textSousCompo4B: "In Subcomponent 4B, the project aims to enhance the government's capacity to respond to climate change. This involves managing emergency situations, fostering local climate resilience, and assuming a leadership role in climate response efforts.",
-        textSousCompo4C: "Capacity building of the government to provide a response to climate change, including emergency management, climate resilience at the local level, and leadership in climate response.",
-        textSousCompo4D: "Development of green infrastructure and resilient landscapes by creating nurseries to produce adaptive vegetation, planting windbreak trees and shrubs, reforestation for multifunctional purposes.",
+        textSousCompo4A:
+          "Subcomponent 4A focuses on the implementation of project financing, encompassing studies, management, administration, and learning. It also includes preparatory analyses for the project series (SdP).",
+        textSousCompo4B:
+          "In Subcomponent 4B, the project aims to enhance the government's capacity to respond to climate change. This involves managing emergency situations, fostering local climate resilience, and assuming a leadership role in climate response efforts.",
+        textSousCompo4C:
+          "Capacity building of the government to provide a response to climate change, including emergency management, climate resilience at the local level, and leadership in climate response.",
+        textSousCompo4D:
+          "Development of green infrastructure and resilient landscapes by creating nurseries to produce adaptive vegetation, planting windbreak trees and shrubs, reforestation for multifunctional purposes.",
 
         titrecompo5: "Component 5",
-        soustitrecompo5: "Component 5 of the project is dedicated to providing emergency response in the event of crises or eligible emergency situations, with a reallocation of funds from other project components. This component has been activated in response to prolonged periods of drought and other emergencies impacting the population.",
+        soustitrecompo5:
+          "Component 5 of the project is dedicated to providing emergency response in the event of crises or eligible emergency situations, with a reallocation of funds from other project components. This component has been activated in response to prolonged periods of drought and other emergencies impacting the population.",
         titreSousCompo5A: "Subcomponent 5A",
         titreSousCompo5B: "Subcomponent 5B",
         titreSousCompo5C: "Subcomponent 5C",
         titreSousCompo5D: "Subcomponent 5D",
-        textSousCompo5A: "Intervention 1: This intervention aims to restore the production capacity of 50,000 vulnerable households in the short term.",
+        textSousCompo5A:
+          "Intervention 1: This intervention aims to restore the production capacity of 50,000 vulnerable households in the short term.",
         textSousCompo5B: `Intervention 3: This intervention focuses on optimizing and sustaining existing drinking water points and ensuring a secure water supply for multiple uses.`,
         textSousCompo5C: `Intervention 1: Water trucking services are provided as part of this subcomponent. `,
-        textSousCompo5D: "Development of green infrastructure and resilient landscapes by creating nurseries to produce adaptive vegetation, planting windbreak trees and shrubs, reforestation for multifunctional purposes.",
+        textSousCompo5D:
+          "Development of green infrastructure and resilient landscapes by creating nurseries to produce adaptive vegetation, planting windbreak trees and shrubs, reforestation for multifunctional purposes.",
         nombreTele: "National download count",
         nombreTeleI: "International download count",
         Adjudicateur: "Adjudicator",
@@ -197,6 +222,7 @@ i18n.use(initReactI18next).init({
         Realisations: "Zava-bita",
         IdeePlaintes: "Hevitra sy fitarainana",
         Cartographie: "Sarintany",
+        cop29: "COP29 - Mionjo",
         Description: "Famaritana",
         documentation: "Tahirin-kevitra",
         Objectifs: "Tanjona",
@@ -242,9 +268,12 @@ i18n.use(initReactI18next).init({
         soutitre1Objectif: `Manatsara ny fidirana amin'ny fotodrafitrasa fototra sy ny fivelomana`,
         texte1Objectif: `Mba hiantohana ny fidirana tsara kokoa amin'ny fotodrafitrasa ilaina, toy ny rano fisotro sy ny serivisy fototra, ary hanamafisana ny fiveloman'ny vondrom-piarahamonina eo an-toerana. Amin'ny alàlan'ny fifantohana amin'ireo singa fototra ireo, ny tetikasa dia mikendry ny fanatsarana ny kalitaon'ny fiainan'ny mponina any atsimon'i Madagasikara, amin’ny fampitomboana ny fahafahany ara-toekarena sy ny fampiroboroboana ny fampandrosoana maharitra.`,
         soutitre2Objectif: ` Fanamafisana ny fitantanana eto an-toerana any atsimon’i Madagasikara, amin’ny fanantitranterana ny tanora sy ny vehivavy `,
-        texte2Objectif: "Manamafy ny fitantanana eo amin'ny sehatra eo an-toerana, amin'ny fanamafisana manokana ny fampidirana sy ny fandraisana anjara mavitrika amin'ny tanora sy ny vehivavy. politika mifanaraka tsara amin'ny vahoaka manontolo.",
-        soutitre3Objectif: "Manome valiny haingana sy mahomby amin'ny krizy ara-tsakafo sy ny vonjy taitra hafa",
-        texte3Objectif: "Manome ny fahafaha-manao ilaina mba hamerenana haingana ny loharanon-karena ara-bola avy amin'ireo singa hafa amin'ny tetikasa mba hamaliana amin'ny fomba mahomby ireo toe-javatra maika ireo. amin'ny fotoan-tsarotra.",
+        texte2Objectif:
+          "Manamafy ny fitantanana eo amin'ny sehatra eo an-toerana, amin'ny fanamafisana manokana ny fampidirana sy ny fandraisana anjara mavitrika amin'ny tanora sy ny vehivavy. politika mifanaraka tsara amin'ny vahoaka manontolo.",
+        soutitre3Objectif:
+          "Manome valiny haingana sy mahomby amin'ny krizy ara-tsakafo sy ny vonjy taitra hafa",
+        texte3Objectif:
+          "Manome ny fahafaha-manao ilaina mba hamerenana haingana ny loharanon-karena ara-bola avy amin'ireo singa hafa amin'ny tetikasa mba hamaliana amin'ny fomba mahomby ireo toe-javatra maika ireo. amin'ny fotoan-tsarotra.",
 
         textaproche1:
           "Ny tetikasa dia mametraka ny vondrom-piarahamonina eo an-toerana ho ivon'ny dingan'ny fandraisana fanapahan-kevitra. Mampiroborobo ny fiaraha-miasa mavitrika amin'ny mponina mpahazo tombontsoa izany, ka manome antoka fa mamaly ny filana sy laharam-pahamehana eo an-toerana ny fandraisana andraikitra.",
@@ -256,10 +285,13 @@ i18n.use(initReactI18next).init({
           "MIONJO dia mitodika amin’ny lafiny rehetra, amin’ny fiheverana fa tsy azo tanterahina amin’ny alalan’ny hetsika mitokana ny fampandrosoana.",
 
         soutitre1: "Fomba fandraisana anjara entin'ny fiaraha-monina",
-        soutitre2: "Fandraisana anjaran’ny mpandray anjara rehetra, manomboka eo an-toerana ka hatrany afovoany",
-        soutitre3: "Laharam-pahamehana amin’ny Fampiroboroboana ny Vehivavy sy ny Tanora",
+        soutitre2:
+          "Fandraisana anjaran’ny mpandray anjara rehetra, manomboka eo an-toerana ka hatrany afovoany",
+        soutitre3:
+          "Laharam-pahamehana amin’ny Fampiroboroboana ny Vehivavy sy ny Tanora",
         soutitre4: "Fanatonana mitambatra sy sehatra maro",
-        textezone: "Ny Tetikasa MIONJO dia miasa any amin’ny faritra telo Androy, Anosy ary Atsimo Andrefana izay mandrafitra ny faritra atsimo. Ny tetikasa MIONJO dia mametraka ny hetsika ataony amin'ny kaominina 225 miparitaka amin'ny distrika 14 ao anatin'ireo faritra telo ireo.",
+        textezone:
+          "Ny Tetikasa MIONJO dia miasa any amin’ny faritra telo Androy, Anosy ary Atsimo Andrefana izay mandrafitra ny faritra atsimo. Ny tetikasa MIONJO dia mametraka ny hetsika ataony amin'ny kaominina 225 miparitaka amin'ny distrika 14 ao anatin'ireo faritra telo ireo.",
 
         titrecompo1: "Singa 1",
         soustitrecompo1:
@@ -280,8 +312,7 @@ i18n.use(initReactI18next).init({
         (SCAPR) miaraka amin'ny fanamafisana mafy ny fisorohana sy ny famahana ny fifandirana eo an-toerana.`,
 
         titrecompo2: "Singa 2",
-        soustitreCompo2:
-          `Ny singa faha-2 amin’ny tetikasa Mionjo dia manampy amin’ny fampivoarana fotodrafitrasa maharitra hanatsarana ny fidirana amin’ny serivisy fototra, anisan’izany ny rano fisotro sy ny lalana, mba hanamafisana ny fahafahan’ny vondrom-piarahamonina eo an-toerana hiatrika ny fikorontanan’ny toetr’andro sy hampiroboroboana ny fampandrosoana ara-toekarena.`,
+        soustitreCompo2: `Ny singa faha-2 amin’ny tetikasa Mionjo dia manampy amin’ny fampivoarana fotodrafitrasa maharitra hanatsarana ny fidirana amin’ny serivisy fototra, anisan’izany ny rano fisotro sy ny lalana, mba hanamafisana ny fahafahan’ny vondrom-piarahamonina eo an-toerana hiatrika ny fikorontanan’ny toetr’andro sy hampiroboroboana ny fampandrosoana ara-toekarena.`,
         soutitreCompo2A: "Singa-ambany 2A",
         soutitreCompo2B: "Singa-ambany 2B",
         soutitreCompo2C: "Singa-ambany 2C",
@@ -345,15 +376,13 @@ i18n.use(initReactI18next).init({
           " Fanamafisana ny fitantanan-draharaham-paritra itsinjaram-pahefana, ny fandraisan'anjara anjara ary ny fiaretana ara-tsosialy ",
         textcompo2: "Fotodrafitrasa maharitra",
         textcompo3: "Fanohanana ny fivelomana maharitra",
-        textcompo4:
-          "Fanohanana fampiharana sy fianarana fahalalana",
+        textcompo4: "Fanohanana fampiharana sy fianarana fahalalana",
         textcompo5: "Conditional Emergency Intervention Component (CIUC)",
         edito1: `Tongasoa eto amin'ny tranokalan'ny tetikasa Mionjo, hetsika ataon'ny governemanta natokana hanamafisana ny faharetan'ny faritra atsimon'i Madagasikara. Faly izahay miarahaba anao ao amin'ny vondrom-piarahamoninay an-tserasera, ary manolo-tena izahay hizara ny fanoloran-tenanay ho amin'ny faritra Atsimo mirindra sy miroborobo kokoa. Mazava ny iraka ataontsika. Manolo-kevitra ny hanapaka ny fihodinan’ny maha-olona amin’ny alalan’ny fampahafantarana sy fanamafisana ny fisian’ny Fanjakana any Atsimo izahay. Mba hahatongavana amin’izany, dia mampihatra tsara ny rafitra fitsinjaram-pahefana sy deconcentration izahay any amin’ireo faritra telo idirana: Anôsy, Androy ary Atsimo Andrefana, izay miara-miasa akaiky amin’ireo tompon’andraikitra eo an-toerana.`,
         edito2: `Ny ivon'ny fomba fiasantsika dia ny fampiasam-bola amin'ny fotodrafitrasa maharitra sy ny fivelomana maharitra, manohana ny fomba fiasa mitambatra, sehatra maro. Mino tanteraka izahay fa tena ilaina ny fandrindrana eo amin'ny samy mpandray anjara mba hahatratrarana ny tanjonay. Miezaka ihany koa izahay hampifandray ireo fomba fanao tsara ataon'ny mpiara-miombon'antoka amin'ny maha-olona sy ny governemanta, mamorona sehatra iray izay hamporisihana ny fifampizaràna fahalalana sy traikefa ho tombontsoan'ny rehetra. `,
         edito3:
           "Amin'ny maha vondrom-piarahamonina an-tserasera, manasa anao izahay hitsidika ny tranokalanay hahazoana fampahalalana mazava momba ny tetikasa, vaovao amin'ny fotoana tena izy, loharano mahasoa, ary fahafahana mifandray. Miaraka, miara-miasa, resy lahatra izahay fa afaka mamorona hoavy maharitra kokoa ho an'ny faritra atsimon'ny Madagasikara.",
         edito4: `Ny mpandrindra nasionalin'ny tetikasa Mionjo`,
-
 
         compo: "Singa",
         regi: "Faritra",
@@ -364,8 +393,8 @@ i18n.use(initReactI18next).init({
         compo2: "Singa 2",
         compo3: "Singa 3",
         compo4: "Singa 4",
-        compo5: "Singa 5"
-      }
+        compo5: "Singa 5",
+      },
     },
     fr: {
       translation: {
@@ -381,6 +410,7 @@ i18n.use(initReactI18next).init({
         Realisations: "Activités",
         IdeePlaintes: "Idées et Plaintes",
         Cartographie: "Cartographie",
+        cop29: "COP29 - Mionjo",
         Description: "Description",
         documentation: "Documentation",
         Objectifs: "Objectifs",
@@ -560,13 +590,20 @@ i18n.use(initReactI18next).init({
         texteDescription: `Le projet MIONJO est une initiative mise en place par le Gouvernement malagasy. MIONJO est un projet de soutien aux moyens de subsistance résilients dans le Sud de Madagascar sous tutelle du Ministère de l’Intérieur et de la Décentralisation (MID), avec le soutien financier et technique de la Banque mondiale.
 Le projet a été approuvé le 10 décembre 2020 pour un montant 100 millions USD en tant que première phase (2021 - 2025) d’une série de projets (SdP). Le Projet est entré en vigueur le 23 décembre 2020 et se terminera le 31 mai 2025. Le projet a bénéficié d'un Financement additionnel, de 100 millions de dollars US, provenant du dispositif de riposte rapide du Mécanisme de riposte de réponse rapide (CRW ERF).
         `,
-        soutitre1Objectif: "Améliorer l’accès aux infrastructures de base et aux moyens de subsistance",
-        texte1Objectif: "Garantir un meilleur accès aux infrastructures essentielles, telles que l'eau potable et les services de base, tout en renforçant les moyens de subsistance des communautés locales. En mettant l'accent sur ces éléments fondamentaux, le projet vise à améliorer la qualité de vie des habitants du Sud de Madagascar, en augmentant leurs opportunités économiques et en favorisant un développement durable.",
-        soutitre2Objectif: "Renforcer la gouvernance locale dans le Sud de Madagascar, en mettant l’accent sur les jeunes et les femmes",
-        texte2Objectif: "Renforcer la gouvernance au niveau local, en mettant particulièrement l'accent sur l'inclusion et l'implication active des jeunes et des femmes. Cela signifie que les voix et les besoins de ces groupes seront pris en compte dans les décisions locales, contribuant ainsi à une représentation équitable et à des politiques mieux adaptées à l'ensemble de la population.",
-        soutitre3Objectif: "Fournir une riposte rapide et efficace à la crise de sécurité alimentaire et à d’autres urgences admissibles",
-        texte3Objectif: "  Offrir la flexibilité nécessaire pour réallouer rapidement des ressources financières depuis d'autres composantes du projet afin de répondre efficacement à ces situations d'urgence. Cette capacité de réponse rapide vise à atténuer les impacts de crises potentielles sur les populations locales et à garantir leur sécurité alimentaire et leur bien-être en temps de besoin.",
-        textezone: "Le Projet MIONJO intervient dans trois régions Androy, Anosy et Atsimo Andrefana qui composent le Grand Sud. Le projet MIONJO déploie ses actions sur un total de 225 communes réparties sur 14 districts au sein de ces trois régions.",
+        soutitre1Objectif:
+          "Améliorer l’accès aux infrastructures de base et aux moyens de subsistance",
+        texte1Objectif:
+          "Garantir un meilleur accès aux infrastructures essentielles, telles que l'eau potable et les services de base, tout en renforçant les moyens de subsistance des communautés locales. En mettant l'accent sur ces éléments fondamentaux, le projet vise à améliorer la qualité de vie des habitants du Sud de Madagascar, en augmentant leurs opportunités économiques et en favorisant un développement durable.",
+        soutitre2Objectif:
+          "Renforcer la gouvernance locale dans le Sud de Madagascar, en mettant l’accent sur les jeunes et les femmes",
+        texte2Objectif:
+          "Renforcer la gouvernance au niveau local, en mettant particulièrement l'accent sur l'inclusion et l'implication active des jeunes et des femmes. Cela signifie que les voix et les besoins de ces groupes seront pris en compte dans les décisions locales, contribuant ainsi à une représentation équitable et à des politiques mieux adaptées à l'ensemble de la population.",
+        soutitre3Objectif:
+          "Fournir une riposte rapide et efficace à la crise de sécurité alimentaire et à d’autres urgences admissibles",
+        texte3Objectif:
+          "  Offrir la flexibilité nécessaire pour réallouer rapidement des ressources financières depuis d'autres composantes du projet afin de répondre efficacement à ces situations d'urgence. Cette capacité de réponse rapide vise à atténuer les impacts de crises potentielles sur les populations locales et à garantir leur sécurité alimentaire et leur bien-être en temps de besoin.",
+        textezone:
+          "Le Projet MIONJO intervient dans trois régions Androy, Anosy et Atsimo Andrefana qui composent le Grand Sud. Le projet MIONJO déploie ses actions sur un total de 225 communes réparties sur 14 districts au sein de ces trois régions.",
         nombreTele: "  Nombre de téléchargement national ",
         nombreTeleI: "  Nombre de téléchargement international ",
         Adjudicateur: "Adjudicateur",
@@ -583,13 +620,3 @@ Le projet a été approuvé le 10 décembre 2020 pour un montant 100 millions US
 });
 
 export default i18n;
-
-
-
-
-
-
-
-
-
-
