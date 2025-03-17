@@ -1,10 +1,11 @@
 import { Router } from 'express';
-import { documentController } from './document.controller';
 import multer from 'multer';
+import path from 'path';
+import { documentController } from './document.controller';
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/uploads/documents');
+    cb(null, path.join(process.cwd(), 'public/uploads/documents'));
   },
   filename: function (req, file, cb) {
     let cleanFileName = file.originalname

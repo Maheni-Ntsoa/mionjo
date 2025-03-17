@@ -1,32 +1,32 @@
-import UploadFileIcon from "@mui/icons-material/UploadFile"
+import UploadFileIcon from "@mui/icons-material/UploadFile";
 import {
   Button,
   FormControl,
   FormControlLabel,
   Radio,
   RadioGroup,
-} from "@mui/material"
-import Alert from "@mui/material/Alert"
-import { ErrorMessage, Field, Form, Formik } from "formik"
-import moment from "moment"
-import { useState } from "react"
-import ReactQuill from "react-quill"
-import "react-quill/dist/quill.snow.css"
-import * as Yup from "yup"
-import Loading from "../../../../../components/Loading"
-import CreateManyDoc from "../../../../../usecases/Document/CreateMany"
-import SaveGenerale from "../../../../../usecases/Generale/SaveGenerale"
-import CreateManyPhoto from "../../../../../usecases/Photo/photo"
-import CreateManyVideo from "../../../../../usecases/Video/video"
+} from "@mui/material";
+import Alert from "@mui/material/Alert";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import moment from "moment";
+import { useState } from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import * as Yup from "yup";
+import Loading from "../../../../../components/Loading";
+import CreateManyDoc from "../../../../../usecases/Document/CreateMany";
+import SaveGenerale from "../../../../../usecases/Generale/SaveGenerale";
+import CreateManyPhoto from "../../../../../usecases/Photo/photo";
+import CreateManyVideo from "../../../../../usecases/Video/video";
 
 interface ADDProps {
-  idCategorie: number
-  idRubrique: number
-  refetch: () => void
+  idCategorie: number;
+  idRubrique: number;
+  refetch: () => void;
 }
 
 const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
-  let initialValues
+  let initialValues;
   if (idCategorie === 4) {
     initialValues = {
       titre: "",
@@ -41,7 +41,7 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
       typeDocument: "",
       titulairemarche: "",
       montantmarche: "",
-    }
+    };
   } else if (idCategorie === 7) {
     initialValues = {
       titre: "",
@@ -54,7 +54,7 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
       datecreation: moment().format("YYYY-MM-DDTHH:mm"),
       files: [],
       typeDocument: "",
-    }
+    };
   } else {
     initialValues = {
       titre: "",
@@ -67,7 +67,7 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
       video: [],
       typeDocument: "",
       datecreation: moment().format("YYYY-MM-DDTHH:mm"),
-    }
+    };
   }
   const validationSchema = Yup.object({
     titre: Yup.string(),
@@ -78,57 +78,58 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
     contenumg: Yup.string(),
     datelimit: Yup.string(),
     datecreation: Yup.string(),
-  })
+  });
 
-  const [selectedFiles, setSelectedFiles] = useState([])
-  const [selectedVideo, setSelectedVideo] = useState([])
-  const [photoOrVideo, setPhotoORVideo] = useState(true)
-  const [isSuccess, setIsSuccess] = useState(false)
-  const [isError, setIsError] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState([]);
+  const [photoOrVideo, setPhotoORVideo] = useState(true);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [isAttributed, setIsAttributed] = useState(false);
 
   const onSubmit = async (values: any, { resetForm }: any) => {
-    setLoading(true)
-    setIsError(false)
-    setIsSuccess(false)
-    values.idcategorie = idCategorie
-    values.idrubrique = idRubrique
-    const data = await new SaveGenerale().execute(values)
+    setLoading(true);
+    setIsError(false);
+    setIsSuccess(false);
+    values.idcategorie = idCategorie;
+    values.idrubrique = idRubrique;
+    const data = await new SaveGenerale().execute(values);
     if (!data.data) {
-      setIsError(true)
+      setIsError(true);
     } else {
       if (photoOrVideo) {
         const docValue = {
           files: selectedFiles,
           generale: data.data,
-        }
+        };
         if (idCategorie === 4 || idCategorie === 7) {
-          await new CreateManyDoc().execute(docValue)
+          await new CreateManyDoc().execute(docValue);
         } else if (photoOrVideo) {
-          await new CreateManyPhoto().execute(docValue)
+          await new CreateManyPhoto().execute(docValue);
         }
       } else if (!photoOrVideo) {
         const docValue = {
           files: selectedVideo,
           generale: data.data,
-        }
+        };
         if (idCategorie === 4 || idCategorie === 7) {
-          await new CreateManyDoc().execute(docValue)
+          await new CreateManyDoc().execute(docValue);
         } else if (!photoOrVideo) {
-          await new CreateManyVideo().execute(docValue)
+          await new CreateManyVideo().execute(docValue);
         }
       }
-      resetForm()
-      refetch()
-      setIsSuccess(true)
+      resetForm();
+      refetch();
+      setIsSuccess(true);
     }
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
   return (
     <div className="px-4">
       <div className="flex justify-center">
-        <p className="text-yellow text-xl font-bold">Ajout</p>
+        <p className="text-xl uppercase font-bold">Enregistrement</p>
       </div>
       <Formik
         initialValues={initialValues}
@@ -142,7 +143,7 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
                 placeholder="Titre en Français"
                 name="titre"
                 type="text"
-                className="shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none rounded w-full py-4 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline"
               />
               <ErrorMessage
                 name="titre"
@@ -152,10 +153,10 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
             </div>
             <div className="mb-4">
               <Field
-                placeholder="Titre en anglais"
+                placeholder="Titre en Anglais"
                 name="titreen"
                 type="text"
-                className="shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none rounded w-full py-4 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline"
               />
               <ErrorMessage
                 name="titreen"
@@ -168,7 +169,7 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
                 placeholder="Titre en Malagasy"
                 name="titremg"
                 type="text"
-                className="shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none rounded w-full py-4 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline"
               />
               <ErrorMessage
                 name="titremg"
@@ -182,7 +183,7 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
                 placeholder="Date"
                 name="datecreation"
                 type="datetime-local"
-                className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
             {idCategorie === 4 && (
@@ -192,38 +193,51 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
                   placeholder="Date limite"
                   name="datelimit"
                   type="datetime-local"
-                  className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow appearance-none rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
               </div>
             )}
             {idCategorie === 4 && (
               <>
-                <div className="mb-4">
-                  <Field
-                    placeholder="Entrez le nom de l'adjudicateur"
-                    name="titulairemarche"
-                    type="text"
-                    className="shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline"
-                  />
-                  <ErrorMessage
-                    name="titulairemarche"
-                    component="div"
-                    className="text-red text-xs italic"
-                  />
+                <div className="flex justify-center w-full mb-4">
+                  <Button
+                    className="text-sm"
+                    variant="contained"
+                    onClick={() => setIsAttributed(!isAttributed)}
+                  >
+                    Attribuer le marché
+                  </Button>
                 </div>
-                <div className="mb-4">
-                  <Field
-                    placeholder="Montant du marché"
-                    name="montantmarche"
-                    type="text"
-                    className="shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline"
-                  />
-                  <ErrorMessage
-                    name="montantmarche"
-                    component="div"
-                    className="text-red text-xs italic"
-                  />
-                </div>
+                {isAttributed && (
+                  <>
+                    <div className="mb-4">
+                      <Field
+                        placeholder="Entrez le nom de l'adjudicateur"
+                        name="titulairemarche"
+                        type="text"
+                        className="shadow appearance-none rounded w-full py-4 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline"
+                      />
+                      <ErrorMessage
+                        name="titulairemarche"
+                        component="div"
+                        className="text-red text-xs italic"
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <Field
+                        placeholder="Montant du marché"
+                        name="montantmarche"
+                        type="text"
+                        className="shadow appearance-none rounded w-full py-4 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline"
+                      />
+                      <ErrorMessage
+                        name="montantmarche"
+                        component="div"
+                        className="text-red text-xs italic"
+                      />
+                    </div>
+                  </>
+                )}
               </>
             )}
             <Button
@@ -232,12 +246,12 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
               onClick={() => setPhotoORVideo(!photoOrVideo)}
             >
               {photoOrVideo
-                ? "Cliquez ici pour importer des videos"
+                ? "Cliquez ici pour importer des videos "
                 : "Cliquez ici pour importer autre que videos"}
             </Button>
             {!photoOrVideo && (
               <div className="my-8">
-                <label className="cursor-pointer items-center flex shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline">
+                <label className="cursor-pointer items-center flex shadow appearance-none rounded w-full py-4 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline">
                   <input
                     className="sr-only"
                     type="file"
@@ -246,9 +260,9 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
                     accept="video/*"
                     multiple
                     onChange={(event) => {
-                      setPhotoORVideo(false)
-                      const selectedVideo: any = event.target.files
-                      setSelectedVideo(selectedVideo)
+                      setPhotoORVideo(false);
+                      const selectedVideo: any = event.target.files;
+                      setSelectedVideo(selectedVideo);
                     }}
                   />
                   <div className="flex justify-between w-full">
@@ -264,7 +278,7 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
             )}
             {photoOrVideo && (
               <div className="my-8">
-                <label className="cursor-pointer items-center flex shadow appearance-none rounded w-full py-2 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline">
+                <label className="cursor-pointer items-center flex shadow appearance-none rounded w-full py-4 px-3 text-black/40 leading-tight focus:outline-none focus:shadow-outline">
                   {idCategorie === 4 || idCategorie === 7 ? (
                     <input
                       className="sr-only"
@@ -274,9 +288,9 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
                       accept=".pdf, .doc, .docx, .txt, .xls, .xlsx, .ppt, .pptx, .csv, .xml, .json, .html, .css, .js, .ts, .zip, .rar"
                       multiple
                       onChange={(event) => {
-                        setPhotoORVideo(true)
-                        const selectedFiles: any = event.target.files
-                        setSelectedFiles(selectedFiles)
+                        setPhotoORVideo(true);
+                        const selectedFiles: any = event.target.files;
+                        setSelectedFiles(selectedFiles);
                       }}
                     />
                   ) : (
@@ -288,8 +302,8 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
                       accept="image/*"
                       multiple
                       onChange={(event) => {
-                        const selectedFiles: any = event.target.files
-                        setSelectedFiles(selectedFiles)
+                        const selectedFiles: any = event.target.files;
+                        setSelectedFiles(selectedFiles);
                       }}
                     />
                   )}
@@ -424,7 +438,7 @@ const ADD: React.FC<ADDProps> = ({ idCategorie, idRubrique, refetch }) => {
         )}
       </Formik>
     </div>
-  )
-}
+  );
+};
 
-export default ADD
+export default ADD;

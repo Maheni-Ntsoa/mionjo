@@ -1,10 +1,11 @@
 import { Router } from 'express';
 import multer from 'multer';
+import path from 'path';
 import { photoController } from './photo.controller';
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/uploads/photos');
+    cb(null, path.join(process.cwd(), 'public/uploads/photos'));
   },
   filename: function (req, file, cb) {
     let cleanFileName = file.originalname

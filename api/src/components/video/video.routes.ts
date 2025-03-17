@@ -1,10 +1,11 @@
 import { Router } from 'express';
-import { videoController } from './video.controller';
 import multer from 'multer';
+import path from 'path';
+import { videoController } from './video.controller';
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/uploads/videos');
+    cb(null, path.join(process.cwd(), 'public/uploads/videos'));
   },
   filename: function (req, file, cb) {
     let cleanFileName = file.originalname

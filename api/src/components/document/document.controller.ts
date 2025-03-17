@@ -1,15 +1,32 @@
 import { Request, Response } from 'express';
-import { Document } from './document.model';
+import fs from 'fs';
 import path from 'path';
-
+import { Document } from './document.model';
 class DocumentController {
   downaloadDoc(req: Request, res: Response) {
     const filename = req.params.filename;
-    const filePath = path.join(
+
+    // Définit les chemins possibles
+    const distFilePath = path.join(
       __dirname,
-      '../../../public/uploads/documents',
+      'public/uploads/documents',
       filename,
     );
+    const rootFilePath = path.join(
+      process.cwd(),
+      'public/uploads/documents',
+      filename,
+    );
+
+    // Vérifie si le fichier existe dans dist/
+    let filePath = fs.existsSync(distFilePath) ? distFilePath : rootFilePath;
+
+    // Vérifie s'il n'existe pas non plus dans le dossier racine
+    if (!fs.existsSync(filePath)) {
+      return res.status(404).send('Fichier introuvable');
+    }
+
+    // Configure les headers et télécharge le fichier
     res.setHeader('Content-Disposition', `attachment; filename=${filename}`);
     res.setHeader('Content-Type', 'application/octet-stream');
     res.download(filePath, filename, (err) => {
