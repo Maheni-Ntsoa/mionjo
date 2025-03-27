@@ -25,12 +25,12 @@ const NavTabSetting: React.FC<NavTabSettingProps> = ({ activeTab }) => {
               activeTab={activeTabl}
               onClick={() => handleTabClick("2")}
             />
-            <Navigation
+            {/* <Navigation
               id={"3"}
               name="Statistique de gestion des plaintes"
               activeTab={activeTabl}
               onClick={() => handleTabClick("3")}
-            />
+            /> */}
           </div>
           <div className="mt-2 border-b border-brown opacity-30 w-full"></div>
         </div>

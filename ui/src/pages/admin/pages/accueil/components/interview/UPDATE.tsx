@@ -87,7 +87,7 @@ const UPDATEI: React.FC<UPDATEIProps> = ({
   return (
     <div className="px-4">
       <div className="flex justify-center">
-        <p className="text-yellow text-xl font-bold">Modification</p>
+        <p className="text-xl uppercase font-bold">Modification</p>
       </div>
       <Formik
         initialValues={initialValues}

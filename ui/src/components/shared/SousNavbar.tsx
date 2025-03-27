@@ -94,7 +94,9 @@ const SousNavbar = () => {
               <p>{t("interview")}</p>
             </div>
             {loading ? (
-              <Loading isLoading={loading} />
+              <div className="flex justify-center items-center w-full mx-auto">
+                <Loading isLoading={loading} />
+              </div>
             ) : (
               <div className="flex justify-start bg-white h-full w-full text-xs">
                 <div className="lg:flex flex-col lg:gap-2">
@@ -133,7 +135,9 @@ const SousNavbar = () => {
               <p>{t("photomois")}</p>
             </div>
             {loading ? (
-              <Loading isLoading={loading} />
+              <div className="flex justify-center items-center w-full">
+                <Loading isLoading={loading} />
+              </div>
             ) : (
               <div className="flex justify-start bg-white h-full w-full text-xs lg:text-base">
                 <div className="lg:flex flex-col lg:gap-2">

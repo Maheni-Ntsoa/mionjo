@@ -85,7 +85,7 @@ const ADDI: React.FC<ADDIProps> = ({ idCategorie, idRubrique, refetch }) => {
   return (
     <div className="px-4">
       <div className="flex justify-center">
-        <p className="text-yellow text-xl font-bold">Ajout</p>
+        <p className="text-xl uppercase font-bold">Enregistrement</p>
       </div>
       <Formik
         initialValues={initialValues}

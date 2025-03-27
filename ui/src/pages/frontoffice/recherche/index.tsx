@@ -1,15 +1,9 @@
 import { useLocation } from "react-router-dom";
-import Generalec from "../../../models/Generalec";
 import SearchResult from "./components/SearchResult";
 
 const Recherche = () => {
   const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-  const resultParam = queryParams.get("result");
-  const keyword = queryParams.get("keyword");
-  const result: Generalec[] = resultParam
-    ? JSON.parse(decodeURIComponent(resultParam))
-    : null;
+  const { result, keyword } = location.state || {};
 
   return (
     <div className="min-h-screen font-proximaNova">

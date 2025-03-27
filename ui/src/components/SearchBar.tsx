@@ -1,8 +1,10 @@
 import { Field, Form, Formik } from "formik";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import SearchGetGeneralec from "../usecases/Generalec/SearchGetGeneralec ";
+import Loading from "./Loading";
 
 const SearchBar = () => {
   const { t } = useTranslation();
@@ -12,13 +14,18 @@ const SearchBar = () => {
     titre: Yup.string(),
     contenu: Yup.string(),
   });
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = async (values: any, { resetForm }: any) => {
+    setLoading(true);
     const result = await new SearchGetGeneralec().execute(values.search);
-    resetForm();
-    const resultJSON = encodeURIComponent(JSON.stringify(result));
-    navigate(`/search?result=${resultJSON}&keyword=${values.search}`);
+    if (result) {
+      setLoading(false);
+      navigate("/search", { state: { result, keyword: values.search } });
+    }
+    // resetForm();
   };
+
   return (
     <div className="flex">
       <Formik
@@ -41,13 +48,21 @@ const SearchBar = () => {
             </div>
 
             <div className="flex justify-center">
-              <button className="flex items-center bg-brown p-3 w-[40px] md:w-[40px] md:h-[40px] lg:w-[90px] h-[32px] lg:h-[90px]">
-                <img
-                  src="/assets/icons/ic_search.svg"
-                  width={50}
-                  height={70}
-                  alt="search"
-                />
+              <button
+                className={`flex items-center ${
+                  loading ? "bg-white" : "bg-brown"
+                } px-5 py-3 w-[40px] md:w-[40px] md:h-[40px] lg:w-[90px] h-[32px] lg:h-[90px]`}
+              >
+                {loading ? (
+                  <Loading isLoading={loading} />
+                ) : (
+                  <img
+                    src="/assets/icons/ic_search.svg"
+                    width={50}
+                    height={70}
+                    alt="search"
+                  />
+                )}
               </button>
             </div>
           </div>
