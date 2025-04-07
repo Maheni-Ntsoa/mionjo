@@ -8,7 +8,13 @@ const dataLinks = [
     link: "https://www.presidence.gov.mg/",
     imgRef: "/assets/logos/logo_gasy.png",
   },
-  { link: "http://mid.gov.mg/", imgRef: "/assets/logos/logo7.jpg" }, //mid
+
+  {
+    link: "http://www.mdat.gov.mg/",
+    imgRef: "/assets/logos/LogoMDAT.png", //mdat
+  },
+
+  { link: "http://mid.gov.mg/", imgRef: "/assets/logos/LogoMININT.png" }, //mininter
 
   { link: "https://www.minae.gov.mg", imgRef: "/assets/logos/logo8.png" }, //MINAE:
   { link: "https://www.mpeb.mg/", imgRef: "/assets/logos/logo9.png" }, //mpeb
