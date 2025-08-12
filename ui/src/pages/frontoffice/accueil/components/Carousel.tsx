@@ -138,9 +138,6 @@ const Carousel = () => {
       </div>
       {openAnnonces && (
         <div className="absolute z-20">
-          <div className="fixed bottom-0 left-0 right-0 top-0 z-50 flex h-full w-full items-center justify-center">
-            <div className="blur-background absolute h-full w-full"></div>
-          </div>
           <div className="fixed z-50 bg-blue/70 p-4 w-[200px] lg:w-72 top-6 lg:top-72 left-10">
             <button
               className="absolute right-4 top-2 text-white font-bold"
