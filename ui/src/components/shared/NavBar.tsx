@@ -568,6 +568,17 @@ const Navbar = () => {
                 </Link>
               </li>
 
+              <li className="group relative text-white px-2 py-2 rounded hover:bg-black/10">
+                <Link to="https://mionjop1.vercel.app" target="_blank">
+                  <span
+                    className="font-quicksand text-md max-w-fit uppercase"
+                    style={{ font: "quicksand", whiteSpace: "nowrap" }}
+                  >
+                    {t("PGC")}
+                  </span>
+                </Link>
+              </li>
+
               {/* <li className="group relative text-white px-2 py-2 rounded hover:bg-black/10">
                 <Link to="https://cop29.mapmionjo.mg" target="_blank">
                   <span
