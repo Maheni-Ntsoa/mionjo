@@ -574,7 +574,7 @@ const Navbar = () => {
                     className="font-quicksand text-md max-w-fit uppercase"
                     style={{ font: "quicksand", whiteSpace: "nowrap" }}
                   >
-                    {t("PGC")}
+                    {t("Plateforme de Gestion des Connaissances")}
                   </span>
                 </Link>
               </li>
