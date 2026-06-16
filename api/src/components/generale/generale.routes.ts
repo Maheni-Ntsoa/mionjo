@@ -6,6 +6,9 @@ export default router;
 
 router.route('/').post(generaleController.createOrUpdate);
 router
+  .route('/download/:id')
+  .put(generaleController.incrementDownload);
+router
   .route('/international/:id')
   .put(generaleController.updateInternationDownload);
 router.route('/national/:id').put(generaleController.updateNationalDownload);

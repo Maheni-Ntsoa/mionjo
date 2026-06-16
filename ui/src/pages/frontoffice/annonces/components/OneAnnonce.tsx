@@ -1,12 +1,11 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 import ButtonImage from "../../../../components/ButtonImage"
 import DetailRectangle from "../../../../components/DetailRectangle"
 import Loading from "../../../../components/Loading"
 import MyModal from "../../../../components/MyModal"
 import Generalec from "../../../../models/Generalec"
-import IncreaseInterationalDownload from "../../../../usecases/Generale/IncreaseInterationalDownload"
-import IncreaseNationalDownload from "../../../../usecases/Generale/IncreaseNationalDownload"
+import IncrementDownload from "../../../../usecases/Generale/IncrementDownload"
 import { formatDateOnly } from "../../../../utils/formatDate"
 
 const HTMLRenderer = ({ html }: any) => {
@@ -29,33 +28,31 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
   const { i18n, t } = useTranslation()
   const [loading, setLoading] = useState(false)
   const [seeMoreOpen, setSeeMoreOpen] = useState(false)
+  const [nbdownnational, setNbdownnational] = useState(
+    generalec.nbdownnational ?? 0
+  )
+  const [nbdowninter, setNbdowninter] = useState(generalec.nbdowninter ?? 0)
 
-  const getIP = async (): Promise<string> => {
-    const response = await fetch("https://api.ipify.org?format=json")
-    const data = await response.json()
-    return data.ip
-  }
-
-  const getGeoInfo = async (ip: string): Promise<any> => {
-    const response = await fetch(`https://ipapi.co/${ip}/json/`)
-    const data = await response.json()
-    return data
-  }
+  useEffect(() => {
+    setNbdownnational(generalec.nbdownnational ?? 0)
+    setNbdowninter(generalec.nbdowninter ?? 0)
+  }, [generalec.id, generalec.nbdownnational, generalec.nbdowninter])
 
   const handleDownloadClick = async () => {
+    if (!generalec.id) {
+      return
+    }
+
     setLoading(true)
-    const ip: string = await getIP()
-    const geoInfo: any = await getGeoInfo(ip)
-    const value = {
-      idrubrique: generalec.idrubrique,
-      id: generalec.id,
+    try {
+      const result = await new IncrementDownload().execute({ id: generalec.id })
+      if (result?.success) {
+        setNbdownnational(result.nbdownnational)
+        setNbdowninter(result.nbdowninter)
+      }
+    } finally {
+      setLoading(false)
     }
-    if (geoInfo.country_name === "Madagascar") {
-      await new IncreaseNationalDownload().execute(value)
-    } else {
-      await new IncreaseInterationalDownload().execute(value)
-    }
-    setLoading(false)
   }
 
   const handleSeeMoreClose = () => {
@@ -135,11 +132,11 @@ const OneAnnonce: React.FC<OneAnnonceProps> = ({
               <>
                 <p className="text-sm lg:text-lg">
                   {t("nombreTele")}:{" "}
-                  <strong>{`${generalec.nbdownnational}`}</strong>
+                  <strong>{`${nbdownnational}`}</strong>
                 </p>
                 <p className="text-sm lg:text-lg">
                   {t("nombreTeleI")}:{" "}
-                  <strong>{`${generalec.nbdowninter}`}</strong>
+                  <strong>{`${nbdowninter}`}</strong>
                 </p>
               </>
             )}

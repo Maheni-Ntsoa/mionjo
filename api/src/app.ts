@@ -43,6 +43,7 @@ export class App {
   }
 
   middlewares() {
+    this.app.set('trust proxy', true);
     this.app.use(express.static(path.join(__dirname, '../public')));
     this.app.use(morgan('dev'));
     this.app.use(cors(this.corsOptions));
