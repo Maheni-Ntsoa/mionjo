@@ -604,8 +604,8 @@ Le projet a été approuvé le 10 décembre 2020 pour un montant 100 millions US
           "  Offrir la flexibilité nécessaire pour réallouer rapidement des ressources financières depuis d'autres composantes du projet afin de répondre efficacement à ces situations d'urgence. Cette capacité de réponse rapide vise à atténuer les impacts de crises potentielles sur les populations locales et à garantir leur sécurité alimentaire et leur bien-être en temps de besoin.",
         textezone:
           "Le Projet MIONJO intervient dans trois régions Androy, Anosy et Atsimo Andrefana qui composent le Grand Sud. Le projet MIONJO déploie ses actions sur un total de 225 communes réparties sur 14 districts au sein de ces trois régions.",
-        nombreTele: "  Nombre de téléchargement national ",
-        nombreTeleI: "  Nombre de téléchargement international ",
+        nombreTeleI: "  Nombre de téléchargement national ",
+        nombreTele: "  Nombre de téléchargement international ",
         Adjudicateur: "Adjudicateur",
         Montant: "Montant",
         dateLimite: "date limite",
